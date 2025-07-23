@@ -30,6 +30,23 @@ body {
   background-color: #04AA6D;
   color: white;
 }
+
+  .block {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.block:hover {
+  background-color: #ddd;
+  color: black;
+}
 </style>
 </head>
   <body>
@@ -44,4 +61,10 @@ body {
     <p>Coming soon...</p>
 </div>
   </body>
+  <form action="/public-charging">
+  <button type="submit" class="block">I want to charge at a public chargepoint (40-80p/kWh)</button>
+  </form>
+    <form action="/home-charging">
+  <button type="submit" class="block">I want to charge at home (7-25p/kWh)</button>
+  </form>
 </html>
