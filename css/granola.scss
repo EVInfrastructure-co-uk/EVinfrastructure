@@ -2,13 +2,15 @@
 ---
 
 body {
-  margin: 10%;
   font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+.page-content {
+  margin: 10%;
 }
 
 .header {
   padding: 16px;
-  margin: 0%;
   text-align: left;
   background: #333;
   color: white;
