@@ -6,8 +6,12 @@ body {
 }
 
 .page-content {
-  margin-left: 10%;
-  margin-right: 10%;
+  // margin-left: 10%;
+  // margin-right: 10%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
 }
 
 .header {
