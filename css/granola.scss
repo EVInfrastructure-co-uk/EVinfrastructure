@@ -88,18 +88,10 @@ li {
 
 /* Dropdown button */
 .dropdown .dropbtn {
-  font-size: 17px;    
-  border: none;
   outline: none;
 }
 
 .dropbtn {
-  color: #f2f2f2;
-  padding: 14px 16px;
-  text-decoration: none;
-  background: none;
-  cursor: pointer;
-  text-align: center;
   display: block;
   width: 100%;
   /* Ensure dropbtn doesn't disappear when hovering over dropdown-content */
@@ -109,9 +101,11 @@ li {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #444; /* Dropdown background */
+  left: 0;
+  top: 100%;
+  background-color: #444;
   min-width: 160px;
-  z-index: 1;
+  z-index: 1000;
 }
 
 /* Links inside the dropdown */
@@ -131,8 +125,16 @@ li {
 }
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
   display: block;
+}
+
+/* Highlight dropbtn when dropdown is hovered */
+.dropdown:hover .dropbtn,
+.dropdown:focus-within .dropbtn {
+  background-color: #04AA6D;
+  color: white;
 }
 
 /* Block display */
