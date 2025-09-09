@@ -51,45 +51,63 @@ body {
   height: 100px;
 }
 
-/* Navbar */
 .topnav {
   display: flex;
-  background-color: #333;
+  background-color: #333; /* Bar color */
   position: relative;
   width: 100%;
 }
 
-.dropdown {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.dropbtn {
+/* Navbar links */
+.topnav a, .dropdown .dropbtn {
+  float: left;
   color: #f2f2f2;
+  text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
-  background: none;
   border: none;
+  background: none;
   cursor: pointer;
-  text-align: center;
-  display: block;
-  width: 100%;
-  /* Ensure dropbtn doesn't disappear when hovering over dropdown-content */
 }
 
+/* Change color on hover */
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #04AA6D; /* Highlight color */
+  color: white;
+}
+
+/* Active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Dropdown container */
+.dropdown {
+  float: left;
+  position: relative; 
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 17px;    
+  border: none;
+  outline: none;
+}
+
+/* Dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
   position: absolute;
-  left: 0;
-  top: 100%;
-  background-color: #444;
+  background-color: #444; /* Dropdown background */
   min-width: 160px;
-  z-index: 1000;
+  z-index: 1;
 }
 
+/* Links inside the dropdown */
 .dropdown-content a {
+  float: none;
   color: #f2f2f2;
   padding: 12px 16px;
   text-decoration: none;
@@ -97,20 +115,31 @@ body {
   text-align: left;
 }
 
+/* Add hover to dropdown links */
 .dropdown-content a:hover {
   background-color: #04AA6D;
   color: white;
 }
 
-/* Show the dropdown menu on hover of dropdown OR dropbtn */
-.dropdown:hover .dropdown-content,
-.dropdown:focus-within .dropdown-content {
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* Highlight dropbtn when dropdown is hovered */
-.dropdown:hover .dropbtn,
-.dropdown:focus-within .dropbtn {
+/* Block display */
+  .block {
+  display: block;
+  width: 100%;
+  border: none;
   background-color: #04AA6D;
   color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.block:hover {
+  background-color: #ddd;
+  color: black;
 }
