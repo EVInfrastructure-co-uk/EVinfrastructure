@@ -8,6 +8,17 @@ body {
   margin-bottom: 1em;
 }
 
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-left: 20px; /* Indent bullets/numbers */
+}
+
+li {
+  margin-bottom: 5px; /* Space between items */
+}
+
 // .govuk-heading-xl {
 //   font-size: 3rem;        /* 48px */
 //   line-height: 1.125;
