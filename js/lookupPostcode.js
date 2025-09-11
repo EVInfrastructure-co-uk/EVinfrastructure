@@ -1,4 +1,3 @@
-function lookupPostcode() {
       const postcode = JSON.parse(localStorage.getItem("postcode"));
       if (!postcode) {
             const postcode = document.getElementById('postcode').value.trim();
@@ -21,4 +20,3 @@ function lookupPostcode() {
         .catch(() => {
           document.getElementById('result').textContent = 'Error contacting API.';
         });
-    }
