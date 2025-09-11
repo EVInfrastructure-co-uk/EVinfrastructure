@@ -140,7 +140,7 @@ li {
   background-color: #04AA6D;
   color: white;
   padding: 14px 28px;
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
   text-align: center;
 }
@@ -170,12 +170,6 @@ li {
 }
 
 .block2:hover {
-  background: repeating-linear-gradient(
-    135deg,
-    white,
-    white 10px,
-    red 10px,
-    red 20px
-  );
+  background-color: ddd;
   color: black;
 }
