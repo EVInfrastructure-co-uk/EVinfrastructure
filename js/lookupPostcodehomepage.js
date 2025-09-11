@@ -6,5 +6,5 @@ document.getElementById('postcode__form').addEventListener('submit', function(ev
         return;
       }
       localStorage.setItem("postcode", postcode);
-      window.location.href = `/government-and-EVI/local-government.html`;
+      window.location.href = `/government-and-EVI/local-government.html#`;
     });
