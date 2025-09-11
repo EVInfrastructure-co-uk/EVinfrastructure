@@ -1,9 +1,9 @@
 window.addEventListener('DOMContentLoaded', function() {
+      if (document.getElementById('postcode') {
             const postcode = document.getElementById('postcode').value.trim();
-      if (!postcode) {
-                  const postcode = localStorage.getItem("postcode");
-      return;
-      }
+      return}
+            else             
+                  {const postcode = localStorage.getItem("postcode")};
       if (!postcode) {
         document.getElementById('result').textContent = 'Please enter a postcode.';
         return;
