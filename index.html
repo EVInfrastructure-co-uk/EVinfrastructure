@@ -19,7 +19,7 @@ title: "Home"
       <button type="submit" class="block">I want to charge at home<br>(7-25p/kWh)</button>
   </form>
 
-    <form action="/driveway-divide" style="margin: auto; width: 10%; height: 120px;">
+    <form action="/driveway-divide" style="margin: auto; width: 10%;">
       <button type="submit" class="block2">Driveway<br>divide</button>
     </form>
     
@@ -42,11 +42,12 @@ title: "Home"
     </form>
 </div>
 
+<div style="padding-left:16px">
   <input type="text" id="postcode" placeholder="Enter postcode" />
   <button onclick="lookupPostcode()">Search</button>
   <div id="result"></div>
 
 <script type="text/javascript" src="/js/lookupPostcode.js"></script>
-    
+</div>    
 </body>
 </html>
