@@ -135,7 +135,7 @@ li {
   .block {
   display: block;
   width: 100%;
-  border: none;
+  border: solid black;
   background-color: #04AA6D;
   color: white;
   padding: 14px 28px;
@@ -146,5 +146,34 @@ li {
 
 .block:hover {
   background-color: #ddd;
+  color: black;
+}
+
+  .block2{
+  display: block;
+  width: 100%;
+  border: solid black;
+  background: repeating-linear-gradient(
+    45deg,
+    red,
+    red 10px,
+    white 10px,
+    white 20px
+  );
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.block2:hover {
+  background: repeating-linear-gradient(
+    45deg,
+    white,
+    white 10px,
+    red 10px,
+    red 20px
+  );
   color: black;
 }
