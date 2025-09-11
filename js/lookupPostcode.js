@@ -1,5 +1,9 @@
 function lookupPostcode() {
-      const postcode = document.getElementById('postcode').value.trim();
+      const postcode = JSON.parse(localStorage.getItem("postcode"));
+      if (!postcode) {
+            const postcode = document.getElementById('postcode').value.trim();
+      return;
+      }
       if (!postcode) {
         document.getElementById('result').textContent = 'Please enter a postcode.';
         return;
