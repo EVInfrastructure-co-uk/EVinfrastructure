@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', function() {
-      if (document.getElementById('postcode') {
+      if (document.getElementById('postcode')) {
             const postcode = document.getElementById('postcode').value.trim();
       return}
             else             
