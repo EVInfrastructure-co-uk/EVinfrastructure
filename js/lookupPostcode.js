@@ -1,4 +1,5 @@
-      const postcode = JSON.parse(localStorage.getItem("postcode"));
+window.addEventListener('DOMContentLoaded', function() {
+      const postcode = localStorage.getItem("postcode");
       if (!postcode) {
             const postcode = document.getElementById('postcode').value.trim();
       return;
@@ -20,3 +21,4 @@
         .catch(() => {
           document.getElementById('result').textContent = 'Error contacting API.';
         });
+});
