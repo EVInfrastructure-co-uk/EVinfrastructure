@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', function() {
       const postcode = localStorage.getItem("postcode");
-            const input = document.getElementById('postcode').value.trim();          
+      const input = document.getElementById('postcode');          
       if (postcode) {
         input.value = postcode;
       lookupAndDisplay(postcode);
@@ -19,7 +19,7 @@ document.getElementById('postcode__form').addEventListener('submit', function(ev
 function lookupAndDisplay(postcode) {
 
   if (!postcode) {
-    resultDiv.textContent = 'Please enter a postcode.';
+    document.getElementById('result').textContent = 'Please enter a postcode.';
     return;
   }
       fetch(`https://api.postcodes.io/postcodes/${encodeURIComponent(postcode)}`)
@@ -35,4 +35,4 @@ function lookupAndDisplay(postcode) {
         .catch(() => {
           document.getElementById('result').textContent = 'Error contacting API.';
         });
-});
+};
