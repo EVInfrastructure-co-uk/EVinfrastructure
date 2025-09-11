@@ -10,6 +10,8 @@ function lookupPostcode() {
           if (data.status === 200 && data.result) {
             const authority = data.result.admin_district; // Local authority name
             document.getElementById('result').textContent = `Local Authority: ${authority}`;
+            localStorage.setItem("authority",${authority})
+            window.location.href = "${window.location.origin}/government-and-EVI/local-government.html"
           } else {
             document.getElementById('result').textContent = 'Postcode not found.';
           }
