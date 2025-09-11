@@ -18,5 +18,14 @@ function lookupPostcode() {
         })
         .catch(() => {
           document.getElementById('result').textContent = 'Error contacting API.';
+        })
+        postcode.addEventListener("submit", (event) => {
+            const searchBarValue = document.getElementById("postcode").value; // get input's value everytime the form is submitted
+            console.log(searchBarValue);
+            event.preventDefault(); // prevent refresh
+            // localStorage.setItem("key", searchBarValue);
+            // const searchKey = localStorage.getItem("key");
+            main(searchBarValue);
         });
+      
     }
