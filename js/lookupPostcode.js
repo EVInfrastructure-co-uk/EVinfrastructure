@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', function() {
-      const postcode = localStorage.getItem("postcode");
-      if (!postcode) {
             const postcode = document.getElementById('postcode').value.trim();
+      if (!postcode) {
+      const postcode = localStorage.getItem("postcode");
       return;
       }
       if (!postcode) {
