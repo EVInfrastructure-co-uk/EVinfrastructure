@@ -10,10 +10,10 @@ body {
 
 @container (width < 600px) {
   h1 {
-    font-size: 20cqw;
+    font-size: 6cqw;
   }
     h2 {
-    font-size: 18cqw;
+    font-size: 5cqw;
   }
 }
 
@@ -177,7 +177,7 @@ li {
   background-color: #04AA6D;
   color: white;
   padding: 14px 28px;
-  font-size: 50cqw;
+  font-size: 4cqw;
   cursor: pointer;
   text-align: center;
 }
@@ -201,7 +201,7 @@ li {
   );
   color: black;
   padding: 10px 10px;
-  font-size: 50cqw;
+  font-size: 4cqw;
   cursor: pointer;
   text-align: center;
 }
