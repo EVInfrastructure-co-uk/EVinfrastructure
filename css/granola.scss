@@ -161,13 +161,13 @@ li {
 
 @media screen and (max-width: 600px) {
   .topnav.responsive {
-    position: absolute;
+    position: relative;
     flex-direction: column;
   }
   .topnav.responsive > * {
     display: block;
     text-align: left;
-    position: static;
+    position: relative;
   }
   .topnav.responsive .icon {
     position: absolute;
