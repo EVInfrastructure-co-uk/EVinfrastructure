@@ -8,6 +8,15 @@ body {
   margin-bottom: 1em;
 }
 
+@container (width < 600px) {
+  h1 {
+    font-size: 0.6rem;
+  }
+    h2 {
+    font-size: 0.5rem;
+  }
+}
+
 ul,
 ol {
   margin-top: 0;
