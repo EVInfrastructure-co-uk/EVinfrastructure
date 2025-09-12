@@ -161,7 +161,7 @@ li {
 
 @media screen and (max-width: 600px) {
   .topnav.responsive {
-    position: relative;
+    position: absolute;
     flex-direction: column;
   }
   .topnav.responsive > * {
