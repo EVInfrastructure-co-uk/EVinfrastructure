@@ -207,11 +207,19 @@ li {
   color: black;
   padding: 2cqw 2cqw;
   font-size: 2cqw;
+  writing-mode: vertical-rl; 
   cursor: pointer;
   text-align: center;
 }
 
 .block2:hover {
-  background: ddd;
+  background: repeating-linear-gradient(
+    135deg,
+    white,
+    white 10px,
+    red 10px,
+    red 20px
+  );
+  font-weight: bold;
   color: black;
 }
