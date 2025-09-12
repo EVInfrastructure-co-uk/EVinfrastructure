@@ -160,6 +160,10 @@ li {
 }
 
 @media screen and (max-width: 600px) {
+  .topnav.responsive {
+    position: relative;
+    flex-direction: column;
+  }
   .topnav.responsive > * {
     display: block;
     text-align: left;
