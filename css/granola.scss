@@ -174,6 +174,11 @@ li {
     right: 0;
     top: 0;
   }
+  .topnav.responsive .dropdown-content {
+    position: static;
+    display: block;
+    background: #333;
+  }
 }
 
 /* Block display */
