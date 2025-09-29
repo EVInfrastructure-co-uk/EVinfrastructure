@@ -4,7 +4,25 @@ title: "{{ authority.name }}"
 permalink: /authorities/{{ authority.name | downcase }}.html
 ---
 
-<h1>{{ authority.name }}</h1>
-<p>Population: {{ authority.population }}</p>
-<p>Area: {{ authority.area }} sq km</p>
+<table id="authorityTable" class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Local authority</th>
+      <th>Highway authority</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>{{ authority.name }}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CPC link</td>
+      <td>{{ authority.cpc_link }}</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 <a href="/authorities.html">Back to list</a>
