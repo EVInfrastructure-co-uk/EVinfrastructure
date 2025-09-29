@@ -1,0 +1,10 @@
+---
+layout: default
+title: "{{ authority.name }}"
+permalink: /authorities/{{ authority.name | downcase }}.html
+---
+
+<h1>{{ authority.name }}</h1>
+<p>Population: {{ authority.population }}</p>
+<p>Area: {{ authority.area }} sq km</p>
+<a href="/authorities.html">Back to list</a>
