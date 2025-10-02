@@ -279,6 +279,10 @@ li {
 // Footer
 
 .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   padding: 16px;
   text-align: centre;
   background: #04AA6D;
@@ -289,3 +293,11 @@ li {
 .footer a {
     color: white;
 }
+
+.footer ul {
+      list-style: none;
+      }
+
+.footer li {
+      display: inline-block;
+      }
