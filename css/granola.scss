@@ -279,12 +279,13 @@ li {
 // Footer
 
 .footer {
-  padding: 16px;
-  text-align: centre;
+  padding: 10px;
+  text-align: center;
   background: #04AA6D;
   color: white;
   container-type: inline-size;
   margin-top: auto;
+  margin-bottom: 0;
 }
 
 .footer a {
@@ -297,4 +298,5 @@ li {
 
 .footer li {
       display: inline-block;
+      margin-right: 10px;
       }
