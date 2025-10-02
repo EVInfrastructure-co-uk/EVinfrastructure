@@ -1,8 +1,13 @@
 ---
 layout: default
 title: "{{ authority.name }}"
-permalink: /government-and-EVI/local-governmnent/{{ authority.name | downcase }}.html
+permalink: /government-and-EVI/local-government/{{ authority.name | downcase }}.html
 ---
+
+  <form action="#" id="postcode__form">
+    <input type="text" id="postcode" placeholder="Enter postcode" />
+  <button type="submit">Search</button> </form>
+  <div id="result"></div>
 
 <table id="authorityTable" class="table">
   <thead>
@@ -25,4 +30,3 @@ permalink: /government-and-EVI/local-governmnent/{{ authority.name | downcase }}
     </tr>
   </tbody>
 </table>
-<a href="/authorities.html">Back to list</a>
