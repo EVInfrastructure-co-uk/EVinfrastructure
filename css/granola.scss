@@ -285,9 +285,9 @@ li {
   color: white;
   container-type: inline-size;
   margin-top: auto;
+  margin-bottom: 0px;
   border-style: hidden;
   border-width: 25px 0px 0px 0px;
-  margin-bottom: 0;
 }
 
 .footer a {
@@ -296,6 +296,8 @@ li {
 
 .footer ul {
       list-style: none;
+      margin-bottom: 0px;
+      padding-left: 0px;
       }
 
 .footer li {
