@@ -152,6 +152,10 @@ li {
   color: white;
 }
 
+.topnav .icon {
+  display: none;
+}
+
 @media screen and (max-width: 600px) {
   /* Hide all direct children except icon */
   .topnav > *:not(:first-child):not(.icon) {display: none;}
