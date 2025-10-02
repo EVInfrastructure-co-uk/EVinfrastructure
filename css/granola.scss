@@ -51,6 +51,7 @@ li {
   background: #333;
   color: white;
   container-type: inline-size;
+  position: sticky;
 }
 
 .mycontainer {
@@ -72,7 +73,7 @@ li {
 .topnav {
   display: flex;
   background-color: #333; /* Bar color */
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 1000;
