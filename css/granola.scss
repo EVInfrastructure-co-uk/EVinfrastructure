@@ -279,16 +279,12 @@ li {
 // Footer
 
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
   padding: 16px;
   text-align: centre;
   background: #04AA6D;
   color: white;
   container-type: inline-size;
-  padding-top: 60px;
+  margin-top: auto;
 }
 
 .footer a {
