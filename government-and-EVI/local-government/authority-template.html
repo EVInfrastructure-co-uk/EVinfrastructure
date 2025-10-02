@@ -1,8 +1,9 @@
 ---
 layout: default
 title: "{{ authority.name }}"
-permalink: /government-and-EVI/local-government/{{ authority.name | downcase }}.html
 ---
+
+<h1>EV infrastructure in {{authority.name}}</h1>
 
   <form action="#" id="postcode__form">
     <input type="text" id="postcode" placeholder="Enter postcode" />
@@ -25,7 +26,7 @@ permalink: /government-and-EVI/local-government/{{ authority.name | downcase }}.
   <tbody>
     <tr>
       <td>CPC link</td>
-      <td>{{ authority.cpc_link }}</td>
+      <td><a href={{ authority.cpc_link }}>{{ authority.cpc_link }}</a></td>
       <td></td>
     </tr>
   </tbody>
