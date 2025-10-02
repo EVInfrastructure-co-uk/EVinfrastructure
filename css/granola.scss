@@ -167,7 +167,7 @@ li {
   .topnav.responsive > * {
     display: block;
     text-align: left;
-    position: relative;
+    position: static;
   }
   .topnav.responsive .icon {
     position: absolute;
