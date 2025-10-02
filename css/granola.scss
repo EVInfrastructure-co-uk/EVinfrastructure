@@ -2,10 +2,17 @@
 ---
 
 body {
+  min-height: 100vh;         /* Full viewport height */
+  display: flex;
+  flex-direction: column;
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-size: 1.1875rem;   /* 19px */
   line-height: 1.5;
   margin:0;
+}
+
+.content {
+  flex: 1;
 }
 
 @container (width < 600px) {
@@ -284,10 +291,7 @@ li {
   background: #04AA6D;
   color: white;
   container-type: inline-size;
-  margin-top: auto;
-  margin-bottom: 0px;
-  border-style: hidden;
-  border-width: 25px 0px 0px 0px;
+  margin-top: 40px;
 }
 
 .footer a {
