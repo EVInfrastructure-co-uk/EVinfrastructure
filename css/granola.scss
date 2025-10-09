@@ -162,8 +162,8 @@ li {
   .topnav > *:not(:first-child):not(.icon) {display: none;}
   .topnav .icon {position: absolute; right: 0; display: block;}
   .topnav.responsive {position: relative; flex-direction: column;}
-  .topnav.responsive > * {
-    display: block;
+  .topnav.responsive > *:not(.icon) {
+    display: block !important;
     text-align: left;
     position: static;
   }
