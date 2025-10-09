@@ -187,6 +187,9 @@ li {
   font-size: 2cqw;
   cursor: pointer;
   text-align: center;
+  padding-block: 0em;
+  padding-inline: 0em;
+  font-family: inherit;
 }
 
 .block:hover {
@@ -211,6 +214,9 @@ li {
   writing-mode: vertical-rl; 
   cursor: pointer;
   text-align: center;
+  padding-block: 0em;
+  padding-inline: 0em;
+  font-family: inherit;
 }
 
 .block2:hover {
