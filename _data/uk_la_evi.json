@@ -1,11 +1,16 @@
 {
-  "name": "uk_la_past_current",
-  "title": "UK Local Authorities (past and current)",
-  "description": "A dataset that includes current and some past local authorities",
+  "name": "uk_la_evi",
+  "title": "UK Local Authorities with Electric Vehicle Infrastructure information",
+  "description": "A dataset that includes current local authorities with information on electric vehicle infrastructure",
   "version": "1.6.1",
   "keywords": [
     "UK Local data",
-    "UK"
+    "UK",
+    "EV",
+    "EVI",
+    "electric vehicle infrastructure",
+    "charging",
+    "chargepoint"
   ],
   "licenses": [
     {
@@ -18,7 +23,22 @@
     {
       "title": "mySociety",
       "path": "https://mysociety.org",
+      "role": "author of template data"
+    },
+    {
+      "title": "evinfrastructure.co.uk",
+      "path": "https://evinfrastructure.co.uk",
       "role": "author"
+    },
+    {
+      "title": "NEVIS",
+      "path": "https://nevis.cenex.co.uk",
+      "role": "Source of data"
+    },
+    {
+      "title": "Field Dynamics",
+      "path": "https://field-dynamics.co.uk/",
+      "role": "Source of data"
     }
   ],
   "resources": [
