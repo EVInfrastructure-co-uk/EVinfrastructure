@@ -3,7 +3,6 @@ window.addEventListener('DOMContentLoaded', function() {
       const input = document.getElementById('postcode');          
       if (postcode) {
         input.value = postcode;
-      lookupAndDisplay(postcode);
       }
 
 document.getElementById('postcode__form').addEventListener('submit', function(event) {
