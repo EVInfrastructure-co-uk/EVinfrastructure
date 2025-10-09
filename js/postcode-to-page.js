@@ -28,7 +28,14 @@ function lookupAndDisplay(postcode) {
         .then(data => {
           if (data.status === 200 && data.result) {
             const authority = data.result.admin_district; // Local authority name
-            const gss-code = data.result.codes.admin_district; // Local authority GSS code
+            const gss = data.result.codes.admin_district; // Local authority GSS code
+            fetch('/government-and-EVI/local-government/_data/uk_evi_la.json')
+            .then(response => response.json())
+            .then(jsonData => {
+                  const laData = jsonData.resources[0].data;
+                  const match = laData.find(entry => entry['gss-code'] === gss);
+                  const slug = match['gov-uk-slug'];
+                  window.location.href = `/government-and-EVI/local-government/${slug}`;
             document.getElementById('result').textContent = `Local Authority: ${authority}`;
           } else {
             document.getElementById('result').textContent = 'Postcode not found.';
@@ -37,8 +44,4 @@ function lookupAndDisplay(postcode) {
         .catch(() => {
           document.getElementById('result').textContent = 'Error contacting API.';
         });
-      fetch('/government-and-EVI/local-government/_data/uk_evi_la.json')
-      .then(response => response.json())
-      .then
-      window.location.href = `/government-and-EVI/local-government#`;
 };
