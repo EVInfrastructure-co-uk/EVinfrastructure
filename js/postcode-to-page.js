@@ -35,7 +35,8 @@ function lookupAndDisplay(postcode) {
                   const laData = jsonData.resources[0].data;
                   const match = laData.find(entry => entry['gss-code'] === gss);
                   const slug = match['gov-uk-slug'];
-                  window.location.href = `/government-and-EVI/local-government/${slug}`;
+                  window.location.href = `/government-and-EVI/local-government/${slug}`;}
+                  )
             document.getElementById('result').textContent = `Local Authority: ${authority}`;
           } else {
             document.getElementById('result').textContent = 'Postcode not found.';
