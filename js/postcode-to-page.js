@@ -28,19 +28,24 @@ function lookupAndDisplay(postcode) {
           if (data.status === 200 && data.result) {
             const authority = data.result.admin_district; // Local authority name
             const gss = data.result.codes.admin_district; // Local authority GSS code
-            fetch('/government-and-EVI/local-government/_data/uk_evi_la.json')
-            .then(response => response.json())
-            .then(jsonData => {
-                  const laData = jsonData.resources[0].data;
-                  const match = laData.find(entry => entry['gss-code'] === gss);
-            if (match) {
-                  const slug = match['gov-uk-slug'];
-            } else {
-            document.getElementById('result').textContent = 'Local authority not found in EVI dataset.';           
-            }
-            }
-            window.location.href = `/government-and-EVI/local-government/${slug}`;
-            document.getElementById('result').textContent = `Local Authority: ${authority}. Slug: ${slug}`;
+            
+                fetch('/government-and-EVI/local-government/_data/uk_evi_la.json')
+                      .then(response => response.json())
+                      .then(jsonData => {
+                            const laData = jsonData.resources[0].data;
+                            const match = laData.find(entry => entry['gss-code'] === gss);
+            
+                            if (match) {
+                                  const slug = match['gov-uk-slug'];
+                                  window.location.href = `/government-and-EVI/local-government/${slug}`;
+                                  document.getElementById('result').textContent = `Local Authority: ${authority}. Slug: ${slug}`;
+                            } else {
+                                  document.getElementById('result').textContent = 'Local authority not found in EVI dataset.';
+                            }
+                      })
+                .catch(() => {
+                      document.getElementById('result').textContect = 'Error loading local authority data.';
+                });
           } else {
             document.getElementById('result').textContent = 'Postcode not found.';
           }
