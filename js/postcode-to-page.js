@@ -33,8 +33,13 @@ function lookupAndDisplay(postcode) {
             .then(jsonData => {
                   const laData = jsonData.resources[0].data;
                   const match = laData.find(entry => entry['gss-code'] === gss);
+            if (match) {
                   const slug = match['gov-uk-slug'];
-                  window.location.href = `/government-and-EVI/local-government/${slug}`;}
+                  window.location.href = `/government-and-EVI/local-government/${slug}`;
+            } else {
+            document.getElementById('result').textContent = 'Local authority not found in EVI dataset.';           
+            }
+            }
                   )
             document.getElementById('result').textContent = `Local Authority: ${authority}. Slug: ${slug}`;
           } else {
