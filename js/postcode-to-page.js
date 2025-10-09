@@ -39,7 +39,6 @@ function lookupAndDisplay(postcode) {
             document.getElementById('result').textContent = 'Local authority not found in EVI dataset.';           
             }
             }
-                  )
             window.location.href = `/government-and-EVI/local-government/${slug}`;
             document.getElementById('result').textContent = `Local Authority: ${authority}. Slug: ${slug}`;
           } else {
