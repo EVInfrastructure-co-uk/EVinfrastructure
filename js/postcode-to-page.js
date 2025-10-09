@@ -29,7 +29,7 @@ function lookupAndDisplay(postcode) {
             const authority = data.result.admin_district; // Local authority name
             const gss = data.result.codes.admin_district; // Local authority GSS code
             
-                fetch('/government-and-EVI/local-government/_data/uk_evi_la.json')
+                fetch('/government-and-EVI/local-government/_data/uk_la_evi.json')
                       .then(response => response.json())
                       .then(jsonData => {
                             const laData = jsonData.resources[0].data;
