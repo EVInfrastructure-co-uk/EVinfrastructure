@@ -5,29 +5,141 @@ title: "{{ authority.name }}"
 
 <h1>EV infrastructure in {{ authority.name }}</h1>
 
-  <form action="#" id="postcode__form">
-    <input type="text" id="postcode" placeholder="Enter postcode" />
-  <button type="submit">Search</button> </form>
-  <div id="result"></div>
+<div>
+  {% include postcode-search.html %}
+</div>
 
 <table id="authorityTable" class="table">
   <thead>
     <tr>
       <th></th>
       <th>Local authority</th>
-      <th>Highway authority</th>
     </tr>
     <tr>
       <th></th>
-      <th>{{ authority.name }}</th>
-      <th></th>
+      <th id="name-unitary">{{ authority.name }}</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>CPC link</td>
-      <td><a href={{ authority.cpc_link }}>{{ authority.cpc_link }}</a></td>
-      <td></td>
+      <td>Current administration</td>
+      <td id="current-administration-unitary"></td>
+    </tr>
+    <tr>
+      <td>Administration since</td>
+      <td id="administration-since-unitary"></td>
+    </tr>
+    <tr>
+      <td>Number of households without driveway</td>
+      <td id="households-without-driveway-unitary"></td>
+    </tr>
+    <tr>
+      <td>Households Without Driveway Percentage</td>
+      <td id="households-without-driveway-pct-unitary"></td>
+    </tr>
+    <tr>
+      <td>NEVIS Near Home Distribution (%)</td>
+      <td id="NEVIS-distribution-unitary"></td>
+    </tr>
+    <tr>
+      <td>NEVIS Near Home Distribution Rank</td>
+      <td id="NEVIS-distribution-rank-unitary"></td>
+    </tr>
+    <tr>
+      <td>EVI Link</td>
+      <td id="EVI-link-unitary"></td>
+    </tr>
+    <tr>
+      <td>EVI Email</td>
+      <td id="EVI-email-unitary"></td>
+    </tr>
+    <tr>
+      <td>EVI Portfolio Holder</td>
+      <td id="EVI-portfolio-holder-unitary"></td>
+    </tr>
+  </tbody>
+    <thead>
+    <tr>
+      <th colspan="2">Pavement channels</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Channel Status</td>
+      <td id="channel-status-unitary"></td>
+    </tr>
+    <tr>
+      <td>Channel Link</td>
+      <td id="channel-link-unitary"></td>
+    </tr>
+    <tr>
+      <td>Channel Grant Amount</td>
+      <td id="channel-grant-amount-unitary"></td>
+    </tr>
+    <tr>
+      <td>Channel Application Fee</td>
+      <td id="channel-application-fee-unitary"></td>
+    </tr>
+    <tr>
+      <td>Channel Installation Fee</td>
+      <td id="channel-installation-fee-unitary"></td>
+    </tr>
+    <tr>
+      <td>Channel Annual Fee</td>
+      <td id="channel-annual-fee-unitary"></td>
+    </tr>
+    <tr>
+      <td>Channel Manufacturer</td>
+      <td id="channel-manufacturer-unitary"></td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th colspan="2">Local Electric Vehicle Infrastructure fund</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LEVI Capital Amount</td>
+      <td id="LEVI-capital-amount-unitary"></td>
+    </tr>
+    <tr>
+      <td>LEVI Tender Stage</td>
+      <td id="LEVI-tender-stage-unitary"></td>
+    </tr>
+    <tr>
+      <td>LEVI Tender Link</td>
+      <td id="LEVI-tender-link-unitary"></td>
+    </tr>
+    <tr>
+      <td>LEVI Tender Open Date</td>
+      <td id="LEVI-tender-open-date-unitary"></td>
+      <td id="LEVI-tender-open-date-CA"></td>
+    </tr>
+    <tr>
+      <td>LEVI Tender Close Date</td>
+      <td id="LEVI-tender-close-date-unitary"></td>
+    </tr>
+    <tr>
+      <td>LEVI CPO(s)</td>
+      <td id="LEVI-CPO(s)-unitary"></td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th colspan="2">On-Street Residential Charging Scheme</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ORCS Total Amount</td>
+      <td id="ORCS-total-amount-unitary"></td>
+    </tr>
+    <tr>
+      <td>ORCS Total Charging Devices</td>
+      <td id="ORCS-total-charging-dEVIces-unitary"></td>
     </tr>
   </tbody>
 </table>
+
+<script type="text/javascript" src="/js/populate-authority-table.js"></script>
