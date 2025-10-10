@@ -34,8 +34,8 @@ function lookupAndDisplay(postcode) {
                       .then(jsonData => {
                             const laData = jsonData.resources[0].data;
                             const match = laData.find(entry => entry['gss-code'] === gss);
-            
                             if (match) {
+                                  document.getElementById('result').textContent = '${authority}';
                                   const slug = match['gov-uk-slug'];
                                   window.location.href = `/government-and-EVI/local-government/${slug}`;
                             } else {
