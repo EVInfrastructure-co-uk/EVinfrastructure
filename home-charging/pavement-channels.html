@@ -15,15 +15,38 @@ title: "Pavement Channels"
       Your highway authority decides whether you can get a pavement channel. They usually decide how much you have to pay and require you to sign a licence which ensures conditions of use, and they may charge an annual fee to cover any maintenance. In two-tier areas, your highway authority will be your county council. In unitary areas, it will be your unitary authority.
      <p>To see your highway authority's position on pavement channels, please enter your postcode:</p>
       <div>
-        <form action="#" id="postcode__form">
-          <input type="text" id="postcode" placeholder="Enter postcode" />
-      <button type="submit">Search</button>  </form>
-      <div id="result"></div>
+        {% include postcode-search.html %}
       </div>
+        <h3>Process and planning permission</h3>
+          <p>Because there are no set methods of administering channel applications, the process varies from authority to authority much like dropped kerb applications.</p>
+          <p>The general pattern involves application, initial approval, a gap for planning permission, installation of the home charger, and finally installation of the channel, which may be a few months after initial application.</p>
+          <p>England's planning rules treat chargepoints differently depending on whether they are "within an area lawfully used for <strong>off-street</strong> parking" (<a href="https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2">The Town and Country Planning (General Permitted Development) (England) Order 2015, Schedule 2, Part 2</a>, Class D and E, emphasis mine). In practice this means that planning permission is almost always required alongside pavement channels, although there have been <a href="https://evfleetworld.co.uk/government-urged-to-tackle-ev-charging-divide-in-planning-and-infrastructure-bill/">calls</a> to change this.</p>
       <h2>Why won't my local authority let me have a pavement channel?</h2>
+        <p>Most UK highway authorities do not permit pavement channels, although the Pavement Channel Grant announced in July 2025 might change their minds soon. Highway authorities are custodians of pavements ("footways"), and therefore have to consider the risk they bear from dangerous cable use, channel defects, and the possibility that all the pavement channels in their area become redundant in the long term, costing them for removal. This risk must be balanced with the risks of climate change, and the <a href="/home-charging/driveway-divide">driveway divide</a> giving people an incentive to trail cables over the footway in an unregulated way.</p>
+        <p>London Councils, who advise all the boroughs of London, published <a href="https://www.londoncouncils.gov.uk/sites/default/files/2025-07/London%20Councils%27%20Cross-pavement%20EV%20charging%20report_0.pdf">guidance</a> for London boroughs days after the Pavement Channel Grant was released. It contains nearly six pages (<a href="https://www.londoncouncils.gov.uk/sites/default/files/2025-07/London%20Councils%27%20Cross-pavement%20EV%20charging%20report_0.pdf#page=13">13</a>-18) on challenges of challenges. <strong>Please read this report before contacting your highway authority about pavement channels.</strong></p>
+        <p>With thanks to the good work of London Councils, here are the key questions your highway authority must answer before saying yes to pavement channels:</p>
+        <ul>
+          <li>Accessibility: Can people with physical disabilities use pavement channels?</li>
+          <li><a href="/what-is-a-watt/earthing">Earthing</a> considerations: Can we be 100% sure people will not get electrocuted by power coming through pavement channels?</li>
+          <li>Footway and streetscape impact: Do we really want loads of plastic channels throughout our highways? What if our highways are historic?</li>
+          <li>Lack of national direction or standards: Do we follow Authority X, who are more lenient as to electrical risk, or Authority Y, who take the exclusion zones by the letter of the law?</li>
+          <ul>
+            <li>Notice the difference between the Office for Zero Emission Vehicles' <a href="https://www.gov.uk/government/publications/cross-pavement-solutions-for-charging-electric-vehicles/cross-pavement-solutions-for-charging-electric-vehicles">guidance</a> and <a href="https://www.londoncouncils.gov.uk/sites/default/files/2025-07/London%20Councils%27%20Cross-pavement%20EV%20charging%20report_0.pdf">London Councils'</a>.</li>
+          </ul>
+          <li>Groundworks and reinstatement: Can we be sure that channels won't cause a problem for other utilities and our own highway maintenance teams?</li>
+          <li>Highway safety: Can we be sure that drivers will charge in a safe way?</li>
+          <li>Liability and insurance: Can we be sure that we won't have to pay out due to injury? If we have insurance requirements of users, can we ensure they continue to meet them into the future?</li>
+          <li>Obsolescence: Have we got a clear protocol in the case of moving home? How do we decommission unused channels?</li>
+          <li>Parking disputes: Will we bring trouble on ourselves or our communities because of a sense of entitlement to parking?</li>
+          <li>Planning permission: Can our planning teams manage the planning side of this?</li>
+          <li>Property constraints: Can we have a clear and watertight set of criteria for eligibility, to avoid installing channels where earthing is a problem, residents are in above-ground flats, there is grass between the channel and the footway, or the property is on a junctions?</li>
+          <li>Public EVI impacts: Are we undermining our <a href="/government-and-EVI/funding-public-chargepoints">contracts for public chargepoints</a> by permitting a cheaper, more convenient alternative?</li>
+          <li>Resource and cost implications: How can we pay for assessment of applications, installation, ongoing inspections and maintenance, administration, and - crucially - enforcement to ensure safety?</li>
+        </ul>
       <h2>Costs and grants</h2>
         <h3>Chargepoint grant for on-street households</h3>
         <h3>Pavement Channel Grant</h3>
+        <h3>Planning permission</h3>
       <h2>Pavement channel manufacturers</h2>
         <h3>Kerbo Charge</h3>
         <h3>Charge Gully</h3>
@@ -34,6 +57,5 @@ title: "Pavement Channels"
         <h3>Trojan Home</h3>
         <h3>Overhead solutions</h3>
 </div>
-<script type="text/javascript" src="/js/lookupPostcodehomepage.js"></script>
   </body>
 </html>
