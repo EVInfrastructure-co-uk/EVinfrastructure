@@ -8,11 +8,10 @@ title: "Local Government and EVI"
   <body>
 
     <h1>Local Government and EVI</h1>
-  <form action="#" id="postcode__form">
-    <input type="text" id="postcode" placeholder="Enter postcode" />
-  <button type="submit">Search</button> </form>
-  <div id="result"></div>
-For more information on all the below points in your local authority, enter your postcode above. (Test)
+<div>
+  {% include postcode-search.html %}
+</div>
+For more information on all the below points in your local authority, enter your postcode above.
   
   <h4>Contents</h4>
     <ul>
@@ -33,11 +32,6 @@ For more information on all the below points in your local authority, enter your
   <h3 id="authorisation">Authorisation of chargepoints on the public highway</h3>
       <p>In short, it is also up to highway authorities to manage installations on the highway regardless of the source of funding. </p>
       <p>Chargepoint operators do not have the same statutory right to operate on the highway as utility companies working on water, gas and mains electricity networks. They usually apply to the local highway authority under Section 50 of the New Roads and Streets Act. However, the government has <a href="https://www.gov.uk/government/publications/improving-the-grid-connection-process-for-electric-vehicle-charging-infrastructure/improving-the-grid-connection-process-for-electric-vehicle-charging-infrastructure">sought to change</a> this method of approval.</p>
-
-  <form action="#" id="postcode__form">
-    <input type="text" id="postcode" placeholder="Enter postcode" />
-<button type="submit">Search</button> </form>
-<div id="result"></div>
   
 <table id="authorityTable" class="table">
   <thead>
@@ -126,6 +120,5 @@ For more information on all the below points in your local authority, enter your
   </tbody>
 </table>
     
-<script type="text/javascript" src="/js/postcode-to-page.js"></script>
   </body>
 </html>
