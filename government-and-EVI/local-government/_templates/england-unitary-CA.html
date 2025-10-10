@@ -1,0 +1,32 @@
+---
+layout: default
+title: "{{ authority.name }}"
+---
+
+<h1>EV infrastructure in {{ authority.name }}</h1>
+
+<div>
+  {% include postcode-search.html %}
+</div>
+
+<table id="authorityTable" class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Local authority</th>
+      <th>LEVI combined authority</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>{{ authority.name }}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CPC link</td>
+      <td><a href={{ authority.cpc_link }}>{{ authority.cpc_link }}</a></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
