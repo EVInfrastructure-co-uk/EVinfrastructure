@@ -11326,11 +11326,11 @@
           "start-date": "",
           "end-date": "",
           "replaced-by": "",
-          "region": {
+          "region": [
             "West Midlands",
             "East Midlands",
             "Yorkshire and the Humber"
-          },
+          ],
           "local-authority-type": "COMB",
           "local-authority-type-name": "Combined authority",
           "county-la": "",
@@ -11430,10 +11430,10 @@
           "start-date": "",
           "end-date": "",
           "replaced-by": "",
-          "region": {
+          "region": [
             "West Midlands",
             "Yorkshire and the Humber"
-          },
+          ],
           "local-authority-type": "COMB",
           "local-authority-type-name": "Combined authority",
           "county-la": "",
@@ -11483,10 +11483,10 @@
           "start-date": "",
           "end-date": "",
           "replaced-by": "",
-          "region": {
+          "region": [
             "West Midlands",
             "East Midlands"
-          },
+          ],
           "local-authority-type": "COMB",
           "local-authority-type-name": "Combined authority",
           "county-la": "",
@@ -20838,6 +20838,7 @@
     }
   ]
 }
+
 
 
 
