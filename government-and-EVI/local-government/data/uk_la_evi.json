@@ -8171,10 +8171,10 @@
           "local-authority-type": "UA",
           "local-authority-type-name": "Unitary authority",
           "county-la": "",
-          "combined-authority": {
+          "combined-authority": [
             "MC3",
             "MC4"
-          }
+          ],
           "alt-names": "Herefordshire,Herefordshire UA,county of herefordshire,herefordshire,herefordshire council,herefordshire, county of",
           "notes": "",
           "current-authority": true,
@@ -9924,10 +9924,10 @@
           "local-authority-type": "CTY",
           "local-authority-type-name": "County",
           "county-la": "",
-          "combined-authority": {
+          "combined-authority": [
             "MC4",
             "MC1"
-          }
+          ],
           "alt-names": "Leicestershire,leicestershire,leicestershire county,leicestershire county council",
           "notes": "",
           "current-authority": true,
@@ -10177,10 +10177,10 @@
           "local-authority-type": "CTY",
           "local-authority-type-name": "County",
           "county-la": "",
-          "combined-authority": {
+          "combined-authority": [
             "MC3",
             "MC1"
-          }
+          ],
           "alt-names": "Lincolnshire,lincolnshire,lincolnshire county,lincolnshire county council",
           "notes": "",
           "current-authority": true,
@@ -15090,10 +15090,10 @@
           "local-authority-type": "UA",
           "local-authority-type-name": "Unitary authority",
           "county-la": "",
-          "combined-authority": {
+          "combined-authority": [
             "MC4",
             "MC1"
-          }
+          ],
           "alt-names": "Rutland,Rutland UA,rutland,rutland county council",
           "notes": "",
           "current-authority": true,
@@ -16793,10 +16793,10 @@
           "local-authority-type": "UA",
           "local-authority-type-name": "Unitary authority",
           "county-la": "",
-          "combined-authority": {
+          "combined-authority": [
             "MC3",
             "MC1"
-          }
+          ],
           "alt-names": "Stoke-on-Trent,Stoke-On-Trent UA",
           "notes": "",
           "current-authority": true,
@@ -20838,5 +20838,6 @@
     }
   ]
 }
+
 
 
