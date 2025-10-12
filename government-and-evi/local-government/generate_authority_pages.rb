@@ -32,6 +32,18 @@ authorities.select { |a| a['local-authority-type'] == 'CC' or a['local-authority
   puts "Generated #{filename}"
 end
 
+authorities.select { |a| a['local-authority-code'] == 'HCK'}.each do |authority|
+  name = authority['nice-name']
+  slug = authority['gov-uk-slug']
+
+  filename = "#{slug}.html"
+
+  content = england_unitary.gsub('{{ authority.name }}',name)
+
+  File.write(filename, content)
+  puts "Generated #{filename}"
+end
+
 authorities.select { |a| a['local-authority-type'] == 'COMB' and a['region'] != 'Wales' and a['region'] != 'Scotland' }.each do |authority|
   name = authority['nice-name']
   slug = authority['gov-uk-slug']
