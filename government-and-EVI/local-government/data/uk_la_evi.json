@@ -223,7 +223,7 @@
           {
             "name": "gov-uk-slug",
             "type": "string",
-            "description": "A url slug for an authority used by gov.uk",
+            "description": "A url slug for an authority used by gov.uk, or made up for use by EVinfrastructure.co.uk",
             "constraints": {
               "unique": false
             },
@@ -323,7 +323,7 @@
           {
             "name": "administration-since",
             "type": "string",
-            "description": "Year of start of current administration",
+            "description": "Year that this party has been in office since",
             "constraints": {
               "unique": false
             }
@@ -387,7 +387,7 @@
           {
             "name": "LEVI-capital-amount",
             "type": "number",
-            "description": "LEVI capital funding amount (£)",
+            "description": "LEVI capital funding amount (£) for England, or EVIF funding in Scotland, or ULEVTF in Wales",
             "constraints": {
               "unique": false
             }
@@ -395,7 +395,7 @@
           {
             "name": "LEVI-tender-stage",
             "type": "string",
-            "description": "Status of LEVI tender(s)",
+            "description": "Status of LEVI/EVIF/ULEVTF tender(s)",
             "constraints": {
               "unique": false
             }
@@ -403,7 +403,7 @@
           {
             "name": "LEVI-tender-link",
             "type": "string",
-            "description": "URL of any LEVI tender",
+            "description": "URL of any LEVI/EVIF/ULEVTF tender",
             "constraints": {
               "unique": true
             }
@@ -411,7 +411,7 @@
           {
             "name": "LEVI-tender-open-date",
             "type": "string",
-            "description": "Date of release of LEVI tender (YYYY-MM-DD)",
+            "description": "Date of release of LEVI/EVIF/ULEVTF tender (YYYY-MM-DD)",
             "constraints": {
               "unique": false
             }
@@ -419,7 +419,7 @@
           {
             "name": "LEVI-tender-close-date",
             "type": "string",
-            "description": "If known, date of release of LEVI tender (YYYY-MM-DD)",
+            "description": "If known, date of release of LEVI/EVIF/ULEVTF tender (YYYY-MM-DD)",
             "constraints": {
               "unique": false
             }
@@ -427,7 +427,7 @@
           {
             "name": "LEVI-CPO(s)",
             "type": "string",
-            "description": "Tenderers appointed to spend LEVI funds",
+            "description": "Tenderers appointed to spend LEVI/EVIF/ULEVTF funds",
             "constraints": {
               "unique": false
             }
