@@ -112,7 +112,7 @@ authorities.select { |a| a['local-authority-type'] == 'NMD'}.each do |authority|
   filename = "#{slug}.html"
 
   authorities.select { |b| b['local-authority-code'] == county_la_code}.each do |county_la|
-    county_la_ca =  county_la['combined authority']
+    county_la_ca =  county_la['combined-authority']
       if county_la_ca == ''
         content = england_district.gsub('{{ authority.name }}',name)
       else
