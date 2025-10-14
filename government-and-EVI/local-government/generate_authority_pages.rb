@@ -14,7 +14,7 @@ ni = File.read('_templates/ni.html')
 scotland_ca = File.read('_templates/scotland-CA.html')
 scotland_unitary_ca = File.read('_templates/scotland-unitary-CA.html')
 scotland_unitary = File.read('_templates/scotland-unitary.html')
-wales_ca = File.read('_templates/wales.html')
+wales_ca = File.read('_templates/wales-CA.html')
 wales_unitary_ca = File.read('_templates/wales-unitary-CA.html')
 wales_unitary = File.read('_templates/wales-unitary.html')
 
