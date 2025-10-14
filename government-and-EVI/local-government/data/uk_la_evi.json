@@ -33,7 +33,8 @@
     {
       "title": "NEVIS",
       "path": "https://nevis.cenex.co.uk",
-      "role": "Source of data"
+      "role": "Source of data",
+      "notes": "NEVIS – © Cenex 2025, retrieved 14 October 2025."
     },
     {
       "title": "Field Dynamics",
@@ -21187,4 +21188,5 @@
       ]
     }
   ]
+
 }
