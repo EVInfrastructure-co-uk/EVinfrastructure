@@ -13,6 +13,7 @@ england_unitary_ca = File.read('_templates/england-unitary-CA.html')
 ni = File.read('_templates/ni.html')
 scotland_ca = File.read('_templates/scotland-CA.html')
 scotland_unitary_ca = File.read('_templates/scotland-unitary-CA.html')
+scotland_unitary = File.read('_templates/scotland-unitary.html')
 wales_ca = File.read('_templates/wales.html')
 wales_unitary_ca = File.read('_templates/wales-unitary-CA.html')
 wales_unitary = File.read('_templates/wales-unitary.html')
@@ -135,13 +136,25 @@ authorities.select { |a| a['local-authority-type'] == 'NID' }.each do |authority
   puts "Generated #{filename}"
 end
 
-authorities.select { |a| a['local-authority-type'] == 'SCO' }.each do |authority|
+authorities.select { |a| a['local-authority-type'] == 'SCO' and a['combined-authority'] != '' }.each do |authority|
   name = authority['nice-name']
   slug = authority['gov-uk-slug']
 
   filename = "#{slug}.html"
 
   content = scotland_unitary_ca.gsub('{{ authority.name }}',name)
+
+  File.write(filename, content)
+  puts "Generated #{filename}"
+end
+
+authorities.select { |a| a['local-authority-type'] == 'SCO' and a['combined-authority'] == '' }.each do |authority|
+  name = authority['nice-name']
+  slug = authority['gov-uk-slug']
+
+  filename = "#{slug}.html"
+
+  content = scotland_unitary.gsub('{{ authority.name }}',name)
 
   File.write(filename, content)
   puts "Generated #{filename}"
