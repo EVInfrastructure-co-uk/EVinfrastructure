@@ -14,16 +14,16 @@
   ],
   "licenses": [
     {
-      "name": "CC-BY-4.0",
+      "name": "CC-BY-4.0 except fields NEVIS-distribution, NEVIS-distribution-rank, households-without-driveway, households-without-driveway-pct",
       "path": "https://creativecommons.org/licenses/by/4.0/",
-      "title": "Creative Commons Attribution 4.0 International License"
+      "title": "Creative Commons Attribution 4.0 International License except fields NEVIS-distribution, NEVIS-distribution-rank, households-without-driveway, households-without-driveway-pct"
     }
   ],
   "contributors": [
     {
       "title": "mySociety",
       "path": "https://mysociety.org",
-      "role": "author of template data"
+      "role": "author of template data, to which changes were made"
     },
     {
       "title": "evinfrastructure.co.uk",
@@ -46,9 +46,6 @@
     {
       "title": "UK Local Authorities (past/current)",
       "description": "Table of information about local authorities, and mapping between different ID schemes. Includes current and some past authorities.",
-      "custom": {
-        "row_count": 470
-      },
       "name": "uk_local_authorities_current",
       "profile": "tabular-data-resource",
       "format": "json",
@@ -21190,3 +21187,4 @@
   ]
 
 }
+
