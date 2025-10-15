@@ -1,4 +1,5 @@
 require 'json'
+Dir.chdir("..")
 
 # Load JSON data from authorities.json
 data = JSON.parse(File.read('data/uk_la_evi.json'))
