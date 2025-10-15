@@ -5,7 +5,7 @@ Dir.chdir("..")
 # Load JSON data from authorities.json
 data = JSON.parse(File.read('data/uk_la_evi.json'))
 authorities = data['resources'][0]['data']
-csv_file_path = 'data.csv'
+csv_file_path = 'data/data.csv'
 
 matches = 0
 not_matches = 0
