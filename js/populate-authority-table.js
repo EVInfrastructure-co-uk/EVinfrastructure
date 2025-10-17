@@ -1,7 +1,7 @@
 function populate(slug) {
     fetch('/government-and-EVI/local-government/data/uk_la_evi.json')
   .then(response => response.json())
-  .then(jsonDatadata => {
+  .then(jsonData => {
     laData = jsonData.resources[0].data;
     // match slug with an authority
     const match = laData.find(entry => entry['slug'] === slug);
