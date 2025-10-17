@@ -11,6 +11,10 @@ function populate(slug) {
     const ca = null;
 
     if (match) {
+        document.getElementById('diagnostic').textContent = "There is a match."
+    }
+
+    if (match) {
     // assign unitary, district, county or ca
         if  (["CC","LBO","NID","SCO","UA","WPA"].includes(match['local-authority-type'])) {
             unitary = match;
