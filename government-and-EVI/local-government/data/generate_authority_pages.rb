@@ -29,7 +29,8 @@ authorities.select { |a| a['local-authority-type'] == 'CC' or a['local-authority
   filename = "#{slug}.html"
 
   content = england_unitary_ca.gsub('{{ authority.name }}',name)
-
+                              .gsub('{{ authority.slug }}',slug)
+  
   File.write(filename, content)
   puts "Generated #{filename}"
 end
@@ -41,6 +42,7 @@ authorities.select { |a| a['local-authority-code'] == 'HCK'}.each do |authority|
   filename = "#{slug}.html"
 
   content = england_unitary.gsub('{{ authority.name }}',name)
+                              .gsub('{{ authority.slug }}',slug)
 
   File.write(filename, content)
   puts "Generated #{filename}"
@@ -53,6 +55,7 @@ authorities.select { |a| a['local-authority-type'] == 'COMB' and a['region'] != 
   filename = "#{slug}.html"
 
   content = england_ca.gsub('{{ authority.name }}',name)
+                              .gsub('{{ authority.slug }}',slug)
 
   File.write(filename, content)
   puts "Generated #{filename}"
@@ -65,6 +68,7 @@ authorities.select { |a| a['local-authority-type'] == 'UA' and a['combined-autho
   filename = "#{slug}.html"
 
   content = england_unitary.gsub('{{ authority.name }}',name)
+                              .gsub('{{ authority.slug }}',slug)
 
   File.write(filename, content)
   puts "Generated #{filename}"
@@ -77,6 +81,7 @@ authorities.select { |a| a['local-authority-type'] == 'UA' and a['combined-autho
   filename = "#{slug}.html"
 
   content = england_unitary_ca.gsub('{{ authority.name }}',name)
+                              .gsub('{{ authority.slug }}',slug)
 
   File.write(filename, content)
   puts "Generated #{filename}"
@@ -89,6 +94,7 @@ authorities.select { |a| a['local-authority-type'] == 'CTY' and a['combined-auth
   filename = "#{slug}.html"
 
   content = england_county.gsub('{{ authority.name }}',name)
+                              .gsub('{{ authority.slug }}',slug)
 
   File.write(filename, content)
   puts "Generated #{filename}"
@@ -101,6 +107,7 @@ authorities.select { |a| a['local-authority-type'] == 'CTY' and a['combined-auth
   filename = "#{slug}.html"
 
   content = england_county_ca.gsub('{{ authority.name }}',name)
+                              .gsub('{{ authority.slug }}',slug)
 
   File.write(filename, content)
   puts "Generated #{filename}"
@@ -116,8 +123,10 @@ authorities.select { |a| a['local-authority-type'] == 'NMD'}.each do |authority|
     county_la_ca =  county_la['combined-authority']
       if county_la_ca == ''
         content = england_district.gsub('{{ authority.name }}',name)
+                              .gsub('{{ authority.slug }}',slug)
       else
         content = england_district_ca.gsub('{{ authority.name }}',name)
+                              .gsub('{{ authority.slug }}',slug)
       end
       File.write(filename, content)
       puts "Generated #{filename}"
@@ -132,6 +141,7 @@ authorities.select { |a| a['local-authority-type'] == 'NID' }.each do |authority
   filename = "#{slug}.html"
 
   content = ni.gsub('{{ authority.name }}',name)
+                              .gsub('{{ authority.slug }}',slug)
 
   File.write(filename, content)
   puts "Generated #{filename}"
@@ -144,6 +154,7 @@ authorities.select { |a| a['local-authority-type'] == 'SCO' and a['combined-auth
   filename = "#{slug}.html"
 
   content = scotland_unitary_ca.gsub('{{ authority.name }}',name)
+                              .gsub('{{ authority.slug }}',slug)
 
   File.write(filename, content)
   puts "Generated #{filename}"
@@ -156,6 +167,7 @@ authorities.select { |a| a['local-authority-type'] == 'SCO' and a['combined-auth
   filename = "#{slug}.html"
 
   content = scotland_unitary.gsub('{{ authority.name }}',name)
+                              .gsub('{{ authority.slug }}',slug)
 
   File.write(filename, content)
   puts "Generated #{filename}"
@@ -168,6 +180,7 @@ authorities.select { |a| a['local-authority-type'] == 'COMB' and a['region'] == 
   filename = "#{slug}.html"
 
   content = scotland_ca.gsub('{{ authority.name }}',name)
+                              .gsub('{{ authority.slug }}',slug)
 
   File.write(filename, content)
   puts "Generated #{filename}"
@@ -180,6 +193,7 @@ authorities.select { |a| a['local-authority-type'] == 'COMB' and a['region'] == 
   filename = "#{slug}.html"
 
   content = wales_ca.gsub('{{ authority.name }}',name)
+                              .gsub('{{ authority.slug }}',slug)
 
   File.write(filename, content)
   puts "Generated #{filename}"
@@ -192,6 +206,7 @@ authorities.select { |a| a['local-authority-type'] == 'WPA' and a['combined-auth
   filename = "#{slug}.html"
 
   content = wales_unitary.gsub('{{ authority.name }}',name)
+                              .gsub('{{ authority.slug }}',slug)
 
   File.write(filename, content)
   puts "Generated #{filename}"
@@ -204,6 +219,7 @@ authorities.select { |a| a['local-authority-type'] == 'WPA' and a['combined-auth
   filename = "#{slug}.html"
 
   content = wales_unitary_ca.gsub('{{ authority.name }}',name)
+                              .gsub('{{ authority.slug }}',slug)
 
   File.write(filename, content)
   puts "Generated #{filename}"
