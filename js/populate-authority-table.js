@@ -20,9 +20,10 @@ function populate(slug) {
             district = match;
             const county = laData.find(entry => entry['local-authority-code'] === district['county-la']);
             const ca = laData.find(entry => entry['local-authority-code'] === county['combined-authority']);
-        else {
+        } else {
             document.getElementById('result').textContent = 'Data error';
-     }
+        }
+    }
 
     //  assign district elements
     document.getElementById('name-district').innerHTML = district['official-name'];
@@ -147,4 +148,5 @@ function populate(slug) {
     document.getElementById('LEVI-pilot-CPO(s)-unitary').innerHTML = unitary['LEVI-pilot-CPO(s)'];
     document.getElementById('ORCS-total-amount-unitary').innerHTML = unitary['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('ORCS-total-charging-devices-unitary').innerHTML = unitary['ORCS-total-charging-devices'].toLocaleString("en-GB");
+    }
 };
