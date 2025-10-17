@@ -5,6 +5,10 @@ function populate(slug) {
     laData = jsonData.resources[0].data;
     // match slug with an authority
     const match = laData.find(entry => entry['slug'] === slug);
+    const district = null;
+    const unitary = null;
+    const county = null;
+    const ca = null;
 
     if (match) {
     // assign unitary, district, county or ca
