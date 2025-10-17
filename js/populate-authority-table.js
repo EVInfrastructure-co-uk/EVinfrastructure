@@ -25,6 +25,7 @@ function populate(slug) {
         }
     }
 
+    if (district) {
     //  assign district elements
     document.getElementById('name-district').innerHTML = district['official-name'];
     // needs work document.getElementById('sub-authorities-district').innerHTML = district['sub-authorities'];
@@ -55,7 +56,9 @@ function populate(slug) {
     document.getElementById('LEVI-pilot-CPO(s)-district').innerHTML = district['LEVI-pilot-CPO(s)'];
     document.getElementById('ORCS-total-amount-district').innerHTML = district['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('ORCS-total-charging-devices-district').innerHTML = district['ORCS-total-charging-devices'].toLocaleString("en-GB");
+    }
 
+    if (county) {
     //  assign county elements
     document.getElementById('name-county').innerHTML = county['official-name'];
     // needs work document.getElementById('sub-authorities-county').innerHTML = county['sub-authorities'];
@@ -86,7 +89,9 @@ function populate(slug) {
     document.getElementById('LEVI-pilot-CPO(s)-county').innerHTML = county['LEVI-pilot-CPO(s)'];
     document.getElementById('ORCS-total-amount-county').innerHTML = county['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('ORCS-total-charging-devices-county').innerHTML = county['ORCS-total-charging-devices'].toLocaleString("en-GB");
+    }
 
+    if (ca) {
     //  assign ca elements
     document.getElementById('name-CA').innerHTML = ca['official-name'];
     // needs work document.getElementById('sub-authorities-CA').innerHTML = ca['sub-authorities'];
@@ -117,7 +122,9 @@ function populate(slug) {
     document.getElementById('LEVI-pilot-CPO(s)-CA').innerHTML = ca['LEVI-pilot-CPO(s)'];
     document.getElementById('ORCS-total-amount-CA').innerHTML = ca['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('ORCS-total-charging-devices-CA').innerHTML = ca['ORCS-total-charging-devices'].toLocaleString("en-GB");
+    }
 
+    if (unitary) {
     //  assign unitary elements
     document.getElementById('name-unitary').innerHTML = unitary['official-name'];
     // needs work document.getElementById('sub-authorities-unitary').innerHTML = unitary['sub-authorities'];
@@ -148,5 +155,6 @@ function populate(slug) {
     document.getElementById('LEVI-pilot-CPO(s)-unitary').innerHTML = unitary['LEVI-pilot-CPO(s)'];
     document.getElementById('ORCS-total-amount-unitary').innerHTML = unitary['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('ORCS-total-charging-devices-unitary').innerHTML = unitary['ORCS-total-charging-devices'].toLocaleString("en-GB");
-    })
+    }
+})
 };
