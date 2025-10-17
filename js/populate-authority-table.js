@@ -16,13 +16,13 @@ function populate(slug) {
             unitary = match;
             ca = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority']);
             if (ca) {
-                document.getElementById('name-ca').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">ca['official-name']</a>`;
+                document.getElementById('name-CA').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">ca['official-name']</a>`;
             }
         } else if (["CTY"].includes(match['local-authority-type'])) {
             county = match;
             ca = laData.find(entry => entry['local-authority-code'] === county['combined-authority']);
             if (ca) {
-                document.getElementById('name-ca').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">ca['official-name']</a>`;
+                document.getElementById('name-CA').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">ca['official-name']</a>`;
             }
         } else if (["COMB"].includes(match['local-authority-type'])) {
             ca = match;
@@ -32,7 +32,7 @@ function populate(slug) {
             ca = laData.find(entry => entry['local-authority-code'] === county['combined-authority']);
             document.getElementById('name-county').innerHTML = `<a href="/government-and-EVI/local-government/${county['gov-uk-slug']}">county['official-name']</a>`;
             if (ca) {
-                document.getElementById('name-ca').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">ca['official-name']</a>`;
+                document.getElementById('name-CA').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">ca['official-name']</a>`;
             }
         } else {
             document.getElementById('result').textContent = 'Data error';
