@@ -69,8 +69,8 @@ function populate(slug) {
         var county_sub_authorities = null;
         laData.filter(entry => entry['county-la'] === county['local-authority-code']).forEach(element => {
             if (county_sub_authorities) {
-                county_sub_authorities = `<a href="/government-and-EVI/local-authorities/${element['gov-uk-slug']}">${element[nice-name]}</a>`;
-            } else county_sub_authorities = county_sub_authorities + `, <a href="/government-and-EVI/local-authorities/${element['gov-uk-slug']}">${element[nice-name]}</a>`;
+                county_sub_authorities = `<a href="/government-and-EVI/local-authorities/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
+            } else county_sub_authorities = county_sub_authorities + `, <a href="/government-and-EVI/local-authorities/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
         });
         document.getElementById('sub-authorities-county').innerHTML = county_sub_authorities;
         document.getElementById('current-administration-county').innerHTML = county['current-administration'];
@@ -121,8 +121,8 @@ function populate(slug) {
         var ca_sub_authorities
         laData.filter(entry => entry['combined-authority'] === ca['local-authority-code']).forEach(element => {
             if (ca_sub_authorities) {
-                ca_sub_authorities = `<a href="/government-and-EVI/local-authorities/${element['gov-uk-slug']}">${element[nice-name]}</a>`;
-            } else ca_sub_authorities = ca_sub_authorities + `, <a href="/government-and-EVI/local-authorities/${element['gov-uk-slug']}">${element[nice-name]}</a>`;
+                ca_sub_authorities = `<a href="/government-and-EVI/local-authorities/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
+            } else ca_sub_authorities = ca_sub_authorities + `, <a href="/government-and-EVI/local-authorities/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
         });
         document.getElementById('sub-authorities-CA').innerHTML = ca_sub_authorities;
         document.getElementById('current-administration-CA').innerHTML = ca['current-administration'];
