@@ -45,13 +45,15 @@ function populate(slug) {
     document.getElementById('administration-since-district').innerHTML = district['administration-since'];
     document.getElementById('households-without-driveway-district').innerHTML = district['households-without-driveway'].toLocaleString("en-GB");
     document.getElementById('households-without-driveway-pct-district').innerHTML = `${district['households-without-driveway-pct']}%`;
-    document.getElementById('NEVIS-distribution-district').innerHTML = `${district['NEVIS-distribution']}%`;
+    document.getElementById('NEVIS-distribution-district').innerHTML = `${district['NEVIS-distribution'].toLocaleString("en-GB", {maximumFractionDigits:"0"})}%`;
     document.getElementById('NEVIS-distribution-rank-district').innerHTML = `${district['NEVIS-distribution-rank']}/350`;
     document.getElementById('EVI-link-district').innerHTML = `<a href=${district['EVI-link']}>${district['EVI-link']}</a>`;
     document.getElementById('EVI-email-district').innerHTML = `<a href=mailto:${district['EVI-email']}>${district['EVI-email']}</a>`;
     document.getElementById('EVI-portfolio-holder-district').innerHTML = district['EVI-portfolio-holder'];
     document.getElementById('channel-status-district').innerHTML = district['channel-status'];
-    document.getElementById('channel-link-district').innerHTML = `<a href=${district['channel-link']}>${district['channel-link']}</a>`;
+    if (district['channel-link']) {
+        document.getElementById('channel-link-district').innerHTML = `<a href=${district['channel-link']}>${district['channel-link']}</a>`;
+    }
     document.getElementById('channel-grant-amount-district').innerHTML = district['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP"});
     document.getElementById('channel-application-fee-district').innerHTML = district['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP"});
     document.getElementById('channel-installation-fee-district').innerHTML = district['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP"});
@@ -78,7 +80,7 @@ function populate(slug) {
     document.getElementById('administration-since-county').innerHTML = county['administration-since'];
     document.getElementById('households-without-driveway-county').innerHTML = county['households-without-driveway'].toLocaleString("en-GB");
     document.getElementById('households-without-driveway-pct-county').innerHTML = `${county['households-without-driveway-pct']}%`;
-    document.getElementById('NEVIS-distribution-county').innerHTML = `${county['NEVIS-distribution']}%`;
+    document.getElementById('NEVIS-distribution-county').innerHTML = `${county['NEVIS-distribution'].toLocaleString("en-GB", {maximumFractionDigits:"0"})}%`;
     document.getElementById('NEVIS-distribution-rank-county').innerHTML = `${county['NEVIS-distribution-rank']}/350`;
     document.getElementById('EVI-link-county').innerHTML = `<a href=${county['EVI-link']}>${county['EVI-link']}</a>`;
     document.getElementById('EVI-email-county').innerHTML = `<a href=mailto:${county['EVI-email']}>${county['EVI-email']}</a>`;
@@ -111,7 +113,7 @@ function populate(slug) {
     document.getElementById('administration-since-CA').innerHTML = ca['administration-since'];
     document.getElementById('households-without-driveway-CA').innerHTML = ca['households-without-driveway'].toLocaleString("en-GB");
     document.getElementById('households-without-driveway-pct-CA').innerHTML = `${ca['households-without-driveway-pct']}%`;
-    document.getElementById('NEVIS-distribution-CA').innerHTML = `${ca['NEVIS-distribution']}%`;
+    document.getElementById('NEVIS-distribution-CA').innerHTML = `${ca['NEVIS-distribution'].toLocaleString("en-GB", {maximumFractionDigits:"0"})}%`;
     document.getElementById('NEVIS-distribution-rank-CA').innerHTML = `${ca['NEVIS-distribution-rank']}/350`;
     document.getElementById('EVI-link-CA').innerHTML = `<a href=${ca['EVI-link']}>${ca['EVI-link']}</a>`;
     document.getElementById('EVI-email-CA').innerHTML = `<a href=mailto:${ca['EVI-email']}>${ca['EVI-email']}</a>`;
@@ -144,7 +146,7 @@ function populate(slug) {
     document.getElementById('administration-since-unitary').innerHTML = unitary['administration-since'];
     document.getElementById('households-without-driveway-unitary').innerHTML = unitary['households-without-driveway'].toLocaleString("en-GB");
     document.getElementById('households-without-driveway-pct-unitary').innerHTML = `${unitary['households-without-driveway-pct']}%`;
-    document.getElementById('NEVIS-distribution-unitary').innerHTML = `${unitary['NEVIS-distribution']}%`;
+    document.getElementById('NEVIS-distribution-unitary').innerHTML = `${unitary['NEVIS-distribution'].toLocaleString("en-GB", {maximumFractionDigits:"0"})}%`;
     document.getElementById('NEVIS-distribution-rank-unitary').innerHTML = `${unitary['NEVIS-distribution-rank']}/350`;
     document.getElementById('EVI-link-unitary').innerHTML = `<a href=${unitary['EVI-link']}>${unitary['EVI-link']}</a>`;
     document.getElementById('EVI-email-unitary').innerHTML = `<a href=mailto:${unitary['EVI-email']}>${unitary['EVI-email']}</a>`;
