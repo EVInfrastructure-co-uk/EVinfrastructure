@@ -54,20 +54,20 @@ function populate(slug) {
     if (district['channel-link']) {
         document.getElementById('channel-link-district').innerHTML = `<a href=${district['channel-link']}>${district['channel-link']}</a>`;
     }
-    document.getElementById('channel-grant-amount-district').innerHTML = district['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
-    document.getElementById('channel-application-fee-district').innerHTML = district['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
-    document.getElementById('channel-installation-fee-district').innerHTML = district['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
-    document.getElementById('channel-annual-fee-district').innerHTML = district['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
+    document.getElementById('channel-grant-amount-district').innerHTML = district['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+    document.getElementById('channel-application-fee-district').innerHTML = district['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+    document.getElementById('channel-installation-fee-district').innerHTML = district['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+    document.getElementById('channel-annual-fee-district').innerHTML = district['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('channel-manufacturer-district').innerHTML = district['channel-manufacturer'];
-    document.getElementById('LEVI-capital-amount-district').innerHTML = district['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
+    document.getElementById('LEVI-capital-amount-district').innerHTML = district['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('LEVI-tender-stage-district').innerHTML = district['LEVI-tender-stage'];
     document.getElementById('LEVI-tender-link-district').innerHTML = district['LEVI-tender-link'];
     document.getElementById('LEVI-tender-open-date-district').innerHTML = district['LEVI-tender-open-date'];
     document.getElementById('LEVI-tender-close-date-district').innerHTML = district['LEVI-tender-close-date'];
     document.getElementById('LEVI-CPO(s)-district').innerHTML = district['LEVI-CPO(s)'];
-    document.getElementById('LEVI-pilot-capital-amount-district').innerHTML = district['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
+    document.getElementById('LEVI-pilot-capital-amount-district').innerHTML = district['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('LEVI-pilot-CPO(s)-district').innerHTML = district['LEVI-pilot-CPO(s)'];
-    document.getElementById('ORCS-total-amount-district').innerHTML = district['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}, maximumFractionDigits:"0"});
+    document.getElementById('ORCS-total-amount-district').innerHTML = district['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('ORCS-total-charging-devices-district').innerHTML = district['ORCS-total-charging-devices'].toLocaleString("en-GB");
     }
 
@@ -89,20 +89,20 @@ function populate(slug) {
     if (county['channel-link']) {
             document.getElementById('channel-link-county').innerHTML = `<a href=${county['channel-link']}>${county['channel-link']}</a>`;
     }
-    document.getElementById('channel-grant-amount-county').innerHTML = county['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
-    document.getElementById('channel-application-fee-county').innerHTML = county['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
-    document.getElementById('channel-installation-fee-county').innerHTML = county['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
-    document.getElementById('channel-annual-fee-county').innerHTML = county['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
+    document.getElementById('channel-grant-amount-county').innerHTML = county['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+    document.getElementById('channel-application-fee-county').innerHTML = county['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+    document.getElementById('channel-installation-fee-county').innerHTML = county['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+    document.getElementById('channel-annual-fee-county').innerHTML = county['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('channel-manufacturer-county').innerHTML = county['channel-manufacturer'];
-    document.getElementById('LEVI-capital-amount-county').innerHTML = county['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
+    document.getElementById('LEVI-capital-amount-county').innerHTML = county['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('LEVI-tender-stage-county').innerHTML = county['LEVI-tender-stage'];
     document.getElementById('LEVI-tender-link-county').innerHTML = county['LEVI-tender-link'];
     document.getElementById('LEVI-tender-open-date-county').innerHTML = county['LEVI-tender-open-date'];
     document.getElementById('LEVI-tender-close-date-county').innerHTML = county['LEVI-tender-close-date'];
     document.getElementById('LEVI-CPO(s)-county').innerHTML = county['LEVI-CPO(s)'];
-    document.getElementById('LEVI-pilot-capital-amount-county').innerHTML = county['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
+    document.getElementById('LEVI-pilot-capital-amount-county').innerHTML = county['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('LEVI-pilot-CPO(s)-county').innerHTML = county['LEVI-pilot-CPO(s)'];
-    document.getElementById('ORCS-total-amount-county').innerHTML = county['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}, maximumFractionDigits:"0"});
+    document.getElementById('ORCS-total-amount-county').innerHTML = county['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('ORCS-total-charging-devices-county').innerHTML = county['ORCS-total-charging-devices'].toLocaleString("en-GB");
     }
 
@@ -124,20 +124,20 @@ function populate(slug) {
     if (ca['channel-link']) {
         document.getElementById('channel-link-CA').innerHTML = `<a href=${ca['channel-link']}>${ca['channel-link']}</a>`;
     }
-    document.getElementById('channel-grant-amount-CA').innerHTML = ca['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
-    document.getElementById('channel-application-fee-CA').innerHTML = ca['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
-    document.getElementById('channel-installation-fee-CA').innerHTML = ca['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
-    document.getElementById('channel-annual-fee-CA').innerHTML = ca['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
+    document.getElementById('channel-grant-amount-CA').innerHTML = ca['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+    document.getElementById('channel-application-fee-CA').innerHTML = ca['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+    document.getElementById('channel-installation-fee-CA').innerHTML = ca['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+    document.getElementById('channel-annual-fee-CA').innerHTML = ca['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('channel-manufacturer-CA').innerHTML = ca['channel-manufacturer'];
-    document.getElementById('LEVI-capital-amount-CA').innerHTML = ca['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
+    document.getElementById('LEVI-capital-amount-CA').innerHTML = ca['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('LEVI-tender-stage-CA').innerHTML = ca['LEVI-tender-stage'];
     document.getElementById('LEVI-tender-link-CA').innerHTML = ca['LEVI-tender-link'];
     document.getElementById('LEVI-tender-open-date-CA').innerHTML = ca['LEVI-tender-open-date'];
     document.getElementById('LEVI-tender-close-date-CA').innerHTML = ca['LEVI-tender-close-date'];
     document.getElementById('LEVI-CPO(s)-CA').innerHTML = ca['LEVI-CPO(s)'];
-    document.getElementById('LEVI-pilot-capital-amount-CA').innerHTML = ca['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
+    document.getElementById('LEVI-pilot-capital-amount-CA').innerHTML = ca['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('LEVI-pilot-CPO(s)-CA').innerHTML = ca['LEVI-pilot-CPO(s)'];
-    document.getElementById('ORCS-total-amount-CA').innerHTML = ca['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}, maximumFractionDigits:"0"});
+    document.getElementById('ORCS-total-amount-CA').innerHTML = ca['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('ORCS-total-charging-devices-CA').innerHTML = ca['ORCS-total-charging-devices'].toLocaleString("en-GB");
     }
 
@@ -159,20 +159,20 @@ function populate(slug) {
     if (unitary['channel-link']) {
         document.getElementById('channel-link-unitary').innerHTML = `<a href=${unitary['channel-link']}>${unitary['channel-link']}</a>`;
     }
-    document.getElementById('channel-grant-amount-unitary').innerHTML = unitary['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
-    document.getElementById('channel-application-fee-unitary').innerHTML = unitary['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
-    document.getElementById('channel-installation-fee-unitary').innerHTML = unitary['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
-    document.getElementById('channel-annual-fee-unitary').innerHTML = unitary['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
+    document.getElementById('channel-grant-amount-unitary').innerHTML = unitary['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+    document.getElementById('channel-application-fee-unitary').innerHTML = unitary['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+    document.getElementById('channel-installation-fee-unitary').innerHTML = unitary['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+    document.getElementById('channel-annual-fee-unitary').innerHTML = unitary['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('channel-manufacturer-unitary').innerHTML = unitary['channel-manufacturer'];
-    document.getElementById('LEVI-capital-amount-unitary').innerHTML = unitary['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
+    document.getElementById('LEVI-capital-amount-unitary').innerHTML = unitary['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('LEVI-tender-stage-unitary').innerHTML = unitary['LEVI-tender-stage'];
     document.getElementById('LEVI-tender-link-unitary').innerHTML = unitary['LEVI-tender-link'];
     document.getElementById('LEVI-tender-open-date-unitary').innerHTML = unitary['LEVI-tender-open-date'];
     document.getElementById('LEVI-tender-close-date-unitary').innerHTML = unitary['LEVI-tender-close-date'];
     document.getElementById('LEVI-CPO(s)-unitary').innerHTML = unitary['LEVI-CPO(s)'];
-    document.getElementById('LEVI-pilot-capital-amount-unitary').innerHTML = unitary['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}});
+    document.getElementById('LEVI-pilot-capital-amount-unitary').innerHTML = unitary['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('LEVI-pilot-CPO(s)-unitary').innerHTML = unitary['LEVI-pilot-CPO(s)'];
-    document.getElementById('ORCS-total-amount-unitary').innerHTML = unitary['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"}, maximumFractionDigits:"0"});
+    document.getElementById('ORCS-total-amount-unitary').innerHTML = unitary['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
     document.getElementById('ORCS-total-charging-devices-unitary').innerHTML = unitary['ORCS-total-charging-devices'].toLocaleString("en-GB");
     }
 })
