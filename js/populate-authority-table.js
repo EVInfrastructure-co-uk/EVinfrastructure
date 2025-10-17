@@ -11,15 +11,8 @@ function populate(slug) {
     var ca = null;
 
     if (match) {
-        document.getElementById('diagnostic').textContent = "There is a match."
-    } else {
-        document.getElementById('diagnostic').textContent = slug;
-    }
-
-    if (match) {
     // assign unitary, district, county or ca
         if  (["CC","LBO","NID","SCO","UA","WPA"].includes(match['local-authority-type'])) {
-            document.getElementById('diagnostic').textContent = "Match is unitary."
             unitary = match;
             ca = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority']);
             if (ca) {
