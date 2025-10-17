@@ -42,7 +42,7 @@ function lookupAndDisplay(postcode) {
                             }
                       })
                 .catch(() => {
-                      document.getElementById('result').textContect = 'Error loading local authority data.';
+                      document.getElementById('result').textContent = 'Error loading local authority data.';
                 });
           } else {
             document.getElementById('result').textContent = 'Postcode not found.';
