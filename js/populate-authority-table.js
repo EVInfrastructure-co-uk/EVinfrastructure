@@ -4,7 +4,7 @@ function populate(slug) {
   .then(jsonData => {
     laData = jsonData.resources[0].data;
     // match slug with an authority
-    const match = laData.find(entry => entry['slug'] === slug);
+    const match = laData.find(entry => entry['gov-uk-slug'] === slug);
     const district = null;
     const unitary = null;
     const county = null;
@@ -12,6 +12,8 @@ function populate(slug) {
 
     if (match) {
         document.getElementById('diagnostic').textContent = "There is a match."
+    } else {
+        document.getElementById('diagnostic').textContent = slug;
     }
 
     if (match) {
