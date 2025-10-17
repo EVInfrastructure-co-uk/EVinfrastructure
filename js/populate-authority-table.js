@@ -64,7 +64,6 @@ function populate(slug) {
 
     if (county) {
         //  assign county elements
-        document.getElementById('name-county').innerHTML = county['official-name'];
         // sub-authorities
         var county_sub_authorities = null;
         laData.filter(entry => entry['county-la'] === county['local-authority-code']).forEach(element => {
@@ -116,7 +115,6 @@ function populate(slug) {
 
     if (ca) {
         //  assign ca elements
-        document.getElementById('name-CA').innerHTML = ca['official-name'];
         // find sub authorities
         var ca_sub_authorities = null;
         laData.filter(entry => entry['combined-authority'] === ca['local-authority-code']).forEach(element => {
