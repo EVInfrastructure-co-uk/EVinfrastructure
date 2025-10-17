@@ -5,10 +5,10 @@ function populate(slug) {
     laData = jsonData.resources[0].data;
     // match slug with an authority
     const match = laData.find(entry => entry['gov-uk-slug'] === slug);
-    const district = null;
-    const unitary = null;
-    const county = null;
-    const ca = null;
+    var district = null;
+    var unitary = null;
+    var county = null;
+    var ca = null;
 
     if (match) {
         document.getElementById('diagnostic').textContent = "There is a match."
@@ -21,16 +21,16 @@ function populate(slug) {
         if  (["CC","LBO","NID","SCO","UA","WPA"].includes(match['local-authority-type'])) {
             document.getElementById('diagnostic').textContent = "Match is unitary."
             unitary = match;
-            const ca = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority']);
+            ca = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority']);
         } else if (["CTY"].includes(match['local-authority-type'])) {
             county = match;
-            const ca = laData.find(entry => entry['local-authority-code'] === county['combined-authority']);
+            ca = laData.find(entry => entry['local-authority-code'] === county['combined-authority']);
         } else if (["COMB"].includes(match['local-authority-type'])) {
             ca = match;
         } else if (["NMD"].includes(match['local-authority-type'])) {
             district = match;
-            const county = laData.find(entry => entry['local-authority-code'] === district['county-la']);
-            const ca = laData.find(entry => entry['local-authority-code'] === county['combined-authority']);
+            county = laData.find(entry => entry['local-authority-code'] === district['county-la']);
+            ca = laData.find(entry => entry['local-authority-code'] === county['combined-authority']);
         } else {
             document.getElementById('result').textContent = 'Data error';
         }
