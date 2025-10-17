@@ -16,13 +16,13 @@ function populate(slug) {
             unitary = match;
             ca = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority']);
             if (ca) {
-                document.getElementById('name-ca').innerHTML = `<a href="/government-and-EVI/local-government/${ca[gov-uk-slug]}">ca['official-name']</a>`;
+                document.getElementById('name-ca').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">ca['official-name']</a>`;
             }
         } else if (["CTY"].includes(match['local-authority-type'])) {
             county = match;
             ca = laData.find(entry => entry['local-authority-code'] === county['combined-authority']);
             if (ca) {
-                document.getElementById('name-ca').innerHTML = `<a href="/government-and-EVI/local-government/${ca[gov-uk-slug]}">ca['official-name']</a>`;
+                document.getElementById('name-ca').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">ca['official-name']</a>`;
             }
         } else if (["COMB"].includes(match['local-authority-type'])) {
             ca = match;
@@ -30,9 +30,9 @@ function populate(slug) {
             district = match;
             county = laData.find(entry => entry['local-authority-code'] === district['county-la']);
             ca = laData.find(entry => entry['local-authority-code'] === county['combined-authority']);
-            document.getElementById('name-county').innerHTML = `<a href="/government-and-EVI/local-government/${county[gov-uk-slug]}">county['official-name']</a>`;
+            document.getElementById('name-county').innerHTML = `<a href="/government-and-EVI/local-government/${county['gov-uk-slug']}">county['official-name']</a>`;
             if (ca) {
-                document.getElementById('name-ca').innerHTML = `<a href="/government-and-EVI/local-government/${ca[gov-uk-slug]}">ca['official-name']</a>`;
+                document.getElementById('name-ca').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">ca['official-name']</a>`;
             }
         } else {
             document.getElementById('result').textContent = 'Data error';
@@ -69,8 +69,8 @@ function populate(slug) {
         var county_sub_authorities = null;
         laData.filter(entry => entry['county-la'] === county['local-authority-code']).forEach(element => {
             if (county_sub_authorities) {
-                county_sub_authorities = `<a href="/government-and-EVI/local-authorities/${element[gov-uk-slug]}">${element[nice-name]}</a>`;
-            } else county_sub_authorities = county_sub_authorities + `, <a href="/government-and-EVI/local-authorities/${element[gov-uk-slug]}">${element[nice-name]}</a>`;
+                county_sub_authorities = `<a href="/government-and-EVI/local-authorities/${element['gov-uk-slug']}">${element[nice-name]}</a>`;
+            } else county_sub_authorities = county_sub_authorities + `, <a href="/government-and-EVI/local-authorities/${element['gov-uk-slug']}">${element[nice-name]}</a>`;
         });
         document.getElementById('sub-authorities-county').innerHTML = county_sub_authorities;
         document.getElementById('current-administration-county').innerHTML = county['current-administration'];
@@ -121,8 +121,8 @@ function populate(slug) {
         var ca_sub_authorities
         laData.filter(entry => entry['combined-authority'] === ca['local-authority-code']).forEach(element => {
             if (ca_sub_authorities) {
-                ca_sub_authorities = `<a href="/government-and-EVI/local-authorities/${element[gov-uk-slug]}">${element[nice-name]}</a>`;
-            } else ca_sub_authorities = ca_sub_authorities + `, <a href="/government-and-EVI/local-authorities/${element[gov-uk-slug]}">${element[nice-name]}</a>`;
+                ca_sub_authorities = `<a href="/government-and-EVI/local-authorities/${element['gov-uk-slug']}">${element[nice-name]}</a>`;
+            } else ca_sub_authorities = ca_sub_authorities + `, <a href="/government-and-EVI/local-authorities/${element['gov-uk-slug']}">${element[nice-name]}</a>`;
         });
         document.getElementById('sub-authorities-CA').innerHTML = ca_sub_authorities;
         document.getElementById('current-administration-CA').innerHTML = ca['current-administration'];
