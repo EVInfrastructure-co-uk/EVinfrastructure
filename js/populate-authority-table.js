@@ -271,8 +271,10 @@ function populate(slug) {
         document.getElementById('sub-authorities-CA2').innerHTML = ca2_sub_authorities;
         document.getElementById('current-administration-CA2').innerHTML = ca2['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-CA2').color = ca2['current-administration'];
-        document.getElementById('households-without-driveway-CA2').innerHTML = ca2['households-without-driveway'].toLocaleString("en-GB");
-        document.getElementById('households-without-driveway-pct-CA2').innerHTML = `${ca2['households-without-driveway-pct']}%`;
+        if (ca2['households-without-driveway']) {
+            document.getElementById('households-without-driveway-CA2').innerHTML = ca2['households-without-driveway'].toLocaleString("en-GB");
+            document.getElementById('households-without-driveway-pct-CA2').innerHTML = `${ca2['households-without-driveway-pct']}%`;
+        }
         if (ca2['EVI-link']) {
             document.getElementById('EVI-link-CA2').innerHTML = `<a href=${ca2['EVI-link']}>${ca2['EVI-link']}</a>`;
         }
@@ -320,8 +322,10 @@ function populate(slug) {
         document.getElementById('sub-authorities-CA3').innerHTML = ca3_sub_authorities;
         document.getElementById('current-administration-CA3').innerHTML = ca3['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-CA3').color = ca3['current-administration'];
-        document.getElementById('households-without-driveway-CA3').innerHTML = ca3['households-without-driveway'].toLocaleString("en-GB");
-        document.getElementById('households-without-driveway-pct-CA3').innerHTML = `${ca3['households-without-driveway-pct']}%`;
+        if (ca3['households-without-driveway']) {
+            document.getElementById('households-without-driveway-CA3').innerHTML = ca3['households-without-driveway'].toLocaleString("en-GB");
+            document.getElementById('households-without-driveway-pct-CA3').innerHTML = `${ca3['households-without-driveway-pct']}%`;
+        }
         if (ca3['EVI-link']) {
             document.getElementById('EVI-link-CA3').innerHTML = `<a href=${ca3['EVI-link']}>${ca3['EVI-link']}</a>`;
         }
