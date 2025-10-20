@@ -99,7 +99,6 @@ function populate(slug) {
         document.getElementById('name-district').innerHTML = district['official-name'];
         document.getElementById('current-administration-district').innerHTML = district['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-district').color = district['current-administration'];
-        document.getElementById('administration-since-district').innerHTML = district['administration-since'];
         document.getElementById('households-without-driveway-district').innerHTML = district['households-without-driveway'].toLocaleString("en-GB");
         document.getElementById('households-without-driveway-pct-district').innerHTML = `${district['households-without-driveway-pct']}%`;
         document.getElementById('NEVIS-distribution-district').innerHTML = `${Math.round(district['NEVIS-distribution'])}%`;
@@ -128,7 +127,6 @@ function populate(slug) {
         document.getElementById('sub-authorities-county').innerHTML = county_sub_authorities;
         document.getElementById('current-administration-county').innerHTML = county['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-county').color = county['current-administration'];
-        document.getElementById('administration-since-county').innerHTML = county['administration-since'];
         document.getElementById('households-without-driveway-county').innerHTML = county['households-without-driveway'].toLocaleString("en-GB");
         document.getElementById('households-without-driveway-pct-county').innerHTML = `${county['households-without-driveway-pct']}%`;
         if (county['EVI-link']) {
@@ -173,7 +171,6 @@ function populate(slug) {
         // needs work document.getElementById('sub-authorities-unitary').innerHTML = unitary['sub-authorities'];
         document.getElementById('current-administration-unitary').innerHTML = unitary['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-unitary').color = unitary['current-administration'];
-        document.getElementById('administration-since-unitary').innerHTML = unitary['administration-since'];
         document.getElementById('households-without-driveway-unitary').innerHTML = unitary['households-without-driveway'].toLocaleString("en-GB");
         document.getElementById('households-without-driveway-pct-unitary').innerHTML = `${unitary['households-without-driveway-pct']}%`;
         document.getElementById('NEVIS-distribution-unitary').innerHTML = `${Math.round(unitary['NEVIS-distribution'])}%`;
@@ -225,7 +222,6 @@ function populate(slug) {
         document.getElementById('sub-authorities-CA').innerHTML = ca_sub_authorities;
         document.getElementById('current-administration-CA').innerHTML = ca['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-CA').color = ca['current-administration'];
-        document.getElementById('administration-since-CA').innerHTML = ca['administration-since'];
         document.getElementById('households-without-driveway-CA').innerHTML = ca['households-without-driveway'].toLocaleString("en-GB");
         document.getElementById('households-without-driveway-pct-CA').innerHTML = `${ca['households-without-driveway-pct']}%`;
         if (ca['EVI-link']) {
@@ -275,7 +271,6 @@ function populate(slug) {
         document.getElementById('sub-authorities-CA2').innerHTML = ca2_sub_authorities;
         document.getElementById('current-administration-CA2').innerHTML = ca2['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-CA2').color = ca2['current-administration'];
-        document.getElementById('administration-since-CA2').innerHTML = ca2['administration-since'];
         document.getElementById('households-without-driveway-CA2').innerHTML = ca2['households-without-driveway'].toLocaleString("en-GB");
         document.getElementById('households-without-driveway-pct-CA2').innerHTML = `${ca2['households-without-driveway-pct']}%`;
         if (ca2['EVI-link']) {
@@ -325,7 +320,6 @@ function populate(slug) {
         document.getElementById('sub-authorities-CA3').innerHTML = ca3_sub_authorities;
         document.getElementById('current-administration-CA3').innerHTML = ca3['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-CA3').color = ca3['current-administration'];
-        document.getElementById('administration-since-CA3').innerHTML = ca3['administration-since'];
         document.getElementById('households-without-driveway-CA3').innerHTML = ca3['households-without-driveway'].toLocaleString("en-GB");
         document.getElementById('households-without-driveway-pct-CA3').innerHTML = `${ca3['households-without-driveway-pct']}%`;
         if (ca3['EVI-link']) {
