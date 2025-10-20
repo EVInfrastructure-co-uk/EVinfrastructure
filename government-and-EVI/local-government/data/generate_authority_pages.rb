@@ -45,16 +45,16 @@ authorities.select { |a| a['local-authority-type'] == 'CC' or a['local-authority
 
   filename = "#{slug}.html"
 
-  if authority['combined-authority-2'].blank? {
+  if authority['combined-authority-2'].blank?
     content = england_unitary_ca.gsub('{{ authority.name }}',name)
                                 .gsub('{{ authority.slug }}',slug)
-  } elsif authority['combined-authority-3'].blank? {
+  elsif authority['combined-authority-3'].blank?
     content = england_unitary_2ca.gsub('{{ authority.name }}',name)
                                 .gsub('{{ authority.slug }}',slug)
-  } else {
+  else
     content = england_unitary_3ca.gsub('{{ authority.name }}',name)
                                 .gsub('{{ authority.slug }}',slug)
-  }
+  end
   File.write(filename, content)    
   puts "Generated #{filename}"
 end
