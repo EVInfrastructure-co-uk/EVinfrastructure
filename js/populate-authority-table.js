@@ -31,7 +31,7 @@ function populate(slug) {
                 document.getElementById('combined-authority-3-type').innerHTML = ca3['combined-authority-type'];
                 var ca3_sub_authorities = `<strong>${unitary['nice-name']}</strong>`;
             }
-            var county_sub_authorities = null;
+            var county_sub_authorities = "";
         } else if (["CTY"].includes(match['local-authority-type'])) {
             county = match;
             ca = laData.find(entry => entry['local-authority-code'] === county['combined-authority']);
@@ -53,7 +53,7 @@ function populate(slug) {
                 var ca3_sub_authorities = `<strong>${county['nice-name']}</strong>`;
             }
         } else if (["COMB"].includes(match['local-authority-type'])) {
-            var ca_sub_authorities = null;
+            var ca_sub_authorities = "";
             ca = match;
             document.getElementById('name-CA').innerHTML = ca['official-name'];
             if (ca['combined-authority-type']) {
@@ -120,7 +120,7 @@ function populate(slug) {
         //  assign county elements
         // sub-authorities
         laData.filter(entry => entry['county-la'] === county['local-authority-code'] && entry !== match).forEach(element => {
-            if (county_sub_authorities == null) {
+            if (county_sub_authorities == "") {
                 county_sub_authorities = `<a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
             } else county_sub_authorities = county_sub_authorities + `, <a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
         });
@@ -215,7 +215,7 @@ function populate(slug) {
         //  assign ca elements
         // find sub authorities
         laData.filter(entry => entry['combined-authority'] === ca['local-authority-code'] && entry !== match).forEach(element => {
-            if (ca_sub_authorities == null) {
+            if (ca_sub_authorities == "") {
                 ca_sub_authorities = `<a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
             } else ca_sub_authorities = ca_sub_authorities + `, <a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
         });
@@ -235,7 +235,7 @@ function populate(slug) {
             document.getElementById('channel-grant-amount-CA').innerHTML = ca['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('channel-status-CA').innerHTML = ca['channel-status'];       
         }
-        if (ca['channel-status'] != "not-permitted" && ca['channel-grant-amount']) {
+        if ((ca['channel-status']) && ca['channel-status'] != "not-permitted" && (ca['channel-grant-amount'])) {
             document.getElementById('channel-link-CA').innerHTML = `<a href=${ca['channel-link']}>${ca['channel-link']}</a>`;
             document.getElementById('channel-application-fee-CA').innerHTML = ca['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('channel-installation-fee-CA').innerHTML = ca['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
@@ -264,7 +264,7 @@ function populate(slug) {
         //  assign ca2 elements
         // find sub authorities
         laData.filter(entry => entry['combined-authority'] === ca2['local-authority-code'] && entry !== match).forEach(element => {
-            if (ca2_sub_authorities == null) {
+            if (ca2_sub_authorities == "") {
                 ca2_sub_authorities = `<a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
             } else ca2_sub_authorities = ca2_sub_authorities + `, <a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
         });
@@ -284,7 +284,7 @@ function populate(slug) {
             document.getElementById('channel-grant-amount-CA2').innerHTML = ca2['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('channel-status-CA2').innerHTML = ca2['channel-status'];       
         }
-        if (ca2['channel-status'] != "not-permitted" && ca2['channel-grant-amount']) {
+        if ((ca2['channel-status']) && ca2['channel-status'] != "not-permitted" && (ca2['channel-grant-amount'])) {
             document.getElementById('channel-link-CA2').innerHTML = `<a href=${ca2['channel-link']}>${ca2['channel-link']}</a>`;
             document.getElementById('channel-application-fee-CA2').innerHTML = ca2['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('channel-installation-fee-CA2').innerHTML = ca2['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
@@ -313,7 +313,7 @@ function populate(slug) {
         //  assign ca3 elements
         // find sub authorities
         laData.filter(entry => entry['combined-authority'] === ca3['local-authority-code'] && entry !== match).forEach(element => {
-            if (ca3_sub_authorities == null) {
+            if (ca3_sub_authorities == "") {
                 ca3_sub_authorities = `<a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
             } else ca3_sub_authorities = ca3_sub_authorities + `, <a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
         });
@@ -333,7 +333,7 @@ function populate(slug) {
             document.getElementById('channel-grant-amount-CA3').innerHTML = ca3['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('channel-status-CA3').innerHTML = ca3['channel-status'];       
         }
-        if (ca3['channel-status'] != "not-permitted" && ca3['channel-grant-amount']) {
+        if ((ca3['channel-status']) && ca3['channel-status'] != "not-permitted" && (ca3['channel-grant-amount'])) {
             document.getElementById('channel-link-CA3').innerHTML = `<a href=${ca3['channel-link']}>${ca3['channel-link']}</a>`;
             document.getElementById('channel-application-fee-CA3').innerHTML = ca3['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('channel-installation-fee-CA3').innerHTML = ca3['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
