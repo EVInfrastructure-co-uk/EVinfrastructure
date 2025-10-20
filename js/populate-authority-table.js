@@ -32,8 +32,10 @@ function populate(slug) {
                 var ca3_sub_authorities = `<strong>${unitary['nice-name']}</strong>`;
             }
             var county_sub_authorities = null;
+        } else if (["CTY"].includes(match['local-authority-type'])) {
             county = match;
             ca = laData.find(entry => entry['local-authority-code'] === county['combined-authority']);
+            document.getElementById('name-county').innerHTML = county['official-name'];
             if (ca) {
                 document.getElementById('name-CA').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
                 var ca_sub_authorities = `<strong>${county['nice-name']}</strong>`;
@@ -50,8 +52,15 @@ function populate(slug) {
                 document.getElementById('combined-authority-3-type').innerHTML = ca3['combined-authority-type'];
                 var ca3_sub_authorities = `<strong>${county['nice-name']}</strong>`;
             }
+        } else if (["COMB"].includes(match['local-authority-type'])) {
             var ca_sub_authorities = null;
             ca = match;
+            document.getElementById('name-CA').innerHTML = ca['official-name'];
+            if (ca['combined-authority-type']) {
+                document.getElementById('combined-authority-type').innerHTML = ca['combined-authority-type'];
+            } else {
+                document.getElementById('combined-authority-type').innerHTML ="LEVI collaboration"
+            }
         } else if (["NMD"].includes(match['local-authority-type'])) {
             district = match;
             county = laData.find(entry => entry['local-authority-code'] === district['county-la']);
