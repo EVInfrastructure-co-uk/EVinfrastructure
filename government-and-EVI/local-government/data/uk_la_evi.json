@@ -501,6 +501,30 @@
             "constraints": {
               "unique": true
             }
+          },
+          {
+            "name": "combined-authority-2",
+            "type": "string",
+            "description": "Local authority code of a second combined authority of some type other than LEVI proper partnerships, such as ORCS, LEVI pilot, or Pavement Channel Grant.",
+            "constraints": {
+              "unique": false
+            }
+          },
+          {
+            "name": "combined-authority-3",
+            "type": "string",
+            "description": "Local authority code of a third combined authority of some type other than LEVI proper partnerships, such as ORCS, LEVI pilot, or Pavement Channel Grant.",
+            "constraints": {
+              "unique": false
+            }
+          },
+          {
+            "name": "combined-authority-type",
+            "type": "string",
+            "description": "The type (such as ORCS, LEVI pilot, or Pavement Channel Grant) of second or third combined authorities of type other than LEVI proper partnerships.",
+            "constraints": {
+              "unique": false
+            }
           }
         ]
       },
@@ -555,7 +579,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ABD",
@@ -605,7 +632,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ABE",
@@ -655,7 +685,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ADU",
@@ -705,7 +738,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "AGB",
@@ -755,7 +791,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "AGY",
@@ -805,7 +844,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "AMB",
@@ -855,7 +897,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "96930",
           "ORCS-total-charging-devices": "16",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "AND",
@@ -905,7 +950,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ANN",
@@ -955,7 +1003,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ANS",
@@ -1005,7 +1056,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ARU",
@@ -1055,7 +1109,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ASF",
@@ -1105,7 +1162,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "171398.25",
           "ORCS-total-charging-devices": "37",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ASH",
@@ -1155,7 +1215,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BAB",
@@ -1205,7 +1268,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BAE",
@@ -1255,7 +1321,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BAI",
@@ -1305,7 +1374,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BAN",
@@ -1355,7 +1427,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "22500",
           "ORCS-total-charging-devices": "3",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BAS",
@@ -1405,7 +1480,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BBD",
@@ -1455,7 +1533,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": "LCCA",
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BDF",
@@ -1505,7 +1586,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "96883",
           "ORCS-total-charging-devices": "15",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BDG",
@@ -1555,7 +1639,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "552285",
           "ORCS-total-charging-devices": "82",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BEN",
@@ -1605,7 +1692,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "755865",
           "ORCS-total-charging-devices": "475",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BEX",
@@ -1655,7 +1745,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "623990",
           "ORCS-total-charging-devices": "102",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BFS",
@@ -1705,7 +1798,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BGE",
@@ -1755,7 +1851,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BGW",
@@ -1805,7 +1904,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 487500,
           "ORCS-total-charging-devices": 65,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BIR",
@@ -1855,7 +1957,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "999900",
           "ORCS-total-charging-devices": "404",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BLA",
@@ -1905,7 +2010,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 77805,
           "ORCS-total-charging-devices": 12,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BNE",
@@ -1955,7 +2063,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "8515888",
           "ORCS-total-charging-devices": "1756",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BNH",
@@ -2005,7 +2116,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 951308.38,
           "ORCS-total-charging-devices": 387,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BNS",
@@ -2055,7 +2169,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 100000,
           "ORCS-total-charging-devices": 20,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BOL",
@@ -2105,7 +2222,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BOS",
@@ -2155,7 +2275,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "27828.75",
           "ORCS-total-charging-devices": "4",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BOT",
@@ -2205,7 +2328,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "41641",
           "ORCS-total-charging-devices": "15",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BPC",
@@ -2255,7 +2381,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BPL",
@@ -2305,7 +2434,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": "LCCA",
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BRA",
@@ -2355,7 +2487,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "96810.75",
           "ORCS-total-charging-devices": "16",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BRC",
@@ -2405,7 +2540,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "115645.75",
           "ORCS-total-charging-devices": "18",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BRD",
@@ -2455,7 +2593,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 389171.7,
           "ORCS-total-charging-devices": 46,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BRE",
@@ -2505,7 +2646,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BRM",
@@ -2555,7 +2699,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BRO",
@@ -2605,7 +2752,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BRT",
@@ -2655,7 +2805,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BRW",
@@ -2705,7 +2858,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BRX",
@@ -2755,7 +2911,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "246279.91",
           "ORCS-total-charging-devices": "27",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BRY",
@@ -2805,7 +2964,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BST",
@@ -2855,7 +3017,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "284000",
           "ORCS-total-charging-devices": "155",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BUC",
@@ -2905,7 +3070,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 714933.25,
           "ORCS-total-charging-devices": 122,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BUN",
@@ -2955,7 +3123,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 139270,
           "ORCS-total-charging-devices": 21,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "BUR",
@@ -3005,7 +3176,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CAB",
@@ -3055,7 +3229,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "359876.65",
           "ORCS-total-charging-devices": "99",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CAM",
@@ -3105,7 +3282,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "142500",
           "ORCS-total-charging-devices": "19",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CAN",
@@ -3155,7 +3335,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CAS",
@@ -3205,7 +3388,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CAT",
@@ -3255,7 +3441,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "53165.25",
           "ORCS-total-charging-devices": "9",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CAY",
@@ -3305,7 +3494,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CBD",
@@ -3355,7 +3547,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CBF",
@@ -3405,7 +3600,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "635150",
           "ORCS-total-charging-devices": "76",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CCG",
@@ -3455,7 +3653,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CGN",
@@ -3505,7 +3706,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "198597.41",
           "ORCS-total-charging-devices": "23",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CHA",
@@ -3555,7 +3759,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "60940",
           "ORCS-total-charging-devices": "7",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CHE",
@@ -3605,7 +3812,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "151100",
           "ORCS-total-charging-devices": "28",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CHI",
@@ -3655,7 +3865,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "60000",
           "ORCS-total-charging-devices": "8",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CHL",
@@ -3705,7 +3918,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CHO",
@@ -3755,7 +3971,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CHR",
@@ -3805,7 +4024,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CHS",
@@ -3855,7 +4077,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "169100",
           "ORCS-total-charging-devices": "27",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CHT",
@@ -3905,7 +4130,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CHW",
@@ -3955,7 +4183,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 86676,
           "ORCS-total-charging-devices": 12,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CLD",
@@ -4005,7 +4236,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 73125,
           "ORCS-total-charging-devices": 13,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CLK",
@@ -4055,7 +4289,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CMD",
@@ -4105,7 +4342,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "1542210",
           "ORCS-total-charging-devices": "252",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CMN",
@@ -4155,7 +4395,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "133278",
           "ORCS-total-charging-devices": "17",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "COL",
@@ -4205,7 +4448,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CON",
@@ -4255,7 +4501,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "COT",
@@ -4305,7 +4554,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "227630",
           "ORCS-total-charging-devices": "41",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "COV",
@@ -4355,7 +4607,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "6812320.37",
           "ORCS-total-charging-devices": "1370",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CPCA",
@@ -4405,7 +4660,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CCR",
@@ -4455,7 +4713,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 2727560,
           "ORCS-total-charging-devices": 291,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CRF",
@@ -4505,7 +4766,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 73702,
           "ORCS-total-charging-devices": 15,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CRW",
@@ -4555,7 +4819,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CRY",
@@ -4605,7 +4872,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "444010",
           "ORCS-total-charging-devices": "71",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "CWY",
@@ -4655,7 +4925,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DAC",
@@ -4705,7 +4978,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "415360",
           "ORCS-total-charging-devices": "58",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DAL",
@@ -4755,7 +5031,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DAR",
@@ -4805,7 +5084,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DBY",
@@ -4855,7 +5137,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "145393",
           "ORCS-total-charging-devices": "20",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": "EMCA",
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DEB",
@@ -4905,7 +5190,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DEN",
@@ -4955,7 +5243,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "165630",
           "ORCS-total-charging-devices": "29",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DER",
@@ -5005,7 +5296,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": "EMCA",
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DEV",
@@ -5055,7 +5349,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DGY",
@@ -5105,7 +5402,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 734667.34,
           "ORCS-total-charging-devices": 131,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DNC",
@@ -5155,7 +5455,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DND",
@@ -5205,7 +5508,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "380240",
           "ORCS-total-charging-devices": "43",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DOV",
@@ -5255,7 +5561,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "242155",
           "ORCS-total-charging-devices": "26",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DRS",
@@ -5305,7 +5614,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 1348370,
           "ORCS-total-charging-devices": 124,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DST",
@@ -5355,7 +5667,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "231640",
           "ORCS-total-charging-devices": "32",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DUD",
@@ -5405,7 +5720,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 316710,
           "ORCS-total-charging-devices": 46,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DUR",
@@ -5455,7 +5773,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "442236.8",
           "ORCS-total-charging-devices": "54",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "DVT",
@@ -5505,7 +5826,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "EAL",
@@ -5555,7 +5879,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "255000",
           "ORCS-total-charging-devices": "34",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "EAS",
@@ -5605,7 +5932,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "EAT",
@@ -5655,7 +5985,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "EAY",
@@ -5705,7 +6038,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ECA",
@@ -5755,7 +6091,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "90000",
           "ORCS-total-charging-devices": "12",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "EDE",
@@ -5805,7 +6144,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "EDH",
@@ -5855,7 +6197,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 145073.12,
           "ORCS-total-charging-devices": 22,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "EDU",
@@ -5905,7 +6250,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "EHA",
@@ -5955,7 +6303,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "EHE",
@@ -6005,7 +6356,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ELI",
@@ -6055,7 +6409,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "231412",
           "ORCS-total-charging-devices": "31",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ELM",
@@ -6105,7 +6462,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ELN",
@@ -6155,7 +6515,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "1108101",
           "ORCS-total-charging-devices": "215",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ELS",
@@ -6205,7 +6568,63 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
+        },
+        {
+          "local-authority-code": "EMCA",
+          "official-name": "East Midlands Combined County Authority",
+          "nice-name": "East Midlands CCA",
+          "gss-code": "E47000013",
+          "start-date": "2024-02-27",
+          "end-date": "",
+          "replaced-by": "", 
+          "region": "East Midlands",
+          "local-authority-type": "COMB",
+          "local-authority-type-name": "Combined authority",
+          "county-la": "",
+          "combined-authority": "",
+          "alt-names": "East Midlands CC",
+          "notes": "",
+          "current-authority": true,
+          "gov-uk-slug": "east-midlands",
+          "area": "",
+          "pop-2020": "",
+          "x": "",
+          "y": "",
+          "lat": "",
+          "long": "",
+          "powers": "combined",
+          "lower-or-unitary": false,
+          "current-administration": "LAB Mayor",
+          "administration-since": "2024",
+          "households-without-driveway": null,
+          "households-without-driveway-pct": null,
+          "NEVIS-distribution": null,
+          "NEVIS-distribution-rank": null,
+          "EVI-link": null,
+          "EVI-email": null,
+          "EVI-portfolio-holder": null,
+          "LEVI-capital-amount": null,
+          "LEVI-tender-stage": null,
+          "LEVI-tender-link": null,
+          "LEVI-tender-open-date": null,
+          "LEVI-tender-close-date": null,
+          "LEVI-CPO(s)": null,
+          "channel-status": null,
+          "channel-grant-amount": 945000,
+          "channel-application-fee": null,
+          "channel-installation-fee": null,
+          "channel-annual-fee": null,
+          "channel-manufacturer": null,
+          "ORCS-total-amount": null,
+          "ORCS-total-charging-devices": null,
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": "Pavement Channel Grant authority"
         },
         {
           "local-authority-code": "ENF",
@@ -6255,7 +6674,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 101776.5,
           "ORCS-total-charging-devices": 53,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "EPP",
@@ -6305,7 +6727,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "EPS",
@@ -6355,7 +6780,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ERE",
@@ -6405,7 +6833,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ERW",
@@ -6455,7 +6886,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ERY",
@@ -6505,7 +6939,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "46873.57",
           "ORCS-total-charging-devices": "7",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ESK",
@@ -6555,7 +6992,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ESS",
@@ -6605,7 +7045,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "283985",
           "ORCS-total-charging-devices": "40",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "EST",
@@ -6655,7 +7098,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ESX",
@@ -6705,7 +7151,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "EXE",
@@ -6755,7 +7204,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "FAL",
@@ -6805,7 +7257,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "FAR",
@@ -6855,7 +7310,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "FEN",
@@ -6905,7 +7363,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "FIF",
@@ -6955,7 +7416,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "FLN",
@@ -7005,7 +7469,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "115744",
           "ORCS-total-charging-devices": "15",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "FMO",
@@ -7055,7 +7522,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "FOE",
@@ -7105,7 +7575,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "199860",
           "ORCS-total-charging-devices": "33",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "FYL",
@@ -7155,7 +7628,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "GAT",
@@ -7205,7 +7681,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "GED",
@@ -7255,7 +7734,63 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "100626.84",
           "ORCS-total-charging-devices": "16",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
+        },
+        {
+          "local-authority-code": "GLCA",
+          "official-name": "Greater Lincolnshire Combined County Authority",
+          "nice-name": "Greater Lincolnshire CCA",
+          "gss-code": "E47000017",
+          "start-date": "2025-05-01",
+          "end-date": "",
+          "replaced-by": "",
+          "region": "Yorkshire and The Humber",
+          "local-authority-type": "COMB",
+          "local-authority-type-name": "Combined authority",
+          "county-la": "",
+          "combined-authority": "",
+          "alt-names": "",
+          "notes": "",
+          "current-authority": true,
+          "gov-uk-slug": "greater-lincolnshire",
+          "area": null,
+          "pop-2020": null,
+          "x": "",
+          "y": "",
+          "lat": "",
+          "long": "",
+          "powers": "combined",
+          "lower-or-unitary": false,
+          "current-administration": "REF Mayor",
+          "administration-since": "2025",
+          "households-without-driveway": null,
+          "households-without-driveway-pct": null,
+          "NEVIS-distribution": null,
+          "NEVIS-distribution-rank": null,
+          "EVI-link": null,
+          "EVI-email": null,
+          "EVI-portfolio-holder": null,
+          "LEVI-capital-amount": null,
+          "LEVI-tender-stage": null,
+          "LEVI-tender-link": null,
+          "LEVI-tender-open-date": null,
+          "LEVI-tender-close-date": null,
+          "LEVI-CPO(s)": null,
+          "channel-status": null,
+          "channel-grant-amount": 431000,
+          "channel-application-fee": null,
+          "channel-installation-fee": null,
+          "channel-annual-fee": null,
+          "channel-manufacturer": null,
+          "ORCS-total-amount": null,
+          "ORCS-total-charging-devices": null,
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": "Pavement Channel Grant authority"
         },
         {
           "local-authority-code": "GLG",
@@ -7305,7 +7840,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "175363.47",
           "ORCS-total-charging-devices": "38",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "GLO",
@@ -7355,7 +7893,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "GLS",
@@ -7405,7 +7946,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "397100",
           "ORCS-total-charging-devices": "65",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "GMCA",
@@ -7455,7 +7999,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "GOS",
@@ -7505,7 +8052,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "GRA",
@@ -7555,7 +8105,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "107764.97",
           "ORCS-total-charging-devices": "10",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "GRE",
@@ -7605,7 +8158,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "GRT",
@@ -7655,7 +8211,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "GRY",
@@ -7705,7 +8264,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "105180.32",
           "ORCS-total-charging-devices": "16",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "GWN",
@@ -7755,7 +8317,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HAA",
@@ -7805,7 +8370,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HAL",
@@ -7855,7 +8423,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "74250.27",
           "ORCS-total-charging-devices": "29",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HAM",
@@ -7905,7 +8476,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "137160.22",
           "ORCS-total-charging-devices": "52",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HAO",
@@ -7955,7 +8529,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "53693",
           "ORCS-total-charging-devices": "10",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HAR",
@@ -8005,7 +8582,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 60082.85,
           "ORCS-total-charging-devices": 8,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HAS",
@@ -8055,7 +8635,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HAT",
@@ -8105,7 +8688,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HAV",
@@ -8155,7 +8741,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "346490",
           "ORCS-total-charging-devices": "114",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HCK",
@@ -8205,7 +8794,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HEF",
@@ -8258,7 +8850,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HER",
@@ -8308,7 +8903,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HIG",
@@ -8358,7 +8956,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HIL",
@@ -8408,7 +9009,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "98000",
           "ORCS-total-charging-devices": "19",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HIN",
@@ -8458,7 +9062,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "152942",
           "ORCS-total-charging-devices": "23",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HLD",
@@ -8508,7 +9115,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HMF",
@@ -8558,7 +9168,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 4793731.5,
           "ORCS-total-charging-devices": 2221,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HNS",
@@ -8608,7 +9221,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "179850",
           "ORCS-total-charging-devices": "130",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HOR",
@@ -8658,7 +9274,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "60781",
           "ORCS-total-charging-devices": "8",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HPL",
@@ -8708,7 +9327,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HRT",
@@ -8758,7 +9380,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HRW",
@@ -8808,7 +9433,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "790825.25",
           "ORCS-total-charging-devices": "296",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HRY",
@@ -8858,7 +9486,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "150000",
           "ORCS-total-charging-devices": "20",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HUN",
@@ -8908,7 +9539,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HYCA",
@@ -8958,7 +9592,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "HYN",
@@ -9008,7 +9645,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "IOS",
@@ -9058,7 +9698,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "IOW",
@@ -9108,7 +9751,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "67500",
           "ORCS-total-charging-devices": "10",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "IPS",
@@ -9158,7 +9804,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ISL",
@@ -9208,7 +9857,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "420795",
           "ORCS-total-charging-devices": "244",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "IVC",
@@ -9258,7 +9910,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "KEC",
@@ -9308,7 +9963,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "707676.38",
           "ORCS-total-charging-devices": "414",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "KEN",
@@ -9358,7 +10016,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "239853",
           "ORCS-total-charging-devices": "28",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "KHL",
@@ -9408,7 +10069,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "KIN",
@@ -9458,7 +10122,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 195000,
           "ORCS-total-charging-devices": 26,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "KIR",
@@ -9508,7 +10175,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "KTT",
@@ -9558,7 +10228,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 344013.63,
           "ORCS-total-charging-devices": 156,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "KWL",
@@ -9608,7 +10281,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LAC",
@@ -9658,7 +10334,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "81000",
           "ORCS-total-charging-devices": "10",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LAN",
@@ -9708,7 +10387,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": "LCCA",
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LBC",
@@ -9758,7 +10440,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LBH",
@@ -9808,7 +10493,63 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 910010.93,
           "ORCS-total-charging-devices": 390,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
+        },
+        {
+          "local-authority-code": "LCCA",
+          "official-name": "Lancashire Combined County Authority",
+          "nice-name": "Lancashire CCA",
+          "gss-code": "E47000018",
+          "start-date": "2025-02-05",
+          "end-date": "",
+          "replaced-by": "",
+          "region": "North West",
+          "local-authority-type": "COMB",
+          "local-authority-type-name": "Combined authority",
+          "county-la": "",
+          "combined-authority": "",
+          "alt-names": "",
+          "notes": "",
+          "current-authority": true,
+          "gov-uk-slug": "lancashire-cca",
+          "area": null,
+          "pop-2020": null,
+          "x": "",
+          "y": "",
+          "lat": "",
+          "long": "",
+          "powers": "combined",
+          "lower-or-unitary": false,
+          "current-administration": "REF Chair",
+          "administration-since": "2025",
+          "households-without-driveway": null,
+          "households-without-driveway-pct": null,
+          "NEVIS-distribution": null,
+          "NEVIS-distribution-rank": null,
+          "EVI-link": null,
+          "EVI-email": null,
+          "EVI-portfolio-holder": null,
+          "LEVI-capital-amount": null,
+          "LEVI-tender-stage": null,
+          "LEVI-tender-link": null,
+          "LEVI-tender-open-date": null,
+          "LEVI-tender-close-date": null,
+          "LEVI-CPO(s)": null,
+          "channel-status": null,
+          "channel-grant-amount": 976000,
+          "channel-application-fee": null,
+          "channel-installation-fee": null,
+          "channel-annual-fee": null,
+          "channel-manufacturer": null,
+          "ORCS-total-amount": null,
+          "ORCS-total-charging-devices": null,
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": "Pavement Channel Grant authority"
         },
         {
           "local-authority-code": "LCE",
@@ -9858,7 +10599,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "51401.12",
           "ORCS-total-charging-devices": "22",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LCR",
@@ -9908,7 +10652,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LDS",
@@ -9958,7 +10705,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "427500",
           "ORCS-total-charging-devices": "59",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LEC",
@@ -9972,10 +10722,7 @@
           "local-authority-type": "CTY",
           "local-authority-type-name": "County",
           "county-la": "",
-          "combined-authority": [
-            "MC4",
-            "MC1"
-          ],
+          "combined-authority": "MC4",
           "alt-names": "Leicestershire,leicestershire,leicestershire county,leicestershire county council",
           "notes": "",
           "current-authority": true,
@@ -10011,7 +10758,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": "MC1",
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LEE",
@@ -10061,7 +10811,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LEW",
@@ -10111,7 +10864,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "298860",
           "ORCS-total-charging-devices": "129",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LIC",
@@ -10161,7 +10917,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 196355.55,
           "ORCS-total-charging-devices": 33,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LIF",
@@ -10211,7 +10970,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LIN",
@@ -10225,10 +10987,7 @@
           "local-authority-type": "CTY",
           "local-authority-type-name": "County",
           "county-la": "",
-          "combined-authority": [
-            "MC3",
-            "MC1"
-          ],
+          "combined-authority": "MC3",
           "alt-names": "Lincolnshire,lincolnshire,lincolnshire county,lincolnshire county council",
           "notes": "",
           "current-authority": true,
@@ -10264,7 +11023,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": "MC1",
+          "combined-authority-3": "GLCA",
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LIV",
@@ -10314,7 +11076,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "730575",
           "ORCS-total-charging-devices": "668",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LND",
@@ -10364,7 +11129,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "97434.75",
           "ORCS-total-charging-devices": "16",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LP1",
@@ -10414,7 +11182,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LP2",
@@ -10464,7 +11235,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LP3",
@@ -10514,7 +11288,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LP4",
@@ -10564,7 +11341,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LP5",
@@ -10614,7 +11394,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LP6",
@@ -10664,7 +11447,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LP7",
@@ -10714,7 +11500,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LP8",
@@ -10764,7 +11553,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LP9",
@@ -10814,7 +11606,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "LUT",
@@ -10864,7 +11659,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "23336",
           "ORCS-total-charging-devices": "11",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MAI",
@@ -10914,7 +11712,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MAL",
@@ -10964,7 +11765,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MAN",
@@ -11014,7 +11818,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MAS",
@@ -11064,7 +11871,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MAV",
@@ -11114,7 +11924,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "75972.78",
           "ORCS-total-charging-devices": "11",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MDB",
@@ -11164,7 +11977,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 125750,
           "ORCS-total-charging-devices": 160,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MDE",
@@ -11214,7 +12030,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MDW",
@@ -11264,7 +12083,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "85418",
           "ORCS-total-charging-devices": "27",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MEA",
@@ -11314,7 +12136,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MEL",
@@ -11364,7 +12189,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MC1",
@@ -11418,7 +12246,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": "LEVI pilot partnership"
         },
         {
           "local-authority-code": "MC2",
@@ -11468,7 +12299,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MC3",
@@ -11521,7 +12355,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MC4",
@@ -11574,7 +12411,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MIK",
@@ -11624,7 +12464,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "839270.07",
           "ORCS-total-charging-devices": "116",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MLN",
@@ -11674,7 +12517,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MOL",
@@ -11724,7 +12570,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MON",
@@ -11774,7 +12623,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MRT",
@@ -11824,7 +12676,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "1022896.54",
           "ORCS-total-charging-devices": "700",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MRY",
@@ -11874,7 +12729,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MSS",
@@ -11924,7 +12782,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 210069.2,
           "ORCS-total-charging-devices": 33,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MSU",
@@ -11974,7 +12835,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MTY",
@@ -12024,7 +12888,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "MUL",
@@ -12074,7 +12941,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NAY",
@@ -12124,7 +12994,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "29377.03",
           "ORCS-total-charging-devices": "4",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NBL",
@@ -12174,7 +13047,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 384965.81,
           "ORCS-total-charging-devices": 66,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NDE",
@@ -12224,7 +13100,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NEA",
@@ -12274,7 +13153,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "50981.76",
           "ORCS-total-charging-devices": "8",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NEC",
@@ -12324,7 +13206,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NECA",
@@ -12374,7 +13259,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NED",
@@ -12424,7 +13312,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NEL",
@@ -12438,7 +13329,7 @@
           "local-authority-type": "UA",
           "local-authority-type-name": "Unitary authority",
           "county-la": "",
-          "combined-authority": "GLCA",
+          "combined-authority": "",
           "alt-names": "North East Lincolnshire,North East Lincolnshire UA,north east lincolnshire,north east lincolnshire council",
           "notes": "",
           "current-authority": true,
@@ -12474,7 +13365,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "49450",
           "ORCS-total-charging-devices": "55",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": "GLCA",
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NET",
@@ -12524,7 +13418,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NEW",
@@ -12574,7 +13471,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NFK",
@@ -12624,7 +13524,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "9869.99",
           "ORCS-total-charging-devices": "2",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NGM",
@@ -12674,7 +13577,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "105729",
           "ORCS-total-charging-devices": "15",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": "EMCA",
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NHE",
@@ -12724,7 +13630,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "135000",
           "ORCS-total-charging-devices": "18",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NKE",
@@ -12774,7 +13683,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NLK",
@@ -12824,7 +13736,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NLN",
@@ -12838,7 +13753,7 @@
           "local-authority-type": "UA",
           "local-authority-type-name": "Unitary authority",
           "county-la": "",
-          "combined-authority": "GLCA",
+          "combined-authority": "",
           "alt-names": "North Lincolnshire,North Lincolnshire UA,north lincolnshire,north lincolnshire council",
           "notes": "",
           "current-authority": true,
@@ -12874,7 +13789,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "193245.72",
           "ORCS-total-charging-devices": "43",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": "GLCA",
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NMD",
@@ -12924,7 +13842,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "31860",
           "ORCS-total-charging-devices": "3",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NNO",
@@ -12974,7 +13895,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "103389",
           "ORCS-total-charging-devices": "17",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NNT",
@@ -13024,7 +13948,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NOW",
@@ -13074,7 +14001,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NSM",
@@ -13124,7 +14054,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NTL",
@@ -13174,7 +14107,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NTT",
@@ -13224,7 +14160,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": "EMCA",
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NTY",
@@ -13274,7 +14213,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "117000",
           "ORCS-total-charging-devices": "9",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NUN",
@@ -13324,7 +14266,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NWA",
@@ -13374,7 +14319,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NWL",
@@ -13424,7 +14372,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "122053",
           "ORCS-total-charging-devices": "12",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NWM",
@@ -13474,7 +14425,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "200000",
           "ORCS-total-charging-devices": "50",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NWP",
@@ -13524,7 +14478,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "600855.51",
           "ORCS-total-charging-devices": "172",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NYE",
@@ -13574,7 +14531,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": "YNYC",
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "OAD",
@@ -13624,7 +14584,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "209371.41",
           "ORCS-total-charging-devices": "30",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "OLD",
@@ -13674,7 +14637,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ORK",
@@ -13724,7 +14690,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "OXF",
@@ -13774,7 +14743,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "1093488.25",
           "ORCS-total-charging-devices": "119",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "OXO",
@@ -13824,7 +14796,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "PEM",
@@ -13874,7 +14849,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "PEN",
@@ -13924,7 +14902,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "PKN",
@@ -13974,7 +14955,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "61320",
           "ORCS-total-charging-devices": "6",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "PLY",
@@ -14024,7 +15008,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "286314",
           "ORCS-total-charging-devices": "46",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "POR",
@@ -14074,7 +15061,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "1173761.5",
           "ORCS-total-charging-devices": "418",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "POW",
@@ -14124,7 +15114,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "100925.37",
           "ORCS-total-charging-devices": "16",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "PRE",
@@ -14174,7 +15167,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "PTE",
@@ -14224,7 +15220,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "RCC",
@@ -14274,7 +15273,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 71835,
           "ORCS-total-charging-devices": 11,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "RCH",
@@ -14324,7 +15326,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "RCT",
@@ -14374,7 +15379,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "RDB",
@@ -14424,7 +15432,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "557610",
           "ORCS-total-charging-devices": "310",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "RDG",
@@ -14474,7 +15485,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "58072.28",
           "ORCS-total-charging-devices": "18",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "RED",
@@ -14524,7 +15538,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "REI",
@@ -14574,7 +15591,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "RFW",
@@ -14624,7 +15644,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "43144.4",
           "ORCS-total-charging-devices": "9",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "RIB",
@@ -14674,7 +15697,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "RIC",
@@ -14724,7 +15750,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "654410.56",
           "ORCS-total-charging-devices": "510",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ROC",
@@ -14774,7 +15803,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ROH",
@@ -14824,7 +15856,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "165000",
           "ORCS-total-charging-devices": "22",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ROS",
@@ -14874,7 +15909,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "159923.3",
           "ORCS-total-charging-devices": "30",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ROT",
@@ -14924,7 +15962,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "RUG",
@@ -14974,7 +16015,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "RUH",
@@ -15024,7 +16068,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "RUN",
@@ -15074,7 +16121,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "RUS",
@@ -15124,7 +16174,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "52533",
           "ORCS-total-charging-devices": "8",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "RUT",
@@ -15138,10 +16191,7 @@
           "local-authority-type": "UA",
           "local-authority-type-name": "Unitary authority",
           "county-la": "",
-          "combined-authority": [
-            "MC4",
-            "MC1"
-          ],
+          "combined-authority": "MC4",
           "alt-names": "Rutland,Rutland UA,rutland,rutland county council",
           "notes": "",
           "current-authority": true,
@@ -15177,7 +16227,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": "MC1",
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SAL",
@@ -15227,7 +16280,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 77348.69,
           "ORCS-total-charging-devices": 14,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SAW",
@@ -15277,7 +16333,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 300430,
           "ORCS-total-charging-devices": 37,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SAY",
@@ -15327,7 +16386,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SCA",
@@ -15377,7 +16439,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SCB",
@@ -15427,7 +16492,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SCR",
@@ -15477,7 +16545,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SDE",
@@ -15527,7 +16598,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "142784.43",
           "ORCS-total-charging-devices": "20",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SEV",
@@ -15577,7 +16651,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SFK",
@@ -15627,7 +16704,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "64280",
           "ORCS-total-charging-devices": "9",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SFT",
@@ -15677,7 +16757,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SGC",
@@ -15727,7 +16810,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "182000",
           "ORCS-total-charging-devices": "14",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SHA",
@@ -15777,7 +16863,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SHE",
@@ -15827,7 +16916,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 498595,
           "ORCS-total-charging-devices": 75,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SHF",
@@ -15877,7 +16969,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "84230",
           "ORCS-total-charging-devices": "11",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SHN",
@@ -15927,7 +17022,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SHO",
@@ -15977,7 +17075,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "67500",
           "ORCS-total-charging-devices": "9",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SHR",
@@ -16027,7 +17128,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "992330",
           "ORCS-total-charging-devices": "150",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SKE",
@@ -16077,7 +17181,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "43343",
           "ORCS-total-charging-devices": "6",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SKP",
@@ -16127,7 +17234,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SLF",
@@ -16177,7 +17287,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SLG",
@@ -16227,7 +17340,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SLK",
@@ -16277,7 +17393,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "90000",
           "ORCS-total-charging-devices": "12",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SMT",
@@ -16327,7 +17446,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SND",
@@ -16377,7 +17499,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "258324.44",
           "ORCS-total-charging-devices": "40",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SNO",
@@ -16427,7 +17552,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 95010.84,
           "ORCS-total-charging-devices": 19,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SOL",
@@ -16477,7 +17605,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 95553.1,
           "ORCS-total-charging-devices": 16,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SOS",
@@ -16527,7 +17658,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SOX",
@@ -16577,7 +17711,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SPE",
@@ -16627,7 +17764,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SRI",
@@ -16677,7 +17817,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "297410",
           "ORCS-total-charging-devices": "40",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SRY",
@@ -16727,7 +17870,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "482250",
           "ORCS-total-charging-devices": "110",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SST",
@@ -16777,7 +17923,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "STA",
@@ -16827,7 +17976,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "96215",
           "ORCS-total-charging-devices": "14",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "STE",
@@ -16841,10 +17993,7 @@
           "local-authority-type": "UA",
           "local-authority-type-name": "Unitary authority",
           "county-la": "",
-          "combined-authority": [
-            "MC3",
-            "MC1"
-          ],
+          "combined-authority": "MC3",
           "alt-names": "Stoke-on-Trent,Stoke-On-Trent UA",
           "notes": "",
           "current-authority": true,
@@ -16880,7 +18029,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": "MC1",
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "STF",
@@ -16930,7 +18082,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "STG",
@@ -16980,7 +18135,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "163899",
           "ORCS-total-charging-devices": "22",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "STH",
@@ -17030,7 +18188,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "STN",
@@ -17080,7 +18241,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "STO",
@@ -17130,7 +18294,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "83515",
           "ORCS-total-charging-devices": "13",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "STR",
@@ -17180,7 +18347,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "STS",
@@ -17230,7 +18400,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "STT",
@@ -17280,7 +18453,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "STV",
@@ -17330,7 +18506,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "135000",
           "ORCS-total-charging-devices": "18",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "STY",
@@ -17380,7 +18559,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "242564.34",
           "ORCS-total-charging-devices": "43",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SUR",
@@ -17430,7 +18612,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "151230",
           "ORCS-total-charging-devices": "24",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SWA",
@@ -17480,7 +18665,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 73663.08,
           "ORCS-total-charging-devices": 10,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SWD",
@@ -17530,7 +18718,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "79636",
           "ORCS-total-charging-devices": "11",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SWK",
@@ -17580,7 +18771,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "346317.87",
           "ORCS-total-charging-devices": "149",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SWL",
@@ -17630,7 +18824,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "106560",
           "ORCS-total-charging-devices": "10",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "TAM",
@@ -17680,7 +18877,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "TAN",
@@ -17730,7 +18930,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "TAW",
@@ -17780,7 +18983,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "TEI",
@@ -17830,7 +19036,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "TEN",
@@ -17880,7 +19089,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "TES",
@@ -17930,7 +19142,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "62385",
           "ORCS-total-charging-devices": "10",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "TEW",
@@ -17980,7 +19195,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "TFW",
@@ -18030,7 +19248,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "683370",
           "ORCS-total-charging-devices": "72",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "THA",
@@ -18080,7 +19301,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "THE",
@@ -18130,7 +19354,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "101250",
           "ORCS-total-charging-devices": "14",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "THR",
@@ -18180,7 +19407,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "205870",
           "ORCS-total-charging-devices": "35",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "TOB",
@@ -18230,7 +19460,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "TOF",
@@ -18280,7 +19513,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "TON",
@@ -18330,7 +19566,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "210125",
           "ORCS-total-charging-devices": "30",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "TOR",
@@ -18380,7 +19619,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "TRF",
@@ -18430,7 +19672,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "TUN",
@@ -18480,7 +19725,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "100220",
           "ORCS-total-charging-devices": "18",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "TVCA",
@@ -18530,7 +19778,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 720000,
           "ORCS-total-charging-devices": 96,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "TWH",
@@ -18580,7 +19831,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "355226",
           "ORCS-total-charging-devices": "221",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "UTT",
@@ -18630,7 +19884,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "80176.5",
           "ORCS-total-charging-devices": "12",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "VAL",
@@ -18680,7 +19937,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "VGL",
@@ -18730,7 +19990,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WAE",
@@ -18780,7 +20043,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WAF",
@@ -18830,7 +20096,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WAR",
@@ -18880,7 +20149,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "307356",
           "ORCS-total-charging-devices": "45",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WAT",
@@ -18930,7 +20202,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "1081125",
           "ORCS-total-charging-devices": "183",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WAW",
@@ -18980,7 +20255,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WBK",
@@ -19030,7 +20308,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "87303.04",
           "ORCS-total-charging-devices": "62",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WDE",
@@ -19080,7 +20361,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WDU",
@@ -19130,7 +20414,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WEA",
@@ -19180,7 +20467,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "156800",
           "ORCS-total-charging-devices": "21",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WECA",
@@ -19230,7 +20520,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WEW",
@@ -19280,7 +20573,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "799350",
           "ORCS-total-charging-devices": "112",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WFT",
@@ -19330,7 +20626,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 1173721,
           "ORCS-total-charging-devices": 585,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WGN",
@@ -19380,7 +20679,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WIL",
@@ -19430,7 +20732,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WIN",
@@ -19480,7 +20785,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WKF",
@@ -19530,7 +20838,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WLA",
@@ -19580,7 +20891,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "335840.5",
           "ORCS-total-charging-devices": "47",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WLI",
@@ -19630,7 +20944,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "11664",
           "ORCS-total-charging-devices": "2",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WLL",
@@ -19680,7 +20997,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "254040",
           "ORCS-total-charging-devices": "35",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WLN",
@@ -19730,7 +21050,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WLV",
@@ -19780,7 +21103,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "279790",
           "ORCS-total-charging-devices": "40",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WMCA",
@@ -19830,7 +21156,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WND",
@@ -19880,7 +21209,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "795117",
           "ORCS-total-charging-devices": "549",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WNM",
@@ -19930,7 +21262,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "89990",
           "ORCS-total-charging-devices": "30",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WNT",
@@ -19980,7 +21315,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WOC",
@@ -20030,7 +21368,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "68560",
           "ORCS-total-charging-devices": "10",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WOI",
@@ -20080,7 +21421,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "166090",
           "ORCS-total-charging-devices": "70",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WOK",
@@ -20130,7 +21474,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "173500",
           "ORCS-total-charging-devices": "19",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WOR",
@@ -20180,7 +21527,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WOT",
@@ -20230,7 +21580,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WOX",
@@ -20280,7 +21633,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WRL",
@@ -20330,7 +21686,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 45084,
           "ORCS-total-charging-devices": 53,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WRT",
@@ -20380,7 +21739,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "95189.36",
           "ORCS-total-charging-devices": "16",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WRX",
@@ -20430,7 +21792,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WSK",
@@ -20480,7 +21845,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 148155.94,
           "ORCS-total-charging-devices": 38,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WSM",
@@ -20530,7 +21898,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 2025740,
           "ORCS-total-charging-devices": 1256,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WSX",
@@ -20580,7 +21951,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "4436944",
           "ORCS-total-charging-devices": "657",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WYC",
@@ -20630,7 +22004,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": "59049",
           "ORCS-total-charging-devices": "8",
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WYCA",
@@ -20680,7 +22057,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WYE",
@@ -20730,7 +22110,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "WYR",
@@ -20780,7 +22163,63 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": 172500,
           "ORCS-total-charging-devices": 23,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
+        },
+        {
+          "local-authority-code": "YNYC",
+          "official-name": "York and North Yorkshire Mayoral Combined Authority",
+          "nice-name": "York and North Yorkshire",
+          "gss-code": "E47000012",
+          "start-date": "2024-02-01",
+          "end-date": "",
+          "replaced-by": "",
+          "region": "Yorkshire and The Humber",
+          "local-authority-type": "COMB",
+          "local-authority-type-name": "Combined authority",
+          "county-la": "",
+          "combined-authority": "",
+          "alt-names": "",
+          "notes": "",
+          "current-authority": true,
+          "gov-uk-slug": "york-and-north-yorkshire",
+          "area": null,
+          "pop-2020": null,
+          "x": "",
+          "y": "",
+          "lat": "",
+          "long": "",
+          "powers": "combined",
+          "lower-or-unitary": false,
+          "current-administration": "LAB Mayor",
+          "administration-since": "2024",
+          "households-without-driveway": null,
+          "households-without-driveway-pct": null,
+          "NEVIS-distribution": null,
+          "NEVIS-distribution-rank": null,
+          "EVI-link": null,
+          "EVI-email": null,
+          "EVI-portfolio-holder": null,
+          "LEVI-capital-amount": null,
+          "LEVI-tender-stage": null,
+          "LEVI-tender-link": null,
+          "LEVI-tender-open-date": null,
+          "LEVI-tender-close-date": null,
+          "LEVI-CPO(s)": null,
+          "channel-status": null,
+          "channel-grant-amount": 250000,
+          "channel-application-fee": null,
+          "channel-installation-fee": null,
+          "channel-annual-fee": null,
+          "channel-manufacturer": null,
+          "ORCS-total-amount": null,
+          "ORCS-total-charging-devices": null,
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": "Pavement Channel Grant authority"
         },
         {
           "local-authority-code": "YOR",
@@ -20830,7 +22269,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": "YNYC",
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ZET",
@@ -20880,7 +22322,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "NSC",
@@ -20930,7 +22375,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "AYR",
@@ -20980,7 +22428,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "PKA",
@@ -21030,7 +22481,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "GCR",
@@ -21080,7 +22534,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "ABI",
@@ -21130,7 +22587,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         },
         {
           "local-authority-code": "SES",
@@ -21180,7 +22640,10 @@
           "channel-manufacturer": null,
           "ORCS-total-amount": null,
           "ORCS-total-charging-devices": null,
-          "channel-link": null
+          "channel-link": null,
+          "combined-authority-2": null,
+          "combined-authority-3": null,
+          "combined-authority-type": null
         }
       ]
     }
