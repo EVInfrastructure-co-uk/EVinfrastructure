@@ -65,8 +65,14 @@ function populate(slug) {
             district = match;
             county = laData.find(entry => entry['local-authority-code'] === district['county-la']);
             ca = laData.find(entry => entry['local-authority-code'] === county['combined-authority']);
-            ca2 = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority-2']);
-            ca3 = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority-3']);
+            ca2 = laData.find(entry => entry['local-authority-code'] === county['combined-authority-2']);
+            if (!(ca2)) {
+                ca2 = laData.find(entry => entry['local-authority-code'] === district['combined-authority-2']); 
+            }
+            ca3 = laData.find(entry => entry['local-authority-code'] === county['combined-authority-3']);
+            if (!(ca3)) {
+                ca3 = laData.find(entry => entry['local-authority-code'] === district['combined-authority-3']); 
+            }
             document.getElementById('name-county').innerHTML = `<a href="/government-and-EVI/local-government/${county['gov-uk-slug']}">${county['official-name']}</a>`;
             var county_sub_authorities = `<strong>${district['nice-name']}</strong>`;
             if (ca) {
