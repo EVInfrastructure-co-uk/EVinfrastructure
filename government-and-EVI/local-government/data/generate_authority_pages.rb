@@ -45,10 +45,10 @@ authorities.select { |a| a['local-authority-type'] == 'CC' or a['local-authority
 
   filename = "#{slug}.html"
 
-  if authority['combined-authority-2'].blank?
+  if authority['combined-authority-2'].nil?
     content = england_unitary_ca.gsub('{{ authority.name }}',name)
                                 .gsub('{{ authority.slug }}',slug)
-  elsif authority['combined-authority-3'].blank?
+  elsif authority['combined-authority-3'].nil?
     content = england_unitary_2ca.gsub('{{ authority.name }}',name)
                                 .gsub('{{ authority.slug }}',slug)
   else
@@ -91,10 +91,10 @@ authorities.select { |a| a['local-authority-type'] == 'UA' and a['combined-autho
 
   filename = "#{slug}.html"
 
-  if authority['combined-authority-2'].blank?
+  if authority['combined-authority-2'].nil?
     content = england_unitary.gsub('{{ authority.name }}',name)
                                 .gsub('{{ authority.slug }}',slug)
-  elsif authority['combined-authority-3'].blank?
+  elsif authority['combined-authority-3'].nil?
     content = england_unitary_extra_ca.gsub('{{ authority.name }}',name)
                                 .gsub('{{ authority.slug }}',slug)
   else
@@ -111,10 +111,10 @@ authorities.select { |a| a['local-authority-type'] == 'UA' and a['combined-autho
 
   filename = "#{slug}.html"
 
-  if authority['combined-authority-2'].blank?
+  if authority['combined-authority-2'].nil?
     content = england_unitary_ca.gsub('{{ authority.name }}',name)
                                 .gsub('{{ authority.slug }}',slug)
-  elsif authority['combined-authority-3'].blank?
+  elsif authority['combined-authority-3'].nil?
     content = england_unitary_2ca.gsub('{{ authority.name }}',name)
                                 .gsub('{{ authority.slug }}',slug)
   else
@@ -131,10 +131,10 @@ authorities.select { |a| a['local-authority-type'] == 'CTY' and a['combined-auth
 
   filename = "#{slug}.html"
 
-  if authority['combined-authority-2'].blank?
+  if authority['combined-authority-2'].nil?
     content = england_county.gsub('{{ authority.name }}',name)
                                 .gsub('{{ authority.slug }}',slug)
-  elsif authority['combined-authority-3'].blank?
+  elsif authority['combined-authority-3'].nil?
     content = england_county_extra_ca.gsub('{{ authority.name }}',name)
                                 .gsub('{{ authority.slug }}',slug)
   end
@@ -148,10 +148,10 @@ authorities.select { |a| a['local-authority-type'] == 'CTY' and a['combined-auth
 
   filename = "#{slug}.html"
 
-  if authority['combined-authority-2'].blank?
+  if authority['combined-authority-2'].nil?
     content = england_county_ca.gsub('{{ authority.name }}',name)
                                 .gsub('{{ authority.slug }}',slug)
-  elsif authority['combined-authority-3'].blank? 
+  elsif authority['combined-authority-3'].nil? 
     content = england_county_2ca.gsub('{{ authority.name }}',name)
                                 .gsub('{{ authority.slug }}',slug)
   else
@@ -170,19 +170,19 @@ authorities.select { |a| a['local-authority-type'] == 'NMD'}.each do |authority|
 
   authorities.select { |b| b['local-authority-code'] == county_la_code}.each do |county_la|
     county_la_ca =  county_la['combined-authority']
-      if county_la_ca.blank?
-        if authority['combined-authority-2'].blank?
+      if county_la_ca == ""
+        if authority['combined-authority-2'].nil?
           content = england_district.gsub('{{ authority.name }}',name)
                                       .gsub('{{ authority.slug }}',slug)
-        elsif authority['combined-authority-3'].blank?
+        elsif authority['combined-authority-3'].nil?
           content = england_district_extra_ca.gsub('{{ authority.name }}',name)
                                       .gsub('{{ authority.slug }}',slug)
         end
       else
-        if authority['combined-authority-2'].blank?
+        if authority['combined-authority-2'].nil?
           content = england_district_ca.gsub('{{ authority.name }}',name)
                                       .gsub('{{ authority.slug }}',slug)
-        elsif authority['combined-authority-3'].blank?
+        elsif authority['combined-authority-3'].nil?
           content = england_district_2ca.gsub('{{ authority.name }}',name)
                                       .gsub('{{ authority.slug }}',slug)
         else
