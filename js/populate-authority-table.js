@@ -272,45 +272,45 @@ function populate(slug) {
                 ca2_sub_authorities = `<a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
             } else ca2_sub_authorities = ca2_sub_authorities + `, <a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
         });
-        document.getElementById('sub-authorities-CA').innerHTML = ca2_sub_authorities;
-        document.getElementById('current-administration-CA').innerHTML = ca2['current-administration'];
-        // some code to change the colour based on political stripes document.getElementById('current-administration-CA').color = ca2['current-administration'];
-        document.getElementById('administration-since-CA').innerHTML = ca2['administration-since'];
-        document.getElementById('households-without-driveway-CA').innerHTML = ca2['households-without-driveway'].toLocaleString("en-GB");
-        document.getElementById('households-without-driveway-pct-CA').innerHTML = `${ca2['households-without-driveway-pct']}%`;
+        document.getElementById('sub-authorities-CA2').innerHTML = ca2_sub_authorities;
+        document.getElementById('current-administration-CA2').innerHTML = ca2['current-administration'];
+        // some code to change the colour based on political stripes document.getElementById('current-administration-CA2').color = ca2['current-administration'];
+        document.getElementById('administration-since-CA2').innerHTML = ca2['administration-since'];
+        document.getElementById('households-without-driveway-CA2').innerHTML = ca2['households-without-driveway'].toLocaleString("en-GB");
+        document.getElementById('households-without-driveway-pct-CA2').innerHTML = `${ca2['households-without-driveway-pct']}%`;
         if (ca2['EVI-link']) {
-            document.getElementById('EVI-link-CA').innerHTML = `<a href=${ca2['EVI-link']}>${ca2['EVI-link']}</a>`;
+            document.getElementById('EVI-link-CA2').innerHTML = `<a href=${ca2['EVI-link']}>${ca2['EVI-link']}</a>`;
         }
         if (ca2['EVI-email']) {
-            document.getElementById('EVI-email-CA').innerHTML = `<a href=mailto:${ca2['EVI-email']}>${ca2['EVI-email']}</a>`;
+            document.getElementById('EVI-email-CA2').innerHTML = `<a href=mailto:${ca2['EVI-email']}>${ca2['EVI-email']}</a>`;
         }
-        document.getElementById('EVI-portfolio-holder-CA').innerHTML = ca2['EVI-portfolio-holder'];
+        document.getElementById('EVI-portfolio-holder-CA2').innerHTML = ca2['EVI-portfolio-holder'];
         if (ca2['channel-grant-amount']) {
-            document.getElementById('channel-grant-amount-CA').innerHTML = ca2['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-status-CA').innerHTML = ca2['channel-status'];       
+            document.getElementById('channel-grant-amount-CA2').innerHTML = ca2['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            document.getElementById('channel-status-CA2').innerHTML = ca2['channel-status'];       
         }
         if (ca2['channel-status'] != "not-permitted" && ca2['channel-grant-amount']) {
-            document.getElementById('channel-link-CA').innerHTML = `<a href=${ca2['channel-link']}>${ca2['channel-link']}</a>`;
-            document.getElementById('channel-application-fee-CA').innerHTML = ca2['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-installation-fee-CA').innerHTML = ca2['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-annual-fee-CA').innerHTML = ca2['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-manufacturer-CA').innerHTML = ca2['channel-manufacturer'];
+            document.getElementById('channel-link-CA2').innerHTML = `<a href=${ca2['channel-link']}>${ca2['channel-link']}</a>`;
+            document.getElementById('channel-application-fee-CA2').innerHTML = ca2['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            document.getElementById('channel-installation-fee-CA2').innerHTML = ca2['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            document.getElementById('channel-annual-fee-CA2').innerHTML = ca2['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            document.getElementById('channel-manufacturer-CA2').innerHTML = ca2['channel-manufacturer'];
         }
         if (ca2['LEVI-capital-amount']) {
-            document.getElementById('LEVI-capital-amount-CA').innerHTML = ca2['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('LEVI-tender-stage-CA').innerHTML = ca2['LEVI-tender-stage'];
-            document.getElementById('LEVI-tender-link-CA').innerHTML = ca2['LEVI-tender-link'];
-            document.getElementById('LEVI-tender-open-date-CA').innerHTML = ca2['LEVI-tender-open-date'];
-            document.getElementById('LEVI-tender-close-date-CA').innerHTML = ca2['LEVI-tender-close-date'];
-            document.getElementById('LEVI-CPO(s)-CA').innerHTML = ca2['LEVI-CPO(s)'];
+            document.getElementById('LEVI-capital-amount-CA2').innerHTML = ca2['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            document.getElementById('LEVI-tender-stage-CA2').innerHTML = ca2['LEVI-tender-stage'];
+            document.getElementById('LEVI-tender-link-CA2').innerHTML = ca2['LEVI-tender-link'];
+            document.getElementById('LEVI-tender-open-date-CA2').innerHTML = ca2['LEVI-tender-open-date'];
+            document.getElementById('LEVI-tender-close-date-CA2').innerHTML = ca2['LEVI-tender-close-date'];
+            document.getElementById('LEVI-CPO(s)-CA2').innerHTML = ca2['LEVI-CPO(s)'];
         }
         if (ca2['LEVI-pilot-capital-amount']) {
-            document.getElementById('LEVI-pilot-capital-amount-CA').innerHTML = ca2['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('LEVI-pilot-CPO(s)-CA').innerHTML = ca2['LEVI-pilot-CPO(s)'];
+            document.getElementById('LEVI-pilot-capital-amount-CA2').innerHTML = ca2['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            document.getElementById('LEVI-pilot-CPO(s)-CA2').innerHTML = ca2['LEVI-pilot-CPO(s)'];
         }
         if (ca2['ORCS-total-amount']) {
-            document.getElementById('ORCS-total-amount-CA').innerHTML = ca2['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('ORCS-total-charging-devices-CA').innerHTML = ca2['ORCS-total-charging-devices'].toLocaleString("en-GB");
+            document.getElementById('ORCS-total-amount-CA2').innerHTML = ca2['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            document.getElementById('ORCS-total-charging-devices-CA2').innerHTML = ca2['ORCS-total-charging-devices'].toLocaleString("en-GB");
         }
     }
 
@@ -322,45 +322,45 @@ function populate(slug) {
                 ca3_sub_authorities = `<a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
             } else ca3_sub_authorities = ca3_sub_authorities + `, <a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
         });
-        document.getElementById('sub-authorities-CA').innerHTML = ca3_sub_authorities;
-        document.getElementById('current-administration-CA').innerHTML = ca3['current-administration'];
-        // some code to change the colour based on political stripes document.getElementById('current-administration-CA').color = ca3['current-administration'];
-        document.getElementById('administration-since-CA').innerHTML = ca3['administration-since'];
-        document.getElementById('households-without-driveway-CA').innerHTML = ca3['households-without-driveway'].toLocaleString("en-GB");
-        document.getElementById('households-without-driveway-pct-CA').innerHTML = `${ca3['households-without-driveway-pct']}%`;
+        document.getElementById('sub-authorities-CA3').innerHTML = ca3_sub_authorities;
+        document.getElementById('current-administration-CA3').innerHTML = ca3['current-administration'];
+        // some code to change the colour based on political stripes document.getElementById('current-administration-CA3').color = ca3['current-administration'];
+        document.getElementById('administration-since-CA3').innerHTML = ca3['administration-since'];
+        document.getElementById('households-without-driveway-CA3').innerHTML = ca3['households-without-driveway'].toLocaleString("en-GB");
+        document.getElementById('households-without-driveway-pct-CA3').innerHTML = `${ca3['households-without-driveway-pct']}%`;
         if (ca3['EVI-link']) {
-            document.getElementById('EVI-link-CA').innerHTML = `<a href=${ca3['EVI-link']}>${ca3['EVI-link']}</a>`;
+            document.getElementById('EVI-link-CA3').innerHTML = `<a href=${ca3['EVI-link']}>${ca3['EVI-link']}</a>`;
         }
         if (ca3['EVI-email']) {
-            document.getElementById('EVI-email-CA').innerHTML = `<a href=mailto:${ca3['EVI-email']}>${ca3['EVI-email']}</a>`;
+            document.getElementById('EVI-email-CA3').innerHTML = `<a href=mailto:${ca3['EVI-email']}>${ca3['EVI-email']}</a>`;
         }
-        document.getElementById('EVI-portfolio-holder-CA').innerHTML = ca3['EVI-portfolio-holder'];
+        document.getElementById('EVI-portfolio-holder-CA3').innerHTML = ca3['EVI-portfolio-holder'];
         if (ca3['channel-grant-amount']) {
-            document.getElementById('channel-grant-amount-CA').innerHTML = ca3['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-status-CA').innerHTML = ca3['channel-status'];       
+            document.getElementById('channel-grant-amount-CA3').innerHTML = ca3['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            document.getElementById('channel-status-CA3').innerHTML = ca3['channel-status'];       
         }
         if (ca3['channel-status'] != "not-permitted" && ca3['channel-grant-amount']) {
-            document.getElementById('channel-link-CA').innerHTML = `<a href=${ca3['channel-link']}>${ca3['channel-link']}</a>`;
-            document.getElementById('channel-application-fee-CA').innerHTML = ca3['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-installation-fee-CA').innerHTML = ca3['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-annual-fee-CA').innerHTML = ca3['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-manufacturer-CA').innerHTML = ca3['channel-manufacturer'];
+            document.getElementById('channel-link-CA3').innerHTML = `<a href=${ca3['channel-link']}>${ca3['channel-link']}</a>`;
+            document.getElementById('channel-application-fee-CA3').innerHTML = ca3['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            document.getElementById('channel-installation-fee-CA3').innerHTML = ca3['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            document.getElementById('channel-annual-fee-CA3').innerHTML = ca3['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            document.getElementById('channel-manufacturer-CA3').innerHTML = ca3['channel-manufacturer'];
         }
         if (ca3['LEVI-capital-amount']) {
-            document.getElementById('LEVI-capital-amount-CA').innerHTML = ca3['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('LEVI-tender-stage-CA').innerHTML = ca3['LEVI-tender-stage'];
-            document.getElementById('LEVI-tender-link-CA').innerHTML = ca3['LEVI-tender-link'];
-            document.getElementById('LEVI-tender-open-date-CA').innerHTML = ca3['LEVI-tender-open-date'];
-            document.getElementById('LEVI-tender-close-date-CA').innerHTML = ca3['LEVI-tender-close-date'];
-            document.getElementById('LEVI-CPO(s)-CA').innerHTML = ca3['LEVI-CPO(s)'];
+            document.getElementById('LEVI-capital-amount-CA3').innerHTML = ca3['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            document.getElementById('LEVI-tender-stage-CA3').innerHTML = ca3['LEVI-tender-stage'];
+            document.getElementById('LEVI-tender-link-CA3').innerHTML = ca3['LEVI-tender-link'];
+            document.getElementById('LEVI-tender-open-date-CA3').innerHTML = ca3['LEVI-tender-open-date'];
+            document.getElementById('LEVI-tender-close-date-CA3').innerHTML = ca3['LEVI-tender-close-date'];
+            document.getElementById('LEVI-CPO(s)-CA3').innerHTML = ca3['LEVI-CPO(s)'];
         }
         if (ca3['LEVI-pilot-capital-amount']) {
-            document.getElementById('LEVI-pilot-capital-amount-CA').innerHTML = ca3['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('LEVI-pilot-CPO(s)-CA').innerHTML = ca3['LEVI-pilot-CPO(s)'];
+            document.getElementById('LEVI-pilot-capital-amount-CA3').innerHTML = ca3['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            document.getElementById('LEVI-pilot-CPO(s)-CA3').innerHTML = ca3['LEVI-pilot-CPO(s)'];
         }
         if (ca3['ORCS-total-amount']) {
-            document.getElementById('ORCS-total-amount-CA').innerHTML = ca3['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('ORCS-total-charging-devices-CA').innerHTML = ca3['ORCS-total-charging-devices'].toLocaleString("en-GB");
+            document.getElementById('ORCS-total-amount-CA3').innerHTML = ca3['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            document.getElementById('ORCS-total-charging-devices-CA3').innerHTML = ca3['ORCS-total-charging-devices'].toLocaleString("en-GB");
         }
     }
 })
