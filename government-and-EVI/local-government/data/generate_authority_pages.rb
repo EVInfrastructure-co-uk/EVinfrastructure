@@ -12,6 +12,7 @@ england_district_ca = File.read('_templates/england-district-CA.html')
 england_district_2ca = File.read('_templates/england-district-2CA.html')
 england_district_3ca = File.read('_templates/england-district-3CA.html')
 england_district_extra_ca = File.read('_templates/england-district-extra-CA.html')
+south_holland = File.read('_templates/south-holland.html')
 
 england_county = File.read('_templates/england-county.html')
 england_county_ca = File.read('_templates/england-county-CA.html')
@@ -170,24 +171,36 @@ authorities.select { |a| a['local-authority-type'] == 'NMD'}.each do |authority|
 
   authorities.select { |b| b['local-authority-code'] == county_la_code}.each do |county_la|
     county_la_ca =  county_la['combined-authority']
-      if county_la_ca == ""
-        if authority['combined-authority-2'].nil?
+      if county_la_ca == "" # no LEVI combined authority
+        if authority['combined-authority-2'].nil? and county_la['combined-authority-2'].nil?
           content = england_district.gsub('{{ authority.name }}',name)
                                       .gsub('{{ authority.slug }}',slug)
-        elsif authority['combined-authority-3'].nil?
+        else
           content = england_district_extra_ca.gsub('{{ authority.name }}',name)
                                       .gsub('{{ authority.slug }}',slug)
         end
-      else
-        if authority['combined-authority-2'].nil?
+      else # LEVI combined authority
+        if authority['combined-authority-2'].nil? and county_la['combined-authority-2'].nil? # no extra combined authorities
           content = england_district_ca.gsub('{{ authority.name }}',name)
                                       .gsub('{{ authority.slug }}',slug)
-        elsif authority['combined-authority-3'].nil?
-          content = england_district_2ca.gsub('{{ authority.name }}',name)
-                                      .gsub('{{ authority.slug }}',slug)
-        else
-          content = england_district_3ca.gsub('{{ authority.name }}',name)
-                                      .gsub('{{ authority.slug }}',slug)
+        elsif authority['combined-authority-2'].nil? # district has no extra combined authorities
+          if county_la['combined-authority-3'].nil? # county only has one extra combined authority
+            content = england_district_2ca.gsub('{{ authority.name }}',name)
+                                        .gsub('{{ authority.slug }}',slug)
+          else # county has two combined authorities
+            content = england_district_3ca.gsub('{{ authority.name }}',name)
+                                        .gsub('{{ authority.slug }}',slug)
+          end
+        else # district has extra combined authority
+          if county_la['combined-authority-2'].nil? # county has no extra combined authority
+            content = england_district_2ca.gsub('{{ authority.name }}',name)
+                                        .gsub('{{ authority.slug }}',slug)
+          elsif county_la['combined-authority-3'].nil? # county has only one extra combined authority
+            content = england_district_3ca.gsub('{{ authority.name }}',name)
+                                        .gsub('{{ authority.slug }}',slug)
+          else # county has two extra combined authorities
+            content = south_holland.gsub('{{ authority.name }}',name)
+                                    .gsub('{{ authority.slug }}',slug)
         end
       end
       File.write(filename, content)
