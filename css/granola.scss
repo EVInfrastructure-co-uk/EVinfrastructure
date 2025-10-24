@@ -304,14 +304,9 @@ li {
 
 // Breadcrumbs
 
-   - Usage: wrap an ordered list <ol class="breadcrumbs__list"> inside a <nav class="breadcrumbs" aria-label="Breadcrumb">.
-   - The last <li> should have aria-current="page" (or class .breadcrumbs__list-item--current)
-*/
-
 /* Basic container */
 .breadcrumbs {
   margin: 0 0 16px 0;
-  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 13px;
   line-height: 1;
   color: #0b0c0c;
