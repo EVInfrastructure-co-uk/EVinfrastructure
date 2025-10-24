@@ -31,7 +31,6 @@ function populate(slug) {
                 document.getElementById('combined-authority-3-type').innerHTML = ca3['combined-authority-type'];
                 var ca3_sub_authorities = `<strong>${unitary['nice-name']}</strong>`;
             }
-            var county_sub_authorities = "";
         } else if (["CTY"].includes(match['local-authority-type'])) {
             county = match;
             ca = laData.find(entry => entry['local-authority-code'] === county['combined-authority']);
@@ -52,6 +51,7 @@ function populate(slug) {
                 document.getElementById('combined-authority-3-type').innerHTML = ca3['combined-authority-type'];
                 var ca3_sub_authorities = `<strong>${county['nice-name']}</strong>`;
             }
+            var county_sub_authorities = "";
         } else if (["COMB"].includes(match['local-authority-type'])) {
             var ca_sub_authorities = "";
             ca = match;
