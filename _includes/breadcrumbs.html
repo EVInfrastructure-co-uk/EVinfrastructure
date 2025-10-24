@@ -1,0 +1,101 @@
+<nav aria-label="Breadcrumb" class="breadcrumbs">
+  <ol class="breadcrumbs__list">
+    <!-- Home -->
+    <li class="breadcrumbs__list-item">
+      <a class="breadcrumbs__link" href="{{ '/' | relative_url }}">{{ site.data.breadcrumbs.home_title | default: 'Home' }}</a>
+    </li>
+
+    {%- assign parts = page.url | split:'/' -%}
+    {%- assign acc = '' -%}
+
+    {%- for part in parts -%}
+      {%- if part != '' -%}
+        {%- assign acc = acc | append: '/' | append: part -%}
+        <!-- {%- assign acc_url = acc | append: '/' -%} -->
+        {%- assign acc_url = acc -%} <! to work without trailing slash !>
+
+        {%- comment -%}
+          Try to find a matching page or collection doc by URL (with trailing slash).
+          We look through site.pages and then all collection docs (site.collections.*.docs).
+        {%- endcomment -%}
+        {%- assign target = nil -%}
+
+        {%- for p in site.pages -%}
+          {%- if p.url == acc_url -%}
+            {%- assign target = p -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if target == nil -%}
+          {%- for coll in site.collections -%}
+            {%- for doc in coll.docs -%}
+              {%- if doc.url == acc_url -%}
+                {%- assign target = doc -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if target != nil -%}{%- break -%}{%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+
+        {%- comment -%}
+          Determine whether this ancestor is the current page.
+          Compare the constructed acc_url to page.url (page.url should be a pretty URL with trailing slash).
+        {%- endcomment -%}
+        {%- if acc_url == page.url -%}
+          <li class="breadcrumbs__list-item breadcrumbs__list-item--current" aria-current="page">
+            {{ page.breadcrumb_title | default: page.title | escape }}
+          </li>
+        {%- else -%}
+          <li class="breadcrumbs__list-item">
+            {%- if target -%}
+              <a class="breadcrumbs__link" href="{{ target.url | relative_url }}">{{ target.breadcrumb_title | default: target.title | escape }}</a>
+            {%- else -%}
+              {%- assign fallback = part | replace: '-', ' ' | replace: '_', ' ' | replace: '.html', '' -%}
+              <a class="breadcrumbs__link" href="{{ acc_url | relative_url }}">{{ fallback | capitalize }}</a>
+            {%- endif -%}
+          </li>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </ol>
+
+  {%- comment -%} JSON-LD BreadcrumbList for SEO {%- endcomment -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": {{ (site.data.breadcrumbs.home_title | default: "Home") | jsonify }}, "item": "{{ '/' | absolute_url }}" }{%- assign pos = 1 -%}
+      {%- assign acc = '' -%}
+      {%- for part in parts -%}
+        {%- if part != '' -%}
+          {%- assign acc = acc | append:'/' | append:part -%}
+          {%- assign acc_url = acc | append:'/' -%}
+          {%- assign pos = pos | plus: 1 -%}
+          {%- assign target = nil -%}
+          {%- for p in site.pages -%}
+            {%- if p.url == acc_url -%}
+              {%- assign target = p -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if target == nil -%}
+            {%- for coll in site.collections -%}
+              {%- for doc in coll.docs -%}
+                {%- if doc.url == acc_url -%}
+                  {%- assign target = doc -%}
+                  {%- break -%}
+                {%- endif -%}
+              {%- endfor -%}
+              {%- if target != nil -%}{%- break -%}{%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+          ,{ "@" -%}type": "ListItem", "position": {{ pos }}, "name": {%- if target -%}{{ target.breadcrumb_title | default: target.title | jsonify }}{%- else -%}{{ (part | replace: '-', ' ' | replace: '_', ' ' | capitalize) | jsonify }}{%- endif -%}, "item": "{{ acc_url | absolute_url }}" }
+        {%- endif -%}
+      {%- endfor -%}
+    ]
+  }
+  </script>
+</nav>

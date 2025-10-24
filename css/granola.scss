@@ -301,3 +301,94 @@ li {
       display: inline-block;
       margin-right: 10px;
       }
+
+// Breadcrumbs
+
+   - Usage: wrap an ordered list <ol class="breadcrumbs__list"> inside a <nav class="breadcrumbs" aria-label="Breadcrumb">.
+   - The last <li> should have aria-current="page" (or class .breadcrumbs__list-item--current)
+*/
+
+/* Basic container */
+.breadcrumbs {
+  margin: 0 0 16px 0;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  color: #0b0c0c;
+}
+
+/* Remove default list styling and layout inline */
+.breadcrumbs__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;         /* allow to wrap on small screens */
+  align-items: center;
+}
+
+/* Each item */
+.breadcrumbs__list-item {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* Separator between items — chevron */
+.breadcrumbs__list-item + .breadcrumbs__list-item::before {
+  content: "›"; /* U+203A single right-pointing angle quotation mark */
+  color: #6f7783;
+  margin: 0 8px;
+  font-size: 14px;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Links */
+.breadcrumbs__link {
+  color: #1d70b8; /* link blue */
+  text-decoration: none;
+  background: none;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+/* Interaction states */
+.breadcrumbs__link:hover,
+.breadcrumbs__link:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
+/* Current page (not a link) */
+.breadcrumbs__list-item--current,
+.breadcrumbs__list-item[aria-current="page"] {
+  color: #0b0c0c;
+  font-weight: 600;
+  /* ensure current page isn't visually announced as a link */
+}
+
+/* Make list wrap nicely on small screens */
+@media (max-width: 480px) {
+  .breadcrumbs__list {
+    gap: 6px;
+  }
+  .breadcrumbs__list-item + .breadcrumbs__list-item::before {
+    margin: 0 6px;
+  }
+}
+
+/* Visually hidden helper for accessible text if needed */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line to prevent wrapping */
+  border: 0;
+  padding: 0;
+  margin: -1px;
+}
