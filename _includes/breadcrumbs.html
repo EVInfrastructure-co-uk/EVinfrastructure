@@ -10,19 +10,26 @@
 
     {%- for part in parts -%}
       {%- if part != '' -%}
+        {%- comment -%}
+          Build two forms of the ancestor URL:
+            - acc_no_slash: e.g. "/government"
+            - acc_with_slash: e.g. "/government/"
+        {%- endcomment -%}
         {%- assign acc = acc | append: '/' | append: part -%}
-        <!-- {%- assign acc_url = acc | append: '/' -%} -->
-        {%- assign acc_url = acc -%} <! to work without trailing slash !>
+        {%- assign acc_no_slash = acc -%}
+        {%- assign acc_with_slash = acc | append: '/' -%}
 
         {%- comment -%}
-          Try to find a matching page or collection doc by URL (with trailing slash).
-          We look through site.pages and then all collection docs (site.collections.*.docs).
+          Attempt to find a matching page/doc. Match either form (with or without trailing slash).
+          If a matching page/doc is found we'll use that object's title and url.
         {%- endcomment -%}
         {%- assign target = nil -%}
+        {%- assign matched_url = nil -%}
 
         {%- for p in site.pages -%}
-          {%- if p.url == acc_url -%}
+          {%- if p.url == acc_with_slash or p.url == acc_no_slash -%}
             {%- assign target = p -%}
+            {%- assign matched_url = p.url -%}
             {%- break -%}
           {%- endif -%}
         {%- endfor -%}
@@ -30,8 +37,9 @@
         {%- if target == nil -%}
           {%- for coll in site.collections -%}
             {%- for doc in coll.docs -%}
-              {%- if doc.url == acc_url -%}
+              {%- if doc.url == acc_with_slash or doc.url == acc_no_slash -%}
                 {%- assign target = doc -%}
+                {%- assign matched_url = doc.url -%}
                 {%- break -%}
               {%- endif -%}
             {%- endfor -%}
@@ -40,20 +48,35 @@
         {%- endif -%}
 
         {%- comment -%}
-          Determine whether this ancestor is the current page.
-          Compare the constructed acc_url to page.url (page.url should be a pretty URL with trailing slash).
+          Determine whether this ancestor corresponds to the current page.
+          The page.url itself might be stored with or without a trailing slash, so compare both forms.
         {%- endcomment -%}
-        {%- if acc_url == page.url -%}
+        {%- assign is_current = false -%}
+        {%- if page.url == acc_with_slash or page.url == acc_no_slash -%}
+          {%- assign is_current = true -%}
+        {%- endif -%}
+
+        {%- if is_current -%}
           <li class="breadcrumbs__list-item breadcrumbs__list-item--current" aria-current="page">
             {{ page.breadcrumb_title | default: page.title | escape }}
           </li>
         {%- else -%}
-          <li class="breadcrumbs__list-item">
+          <li class="govuk-breadcrumbs__list-item">
             {%- if target -%}
-              <a class="breadcrumbs__link" href="{{ target.url | relative_url }}">{{ target.breadcrumb_title | default: target.title | escape }}</a>
+              {%- comment -%}
+                Use the matched target's url (preserves whether it uses trailing slash or not).
+              {%- endcomment -%}
+              <a class="govuk-breadcrumbs__link" href="{{ matched_url | relative_url }}">{{ target.breadcrumb_title | default: target.title | escape }}</a>
             {%- else -%}
+              {%- comment -%}
+                No matching page found in site pages/collections.
+                Fallback to a humanised label and link to the constructed path WITHOUT a trailing slash,
+                because many sites serve pretty pages without trailing slashes. This works for sites
+                that prefer "no-trailing-slash" URLs; if your site uses trailing-slash permalinks, the
+                server will normally redirect.
+              {%- endcomment -%}
               {%- assign fallback = part | replace: '-', ' ' | replace: '_', ' ' | replace: '.html', '' -%}
-              <a class="breadcrumbs__link" href="{{ acc_url | relative_url }}">{{ fallback | capitalize }}</a>
+              <a class="govuk-breadcrumbs__link" href="{{ acc_no_slash | relative_url }}">{{ fallback | capitalize }}</a>
             {%- endif -%}
           </li>
         {%- endif -%}
@@ -72,28 +95,32 @@
       {%- for part in parts -%}
         {%- if part != '' -%}
           {%- assign acc = acc | append:'/' | append:part -%}
-          {%- assign acc_url = acc | append:'/' -%}
-          {%- assign pos = pos | plus: 1 -%}
+          {%- assign acc = acc | append:'/' -%}
+          {%- assign acc_no_slash = acc -%}
+          {%- assign acc_with_slash = acc | append:'/' -%}
           {%- assign target = nil -%}
+          {%- assign matched_url = nil -%}
           {%- for p in site.pages -%}
-            {%- if p.url == acc_url -%}
+            {%- if p.url == acc_with_slash or p.url == acc_no_slash -%}
               {%- assign target = p -%}
+              {%- assign matched_url = p.url -%}
               {%- break -%}
             {%- endif -%}
           {%- endfor -%}
+
           {%- if target == nil -%}
             {%- for coll in site.collections -%}
               {%- for doc in coll.docs -%}
-                {%- if doc.url == acc_url -%}
+                {%- if doc.url == acc_with_slash or doc.url == acc_no_slash -%}
                   {%- assign target = doc -%}
+                  {%- assign matched_url = doc.url -%}
                   {%- break -%}
                 {%- endif -%}
               {%- endfor -%}
               {%- if target != nil -%}{%- break -%}{%- endif -%}
             {%- endfor -%}
           {%- endif -%}
-          ,{ "@" -%}type": "ListItem", "position": {{ pos }}, "name": {%- if target -%}{{ target.breadcrumb_title | default: target.title | jsonify }}{%- else -%}{{ (part | replace: '-', ' ' | replace: '_', ' ' | capitalize) | jsonify }}{%- endif -%}, "item": "{{ acc_url | absolute_url }}" }
-        {%- endif -%}
+          ,{ "@" -%}type": "ListItem", "position": {{ pos }}, "name": {%- if target -%}{{ target.breadcrumb_title | default: target.title | jsonify }}{%- else -%}{{ (part | replace: '-', ' ' | replace: '_', ' ' | capitalize) | jsonify }}{%- endif -%}, "item": "{{- (target != nil) | if: matched_url | else: acc_no_slash | absolute_url -}}" }        {%- endif -%}
       {%- endfor -%}
     ]
   }
