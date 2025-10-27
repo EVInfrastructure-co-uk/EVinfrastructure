@@ -42,7 +42,6 @@ li {
   margin-left: auto;
   margin-right: auto;
   padding: 0 15px;
-  padding-top: 60px;
 }
 
 .header {
@@ -51,7 +50,6 @@ li {
   background: #333;
   color: white;
   container-type: inline-size;
-  position: sticky;
 }
 
 .mycontainer {
@@ -73,7 +71,6 @@ li {
 .topnav {
   display: flex;
   background-color: #333; /* Bar color */
-  position: sticky;
   top: 0;
   width: 100%;
   z-index: 1000;
@@ -307,7 +304,7 @@ li {
 /* Basic container */
 .breadcrumbs {
   margin: 0 0 16px 0;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1;
   color: #0b0c0c;
 }
@@ -344,7 +341,7 @@ li {
 /* Links */
 .breadcrumbs__link {
   color: #1d70b8; /* link blue */
-  text-decoration: none;
+  text-decoration: underline;
   background: none;
   padding: 0;
   border: 0;
@@ -354,7 +351,7 @@ li {
 /* Interaction states */
 .breadcrumbs__link:hover,
 .breadcrumbs__link:focus {
-  text-decoration: underline;
+  text-decoration-thickness: 3px;
   outline: none;
 }
 
