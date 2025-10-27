@@ -61,12 +61,12 @@
             {{ page.breadcrumb_title | default: page.title | escape }}
           </li>
         {%- else -%}
-          <li class="govuk-breadcrumbs__list-item">
+          <li class="breadcrumbs__list-item">
             {%- if target -%}
               {%- comment -%}
                 Use the matched target's url (preserves whether it uses trailing slash or not).
               {%- endcomment -%}
-              <a class="govuk-breadcrumbs__link" href="{{ matched_url | relative_url }}">{{ target.breadcrumb_title | default: target.title | escape }}</a>
+              <a class="breadcrumbs__link" href="{{ matched_url | relative_url }}">{{ target.breadcrumb_title | default: target.title | escape }}</a>
             {%- else -%}
               {%- comment -%}
                 No matching page found in site pages/collections.
@@ -76,7 +76,7 @@
                 server will normally redirect.
               {%- endcomment -%}
               {%- assign fallback = part | replace: '-', ' ' | replace: '_', ' ' | replace: '.html', '' -%}
-              <a class="govuk-breadcrumbs__link" href="{{ acc_no_slash | relative_url }}">{{ fallback | capitalize }}</a>
+              <a class="breadcrumbs__link" href="{{ acc_no_slash | relative_url }}">{{ fallback | capitalize }}</a>
             {%- endif -%}
           </li>
         {%- endif -%}
