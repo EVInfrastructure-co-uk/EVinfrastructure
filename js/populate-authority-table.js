@@ -171,10 +171,8 @@ function populate(slug) {
             document.getElementById('LEVI-pilot-capital-amount-county').innerHTML = county['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('LEVI-pilot-CPO(s)-county').innerHTML = county['LEVI-pilot-CPO(s)'];
         }
-        if (county['ORCS-total-amount']) {
-            document.getElementById('ORCS-total-amount-county').innerHTML = county['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('ORCS-total-charging-devices-county').innerHTML = county['ORCS-total-charging-devices'].toLocaleString("en-GB");
-        }
+        document.getElementById('ORCS-total-amount-county').innerHTML = county['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        document.getElementById('ORCS-total-charging-devices-county').innerHTML = county['ORCS-total-charging-devices'].toLocaleString("en-GB");
     }
 
     if (unitary) {
