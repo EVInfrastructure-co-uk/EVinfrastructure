@@ -140,7 +140,7 @@ function populate(slug) {
         if (county['channel-grant-amount']) {    
             document.getElementById('channel-grant-amount-county').innerHTML = county['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
         }
-        if ((county['channel-status']) && county['channel-status'] != "not-permitted") {
+        if ((county['channel-status'])) {
             document.getElementById('channel-link-county').innerHTML = `<a href=${county['channel-link']}>${county['channel-link']}</a>`;
             document.getElementById('channel-application-fee-county').innerHTML = county['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('channel-installation-fee-county').innerHTML = county['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
@@ -186,7 +186,7 @@ function populate(slug) {
         if (unitary['channel-grant-amount']) {
             document.getElementById('channel-grant-amount-unitary').innerHTML = unitary['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
         }
-        if ((unitary['channel-status']) && unitary['channel-status'] != "not-permitted") {
+        if (unitary['channel-status']) {
             document.getElementById('channel-link-unitary').innerHTML = `<a href=${unitary['channel-link']}>${unitary['channel-link']}</a>`;
             document.getElementById('channel-application-fee-unitary').innerHTML = unitary['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('channel-installation-fee-unitary').innerHTML = unitary['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
@@ -222,8 +222,10 @@ function populate(slug) {
         document.getElementById('sub-authorities-CA').innerHTML = ca_sub_authorities;
         document.getElementById('current-administration-CA').innerHTML = ca['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-CA').color = ca['current-administration'];
-        document.getElementById('households-without-driveway-CA').innerHTML = ca['households-without-driveway'].toLocaleString("en-GB");
-        document.getElementById('households-without-driveway-pct-CA').innerHTML = `${ca['households-without-driveway-pct']}%`;
+        if (ca['households-without-driveway']) {
+            document.getElementById('households-without-driveway-CA').innerHTML = ca['households-without-driveway'].toLocaleString("en-GB");
+            document.getElementById('households-without-driveway-pct-CA').innerHTML = `${ca['households-without-driveway-pct']}%`;
+        }
         if (ca['EVI-link']) {
             document.getElementById('EVI-link-CA').innerHTML = `<a href=${ca['EVI-link']}>${ca['EVI-link']}</a>`;
         }
@@ -235,7 +237,7 @@ function populate(slug) {
             document.getElementById('channel-grant-amount-CA').innerHTML = ca['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('channel-status-CA').innerHTML = ca['channel-status'];       
         }
-        if ((ca['channel-status']) && ca['channel-status'] != "not-permitted" && (ca['channel-grant-amount'])) {
+        if ((ca['channel-status']) && (ca['channel-grant-amount'])) {
             document.getElementById('channel-link-CA').innerHTML = `<a href=${ca['channel-link']}>${ca['channel-link']}</a>`;
             document.getElementById('channel-application-fee-CA').innerHTML = ca['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('channel-installation-fee-CA').innerHTML = ca['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
@@ -286,7 +288,7 @@ function populate(slug) {
             document.getElementById('channel-grant-amount-CA2').innerHTML = ca2['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('channel-status-CA2').innerHTML = ca2['channel-status'];       
         }
-        if ((ca2['channel-status']) && ca2['channel-status'] != "not-permitted" && (ca2['channel-grant-amount'])) {
+        if ((ca2['channel-status']) && (ca2['channel-grant-amount'])) {
             document.getElementById('channel-link-CA2').innerHTML = `<a href=${ca2['channel-link']}>${ca2['channel-link']}</a>`;
             document.getElementById('channel-application-fee-CA2').innerHTML = ca2['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('channel-installation-fee-CA2').innerHTML = ca2['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
@@ -337,7 +339,7 @@ function populate(slug) {
             document.getElementById('channel-grant-amount-CA3').innerHTML = ca3['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('channel-status-CA3').innerHTML = ca3['channel-status'];       
         }
-        if ((ca3['channel-status']) && ca3['channel-status'] != "not-permitted" && (ca3['channel-grant-amount'])) {
+        if ((ca3['channel-status']) && (ca3['channel-grant-amount'])) {
             document.getElementById('channel-link-CA3').innerHTML = `<a href=${ca3['channel-link']}>${ca3['channel-link']}</a>`;
             document.getElementById('channel-application-fee-CA3').innerHTML = ca3['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('channel-installation-fee-CA3').innerHTML = ca3['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
