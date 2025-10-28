@@ -142,9 +142,21 @@ function populate(slug) {
         }
         if ((county['channel-status'])) {
             document.getElementById('channel-link-county').innerHTML = `<a href=${county['channel-link']}>${county['channel-link']}</a>`;
-            document.getElementById('channel-application-fee-county').innerHTML = county['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-installation-fee-county').innerHTML = county['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-annual-fee-county').innerHTML = county['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            if (isNaN(county['channel-application-fee'])) {
+            document.getElementById('channel-application-fee-county').innerHTML = county['channel-application-fee']
+            } else {
+                document.getElementById('channel-application-fee-county').innerHTML = county['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            }
+            if (isNaN(county['channel-installation-fee'])) {
+            document.getElementById('channel-installation-fee-county').innerHTML = county['channel-installation-fee']
+            } else {
+                document.getElementById('channel-installation-fee-county').innerHTML = county['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            }
+            if (isNaN(county['channel-annual-fee'])) {
+            document.getElementById('channel-annual-fee-county').innerHTML = county['channel-annual-fee']
+            } else {
+                document.getElementById('channel-annual-fee-county').innerHTML = county['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            }
             document.getElementById('channel-manufacturer-county').innerHTML = county['channel-manufacturer'];
         }
         if (county['LEVI-capital-amount']) {
