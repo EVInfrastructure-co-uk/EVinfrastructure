@@ -142,17 +142,17 @@ function populate(slug) {
         }
         if ((county['channel-status'])) {
             document.getElementById('channel-link-county').innerHTML = `<a href=${county['channel-link']}>${county['channel-link']}</a>`;
-            if (isNaN(county['channel-application-fee'])) {
+            if (county['channel-application-fee'] == null || isNaN(county['channel-application-fee'])) {
             document.getElementById('channel-application-fee-county').innerHTML = county['channel-application-fee']
             } else {
                 document.getElementById('channel-application-fee-county').innerHTML = county['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             }
-            if (isNaN(county['channel-installation-fee'])) {
+            if (county['channel-installation-fee'] == null || isNaN(county['channel-installation-fee'])) {
             document.getElementById('channel-installation-fee-county').innerHTML = county['channel-installation-fee']
             } else {
                 document.getElementById('channel-installation-fee-county').innerHTML = county['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             }
-            if (isNaN(county['channel-annual-fee'])) {
+            if (county['channel-annual-fee'] == null || isNaN(county['channel-annual-fee'])) {
             document.getElementById('channel-annual-fee-county').innerHTML = county['channel-annual-fee']
             } else {
                 document.getElementById('channel-annual-fee-county').innerHTML = county['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
