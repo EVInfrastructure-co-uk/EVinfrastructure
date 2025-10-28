@@ -196,11 +196,23 @@ function populate(slug) {
         if (unitary['channel-grant-amount']) {
             document.getElementById('channel-grant-amount-unitary').innerHTML = unitary['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
         }
-        if (unitary['channel-status']) {
+        if ((unitary['channel-status'])) {
             document.getElementById('channel-link-unitary').innerHTML = `<a href=${unitary['channel-link']}>${unitary['channel-link']}</a>`;
-            document.getElementById('channel-application-fee-unitary').innerHTML = unitary['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-installation-fee-unitary').innerHTML = unitary['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-annual-fee-unitary').innerHTML = unitary['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            if (unitary['channel-application-fee'] == null || isNaN(unitary['channel-application-fee'])) {
+            document.getElementById('channel-application-fee-unitary').innerHTML = unitary['channel-application-fee']
+            } else {
+                document.getElementById('channel-application-fee-unitary').innerHTML = unitary['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            }
+            if (unitary['channel-installation-fee'] == null || isNaN(unitary['channel-installation-fee'])) {
+            document.getElementById('channel-installation-fee-unitary').innerHTML = unitary['channel-installation-fee']
+            } else {
+                document.getElementById('channel-installation-fee-unitary').innerHTML = unitary['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            }
+            if (unitary['channel-annual-fee'] == null || isNaN(unitary['channel-annual-fee'])) {
+            document.getElementById('channel-annual-fee-unitary').innerHTML = unitary['channel-annual-fee']
+            } else {
+                document.getElementById('channel-annual-fee-unitary').innerHTML = unitary['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            }
             document.getElementById('channel-manufacturer-unitary').innerHTML = unitary['channel-manufacturer'];
         }
         if (unitary['LEVI-capital-amount']) {
@@ -249,9 +261,21 @@ function populate(slug) {
         }
         if ((ca['channel-status']) && (ca['channel-grant-amount'])) {
             document.getElementById('channel-link-CA').innerHTML = `<a href=${ca['channel-link']}>${ca['channel-link']}</a>`;
-            document.getElementById('channel-application-fee-CA').innerHTML = ca['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-installation-fee-CA').innerHTML = ca['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-annual-fee-CA').innerHTML = ca['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            if (ca['channel-application-fee'] == null || isNaN(ca['channel-application-fee'])) {
+            document.getElementById('channel-application-fee-CA').innerHTML = ca['channel-application-fee']
+            } else {
+                document.getElementById('channel-application-fee-CA').innerHTML = ca['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            }
+            if (ca['channel-installation-fee'] == null || isNaN(ca['channel-installation-fee'])) {
+            document.getElementById('channel-installation-fee-CA').innerHTML = ca['channel-installation-fee']
+            } else {
+                document.getElementById('channel-installation-fee-CA').innerHTML = ca['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            }
+            if (ca['channel-annual-fee'] == null || isNaN(ca['channel-annual-fee'])) {
+            document.getElementById('channel-annual-fee-CA').innerHTML = ca['channel-annual-fee']
+            } else {
+                document.getElementById('channel-annual-fee-CA').innerHTML = ca['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            }
             document.getElementById('channel-manufacturer-CA').innerHTML = ca['channel-manufacturer'];
         }
         if (ca['LEVI-capital-amount']) {
@@ -300,9 +324,21 @@ function populate(slug) {
         }
         if ((ca2['channel-status']) && (ca2['channel-grant-amount'])) {
             document.getElementById('channel-link-CA2').innerHTML = `<a href=${ca2['channel-link']}>${ca2['channel-link']}</a>`;
-            document.getElementById('channel-application-fee-CA2').innerHTML = ca2['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-installation-fee-CA2').innerHTML = ca2['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-annual-fee-CA2').innerHTML = ca2['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            if (ca2['channel-application-fee'] == null || isNaN(ca2['channel-application-fee'])) {
+            document.getElementById('channel-application-fee-CA2').innerHTML = ca2['channel-application-fee']
+            } else {
+                document.getElementById('channel-application-fee-CA2').innerHTML = ca2['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            }
+            if (ca2['channel-installation-fee'] == null || isNaN(ca2['channel-installation-fee'])) {
+            document.getElementById('channel-installation-fee-CA2').innerHTML = ca2['channel-installation-fee']
+            } else {
+                document.getElementById('channel-installation-fee-CA2').innerHTML = ca2['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            }
+            if (ca2['channel-annual-fee'] == null || isNaN(ca2['channel-annual-fee'])) {
+            document.getElementById('channel-annual-fee-CA2').innerHTML = ca2['channel-annual-fee']
+            } else {
+                document.getElementById('channel-annual-fee-CA2').innerHTML = ca2['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            }
             document.getElementById('channel-manufacturer-CA2').innerHTML = ca2['channel-manufacturer'];
         }
         if (ca2['LEVI-capital-amount']) {
@@ -351,9 +387,21 @@ function populate(slug) {
         }
         if ((ca3['channel-status']) && (ca3['channel-grant-amount'])) {
             document.getElementById('channel-link-CA3').innerHTML = `<a href=${ca3['channel-link']}>${ca3['channel-link']}</a>`;
-            document.getElementById('channel-application-fee-CA3').innerHTML = ca3['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-installation-fee-CA3').innerHTML = ca3['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-annual-fee-CA3').innerHTML = ca3['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            if (ca3['channel-application-fee'] == null || isNaN(ca3['channel-application-fee'])) {
+            document.getElementById('channel-application-fee-CA3').innerHTML = ca3['channel-application-fee']
+            } else {
+                document.getElementById('channel-application-fee-CA3').innerHTML = ca3['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            }
+            if (ca3['channel-installation-fee'] == null || isNaN(ca3['channel-installation-fee'])) {
+            document.getElementById('channel-installation-fee-CA3').innerHTML = ca3['channel-installation-fee']
+            } else {
+                document.getElementById('channel-installation-fee-CA3').innerHTML = ca3['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            }
+            if (ca3['channel-annual-fee'] == null || isNaN(ca3['channel-annual-fee'])) {
+            document.getElementById('channel-annual-fee-CA3').innerHTML = ca3['channel-annual-fee']
+            } else {
+                document.getElementById('channel-annual-fee-CA3').innerHTML = ca3['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            }
             document.getElementById('channel-manufacturer-CA3').innerHTML = ca3['channel-manufacturer'];
         }
         if (ca3['LEVI-capital-amount']) {
