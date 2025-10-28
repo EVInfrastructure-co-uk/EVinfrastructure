@@ -65,14 +65,20 @@ function populate(slug) {
             district = match;
             county = laData.find(entry => entry['local-authority-code'] === district['county-la']);
             ca = laData.find(entry => entry['local-authority-code'] === county['combined-authority']);
-            ca2 = laData.find(entry => entry['local-authority-code'] === county['combined-authority-2']);
+            // try county combined authorities first
+            ca2 = laData.find(entry => entry['local-authority-code'] === county['combined-authority-2']); 
+            ca3 = laData.find(entry => entry['local-authority-code'] === county['combined-authority-3']);
+            // then county has no ca2 try district ca2
             if (!(ca2)) {
                 ca2 = laData.find(entry => entry['local-authority-code'] === district['combined-authority-2']); 
+            // if county has ca2 but no ca3, try district ca2 to slot into ca3
+            } else if (!(ca3)) {
+                ca3 = laData.find(entry => entry['local-authority-code'] === district['combined-authority-2']); 
+            // if county has filled up ca2 and ca3, district ca2 goes to ca4 (only South Holland)
+            } else {
+                ca4 = laData.find(entry => entry['local-authority-code'] === district['combined-authority-2']);
             }
-            ca3 = laData.find(entry => entry['local-authority-code'] === county['combined-authority-3']);
-            if (!(ca3)) {
-                ca3 = laData.find(entry => entry['local-authority-code'] === district['combined-authority-3']); 
-            }
+            
             document.getElementById('name-county').innerHTML = `<a href="/government-and-EVI/local-government/${county['gov-uk-slug']}">${county['official-name']}</a>`;
             var county_sub_authorities = `<strong>${district['nice-name']}</strong>`;
             if (ca) {
@@ -88,6 +94,11 @@ function populate(slug) {
                 document.getElementById('combined-authority-3-name').innerHTML = `<a href="/government-and-EVI/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
                 document.getElementById('combined-authority-3-type').innerHTML = ca3['combined-authority-type'];
                 var ca3_sub_authorities = "";
+            }
+            if (ca4) {
+                document.getElementById('combined-authority-4-name').innerHTML = `<a href="/government-and-EVI/local-government/${ca4['gov-uk-slug']}">${ca4['official-name']}</a>`;
+                document.getElementById('combined-authority-4-type').innerHTML = ca4['combined-authority-type'];
+                var ca4_sub_authorities = "";
             }
         } else {
             document.getElementById('result').textContent = 'Data error';
