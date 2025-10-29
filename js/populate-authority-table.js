@@ -25,7 +25,7 @@ function populate(slug) {
                 document.getElementById('name-CA-ORCS').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
                 var ca_sub_authorities = `<strong>${unitary['nice-name']}</strong>`;
             }
-        else if  (match['local-authority-type'] == "NID") { // Northern Ireland
+        } else if  (match['local-authority-type'] == "NID") { // Northern Ireland
             unitary = match;
             ca = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority']);
             // if (ca) {
@@ -46,7 +46,7 @@ function populate(slug) {
             //     document.getElementById('combined-authority-3-type').innerHTML = ca3['combined-authority-type'];
             //     var ca3_sub_authorities = `<strong>${unitary['nice-name']}</strong>`;
             // }
-        else if  (["CC","LBO","UA","MD"].includes(match['local-authority-type'])) { // London boroughs, England unitary authorities, England metropolitan districts
+        } else if  (["CC","LBO","UA","MD"].includes(match['local-authority-type'])) { // London boroughs, England unitary authorities, England metropolitan districts
             unitary = match;
             ca = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority']);
             if (ca) {
