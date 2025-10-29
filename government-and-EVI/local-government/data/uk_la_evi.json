@@ -525,6 +525,30 @@
             "constraints": {
               "unique": false
             }
+          },
+          {
+            "name": "LEVI-pilot-capital-amount",
+            "type": "number",
+            "description": "The total funding which a body received as part of the LEVI pilot (2022-2023)",
+            "constraints": {
+              "unique": false
+            }
+          },
+          {
+            "name": "LEVI-pilot-CPO(s)",
+            "type": "string",
+            "description": "Tenderers appointed to spend the LEVI pilot funds",
+            "constraints": {
+              "unique": false
+            }
+          },
+          {
+            "name": "ORCS-CPO(s)",
+            "type": "string",
+            "description": "Tenderers appointed to spend ORCS funds",
+            "constraints": {
+              "unique": false
+            }
           }
         ]
       },
@@ -582,7 +606,10 @@
           "channel-link": null,
           "combined-authority-2": "DFI",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ABD",
@@ -635,7 +662,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ABE",
@@ -688,7 +718,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ADU",
@@ -741,7 +774,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "AGB",
@@ -794,7 +830,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "AGY",
@@ -847,7 +886,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "AMB",
@@ -900,7 +942,10 @@
           "channel-link": null,
           "combined-authority-2": "AMBX",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "AND",
@@ -953,7 +998,10 @@
           "channel-link": null,
           "combined-authority-2": "DFI",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ANN",
@@ -1006,7 +1054,10 @@
           "channel-link": null,
           "combined-authority-2": "DFI",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ANS",
@@ -1059,7 +1110,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ARU",
@@ -1112,7 +1166,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ASF",
@@ -1165,7 +1222,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ASH",
@@ -1218,7 +1278,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BAB",
@@ -1271,7 +1334,10 @@
           "channel-link": null,
           "combined-authority-2": "BMS",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BAE",
@@ -1324,7 +1390,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BAI",
@@ -1377,7 +1446,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BAN",
@@ -1430,7 +1502,10 @@
           "channel-link": null,
           "combined-authority-2": "BANX",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BAS",
@@ -1483,7 +1558,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BBD",
@@ -1536,7 +1614,10 @@
           "channel-link": "https://www.blackburn.gov.uk/roads/apply-work-our-roads/electric-vehicle-cable-channel",
           "combined-authority-2": "LCCA",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BDF",
@@ -1589,7 +1670,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BDG",
@@ -1642,7 +1726,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BEN",
@@ -1695,7 +1782,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BEX",
@@ -1748,7 +1838,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BFS",
@@ -1801,7 +1894,10 @@
           "channel-link": null,
           "combined-authority-2": "DFI",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BGE",
@@ -1854,7 +1950,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BGW",
@@ -1907,7 +2006,10 @@
           "channel-link": "https://www.blaenau-gwent.gov.uk/en/resident/electric-vehicle-charging/on-street-charging/",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BIR",
@@ -1960,7 +2062,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BLA",
@@ -2013,7 +2118,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BNE",
@@ -2066,7 +2174,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BNH",
@@ -2119,7 +2230,10 @@
           "channel-link": "https://www.brighton-hove.gov.uk/travel-and-road-safety/electric-vehicle-ev-charging/private-charging-over-highway-cables-gullies-etc",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BNS",
@@ -2172,7 +2286,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BOL",
@@ -2225,7 +2342,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BOS",
@@ -2278,7 +2398,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BOT",
@@ -2331,7 +2454,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BPC",
@@ -2384,7 +2510,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BPL",
@@ -2437,7 +2566,10 @@
           "channel-link": null,
           "combined-authority-2": "LCCA",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BRA",
@@ -2490,7 +2622,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BRC",
@@ -2543,7 +2678,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BRD",
@@ -2596,7 +2734,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BRE",
@@ -2649,7 +2790,10 @@
           "channel-link": null,
           "combined-authority-2": "BSH",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BRM",
@@ -2702,7 +2846,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BRO",
@@ -2755,7 +2902,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BRT",
@@ -2808,7 +2958,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BRW",
@@ -2861,7 +3014,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BRX",
@@ -2914,7 +3070,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BRY",
@@ -2967,7 +3126,10 @@
           "channel-link": "https://www.bromley.gov.uk/roads-highways-pavements/electric-hybrid-vehicles/2",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BST",
@@ -3020,7 +3182,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BUC",
@@ -3073,7 +3238,10 @@
           "channel-link": "https://www.buckinghamshire.gov.uk/parking-roads-and-transport/parking/electric-vehicles/wendover-electric-vehicle-charging-trial/",
           "combined-authority-2": "BUCX",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BUN",
@@ -3126,7 +3294,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BUR",
@@ -3179,7 +3350,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CAB",
@@ -3232,7 +3406,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CAM",
@@ -3285,7 +3462,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CAN",
@@ -3338,7 +3518,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CAS",
@@ -3391,7 +3574,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CAT",
@@ -3444,7 +3630,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CAY",
@@ -3497,7 +3686,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CBD",
@@ -3550,7 +3742,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CBF",
@@ -3603,7 +3798,10 @@
           "channel-link": "https://www.centralbedfordshire.gov.uk/info/167/electric_vehicles/2018/electric_vehicle_charging_channels",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CCG",
@@ -3656,7 +3854,10 @@
           "channel-link": null,
           "combined-authority-2": "DFI",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CGN",
@@ -3709,7 +3910,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CHA",
@@ -3762,7 +3966,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CHE",
@@ -3815,7 +4022,10 @@
           "channel-link": null,
           "combined-authority-2": "CHEX",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CHI",
@@ -3868,7 +4078,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CHL",
@@ -3921,7 +4134,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CHO",
@@ -3974,7 +4190,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CHR",
@@ -4027,7 +4246,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CHS",
@@ -4080,7 +4302,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CHT",
@@ -4133,7 +4358,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CHW",
@@ -4186,7 +4414,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CLD",
@@ -4239,7 +4470,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CLK",
@@ -4292,7 +4526,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CMD",
@@ -4345,7 +4582,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CMN",
@@ -4398,7 +4638,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "COL",
@@ -4451,7 +4694,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CON",
@@ -4504,7 +4750,10 @@
           "channel-link": "https://www.cornwall.gov.uk/transport-parking-and-streets/street-works/apply-to-install-an-ev-charging-channel/",
           "combined-authority-2": "CONX",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "COT",
@@ -4557,7 +4806,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "COV",
@@ -4610,7 +4862,10 @@
           "channel-link": "https://www.coventry.gov.uk/roads-highways-pavements/electric-vehicle-charging/7",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CPCA",
@@ -4663,7 +4918,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CCR",
@@ -4716,7 +4974,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CRF",
@@ -4769,7 +5030,10 @@
           "channel-link": "https://www.cardiff.gov.uk/ENG/resident/Parking-roads-and-travel/electric-vehicles/installing-home-charging-point/Pages/default.aspx",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CRW",
@@ -4822,7 +5086,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CRY",
@@ -4875,7 +5142,10 @@
           "channel-link": "https://www.croydon.gov.uk/streets-roads-and-transport/travel/electric-vehicle-ev-charging-points/installing-chargepoint",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CWY",
@@ -4928,7 +5198,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DAC",
@@ -4981,7 +5254,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DAL",
@@ -5034,7 +5310,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DAR",
@@ -5087,7 +5366,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DBY",
@@ -5140,7 +5422,10 @@
           "channel-link": null,
           "combined-authority-2": "EMCA",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DEB",
@@ -5193,7 +5478,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DEN",
@@ -5246,7 +5534,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DER",
@@ -5299,7 +5590,10 @@
           "channel-link": null,
           "combined-authority-2": "EMCA",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DEV",
@@ -5352,7 +5646,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DGY",
@@ -5405,7 +5702,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DNC",
@@ -5458,7 +5758,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DND",
@@ -5511,7 +5814,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DOV",
@@ -5564,7 +5870,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DRS",
@@ -5617,7 +5926,10 @@
           "channel-link": null,
           "combined-authority-2": "DFI",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DST",
@@ -5670,7 +5982,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DUD",
@@ -5723,7 +6038,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DUR",
@@ -5776,7 +6094,10 @@
           "channel-link": "https://www.durham.gov.uk/article/32002/Electric-Vehicle-charging-points-and-Kerbo-projects",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DVT",
@@ -5829,7 +6150,10 @@
           "channel-link": "https://www.devon.gov.uk/roads-and-transport/make-a-request/devon-and-torbay-ev-cc-trial/",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "EAL",
@@ -5882,7 +6206,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "EAS",
@@ -5935,7 +6262,10 @@
           "channel-link": null,
           "combined-authority-2": "LWE",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "EAT",
@@ -5988,7 +6318,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "EAY",
@@ -6041,7 +6374,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ECA",
@@ -6094,7 +6430,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "EDE",
@@ -6147,7 +6486,10 @@
           "channel-link": null,
           "combined-authority-2": "EDEX",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "EDH",
@@ -6200,7 +6542,10 @@
           "channel-link": "https://www.edinburgh.gov.uk/public-transport/find-electric-vehicle-charging-points-edinburgh/6",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "EDU",
@@ -6253,7 +6598,10 @@
           "channel-link": "https://www.eastdunbarton.gov.uk/services/a-z-of-services/roads-pavements-transport/installation-of-electric-vehicle-chargers-at-private-properties/",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "EHA",
@@ -6306,7 +6654,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "EHE",
@@ -6359,7 +6710,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ELI",
@@ -6412,7 +6766,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ELM",
@@ -6465,7 +6822,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ELN",
@@ -6518,7 +6878,10 @@
           "channel-link": "https://www.eastlothian.gov.uk/info/210566/roads_and_transport/12662/east_lothian_vehicle_chargers/11",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ELS",
@@ -6571,7 +6934,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "EMCA",
@@ -6624,7 +6990,10 @@
           "channel-link": "https://democracy.eastmidlands-cca.gov.uk/documents/s2519/Item%207a%20-%20Proposal%20for%20Submission.pdf",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Pavement Channel Grant authority"
+          "combined-authority-type": "Pavement Channel Grant authority",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ENF",
@@ -6677,7 +7046,10 @@
           "channel-link": "https://www.enfield.gov.uk/services/roads-and-transport/footway-channel-for-electric-vehicle-charging-on-the-roadside",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "EPP",
@@ -6730,7 +7102,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "EPS",
@@ -6783,7 +7158,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ERE",
@@ -6836,7 +7214,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ERW",
@@ -6889,7 +7270,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ERY",
@@ -6942,7 +7326,10 @@
           "channel-link": "https://www.eastriding.gov.uk/environment/roads-streets-traffic-and-parking/parking/electric-vehicles-and-charging-points/",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ESK",
@@ -6995,7 +7382,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ESS",
@@ -7048,7 +7438,10 @@
           "channel-link": "https://www.essexhighways.org/getting-around/driving/electric-car/ev-strategy",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "EST",
@@ -7101,7 +7494,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ESX",
@@ -7154,7 +7550,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "EXE",
@@ -7207,7 +7606,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "FAL",
@@ -7260,7 +7662,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "FAR",
@@ -7313,7 +7718,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "FEN",
@@ -7366,7 +7774,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "FIF",
@@ -7419,7 +7830,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "FLN",
@@ -7472,7 +7886,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "FMO",
@@ -7525,7 +7942,10 @@
           "channel-link": null,
           "combined-authority-2": "DFI",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "FOE",
@@ -7578,7 +7998,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "FYL",
@@ -7631,7 +8054,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "GAT",
@@ -7684,7 +8110,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "GED",
@@ -7737,7 +8166,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "GLCA",
@@ -7790,7 +8222,10 @@
           "channel-link": "https://lincolnshire.moderngov.co.uk/documents/s69143/GLCCA%20Budget%20Update.pdf",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Pavement Channel Grant authority"
+          "combined-authority-type": "Pavement Channel Grant authority",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "GLG",
@@ -7843,7 +8278,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "GLO",
@@ -7896,7 +8334,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "GLS",
@@ -7949,7 +8390,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "GMCA",
@@ -8002,7 +8446,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "GOS",
@@ -8055,7 +8502,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "GRA",
@@ -8108,7 +8558,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "GRE",
@@ -8161,7 +8614,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "GRT",
@@ -8214,7 +8670,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "GRY",
@@ -8267,7 +8726,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "GWN",
@@ -8320,7 +8782,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HAA",
@@ -8373,7 +8838,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HAL",
@@ -8426,7 +8894,10 @@
           "channel-link": "https://www.kerbocharge.com/locations/halton",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HAM",
@@ -8479,7 +8950,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HAO",
@@ -8532,7 +9006,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HAR",
@@ -8585,7 +9062,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HAS",
@@ -8638,7 +9118,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HAT",
@@ -8691,7 +9174,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HAV",
@@ -8744,7 +9230,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HCK",
@@ -8797,7 +9286,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HEF",
@@ -8850,7 +9342,10 @@
           "channel-link": "https://www.herefordshire.gov.uk/travel-and-transport/parking/electric-vehicle-chargepoints/charging-your-electric-vehicle-at-home/",
           "combined-authority-2": "MC1",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HER",
@@ -8903,7 +9398,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HIG",
@@ -8956,7 +9454,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HIL",
@@ -9009,7 +9510,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HIN",
@@ -9062,7 +9566,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HLD",
@@ -9115,7 +9622,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HMF",
@@ -9168,7 +9678,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HNS",
@@ -9221,7 +9734,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HOR",
@@ -9274,7 +9790,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HPL",
@@ -9327,7 +9846,10 @@
           "channel-link": "https://www.hartlepool.gov.uk/roads-highways/electric-vehicle-cable-channels",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HRT",
@@ -9380,7 +9902,10 @@
           "channel-link": "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/news-and-campaigns/electric-vehicles.aspx#chargingathome",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HRW",
@@ -9433,7 +9958,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HRY",
@@ -9486,7 +10014,10 @@
           "channel-link": "https://haringey.gov.uk/sites/default/files/2023-11/planning_advice_notice_-_residents_final.pdf",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HUN",
@@ -9539,7 +10070,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HYCA",
@@ -9592,7 +10126,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "HYN",
@@ -9645,7 +10182,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "IOS",
@@ -9698,7 +10238,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "IOW",
@@ -9751,7 +10294,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "IPS",
@@ -9804,7 +10350,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ISL",
@@ -9857,7 +10406,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "IVC",
@@ -9910,7 +10462,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "KEC",
@@ -9963,7 +10518,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "KEN",
@@ -10016,7 +10574,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "KHL",
@@ -10069,7 +10630,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "KIN",
@@ -10122,7 +10686,10 @@
           "channel-link": null,
           "combined-authority-2": "KINX",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "KIR",
@@ -10175,7 +10742,10 @@
           "channel-link": "https://www.kirklees.gov.uk/beta/transport-roads-and-parking/charging-electric-vehicles-at-home.aspx",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "KTT",
@@ -10228,7 +10798,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "KWL",
@@ -10281,7 +10854,10 @@
           "channel-link": "https://www.knowsley.gov.uk/electric-vehicle-charging/guidance-street-charging",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LAC",
@@ -10334,7 +10910,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LAN",
@@ -10387,7 +10966,10 @@
           "channel-link": "https://energysavingtrust.org.uk/case-study/how-the-levi-fund-helped-lancashire-county-council-pilot-safer-on-street-charging-for-electric-vehicles/",
           "combined-authority-2": "LCCA",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LBC",
@@ -10440,7 +11022,10 @@
           "channel-link": null,
           "combined-authority-2": "DFI",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LBH",
@@ -10493,7 +11078,10 @@
           "channel-link": "https://www.lambeth.gov.uk/environmental-services/electric-vehicles/charge-points/trailing-cables-channels",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LCCA",
@@ -10546,7 +11134,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Pavement Channel Grant authority"
+          "combined-authority-type": "Pavement Channel Grant authority",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LCE",
@@ -10599,7 +11190,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LCR",
@@ -10652,7 +11246,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LDS",
@@ -10705,7 +11302,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LEC",
@@ -10758,7 +11358,10 @@
           "channel-link": null,
           "combined-authority-2": "MC1",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LEE",
@@ -10811,7 +11414,10 @@
           "channel-link": null,
           "combined-authority-2": "LWE",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LEW",
@@ -10864,7 +11470,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LIC",
@@ -10917,7 +11526,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LIF",
@@ -10970,7 +11582,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LIN",
@@ -11023,7 +11638,10 @@
           "channel-link": null,
           "combined-authority-2": "MC1",
           "combined-authority-3": "GLCA",
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LIV",
@@ -11076,7 +11694,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LND",
@@ -11129,7 +11750,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LP1",
@@ -11182,7 +11806,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LP2",
@@ -11235,7 +11862,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LP3",
@@ -11288,7 +11918,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LP4",
@@ -11341,7 +11974,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LP5",
@@ -11394,7 +12030,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LP6",
@@ -11447,7 +12086,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LP7",
@@ -11500,7 +12142,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LP8",
@@ -11553,7 +12198,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LP9",
@@ -11606,7 +12254,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LUT",
@@ -11659,7 +12310,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MAI",
@@ -11712,7 +12366,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MAL",
@@ -11765,7 +12422,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MAN",
@@ -11818,7 +12478,10 @@
           "channel-link": "https://www.manchester.gov.uk/info/500113/city_centre_growth_and_infrastructure/8437/electric_vehicle_ev_charging/4",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MAS",
@@ -11871,7 +12534,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MAV",
@@ -11924,7 +12590,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MDB",
@@ -11977,7 +12646,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MDE",
@@ -12030,7 +12702,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MDW",
@@ -12083,7 +12758,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MEA",
@@ -12136,7 +12814,10 @@
           "channel-link": null,
           "combined-authority-2": "DFI",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MEL",
@@ -12189,7 +12870,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MC1",
@@ -12246,7 +12930,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "LEVI pilot partnership"
+          "combined-authority-type": "LEVI pilot partnership",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MC2",
@@ -12299,7 +12986,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MC3",
@@ -12355,7 +13045,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MC4",
@@ -12411,7 +13104,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MIK",
@@ -12464,7 +13160,10 @@
           "channel-link": "https://www.milton-keynes.gov.uk/highways/highways-permits-and-licences/apply-home-ev-charging-channel",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MLN",
@@ -12517,7 +13216,10 @@
           "channel-link": "https://www.midlothian.gov.uk/info/200279/roads_and_travel/682/electric_vehicle_ev_charging/2",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MOL",
@@ -12570,7 +13272,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MON",
@@ -12623,7 +13328,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MRT",
@@ -12676,7 +13384,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MRY",
@@ -12729,7 +13440,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MSS",
@@ -12782,7 +13496,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MSU",
@@ -12835,7 +13552,10 @@
           "channel-link": null,
           "combined-authority-2": "BMS",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MTY",
@@ -12888,7 +13608,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "MUL",
@@ -12941,7 +13664,10 @@
           "channel-link": null,
           "combined-authority-2": "DFI",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NAY",
@@ -12994,7 +13720,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NBL",
@@ -13047,7 +13776,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NDE",
@@ -13100,7 +13832,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NEA",
@@ -13153,7 +13888,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NEC",
@@ -13206,7 +13944,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NECA",
@@ -13259,7 +14000,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NED",
@@ -13312,7 +14056,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NEL",
@@ -13365,7 +14112,10 @@
           "channel-link": "https://www.nelincs.gov.uk/assets/uploads/2024/10/EV-FAQ.pdf",
           "combined-authority-2": "GLCA",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NET",
@@ -13418,7 +14168,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NEW",
@@ -13471,7 +14224,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NFK",
@@ -13524,7 +14280,10 @@
           "channel-link": "https://www.norfolk.gov.uk/evcable",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NGM",
@@ -13577,7 +14336,10 @@
           "channel-link": null,
           "combined-authority-2": "EMCA",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NHE",
@@ -13630,7 +14392,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NKE",
@@ -13683,7 +14448,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NLK",
@@ -13736,7 +14504,10 @@
           "channel-link": "https://www.northlanarkshire.gov.uk/roads-streetlighting-and-parking/electric-vehicle-charging/frequently-asked-questions",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NLN",
@@ -13789,7 +14560,10 @@
           "channel-link": "https://www.northlincs.gov.uk/roads-paths-and-transport/electric-vehicle-charging/electric-vehicle-charging-faqs/",
           "combined-authority-2": "GLCA",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NMD",
@@ -13842,7 +14616,10 @@
           "channel-link": null,
           "combined-authority-2": "DFI",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NNO",
@@ -13895,7 +14672,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NNT",
@@ -13948,7 +14728,10 @@
           "channel-link": null,
           "combined-authority-2": "NNTX",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NOW",
@@ -14001,7 +14784,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NSM",
@@ -14054,7 +14840,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NTL",
@@ -14107,7 +14896,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NTT",
@@ -14160,7 +14952,10 @@
           "channel-link": "https://www.nottinghamshire.gov.uk/transport/electric-vehicle-charging-in-nottinghamshire/electric-vehicle-cable-channel-evcc-pilot-programme",
           "combined-authority-2": "EMCA",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NTY",
@@ -14213,7 +15008,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NUN",
@@ -14266,7 +15064,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NWA",
@@ -14319,7 +15120,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NWL",
@@ -14372,7 +15176,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NWM",
@@ -14425,7 +15232,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NWP",
@@ -14478,7 +15288,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NYE",
@@ -14531,7 +15344,10 @@
           "channel-link": null,
           "combined-authority-2": "YNYC",
           "combined-authority-3": "NYEX",
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "OAD",
@@ -14584,7 +15400,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "OLD",
@@ -14637,7 +15456,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ORK",
@@ -14690,7 +15512,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "OXF",
@@ -14743,7 +15568,10 @@
           "channel-link": "https://www.oxfordshire.gov.uk/residents/environment-and-planning/energy-and-climate-change/electric-vehicles/ev-cable-channel",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "OXO",
@@ -14796,7 +15624,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "PEM",
@@ -14849,7 +15680,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "PEN",
@@ -14902,7 +15736,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "PKN",
@@ -14955,7 +15792,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "PLY",
@@ -15008,7 +15848,10 @@
           "channel-link": "https://www.plymouth.gov.uk/plymouth-ev-charging-trial",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "POR",
@@ -15061,7 +15904,10 @@
           "channel-link": "https://www.portsmouth.gov.uk/services/parking-roads-and-travel/travel/electric-vehicles/safely-charging-your-electric-vehicle/",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "POW",
@@ -15114,7 +15960,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "PRE",
@@ -15167,7 +16016,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "PTE",
@@ -15220,7 +16072,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "RCC",
@@ -15273,7 +16128,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "RCH",
@@ -15326,7 +16184,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "RCT",
@@ -15379,7 +16240,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "RDB",
@@ -15432,7 +16296,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "RDG",
@@ -15485,7 +16352,10 @@
           "channel-link": "https://www.kerbocharge.com/locations/reading",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "RED",
@@ -15538,7 +16408,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "REI",
@@ -15591,7 +16464,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "RFW",
@@ -15644,7 +16520,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "RIB",
@@ -15697,7 +16576,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "RIC",
@@ -15750,7 +16632,10 @@
           "channel-link": "https://www.richmond.gov.uk/services/roads_and_transport/vehicles/electric_vehicles/electric_vehicle_footway_channels",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ROC",
@@ -15803,7 +16688,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ROH",
@@ -15856,7 +16744,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ROS",
@@ -15909,7 +16800,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ROT",
@@ -15962,7 +16856,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "RUG",
@@ -16015,7 +16912,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "RUH",
@@ -16068,7 +16968,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "RUN",
@@ -16121,7 +17024,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "RUS",
@@ -16174,7 +17080,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "RUT",
@@ -16227,7 +17136,10 @@
           "channel-link": null,
           "combined-authority-2": "MC1",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SAL",
@@ -16280,7 +17192,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SAW",
@@ -16333,7 +17248,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SAY",
@@ -16386,7 +17304,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SCA",
@@ -16439,7 +17360,10 @@
           "channel-link": null,
           "combined-authority-2": "SCAX",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SCB",
@@ -16492,7 +17416,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SCR",
@@ -16545,7 +17472,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SDE",
@@ -16598,7 +17528,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SEV",
@@ -16651,7 +17584,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SFK",
@@ -16704,7 +17640,10 @@
           "channel-link": "https://www.suffolk.gov.uk/roads-and-transport/transport-planning/plug-in-suffolk/plug-in-suffolk-news",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SFT",
@@ -16757,7 +17696,10 @@
           "channel-link": "https://www.sefton.gov.uk/parking-roads-travel/electric-vehicles-and-charging-points/guidance-for-on-street-charging/",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SGC",
@@ -16810,7 +17752,10 @@
           "channel-link": "https://beta.southglos.gov.uk/charge-your-electric-vehicle-at-home/",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SHA",
@@ -16863,7 +17808,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SHE",
@@ -16916,7 +17864,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SHF",
@@ -16969,7 +17920,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SHN",
@@ -17022,7 +17976,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SHO",
@@ -17075,7 +18032,10 @@
           "channel-link": null,
           "combined-authority-2": "BSH",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SHR",
@@ -17128,7 +18088,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SKE",
@@ -17181,7 +18144,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SKP",
@@ -17234,7 +18200,10 @@
           "channel-link": "https://www.stockport.gov.uk/parking-for-other-vehicles/home-charging",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SLF",
@@ -17287,7 +18256,10 @@
           "channel-link": "https://www.salford.gov.uk/parking-roads-and-travel/charging-electric-vehicles-parked-on-street-at-home/",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SLG",
@@ -17340,7 +18312,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SLK",
@@ -17393,7 +18368,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SMT",
@@ -17446,7 +18424,10 @@
           "channel-link": "https://www.somerset.gov.uk/roads-travel-and-parking/electric-vehicle-charging/electric-vehicle-charging-cables/",
           "combined-authority-2": "SMTX",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SND",
@@ -17499,7 +18480,10 @@
           "channel-link": "https://www.mysunderland.co.uk/lowcarbon/support/evs/homecharge",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SNO",
@@ -17552,7 +18536,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SOL",
@@ -17605,7 +18592,10 @@
           "channel-link": "https://www.linkedin.com/feed/update/urn:li:activity:7171104491080007680/",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SOS",
@@ -17658,7 +18648,10 @@
           "channel-link": "https://www.southend.gov.uk/parking-2/electric-vehicle-street-charging-guidance",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SOX",
@@ -17711,7 +18704,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SPE",
@@ -17764,7 +18760,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SRI",
@@ -17817,7 +18816,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SRY",
@@ -17870,7 +18872,10 @@
           "channel-link": "https://www.surreycc.gov.uk/roads-and-transport/sustainable/electric-vehicles#domestic",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SST",
@@ -17923,7 +18928,10 @@
           "channel-link": null,
           "combined-authority-2": "SSTX",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "STA",
@@ -17976,7 +18984,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "STE",
@@ -18029,7 +19040,10 @@
           "channel-link": null,
           "combined-authority-2": "MC1",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "STF",
@@ -18082,7 +19096,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "STG",
@@ -18135,7 +19152,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "STH",
@@ -18188,7 +19208,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "STN",
@@ -18241,7 +19264,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "STO",
@@ -18294,7 +19320,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "STR",
@@ -18347,7 +19376,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "STS",
@@ -18400,7 +19432,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "STT",
@@ -18453,7 +19488,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "STV",
@@ -18506,7 +19544,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "STY",
@@ -18559,7 +19600,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SUR",
@@ -18612,7 +19656,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SWA",
@@ -18665,7 +19712,10 @@
           "channel-link": "https://www.swansea.gov.uk/evtrial",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SWD",
@@ -18718,7 +19768,10 @@
           "channel-link": "https://www.swindontravelchoices.co.uk/getting-around/car/electric-vehicles/electric-vehicles-faq/",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SWK",
@@ -18771,7 +19824,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SWL",
@@ -18824,7 +19880,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TAM",
@@ -18877,7 +19936,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TAN",
@@ -18930,7 +19992,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TAW",
@@ -18983,7 +20048,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TEI",
@@ -19036,7 +20104,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TEN",
@@ -19089,7 +20160,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TES",
@@ -19142,7 +20216,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TEW",
@@ -19195,7 +20272,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TFW",
@@ -19248,7 +20328,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "THA",
@@ -19301,7 +20384,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "THE",
@@ -19354,7 +20440,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "THR",
@@ -19407,7 +20496,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TOB",
@@ -19460,7 +20552,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TOF",
@@ -19513,7 +20608,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TON",
@@ -19566,7 +20664,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TOR",
@@ -19619,7 +20720,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TRF",
@@ -19672,7 +20776,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TUN",
@@ -19725,7 +20832,10 @@
           "channel-link": null,
           "combined-authority-2": "TUNX",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TVCA",
@@ -19778,7 +20888,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TWH",
@@ -19831,7 +20944,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "UTT",
@@ -19884,7 +21000,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "VAL",
@@ -19937,7 +21056,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "VGL",
@@ -19990,7 +21112,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WAE",
@@ -20043,7 +21168,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WAF",
@@ -20096,7 +21224,10 @@
           "channel-link": "https://www.westmorlandandfurness.gov.uk/charging-your-electric-vehicle",
           "combined-authority-2": "WAFX",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WAR",
@@ -20149,7 +21280,10 @@
           "channel-link": "https://www.warwickshire.gov.uk/electric-vehicles/charging-terraced-streets",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WAT",
@@ -20202,7 +21336,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WAW",
@@ -20255,7 +21392,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WBK",
@@ -20308,7 +21448,10 @@
           "channel-link": "https://www.westberks.gov.uk/article/42060/Electric-vehicle-charging-for-residents-with-no-off-street-parking",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WDE",
@@ -20361,7 +21504,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WDU",
@@ -20414,7 +21560,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WEA",
@@ -20467,7 +21616,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WECA",
@@ -20520,7 +21672,10 @@
           "channel-link": "https://www.westofengland-ca.gov.uk/news/500000-boost-for-ev-charging/",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WEW",
@@ -20573,7 +21728,10 @@
           "channel-link": null,
           "combined-authority-2": "WEWX",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WFT",
@@ -20626,7 +21784,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WGN",
@@ -20679,7 +21840,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WIL",
@@ -20732,7 +21896,10 @@
           "channel-link": "https://www.wiltshire.gov.uk/article/11497/Home-charging",
           "combined-authority-2": "WILX",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WIN",
@@ -20785,7 +21952,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WKF",
@@ -20838,7 +22008,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WLA",
@@ -20891,7 +22064,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WLI",
@@ -20944,7 +22120,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WLL",
@@ -20997,7 +22176,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WLN",
@@ -21050,7 +22232,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WLV",
@@ -21103,7 +22288,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WMCA",
@@ -21156,7 +22344,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WND",
@@ -21209,7 +22400,10 @@
           "channel-link": "https://www.wandsworth.gov.uk/electric-vehicles#Charging_at_home",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WNM",
@@ -21262,7 +22456,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WNT",
@@ -21315,7 +22512,10 @@
           "channel-link": null,
           "combined-authority-2": "WNTX",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WOC",
@@ -21368,7 +22568,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WOI",
@@ -21421,7 +22624,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WOK",
@@ -21474,7 +22680,10 @@
           "channel-link": "https://www.myjourneywokingham.com/media/4283/evs-faq.pdf",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WOR",
@@ -21527,7 +22736,10 @@
           "channel-link": "https://www.worcestershire.gov.uk/council-services/travel-and-highways/electric-vehicle-charging/charging-home",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WOT",
@@ -21580,7 +22792,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WOX",
@@ -21633,7 +22848,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WRL",
@@ -21686,7 +22904,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WRT",
@@ -21739,7 +22960,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WRX",
@@ -21792,7 +23016,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WSK",
@@ -21845,7 +23072,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WSM",
@@ -21898,7 +23128,10 @@
           "channel-link": "https://www.westminster.gov.uk/parking/electric-vehicles#charging-from-a-private-supply-over-the-highway",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WSX",
@@ -21951,7 +23184,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WYC",
@@ -22004,7 +23240,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WYCA",
@@ -22057,7 +23296,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WYE",
@@ -22110,7 +23352,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WYR",
@@ -22163,7 +23408,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "YNYC",
@@ -22216,7 +23464,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Pavement Channel Grant authority"
+          "combined-authority-type": "Pavement Channel Grant authority",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "YOR",
@@ -22269,7 +23520,10 @@
           "channel-link": "https://www.york.gov.uk/sustainable-transport/public-electric-vehicle-charging-strategy#charging",
           "combined-authority-2": "YNYC",
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ZET",
@@ -22322,7 +23576,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NSC",
@@ -22375,7 +23632,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "AYR",
@@ -22428,7 +23688,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "PKA",
@@ -22481,7 +23744,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "GCR",
@@ -22534,7 +23800,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "ABI",
@@ -22587,7 +23856,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SES",
@@ -22640,7 +23912,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": null
+          "combined-authority-type": null,
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BMS",
@@ -22693,7 +23968,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Joint ORCS bid"
+          "combined-authority-type": "Joint ORCS bid",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BSH",
@@ -22746,7 +24024,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Joint ORCS bid"
+          "combined-authority-type": "Joint ORCS bid",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "LWE",
@@ -22799,7 +24080,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Joint ORCS bid"
+          "combined-authority-type": "Joint ORCS bid",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NYEX",
@@ -22852,7 +24136,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by predecessor authorities of North Yorkshire Council and parish councils in North Yorkshire"
+          "combined-authority-type": "Sum of ORCS bids by predecessor authorities of North Yorkshire Council and parish councils in North Yorkshire",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WNTX",
@@ -22905,7 +24192,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by predecessor authorities of West Northamptonshire Council and parish councils in West Northamptonshire"
+          "combined-authority-type": "Sum of ORCS bids by predecessor authorities of West Northamptonshire Council and parish councils in West Northamptonshire",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SMTX",
@@ -22958,7 +24248,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by predecessor authorities of Somerset Council"
+          "combined-authority-type": "Sum of ORCS bids by predecessor authorities of Somerset Council",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "NNTX",
@@ -23011,7 +24304,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by predecessor authorities of North Northamptonshire Council"
+          "combined-authority-type": "Sum of ORCS bids by predecessor authorities of North Northamptonshire Council",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CHEX",
@@ -23064,7 +24360,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by parishes in Cheshire East"
+          "combined-authority-type": "Sum of ORCS bids by parishes in Cheshire East",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WAFX",
@@ -23117,7 +24416,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by parishes in Westmorland and Furness"
+          "combined-authority-type": "Sum of ORCS bids by parishes in Westmorland and Furness",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "AMBX",
@@ -23170,7 +24472,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by parishes in Amber Valley"
+          "combined-authority-type": "Sum of ORCS bids by parishes in Amber Valley",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SSTX",
@@ -23223,7 +24528,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by parishes in South Staffordshire"
+          "combined-authority-type": "Sum of ORCS bids by parishes in South Staffordshire",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "SCAX",
@@ -23276,7 +24584,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by parishes in South Cambridgeshire"
+          "combined-authority-type": "Sum of ORCS bids by parishes in South Cambridgeshire",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "KINX",
@@ -23329,7 +24640,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by parishes in Kings Lynn and West Norfolk"
+          "combined-authority-type": "Sum of ORCS bids by parishes in Kings Lynn and West Norfolk",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WEWX",
@@ -23382,7 +24696,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by parishes in Welwyn Hatfield"
+          "combined-authority-type": "Sum of ORCS bids by parishes in Welwyn Hatfield",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "TUNX",
@@ -23435,7 +24752,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by parishes in Tunbridge Wells"
+          "combined-authority-type": "Sum of ORCS bids by parishes in Tunbridge Wells",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BUCX",
@@ -23488,7 +24808,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by parishes in Buckinghamshire"
+          "combined-authority-type": "Sum of ORCS bids by parishes in Buckinghamshire",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "BANX",
@@ -23541,7 +24864,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by parishes in Basingstoke and Deane"
+          "combined-authority-type": "Sum of ORCS bids by parishes in Basingstoke and Deane",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "EDEX",
@@ -23594,7 +24920,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by parishes in East Devon"
+          "combined-authority-type": "Sum of ORCS bids by parishes in East Devon",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "CONX",
@@ -23647,7 +24976,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by parishes in Cornwall"
+          "combined-authority-type": "Sum of ORCS bids by parishes in Cornwall",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WILX",
@@ -23700,7 +25032,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by parishes in Wiltshire"
+          "combined-authority-type": "Sum of ORCS bids by parishes in Wiltshire",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "WILX",
@@ -23753,7 +25088,10 @@
           "channel-link": null,
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Sum of ORCS bids by parishes in Dorset"
+          "combined-authority-type": "Sum of ORCS bids by parishes in Dorset",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         },
         {
           "local-authority-code": "DFI",
@@ -23806,7 +25144,10 @@
           "channel-link": "https://www.infrastructure-ni.gov.uk/news/kimmins-launches-electric-vehicle-cross-pavement-charging-trial",
           "combined-authority-2": null,
           "combined-authority-3": null,
-          "combined-authority-type": "Northern Ireland Highway Authority"
+          "combined-authority-type": "Northern Ireland Highway Authority",
+          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-CPO(s)": null,
+          "ORCS-CPO(s)": null
         }
       ]
     }
