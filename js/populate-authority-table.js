@@ -9,6 +9,9 @@ function populate(slug) {
     var unitary = null;
     var county = null;
     var ca = null;
+    var ca2 = null;
+    var ca3 = null;
+    var ca4 = null;
 
     if (match) {
     // assign unitary, district, county or ca
