@@ -27,7 +27,8 @@ england_unitary_3ca = File.read('_templates/england-unitary-3CA.html')
 england_unitary_extra_ca = File.read('_templates/england-unitary-extra-CA.html')
 england_unitary_extra_2ca = File.read('_templates/england-unitary-extra-2CA.html')
 
-ni = File.read('_templates/ni.html')
+ni_ca = File.read('_templates/ni-CA.html')
+ni_unitary_extra = File.read('_templates/ni-unitary-extra-CA.html')
 
 scotland_ca = File.read('_templates/scotland-CA.html')
 scotland_unitary_ca = File.read('_templates/scotland-unitary-CA.html')
@@ -73,7 +74,7 @@ authorities.select { |a| a['local-authority-code'] == 'HCK'}.each do |authority|
   puts "Generated #{filename}"
 end
 
-authorities.select { |a| a['local-authority-type'] == 'COMB' and a['region'] != 'Wales' and a['region'] != 'Scotland' }.each do |authority|
+authorities.select { |a| a['local-authority-type'] == 'COMB' and a['region'] != 'Wales' and a['region'] != 'Scotland' and a['region'] != 'Northern Ireland' }.each do |authority|
   name = authority['nice-name']
   slug = authority['gov-uk-slug']
 
@@ -215,7 +216,7 @@ authorities.select { |a| a['local-authority-type'] == 'NID' }.each do |authority
 
   filename = "#{slug}.html"
 
-  content = ni.gsub('{{ authority.name }}',name)
+  content = ni_unitary_extra_CA.gsub('{{ authority.name }}',name)
                               .gsub('{{ authority.slug }}',slug)
 
   File.write(filename, content)
@@ -268,6 +269,19 @@ authorities.select { |a| a['local-authority-type'] == 'COMB' and a['region'] == 
   filename = "#{slug}.html"
 
   content = wales_ca.gsub('{{ authority.name }}',name)
+                              .gsub('{{ authority.slug }}',slug)
+
+  File.write(filename, content)
+  puts "Generated #{filename}"
+end
+
+authorities.select { |a| a['local-authority-type'] == 'COMB' and a['region'] == 'Northern Ireland' }.each do |authority|
+  name = authority['nice-name']
+  slug = authority['gov-uk-slug']
+
+  filename = "#{slug}.html"
+
+  content = ni_ca.gsub('{{ authority.name }}',name)
                               .gsub('{{ authority.slug }}',slug)
 
   File.write(filename, content)
