@@ -404,7 +404,7 @@ function populate(slug) {
     if (ca2) {
         //  assign ca2 elements
         // find sub authorities
-        laData.filter(entry => entry['combined-authority'] === ca2['local-authority-code'] && entry !== match).forEach(element => {
+        laData.filter(entry => (entry['combined-authority-2'] === ca2['local-authority-code'] && entry !== match).forEach(element => {
             if (ca2_sub_authorities == "") {
                 ca2_sub_authorities = `<a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
             } else ca2_sub_authorities = ca2_sub_authorities + `, <a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
@@ -467,7 +467,7 @@ function populate(slug) {
     if (ca3) {
         //  assign ca3 elements
         // find sub authorities
-        laData.filter(entry => entry['combined-authority'] === ca3['local-authority-code'] && entry !== match).forEach(element => {
+        laData.filter(entry => (entry['combined-authority-2'] === ca3['local-authority-code'] || entry['combined-authority-3'] === ca3['local-authority-code'])  && entry !== match).forEach(element => {
             if (ca3_sub_authorities == "") {
                 ca3_sub_authorities = `<a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
             } else ca3_sub_authorities = ca3_sub_authorities + `, <a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
@@ -530,7 +530,7 @@ function populate(slug) {
 if (ca4) {
         //  assign ca4 elements
         // find sub authorities
-        laData.filter(entry => entry['combined-authority'] === ca4['local-authority-code'] && entry !== match).forEach(element => {
+        laData.filter(entry => (entry['combined-authority-2'] === ca4['local-authority-code'] || entry['combined-authority-3'] === ca4['local-authority-code']) && entry !== match).forEach(element => {
             if (ca4_sub_authorities == "") {
                 ca4_sub_authorities = `<a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
             } else ca4_sub_authorities = ca4_sub_authorities + `, <a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
