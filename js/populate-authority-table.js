@@ -27,7 +27,7 @@ function populate(slug) {
             }
         } else if  (match['local-authority-type'] == "NID") { // Northern Ireland
             unitary = match;
-            ca = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority']);
+            // ca = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority']);
             // if (ca) {
             //     document.getElementById('name-CA').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
             //     var ca_sub_authorities = `<strong>${unitary['nice-name']}</strong>`;
@@ -108,20 +108,28 @@ function populate(slug) {
             }
             var county_sub_authorities = "";
         } else if (["COMB"].includes(match['local-authority-type'])) {
-            var ca_sub_authorities = "";
-            ca = match;
-            document.getElementById('name-CA').innerHTML = ca['official-name'];
             if (ca['region'] != "Northern Ireland") {
+                var ca_sub_authorities = "";
+                ca = match;
+                document.getElementById('name-CA').innerHTML = ca['official-name'];
                 document.getElementById('name-CA-LEVI').innerHTML = ca['official-name'];
                 document.getElementById('name-CA-ORCS').innerHTML = ca['official-name'];
+            } else {
+                var ca2_sub_authorities = "";
+                ca2 = match;
+                document.getElementById('combined-authority-2-name').innerHTML = ca['official-name'];
+                document.getElementById('combined-authority-2-name-channels').innerHTML = ca['official-name'];
+                document.getElementById('combined-authority-2-name-ORCS').innerHTML = ca['official-name'];
             }
-            if (ca['region'] != "Scotland" && ca['region'] != "Wales") {
+            if (ca['region'] != "Scotland" && ca['region'] != "Wales" && ca['region'] != "Northern Ireland") {
                 document.getElementById('name-CA-channels').innerHTML = ca['official-name'];
             }
             if (ca['combined-authority-type']) {
                 document.getElementById('combined-authority-type').innerHTML = ca['combined-authority-type'];
-            } else {
+            } else if (ca['region'] != "Northern Ireland") {
                 document.getElementById('combined-authority-type').innerHTML ="LEVI collaboration"
+            } else {
+                document.getElementById('combined-authority-2-type').innerHTML = ca2['combined-authority-type']
             }
         } else if (["NMD"].includes(match['local-authority-type'])) {
             district = match;
@@ -277,10 +285,12 @@ function populate(slug) {
         // needs work document.getElementById('sub-authorities-unitary').innerHTML = unitary['sub-authorities'];
         document.getElementById('current-administration-unitary').innerHTML = unitary['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-unitary').color = unitary['current-administration'];
-        document.getElementById('households-without-driveway-unitary').innerHTML = unitary['households-without-driveway'].toLocaleString("en-GB");
-        document.getElementById('households-without-driveway-pct-unitary').innerHTML = `${unitary['households-without-driveway-pct']}%`;
-        document.getElementById('NEVIS-distribution-unitary').innerHTML = `${Math.round(unitary['NEVIS-distribution'])}%`;
-        document.getElementById('NEVIS-distribution-rank-unitary').innerHTML = `${unitary['NEVIS-distribution-rank']}/350`;
+        if (unitary['region'] != "Northern Ireland") {
+            document.getElementById('households-without-driveway-unitary').innerHTML = unitary['households-without-driveway'].toLocaleString("en-GB");
+            document.getElementById('households-without-driveway-pct-unitary').innerHTML = `${unitary['households-without-driveway-pct']}%`;
+            document.getElementById('NEVIS-distribution-unitary').innerHTML = `${Math.round(unitary['NEVIS-distribution'])}%`;
+            document.getElementById('NEVIS-distribution-rank-unitary').innerHTML = `${unitary['NEVIS-distribution-rank']}/350`;
+        }
         if (unitary['EVI-link']) {
             document.getElementById('EVI-link-unitary').innerHTML = `<a href=${unitary['EVI-link']}>${unitary['EVI-link']}</a>`;
         }
