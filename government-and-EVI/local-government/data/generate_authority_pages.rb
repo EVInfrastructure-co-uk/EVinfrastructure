@@ -28,7 +28,7 @@ england_unitary_extra_ca = File.read('_templates/england-unitary-extra-CA.html')
 england_unitary_extra_2ca = File.read('_templates/england-unitary-extra-2CA.html')
 
 ni_ca = File.read('_templates/ni-CA.html')
-ni_unitary_extra = File.read('_templates/ni-unitary-extra-CA.html')
+ni_unitary_extra_ca = File.read('_templates/ni-unitary-extra-CA.html')
 
 scotland_ca = File.read('_templates/scotland-CA.html')
 scotland_unitary_ca = File.read('_templates/scotland-unitary-CA.html')
@@ -202,6 +202,7 @@ authorities.select { |a| a['local-authority-type'] == 'NMD'}.each do |authority|
           else # county has two extra combined authorities
             content = south_holland.gsub('{{ authority.name }}',name)
                                     .gsub('{{ authority.slug }}',slug)
+          end
         end
       end
       File.write(filename, content)
@@ -216,7 +217,7 @@ authorities.select { |a| a['local-authority-type'] == 'NID' }.each do |authority
 
   filename = "#{slug}.html"
 
-  content = ni_unitary_extra_CA.gsub('{{ authority.name }}',name)
+  content = ni_unitary_extra_ca.gsub('{{ authority.name }}',name)
                               .gsub('{{ authority.slug }}',slug)
 
   File.write(filename, content)
