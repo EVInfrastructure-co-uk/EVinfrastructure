@@ -209,10 +209,8 @@ function populate(slug) {
             document.getElementById('EVI-email-district').innerHTML = `<a href=mailto:${district['EVI-email']}>${district['EVI-email']}</a>`;
         }
         document.getElementById('EVI-portfolio-holder-district').innerHTML = district['EVI-portfolio-holder'];
-        if (district['ORCS-total-amount']) {
-            document.getElementById('ORCS-total-amount-district').innerHTML = district['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('ORCS-total-charging-devices-district').innerHTML = district['ORCS-total-charging-devices'].toLocaleString("en-GB");
-        }
+        document.getElementById('ORCS-total-amount-district').innerHTML = district['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        document.getElementById('ORCS-total-charging-devices-district').innerHTML = district['ORCS-total-charging-devices'].toLocaleString("en-GB");
     }
 
     if (county) {
@@ -333,10 +331,8 @@ function populate(slug) {
             document.getElementById('LEVI-pilot-capital-amount-unitary').innerHTML = unitary['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('LEVI-pilot-CPO(s)-unitary').innerHTML = unitary['LEVI-pilot-CPO(s)'];
         }
-        if (unitary['ORCS-total-amount']) {
-            document.getElementById('ORCS-total-amount-unitary').innerHTML = unitary['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('ORCS-total-charging-devices-unitary').innerHTML = unitary['ORCS-total-charging-devices'].toLocaleString("en-GB");
-        }
+        document.getElementById('ORCS-total-amount-unitary').innerHTML = unitary['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        document.getElementById('ORCS-total-charging-devices-unitary').innerHTML = unitary['ORCS-total-charging-devices'].toLocaleString("en-GB");
     }
 
     if (ca) {
@@ -396,10 +392,8 @@ function populate(slug) {
             document.getElementById('LEVI-pilot-capital-amount-CA').innerHTML = ca['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('LEVI-pilot-CPO(s)-CA').innerHTML = ca['LEVI-pilot-CPO(s)'];
         }
-        if (ca['ORCS-total-amount']) {
-            document.getElementById('ORCS-total-amount-CA').innerHTML = ca['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('ORCS-total-charging-devices-CA').innerHTML = ca['ORCS-total-charging-devices'].toLocaleString("en-GB");
-        }
+        document.getElementById('ORCS-total-amount-CA').innerHTML = ca['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        document.getElementById('ORCS-total-charging-devices-CA').innerHTML = ca['ORCS-total-charging-devices'].toLocaleString("en-GB");
     }
 
     if (ca2) {
@@ -459,10 +453,8 @@ function populate(slug) {
             document.getElementById('LEVI-pilot-capital-amount-CA2').innerHTML = ca2['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('LEVI-pilot-CPO(s)-CA2').innerHTML = ca2['LEVI-pilot-CPO(s)'];
         }
-        if (ca2['ORCS-total-amount']) {
-            document.getElementById('ORCS-total-amount-CA2').innerHTML = ca2['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('ORCS-total-charging-devices-CA2').innerHTML = ca2['ORCS-total-charging-devices'].toLocaleString("en-GB");
-        }
+        document.getElementById('ORCS-total-amount-CA2').innerHTML = ca2['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        document.getElementById('ORCS-total-charging-devices-CA2').innerHTML = ca2['ORCS-total-charging-devices'].toLocaleString("en-GB");
     }
 
     if (ca3) {
@@ -522,10 +514,8 @@ function populate(slug) {
             document.getElementById('LEVI-pilot-capital-amount-CA3').innerHTML = ca3['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('LEVI-pilot-CPO(s)-CA3').innerHTML = ca3['LEVI-pilot-CPO(s)'];
         }
-        if (ca3['ORCS-total-amount']) {
-            document.getElementById('ORCS-total-amount-CA3').innerHTML = ca3['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('ORCS-total-charging-devices-CA3').innerHTML = ca3['ORCS-total-charging-devices'].toLocaleString("en-GB");
-        }
+        document.getElementById('ORCS-total-amount-CA3').innerHTML = ca3['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        document.getElementById('ORCS-total-charging-devices-CA3').innerHTML = ca3['ORCS-total-charging-devices'].toLocaleString("en-GB");
     }
 
 if (ca4) {
@@ -585,10 +575,8 @@ if (ca4) {
             document.getElementById('LEVI-pilot-capital-amount-CA4').innerHTML = ca4['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('LEVI-pilot-CPO(s)-CA4').innerHTML = ca4['LEVI-pilot-CPO(s)'];
         }
-        if (ca4['ORCS-total-amount']) {
-            document.getElementById('ORCS-total-amount-CA4').innerHTML = ca4['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('ORCS-total-charging-devices-CA4').innerHTML = ca4['ORCS-total-charging-devices'].toLocaleString("en-GB");
-        }
+        document.getElementById('ORCS-total-amount-CA4').innerHTML = ca4['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        document.getElementById('ORCS-total-charging-devices-CA4').innerHTML = ca4['ORCS-total-charging-devices'].toLocaleString("en-GB");
     }
 })
 };
