@@ -108,28 +108,27 @@ function populate(slug) {
             }
             var county_sub_authorities = "";
         } else if (["COMB"].includes(match['local-authority-type'])) {
-            if (ca['region'] != "Northern Ireland") {
+            if (match['region'] != "Northern Ireland") {
                 var ca_sub_authorities = "";
                 ca = match;
                 document.getElementById('name-CA').innerHTML = ca['official-name'];
                 document.getElementById('name-CA-LEVI').innerHTML = ca['official-name'];
                 document.getElementById('name-CA-ORCS').innerHTML = ca['official-name'];
+                if (ca['combined-authority-type']) {
+                    document.getElementById('combined-authority-type').innerHTML = ca['combined-authority-type'];
+                } else {
+                    document.getElementById('combined-authority-type').innerHTML ="LEVI collaboration"
+                }
+                if (ca['region'] != "Scotland" && ca['region'] != "Wales") {
+                    document.getElementById('name-CA-channels').innerHTML = ca['official-name'];
+                }
             } else {
                 var ca2_sub_authorities = "";
                 ca2 = match;
                 document.getElementById('combined-authority-2-name').innerHTML = ca['official-name'];
                 document.getElementById('combined-authority-2-name-channels').innerHTML = ca['official-name'];
                 document.getElementById('combined-authority-2-name-ORCS').innerHTML = ca['official-name'];
-            }
-            if (ca['region'] != "Scotland" && ca['region'] != "Wales" && ca['region'] != "Northern Ireland") {
-                document.getElementById('name-CA-channels').innerHTML = ca['official-name'];
-            }
-            if (ca['combined-authority-type']) {
-                document.getElementById('combined-authority-type').innerHTML = ca['combined-authority-type'];
-            } else if (ca['region'] != "Northern Ireland") {
-                document.getElementById('combined-authority-type').innerHTML ="LEVI collaboration"
-            } else {
-                document.getElementById('combined-authority-2-type').innerHTML = ca2['combined-authority-type']
+                document.getElementById('combined-authority-2-type').innerHTML = ca2['combined-authority-type'];
             }
         } else if (["NMD"].includes(match['local-authority-type'])) {
             district = match;
@@ -238,7 +237,9 @@ function populate(slug) {
             document.getElementById('channel-grant-amount-county').innerHTML = county['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
         }
         if ((county['channel-status'])) {
-            document.getElementById('channel-link-county').innerHTML = `<a href=${county['channel-link']}>${county['channel-link']}</a>`;
+            if (county['channel-link']) {
+                document.getElementById('channel-link-county').innerHTML = `<a href=${county['channel-link']}>${county['channel-link']}</a>`;
+            }
             if (county['channel-application-fee'] == null || isNaN(county['channel-application-fee'])) {
             document.getElementById('channel-application-fee-county').innerHTML = county['channel-application-fee']
             } else {
@@ -301,7 +302,9 @@ function populate(slug) {
             document.getElementById('channel-grant-amount-unitary').innerHTML = unitary['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
         }
         if ((unitary['channel-status'])) {
-            document.getElementById('channel-link-unitary').innerHTML = `<a href=${unitary['channel-link']}>${unitary['channel-link']}</a>`;
+            if (unitary['channel-link']) {
+                document.getElementById('channel-link-unitary').innerHTML = `<a href=${unitary['channel-link']}>${unitary['channel-link']}</a>`;
+            }
             if (unitary['channel-application-fee'] == null || isNaN(unitary['channel-application-fee'])) {
             document.getElementById('channel-application-fee-unitary').innerHTML = unitary['channel-application-fee']
             } else {
@@ -362,7 +365,9 @@ function populate(slug) {
             document.getElementById('channel-status-CA').innerHTML = ca['channel-status'];       
         }
         if ((ca['channel-status']) && (ca['channel-grant-amount'])) {
-            document.getElementById('channel-link-CA').innerHTML = `<a href=${ca['channel-link']}>${ca['channel-link']}</a>`;
+            if (ca['channel-link']) {
+                document.getElementById('channel-link-CA').innerHTML = `<a href=${ca['channel-link']}>${ca['channel-link']}</a>`;
+            }
             if (ca['channel-application-fee'] == null || isNaN(ca['channel-application-fee'])) {
             document.getElementById('channel-application-fee-CA').innerHTML = ca['channel-application-fee']
             } else {
@@ -423,7 +428,9 @@ function populate(slug) {
             document.getElementById('channel-status-CA2').innerHTML = ca2['channel-status'];       
         }
         if ((ca2['channel-status']) && (ca2['channel-grant-amount'])) {
-            document.getElementById('channel-link-CA2').innerHTML = `<a href=${ca2['channel-link']}>${ca2['channel-link']}</a>`;
+            if (ca2['channel-link']) {
+                document.getElementById('channel-link-CA2').innerHTML = `<a href=${ca2['channel-link']}>${ca2['channel-link']}</a>`;
+            }
             if (ca2['channel-application-fee'] == null || isNaN(ca2['channel-application-fee'])) {
             document.getElementById('channel-application-fee-CA2').innerHTML = ca2['channel-application-fee']
             } else {
@@ -484,7 +491,9 @@ function populate(slug) {
             document.getElementById('channel-status-CA3').innerHTML = ca3['channel-status'];       
         }
         if ((ca3['channel-status']) && (ca3['channel-grant-amount'])) {
-            document.getElementById('channel-link-CA3').innerHTML = `<a href=${ca3['channel-link']}>${ca3['channel-link']}</a>`;
+            if (ca3['channel-link']) {
+                document.getElementById('channel-link-CA3').innerHTML = `<a href=${ca3['channel-link']}>${ca3['channel-link']}</a>`;
+            }
             if (ca3['channel-application-fee'] == null || isNaN(ca3['channel-application-fee'])) {
             document.getElementById('channel-application-fee-CA3').innerHTML = ca3['channel-application-fee']
             } else {
@@ -545,7 +554,9 @@ if (ca4) {
             document.getElementById('channel-status-CA4').innerHTML = ca4['channel-status'];       
         }
         if ((ca4['channel-status']) && (ca4['channel-grant-amount'])) {
-            document.getElementById('channel-link-CA4').innerHTML = `<a href=${ca4['channel-link']}>${ca4['channel-link']}</a>`;
+            if (ca4['channel-link']) {
+                document.getElementById('channel-link-CA4').innerHTML = `<a href=${ca4['channel-link']}>${ca4['channel-link']}</a>`;
+            }
             if (ca4['channel-application-fee'] == null || isNaN(ca4['channel-application-fee'])) {
             document.getElementById('channel-application-fee-CA4').innerHTML = ca4['channel-application-fee']
             } else {
