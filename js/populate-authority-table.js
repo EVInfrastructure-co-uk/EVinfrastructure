@@ -404,7 +404,7 @@ function populate(slug) {
     if (ca2) {
         //  assign ca2 elements
         // find sub authorities
-        laData.filter(entry => (entry['combined-authority-2'] === ca2['local-authority-code'] && entry !== match).forEach(element => {
+        laData.filter(entry => (entry['combined-authority-2'] === ca2['local-authority-code'] && entry !== match)).forEach(element => {
             if (ca2_sub_authorities == "") {
                 ca2_sub_authorities = `<a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
             } else ca2_sub_authorities = ca2_sub_authorities + `, <a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
