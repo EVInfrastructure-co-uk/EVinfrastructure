@@ -125,9 +125,9 @@ function populate(slug) {
             } else {
                 var ca2_sub_authorities = "";
                 ca2 = match;
-                document.getElementById('combined-authority-2-name').innerHTML = ca['official-name'];
-                document.getElementById('combined-authority-2-name-channels').innerHTML = ca['official-name'];
-                document.getElementById('combined-authority-2-name-ORCS').innerHTML = ca['official-name'];
+                document.getElementById('combined-authority-2-name').innerHTML = ca2['official-name'];
+                document.getElementById('combined-authority-2-name-channels').innerHTML = ca2['official-name'];
+                document.getElementById('combined-authority-2-name-ORCS').innerHTML = ca2['official-name'];
                 document.getElementById('combined-authority-2-type').innerHTML = ca2['combined-authority-type'];
             }
         } else if (["NMD"].includes(match['local-authority-type'])) {
