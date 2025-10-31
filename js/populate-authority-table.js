@@ -116,7 +116,7 @@ function populate(slug) {
                 document.getElementById('name-CA-ORCS').innerHTML = ca['official-name'];
                 if (ca['combined-authority-type']) {
                     document.getElementById('combined-authority-type').innerHTML = ca['combined-authority-type'];
-                } else {
+                } else if (ca['region'] != "Scotland" && ca['region'] != "Wales") {
                     document.getElementById('combined-authority-type').innerHTML ="LEVI collaboration"
                 }
                 if (ca['region'] != "Scotland" && ca['region'] != "Wales") {
