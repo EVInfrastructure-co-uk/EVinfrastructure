@@ -1,5 +1,5 @@
 function populate(slug) {
-    fetch('/government-and-EVI/local-government/data/uk_la_evi.json')
+    fetch('/government/local-government/data/uk_la_evi.json')
   .then(response => response.json())
   .then(jsonData => {
     laData = jsonData.resources[0].data;
@@ -19,30 +19,30 @@ function populate(slug) {
             unitary = match;
             ca = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority']);
             if (ca) {
-                document.getElementById('name-CA').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
-                document.getElementById('name-CA-channels').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
-                document.getElementById('name-CA-LEVI').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
-                document.getElementById('name-CA-ORCS').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+                document.getElementById('name-CA').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+                document.getElementById('name-CA-channels').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+                document.getElementById('name-CA-LEVI').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+                document.getElementById('name-CA-ORCS').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
                 var ca_sub_authorities = `<strong>${unitary['nice-name']}</strong>`;
             }
         } else if  (match['local-authority-type'] == "NID") { // Northern Ireland
             unitary = match;
             // ca = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority']);
             // if (ca) {
-            //     document.getElementById('name-CA').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+            //     document.getElementById('name-CA').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
             //     var ca_sub_authorities = `<strong>${unitary['nice-name']}</strong>`;
             // }
             ca2 = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority-2']);
             // if (ca2) {
-                document.getElementById('combined-authority-2-name').innerHTML = `<a href="/government-and-EVI/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
-                document.getElementById('combined-authority-2-name-channels').innerHTML = `<a href="/government-and-EVI/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
-                document.getElementById('combined-authority-2-name-ORCS').innerHTML = `<a href="/government-and-EVI/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
+                document.getElementById('combined-authority-2-name').innerHTML = `<a href="/government/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
+                document.getElementById('combined-authority-2-name-channels').innerHTML = `<a href="/government/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
+                document.getElementById('combined-authority-2-name-ORCS').innerHTML = `<a href="/government/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
                 document.getElementById('combined-authority-2-type').innerHTML = ca2['combined-authority-type'];
                 var ca2_sub_authorities = `<strong>${unitary['nice-name']}</strong>`;
             // }
             // ca3 = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority-3']);
             // if (ca3) {
-            //     document.getElementById('combined-authority-3-name').innerHTML = `<a href="/government-and-EVI/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
+            //     document.getElementById('combined-authority-3-name').innerHTML = `<a href="/government/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
             //     document.getElementById('combined-authority-3-type').innerHTML = ca3['combined-authority-type'];
             //     var ca3_sub_authorities = `<strong>${unitary['nice-name']}</strong>`;
             // }
@@ -50,27 +50,27 @@ function populate(slug) {
             unitary = match;
             ca = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority']);
             if (ca) {
-                document.getElementById('name-CA').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
-                document.getElementById('name-CA-channels').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
-                document.getElementById('name-CA-LEVI').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
-                document.getElementById('name-CA-ORCS').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+                document.getElementById('name-CA').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+                document.getElementById('name-CA-channels').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+                document.getElementById('name-CA-LEVI').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+                document.getElementById('name-CA-ORCS').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
                 var ca_sub_authorities = `<strong>${unitary['nice-name']}</strong>`;
             }
             ca2 = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority-2']);
             if (ca2) {
-                document.getElementById('combined-authority-2-name').innerHTML = `<a href="/government-and-EVI/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
-                document.getElementById('combined-authority-2-name-channels').innerHTML = `<a href="/government-and-EVI/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
-                document.getElementById('combined-authority-2-name-LEVI').innerHTML = `<a href="/government-and-EVI/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
-                document.getElementById('combined-authority-2-name-ORCS').innerHTML = `<a href="/government-and-EVI/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
+                document.getElementById('combined-authority-2-name').innerHTML = `<a href="/government/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
+                document.getElementById('combined-authority-2-name-channels').innerHTML = `<a href="/government/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
+                document.getElementById('combined-authority-2-name-LEVI').innerHTML = `<a href="/government/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
+                document.getElementById('combined-authority-2-name-ORCS').innerHTML = `<a href="/government/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
                 document.getElementById('combined-authority-2-type').innerHTML = ca2['combined-authority-type'];
                 var ca2_sub_authorities = `<strong>${unitary['nice-name']}</strong>`;
             }
             ca3 = laData.find(entry => entry['local-authority-code'] === unitary['combined-authority-3']);
             if (ca3) {
-                document.getElementById('combined-authority-3-name').innerHTML = `<a href="/government-and-EVI/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
-                document.getElementById('combined-authority-3-name-channels').innerHTML = `<a href="/government-and-EVI/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
-                document.getElementById('combined-authority-3-name-LEVI').innerHTML = `<a href="/government-and-EVI/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
-                document.getElementById('combined-authority-3-name-ORCS').innerHTML = `<a href="/government-and-EVI/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
+                document.getElementById('combined-authority-3-name').innerHTML = `<a href="/government/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
+                document.getElementById('combined-authority-3-name-channels').innerHTML = `<a href="/government/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
+                document.getElementById('combined-authority-3-name-LEVI').innerHTML = `<a href="/government/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
+                document.getElementById('combined-authority-3-name-ORCS').innerHTML = `<a href="/government/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
                 document.getElementById('combined-authority-3-type').innerHTML = ca3['combined-authority-type'];
                 var ca3_sub_authorities = `<strong>${unitary['nice-name']}</strong>`;
             }
@@ -82,27 +82,27 @@ function populate(slug) {
             document.getElementById('name-county-LEVI').innerHTML = county['official-name'];
             document.getElementById('name-county-ORCS').innerHTML = county['official-name'];
             if (ca) {
-                document.getElementById('name-CA').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
-                document.getElementById('name-CA-channels').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
-                document.getElementById('name-CA-LEVI').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
-                document.getElementById('name-CA-ORCS').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+                document.getElementById('name-CA').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+                document.getElementById('name-CA-channels').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+                document.getElementById('name-CA-LEVI').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+                document.getElementById('name-CA-ORCS').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
                 var ca_sub_authorities = `<strong>${county['nice-name']}</strong>`;
             }
             ca2 = laData.find(entry => entry['local-authority-code'] === county['combined-authority-2']);
             if (ca2) {
-                document.getElementById('combined-authority-2-name').innerHTML = `<a href="/government-and-EVI/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
-                document.getElementById('combined-authority-2-name-channels').innerHTML = `<a href="/government-and-EVI/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
-                document.getElementById('combined-authority-2-name-LEVI').innerHTML = `<a href="/government-and-EVI/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
-                document.getElementById('combined-authority-2-name-ORCS').innerHTML = `<a href="/government-and-EVI/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
+                document.getElementById('combined-authority-2-name').innerHTML = `<a href="/government/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
+                document.getElementById('combined-authority-2-name-channels').innerHTML = `<a href="/government/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
+                document.getElementById('combined-authority-2-name-LEVI').innerHTML = `<a href="/government/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
+                document.getElementById('combined-authority-2-name-ORCS').innerHTML = `<a href="/government/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
                 document.getElementById('combined-authority-2-type').innerHTML = ca2['combined-authority-type'];
                 var ca2_sub_authorities = `<strong>${county['nice-name']}</strong>`;
             }
             ca3 = laData.find(entry => entry['local-authority-code'] === county['combined-authority-3']);
             if (ca3) {
-                document.getElementById('combined-authority-3-name').innerHTML = `<a href="/government-and-EVI/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
-                document.getElementById('combined-authority-3-name-channels').innerHTML = `<a href="/government-and-EVI/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
-                document.getElementById('combined-authority-3-name-LEVI').innerHTML = `<a href="/government-and-EVI/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
-                document.getElementById('combined-authority-3-name-ORCS').innerHTML = `<a href="/government-and-EVI/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
+                document.getElementById('combined-authority-3-name').innerHTML = `<a href="/government/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
+                document.getElementById('combined-authority-3-name-channels').innerHTML = `<a href="/government/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
+                document.getElementById('combined-authority-3-name-LEVI').innerHTML = `<a href="/government/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
+                document.getElementById('combined-authority-3-name-ORCS').innerHTML = `<a href="/government/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
                 document.getElementById('combined-authority-3-type').innerHTML = ca3['combined-authority-type'];
                 var ca3_sub_authorities = `<strong>${county['nice-name']}</strong>`;
             }
@@ -148,39 +148,39 @@ function populate(slug) {
                 ca4 = laData.find(entry => entry['local-authority-code'] === district['combined-authority-2']);
             }
             
-            document.getElementById('name-county').innerHTML = `<a href="/government-and-EVI/local-government/${county['gov-uk-slug']}">${county['official-name']}</a>`;
-            document.getElementById('name-county-channels').innerHTML = `<a href="/government-and-EVI/local-government/${county['gov-uk-slug']}">${county['official-name']}</a>`;
-            document.getElementById('name-county-LEVI').innerHTML = `<a href="/government-and-EVI/local-government/${county['gov-uk-slug']}">${county['official-name']}</a>`;
-            document.getElementById('name-county-ORCS').innerHTML = `<a href="/government-and-EVI/local-government/${county['gov-uk-slug']}">${county['official-name']}</a>`;
+            document.getElementById('name-county').innerHTML = `<a href="/government/local-government/${county['gov-uk-slug']}">${county['official-name']}</a>`;
+            document.getElementById('name-county-channels').innerHTML = `<a href="/government/local-government/${county['gov-uk-slug']}">${county['official-name']}</a>`;
+            document.getElementById('name-county-LEVI').innerHTML = `<a href="/government/local-government/${county['gov-uk-slug']}">${county['official-name']}</a>`;
+            document.getElementById('name-county-ORCS').innerHTML = `<a href="/government/local-government/${county['gov-uk-slug']}">${county['official-name']}</a>`;
             var county_sub_authorities = `<strong>${district['nice-name']}</strong>`;
             if (ca) {
-                document.getElementById('name-CA').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
-                document.getElementById('name-CA-channels').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
-                document.getElementById('name-CA-LEVI').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
-                document.getElementById('name-CA-ORCS').innerHTML = `<a href="/government-and-EVI/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+                document.getElementById('name-CA').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+                document.getElementById('name-CA-channels').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+                document.getElementById('name-CA-LEVI').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
+                document.getElementById('name-CA-ORCS').innerHTML = `<a href="/government/local-government/${ca['gov-uk-slug']}">${ca['official-name']}</a>`;
                 var ca_sub_authorities = "";
             }
             if (ca2) {
-                document.getElementById('combined-authority-2-name').innerHTML = `<a href="/government-and-EVI/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
-                document.getElementById('combined-authority-2-name-channels').innerHTML = `<a href="/government-and-EVI/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
-                document.getElementById('combined-authority-2-name-LEVI').innerHTML = `<a href="/government-and-EVI/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
-                document.getElementById('combined-authority-2-name-ORCS').innerHTML = `<a href="/government-and-EVI/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
+                document.getElementById('combined-authority-2-name').innerHTML = `<a href="/government/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
+                document.getElementById('combined-authority-2-name-channels').innerHTML = `<a href="/government/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
+                document.getElementById('combined-authority-2-name-LEVI').innerHTML = `<a href="/government/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
+                document.getElementById('combined-authority-2-name-ORCS').innerHTML = `<a href="/government/local-government/${ca2['gov-uk-slug']}">${ca2['official-name']}</a>`;
                 document.getElementById('combined-authority-2-type').innerHTML = ca2['combined-authority-type'];
                 var ca2_sub_authorities = "";
             }
             if (ca3) {
-                document.getElementById('combined-authority-3-name').innerHTML = `<a href="/government-and-EVI/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
-                document.getElementById('combined-authority-3-name-channels').innerHTML = `<a href="/government-and-EVI/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
-                document.getElementById('combined-authority-3-name-LEVI').innerHTML = `<a href="/government-and-EVI/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
-                document.getElementById('combined-authority-3-name-ORCS').innerHTML = `<a href="/government-and-EVI/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
+                document.getElementById('combined-authority-3-name').innerHTML = `<a href="/government/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
+                document.getElementById('combined-authority-3-name-channels').innerHTML = `<a href="/government/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
+                document.getElementById('combined-authority-3-name-LEVI').innerHTML = `<a href="/government/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
+                document.getElementById('combined-authority-3-name-ORCS').innerHTML = `<a href="/government/local-government/${ca3['gov-uk-slug']}">${ca3['official-name']}</a>`;
                 document.getElementById('combined-authority-3-type').innerHTML = ca3['combined-authority-type'];
                 var ca3_sub_authorities = "";
             }
             if (ca4) {
-                document.getElementById('combined-authority-4-name').innerHTML = `<a href="/government-and-EVI/local-government/${ca4['gov-uk-slug']}">${ca4['official-name']}</a>`;
-                document.getElementById('combined-authority-4-name-channels').innerHTML = `<a href="/government-and-EVI/local-government/${ca4['gov-uk-slug']}">${ca4['official-name']}</a>`;
-                document.getElementById('combined-authority-4-name-LEVI').innerHTML = `<a href="/government-and-EVI/local-government/${ca4['gov-uk-slug']}">${ca4['official-name']}</a>`;
-                document.getElementById('combined-authority-4-name-ORCS').innerHTML = `<a href="/government-and-EVI/local-government/${ca4['gov-uk-slug']}">${ca4['official-name']}</a>`;
+                document.getElementById('combined-authority-4-name').innerHTML = `<a href="/government/local-government/${ca4['gov-uk-slug']}">${ca4['official-name']}</a>`;
+                document.getElementById('combined-authority-4-name-channels').innerHTML = `<a href="/government/local-government/${ca4['gov-uk-slug']}">${ca4['official-name']}</a>`;
+                document.getElementById('combined-authority-4-name-LEVI').innerHTML = `<a href="/government/local-government/${ca4['gov-uk-slug']}">${ca4['official-name']}</a>`;
+                document.getElementById('combined-authority-4-name-ORCS').innerHTML = `<a href="/government/local-government/${ca4['gov-uk-slug']}">${ca4['official-name']}</a>`;
                 document.getElementById('combined-authority-4-type').innerHTML = ca4['combined-authority-type'];
                 var ca4_sub_authorities = "";
             }
@@ -217,8 +217,8 @@ function populate(slug) {
         // sub-authorities
         laData.filter(entry => entry['county-la'] === county['local-authority-code'] && entry !== match).forEach(element => {
             if (county_sub_authorities == "") {
-                county_sub_authorities = `<a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
-            } else county_sub_authorities = county_sub_authorities + `, <a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
+                county_sub_authorities = `<a href="/government/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
+            } else county_sub_authorities = county_sub_authorities + `, <a href="/government/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
         });
         document.getElementById('sub-authorities-county').innerHTML = county_sub_authorities;
         document.getElementById('current-administration-county').innerHTML = county['current-administration'];
@@ -343,8 +343,8 @@ function populate(slug) {
         // find sub authorities
         laData.filter(entry => entry['combined-authority'] === ca['local-authority-code'] && entry !== match).forEach(element => {
             if (ca_sub_authorities == "") {
-                ca_sub_authorities = `<a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
-            } else ca_sub_authorities = ca_sub_authorities + `, <a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
+                ca_sub_authorities = `<a href="/government/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
+            } else ca_sub_authorities = ca_sub_authorities + `, <a href="/government/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
         });
         document.getElementById('sub-authorities-CA').innerHTML = ca_sub_authorities;
         document.getElementById('current-administration-CA').innerHTML = ca['current-administration'];
@@ -406,8 +406,8 @@ function populate(slug) {
         // find sub authorities
         laData.filter(entry => (entry['combined-authority-2'] === ca2['local-authority-code'] && entry !== match)).forEach(element => {
             if (ca2_sub_authorities == "") {
-                ca2_sub_authorities = `<a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
-            } else ca2_sub_authorities = ca2_sub_authorities + `, <a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
+                ca2_sub_authorities = `<a href="/government/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
+            } else ca2_sub_authorities = ca2_sub_authorities + `, <a href="/government/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
         });
         document.getElementById('sub-authorities-CA2').innerHTML = ca2_sub_authorities;
         document.getElementById('current-administration-CA2').innerHTML = ca2['current-administration'];
@@ -469,8 +469,8 @@ function populate(slug) {
         // find sub authorities
         laData.filter(entry => (entry['combined-authority-2'] === ca3['local-authority-code'] || entry['combined-authority-3'] === ca3['local-authority-code'])  && entry !== match).forEach(element => {
             if (ca3_sub_authorities == "") {
-                ca3_sub_authorities = `<a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
-            } else ca3_sub_authorities = ca3_sub_authorities + `, <a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
+                ca3_sub_authorities = `<a href="/government/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
+            } else ca3_sub_authorities = ca3_sub_authorities + `, <a href="/government/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
         });
         document.getElementById('sub-authorities-CA3').innerHTML = ca3_sub_authorities;
         document.getElementById('current-administration-CA3').innerHTML = ca3['current-administration'];
@@ -532,8 +532,8 @@ if (ca4) {
         // find sub authorities
         laData.filter(entry => (entry['combined-authority-2'] === ca4['local-authority-code'] || entry['combined-authority-3'] === ca4['local-authority-code']) && entry !== match).forEach(element => {
             if (ca4_sub_authorities == "") {
-                ca4_sub_authorities = `<a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
-            } else ca4_sub_authorities = ca4_sub_authorities + `, <a href="/government-and-EVI/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
+                ca4_sub_authorities = `<a href="/government/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
+            } else ca4_sub_authorities = ca4_sub_authorities + `, <a href="/government/local-government/${element['gov-uk-slug']}">${element['nice-name']}</a>`;
         });
         document.getElementById('sub-authorities-CA4').innerHTML = ca4_sub_authorities;
         document.getElementById('current-administration-CA4').innerHTML = ca4['current-administration'];

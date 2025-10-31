@@ -29,14 +29,14 @@ function lookupAndDisplay(postcode) {
             const authority = data.result.admin_district; // Local authority name
             const gss = data.result.codes.admin_district; // Local authority GSS code
             document.getElementById('result').textContent = `${authority}`; // Print authority name
-                fetch('/government-and-EVI/local-government/data/uk_la_evi.json')
+                fetch('/government/local-government/data/uk_la_evi.json')
                       .then(response => response.json())
                       .then(jsonData => {
                             const laData = jsonData.resources[0].data;
                             const match = laData.find(entry => entry['gss-code'] === gss);
                             if (match) {
                                   const slug = match['gov-uk-slug'];
-                                  window.location.href = `/government-and-EVI/local-government/${slug}`;
+                                  window.location.href = `/government/local-government/${slug}`;
                             } else {
                                   document.getElementById('result').textContent = 'Local authority not found in EVI dataset.';
                             }
