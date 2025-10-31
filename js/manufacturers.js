@@ -4,6 +4,6 @@ var manufacturerObject = [
 window.onload = function() {
   var manufacturerSel = document.getElementById("manufacturer");
   for (var x in manufacturerObject) {
-    manufacturerSel.options[subjectSel.options.length] = new Option(x, x);
+    manufacturerSel.options[manufacturerSel.options.length] = new Option(x, x);
   }
 }
