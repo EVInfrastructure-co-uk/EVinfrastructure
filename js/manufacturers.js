@@ -3,7 +3,7 @@ var manufacturerObject = [
 ]
 window.onload = function() {
   var manufacturerSel = document.getElementById("manufacturer");
-  for (var x in manufacturerObject) {
-    manufacturerSel.options[manufacturerSel.options.length] = new Option(x, x);
+  for (let i = 0; i < manufacturerObject.length; i++) {
+    manufacturerSel.options[manufacturerSel.options.length] = new Option(manufacturerObject[i], manufacturerObject[i]);
   }
 }
