@@ -46,6 +46,12 @@ body {
     font-size: 1.3125rem;
     line-height: 1.1904761905;
   }
+  .block {
+    font-size: 2.5cqw;
+  }
+  .block2 {
+    font-size: 2.5cqw;
+  }
 }
 @media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
   .page-content {
@@ -77,6 +83,12 @@ body {
   .h3 {
     font-size: 1.5rem;
     line-height: 1.25;
+  }
+  .block {
+  font-size: 2cqw;
+  }
+  .block2 {
+    font-size: 2cqw;
   }
 }
 @media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
