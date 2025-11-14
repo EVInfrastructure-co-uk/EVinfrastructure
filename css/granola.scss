@@ -292,7 +292,7 @@ li {
 }
 
 // Tables
-.table, .tablesticky {
+.table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
@@ -302,30 +302,25 @@ li {
   background-color: #fff;
 }
 
-.table, .tablesticky thead {
+.table thead {
   background: #f3f2f1;
 }
 
-.table, .tablesticky th,
-.table, .tablesticky td {
+.table th,
+.table td {
   border-bottom: 1px solid #b1b4b6;
   padding: 12px 20px 10px 0;
   text-align: left;
   vertical-align: top;
 }
 
-.table, .tablesticky th {
+.table th {
   font-weight: bold;
   color: #0b0c0c;
   border-bottom-width: 2px;
 }
 
-.tablesticky th {
-  position: sticky;
-  top: 0;
-}
-
-.table, .tablesticky caption {
+.table caption {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -333,11 +328,11 @@ li {
   color: #0b0c0c;
 }
 
-.table, .tablesticky tbody tr:last-child td {
+.table tbody tr:last-child td {
   border-bottom: 0;
 }
 
-.table, .tablesticky td {
+.table td {
   color: #0b0c0c;
 }
 
