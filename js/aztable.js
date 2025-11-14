@@ -1,8 +1,8 @@
 function AZsearch() {
   // Declare variables
-  var input_text, filter_text, input_category, input_category, table, tr, td_name, td_category, i, txtValue;
-  input_text = document.getElementById("AZsearch");
-  filter_text = input_text.value.toUpperCase();
+  var input_name, filter_name, input_category, input_category, table, tr, td_name, td_category, i, txtValue;
+  input_name = document.getElementById("AZsearch");
+  filter_name = input_name.value.toUpperCase();
   input_category = document.getElementById("AZcategory");
   filter_category = input_category.value.toUpperCase();
   table = document.getElementById("AZtable");
