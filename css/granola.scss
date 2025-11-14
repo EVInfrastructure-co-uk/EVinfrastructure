@@ -321,7 +321,8 @@ li {
 }
 
 .tablesticky th {
-  position:sticky;
+  position: sticky;
+  top: 0;
 }
 
 .table, .tablesticky caption {
