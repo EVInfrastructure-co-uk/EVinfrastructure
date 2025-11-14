@@ -22,7 +22,7 @@ function AZsearch() {
 
 function AZcategory() {
   var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("AZcategory").value;
+  input = document.getElementById("AZcategory");
   filter = input.value.toUpperCase();
   table = document.getElementById("AZtable");
   tr = table.getElementsByTagName("tr");
