@@ -7,7 +7,7 @@ title: "The A to Z of EV infrastructure"
 
 <input type="text" id="AZsearch" onkeyup="AZsearch()" placeholder="Search" title="Type in a name">
 
-<select id="AZcategory">
+<select style="float: right;" id="AZcategory" onchange="AZcategory()">
   <option value="all">All categories</option>
   <option value="Chargepoint operator">Chargepoint operator</option>
   <option value="Conference/events">Conference/events</option>
@@ -24,8 +24,8 @@ title: "The A to Z of EV infrastructure"
   <option value="Vehicle">Vehicle</option>
 </select>
 
-<div style="max-width: 100%; overflow-x: auto;">
-<table class="table" id="AZtable">
+<div style="max-width: 100%; overflow-x: auto; margin-top:20px;">
+<table class="table" style="width:100%;" id="AZtable">
     <thead>
         <tr>
             <th>Name</th>
