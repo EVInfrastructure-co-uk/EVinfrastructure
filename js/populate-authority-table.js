@@ -202,7 +202,7 @@ function populate(slug) {
         document.getElementById('NEVIS-distribution-district').innerHTML = `${Math.round(district['NEVIS-distribution'])}%`;
         document.getElementById('NEVIS-distribution-rank-district').innerHTML = `${district['NEVIS-distribution-rank']}/350`;
         if (district['EVI-link']) {
-            document.getElementById('EVI-link-district').innerHTML = `<a href=${district['EVI-link']}>${district['EVI-link']}</a>`;
+            document.getElementById('EVI-link-district').innerHTML = `<a href=${district['EVI-link']}>Click here</a>`;
         }
         if (district['EVI-email']) {
             document.getElementById('EVI-email-district').innerHTML = `<a href=mailto:${district['EVI-email']}>${district['EVI-email']}</a>`;
@@ -226,7 +226,7 @@ function populate(slug) {
         document.getElementById('households-without-driveway-county').innerHTML = county['households-without-driveway'].toLocaleString("en-GB");
         document.getElementById('households-without-driveway-pct-county').innerHTML = `${county['households-without-driveway-pct']}%`;
         if (county['EVI-link']) {
-            document.getElementById('EVI-link-county').innerHTML = `<a href=${county['EVI-link']}>${county['EVI-link']}</a>`;
+            document.getElementById('EVI-link-county').innerHTML = `<a href=${county['EVI-link']}>Click here</a>`;
         }
         if (county['EVI-email']) {
             document.getElementById('EVI-email-county').innerHTML = `<a href=mailto:${county['EVI-email']}>${county['EVI-email']}</a>`;
@@ -238,7 +238,7 @@ function populate(slug) {
         }
         if ((county['channel-status'])) {
             if (county['channel-link']) {
-                document.getElementById('channel-link-county').innerHTML = `<a href=${county['channel-link']}>${county['channel-link']}</a>`;
+                document.getElementById('channel-link-county').innerHTML = `<a href=${county['channel-link']}>Click here</a>`;
             }
             if (county['channel-application-fee'] == null || isNaN(county['channel-application-fee'])) {
             document.getElementById('channel-application-fee-county').innerHTML = county['channel-application-fee']
@@ -291,7 +291,7 @@ function populate(slug) {
             document.getElementById('NEVIS-distribution-rank-unitary').innerHTML = `${unitary['NEVIS-distribution-rank']}/350`;
         }
         if (unitary['EVI-link']) {
-            document.getElementById('EVI-link-unitary').innerHTML = `<a href=${unitary['EVI-link']}>${unitary['EVI-link']}</a>`;
+            document.getElementById('EVI-link-unitary').innerHTML = `<a href=${unitary['EVI-link']}>Click here</a>`;
         }
         if (unitary['EVI-email']) {
             document.getElementById('EVI-email-unitary').innerHTML = `<a href=mailto:${unitary['EVI-email']}>${unitary['EVI-email']}</a>`;
@@ -303,7 +303,7 @@ function populate(slug) {
         }
         if ((unitary['channel-status'])) {
             if (unitary['channel-link']) {
-                document.getElementById('channel-link-unitary').innerHTML = `<a href=${unitary['channel-link']}>${unitary['channel-link']}</a>`;
+                document.getElementById('channel-link-unitary').innerHTML = `<a href=${unitary['channel-link']}>Click here</a>`;
             }
             if (unitary['channel-application-fee'] == null || isNaN(unitary['channel-application-fee'])) {
             document.getElementById('channel-application-fee-unitary').innerHTML = unitary['channel-application-fee']
@@ -354,7 +354,7 @@ function populate(slug) {
             document.getElementById('households-without-driveway-pct-CA').innerHTML = `${ca['households-without-driveway-pct']}%`;
         }
         if (ca['EVI-link']) {
-            document.getElementById('EVI-link-CA').innerHTML = `<a href=${ca['EVI-link']}>${ca['EVI-link']}</a>`;
+            document.getElementById('EVI-link-CA').innerHTML = `<a href=${ca['EVI-link']}>Click here</a>`;
         }
         if (ca['EVI-email']) {
             document.getElementById('EVI-email-CA').innerHTML = `<a href=mailto:${ca['EVI-email']}>${ca['EVI-email']}</a>`;
@@ -366,7 +366,7 @@ function populate(slug) {
         }
         if ((ca['channel-status']) && (ca['channel-grant-amount'])) {
             if (ca['channel-link']) {
-                document.getElementById('channel-link-CA').innerHTML = `<a href=${ca['channel-link']}>${ca['channel-link']}</a>`;
+                document.getElementById('channel-link-CA').innerHTML = `<a href=${ca['channel-link']}>Click here</a>`;
             }
             if (ca['channel-application-fee'] == null || isNaN(ca['channel-application-fee'])) {
             document.getElementById('channel-application-fee-CA').innerHTML = ca['channel-application-fee']
@@ -417,7 +417,7 @@ function populate(slug) {
             document.getElementById('households-without-driveway-pct-CA2').innerHTML = `${ca2['households-without-driveway-pct']}%`;
         }
         if (ca2['EVI-link']) {
-            document.getElementById('EVI-link-CA2').innerHTML = `<a href=${ca2['EVI-link']}>${ca2['EVI-link']}</a>`;
+            document.getElementById('EVI-link-CA2').innerHTML = `<a href=${ca2['EVI-link']}>Click here</a>`;
         }
         if (ca2['EVI-email']) {
             document.getElementById('EVI-email-CA2').innerHTML = `<a href=mailto:${ca2['EVI-email']}>${ca2['EVI-email']}</a>`;
@@ -429,7 +429,7 @@ function populate(slug) {
         }
         if ((ca2['channel-status']) && (ca2['channel-grant-amount'])) {
             if (ca2['channel-link']) {
-                document.getElementById('channel-link-CA2').innerHTML = `<a href=${ca2['channel-link']}>${ca2['channel-link']}</a>`;
+                document.getElementById('channel-link-CA2').innerHTML = `<a href=${ca2['channel-link']}>Click here</a>`;
             }
             if (ca2['channel-application-fee'] == null || isNaN(ca2['channel-application-fee'])) {
             document.getElementById('channel-application-fee-CA2').innerHTML = ca2['channel-application-fee']
@@ -480,7 +480,7 @@ function populate(slug) {
             document.getElementById('households-without-driveway-pct-CA3').innerHTML = `${ca3['households-without-driveway-pct']}%`;
         }
         if (ca3['EVI-link']) {
-            document.getElementById('EVI-link-CA3').innerHTML = `<a href=${ca3['EVI-link']}>${ca3['EVI-link']}</a>`;
+            document.getElementById('EVI-link-CA3').innerHTML = `<a href=${ca3['EVI-link']}>Click here</a>`;
         }
         if (ca3['EVI-email']) {
             document.getElementById('EVI-email-CA3').innerHTML = `<a href=mailto:${ca3['EVI-email']}>${ca3['EVI-email']}</a>`;
@@ -492,7 +492,7 @@ function populate(slug) {
         }
         if ((ca3['channel-status']) && (ca3['channel-grant-amount'])) {
             if (ca3['channel-link']) {
-                document.getElementById('channel-link-CA3').innerHTML = `<a href=${ca3['channel-link']}>${ca3['channel-link']}</a>`;
+                document.getElementById('channel-link-CA3').innerHTML = `<a href=${ca3['channel-link']}>Click here</a>`;
             }
             if (ca3['channel-application-fee'] == null || isNaN(ca3['channel-application-fee'])) {
             document.getElementById('channel-application-fee-CA3').innerHTML = ca3['channel-application-fee']
@@ -543,7 +543,7 @@ if (ca4) {
             document.getElementById('households-without-driveway-pct-CA4').innerHTML = `${ca4['households-without-driveway-pct']}%`;
         }
         if (ca4['EVI-link']) {
-            document.getElementById('EVI-link-CA4').innerHTML = `<a href=${ca4['EVI-link']}>${ca4['EVI-link']}</a>`;
+            document.getElementById('EVI-link-CA4').innerHTML = `<a href=${ca4['EVI-link']}>Click here</a>`;
         }
         if (ca4['EVI-email']) {
             document.getElementById('EVI-email-CA4').innerHTML = `<a href=mailto:${ca4['EVI-email']}>${ca4['EVI-email']}</a>`;
@@ -555,7 +555,7 @@ if (ca4) {
         }
         if ((ca4['channel-status']) && (ca4['channel-grant-amount'])) {
             if (ca4['channel-link']) {
-                document.getElementById('channel-link-CA4').innerHTML = `<a href=${ca4['channel-link']}>${ca4['channel-link']}</a>`;
+                document.getElementById('channel-link-CA4').innerHTML = `<a href=${ca4['channel-link']}>Click here</a>`;
             }
             if (ca4['channel-application-fee'] == null || isNaN(ca4['channel-application-fee'])) {
             document.getElementById('channel-application-fee-CA4').innerHTML = ca4['channel-application-fee']
