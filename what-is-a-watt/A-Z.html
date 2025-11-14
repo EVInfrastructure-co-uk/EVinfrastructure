@@ -4,18 +4,27 @@ title: "The A to Z of EV infrastructure"
 ---
 
 <h1>The A to Z of EV infrastructure</h1>
-<p>Coming soon...</p>
 
-<!-- <input type="text" id="AZsearch" onkeyup="AZsearch()" placeholder="Search" title="Type in a name">
+<input type="text" id="AZsearch" onkeyup="AZsearch()" placeholder="Search" title="Type in a name">
 
-<div class="dropdown">
-  <button onclick="AZcategory()" class="dropbtn">Search by category</button>
-  <div id="AZcategory" class="dropdown-content">
-    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-    <button onclick="AZcategory(CPO)">Chargepoint operator</button>
-  </div>
-</div> -->
+<select id="AZcategory">
+  <option value="all">All categories</option>
+  <option value="Chargepoint operator">Chargepoint operator</option>
+  <option value="Conference/events">Conference/events</option>
+  <option value="Consumer body">Consumer body</option>
+  <option value="Cross-pavement">Cross-pavement</option>
+  <option value="Data/statistics">Data/statistics</option>
+  <option value="Electricity distribution">Electricity distribution</option>
+  <option value="Industry body">Industry body</option>
+  <option value="Journalism">Journalism</option>
+  <option value="Lobby/think tank">Lobby/think tank</option>
+  <option value="Public body">Public body</option>
+  <option value="Public charging auxiliary">Public charging auxiliary</option>
+  <option value="Regulations/standards">Regulations/standards</option>
+  <option value="Vehicle">Vehicle</option>
+</select>
 
+<div style="max-width: 100%; overflow-x: auto;">
 <table class="table" id="AZtable">
     <thead>
         <tr>
@@ -31,8 +40,8 @@ title: "The A to Z of EV infrastructure"
             <td></td>
         </tr>
         <tr>
-            <td>Zapmap</td>
-            <td>Public charging technology</td>
+            <td>Chargepoint operator (CPO)</td>
+            <td>Chargepoint operator</td>
             <td></td>
         </tr>
         <tr>
@@ -41,15 +50,17 @@ title: "The A to Z of EV infrastructure"
             <td></td>
         </tr>
         <tr>
-            <td>Chargepoint operator (CPO)</td>
-            <td>Chargepoint operator</td>
-            <td></td>
-        </tr>
-        <tr>
             <td>Office for Zero Emission Vehicles (OZEV)</td>
             <td>Public body</td>
+            <td><a href="https://www.gov.uk/government/organisations/office-for-zero-emission-vehicles">Website</a>. Formerly Office for Low Emission Vehicles (OLEV). Part of Department for Transport and Department for Energy Security and Net Zero.</td>
+        </tr>
+        <tr>
+            <td>Zapmap</td>
+            <td>Public charging technology</td>
             <td></td>
         </tr>
     </tbody>
 </table>
+</div>
 
+<script type="text/javascript" src="/js/aztable.js"></script>
