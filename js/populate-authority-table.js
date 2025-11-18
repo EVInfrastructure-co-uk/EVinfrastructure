@@ -197,8 +197,10 @@ function populate(slug) {
         document.getElementById('name-district-ORCS').innerHTML = district['official-name'];
         document.getElementById('current-administration-district').innerHTML = district['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-district').color = district['current-administration'];
-        document.getElementById('households-without-driveway-district').innerHTML = district['households-without-driveway'].toLocaleString("en-GB");
-        document.getElementById('households-without-driveway-pct-district').innerHTML = `${district['households-without-driveway-pct']}%`;
+        // document.getElementById('households-without-driveway-district').innerHTML = district['households-without-driveway'].toLocaleString("en-GB");
+        // document.getElementById('households-without-driveway-pct-district').innerHTML = `${district['households-without-driveway-pct']}%`;
+        document.getElementById('households-without-driveway-district').innerHTML = <a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>;
+        document.getElementById('households-without-driveway-pct-district').innerHTML = <a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>;
         document.getElementById('NEVIS-distribution-district').innerHTML = `${Math.round(district['NEVIS-distribution'])}%`;
         document.getElementById('NEVIS-distribution-rank-district').innerHTML = `${district['NEVIS-distribution-rank']}/350`;
         if (district['EVI-link']) {
@@ -223,8 +225,10 @@ function populate(slug) {
         document.getElementById('sub-authorities-county').innerHTML = county_sub_authorities;
         document.getElementById('current-administration-county').innerHTML = county['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-county').color = county['current-administration'];
-        document.getElementById('households-without-driveway-county').innerHTML = county['households-without-driveway'].toLocaleString("en-GB");
-        document.getElementById('households-without-driveway-pct-county').innerHTML = `${county['households-without-driveway-pct']}%`;
+        // document.getElementById('households-without-driveway-county').innerHTML = county['households-without-driveway'].toLocaleString("en-GB");
+        // document.getElementById('households-without-driveway-pct-county').innerHTML = `${county['households-without-driveway-pct']}%`;
+        document.getElementById('households-without-driveway-county').innerHTML = <a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>;
+        document.getElementById('households-without-driveway-pct-county').innerHTML = <a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>;
         if (county['EVI-link']) {
             document.getElementById('EVI-link-county').innerHTML = `<a href=${county['EVI-link']}>Click here</a>`;
         }
@@ -285,8 +289,10 @@ function populate(slug) {
         document.getElementById('current-administration-unitary').innerHTML = unitary['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-unitary').color = unitary['current-administration'];
         if (unitary['region'] != "Northern Ireland") {
-            document.getElementById('households-without-driveway-unitary').innerHTML = unitary['households-without-driveway'].toLocaleString("en-GB");
-            document.getElementById('households-without-driveway-pct-unitary').innerHTML = `${unitary['households-without-driveway-pct']}%`;
+            // document.getElementById('households-without-driveway-unitary').innerHTML = unitary['households-without-driveway'].toLocaleString("en-GB");
+            // document.getElementById('households-without-driveway-pct-unitary').innerHTML = `${unitary['households-without-driveway-pct']}%`;
+            document.getElementById('households-without-driveway-unitary').innerHTML = <a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>;
+            document.getElementById('households-without-driveway-pct-unitary').innerHTML = <a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>;
             document.getElementById('NEVIS-distribution-unitary').innerHTML = `${Math.round(unitary['NEVIS-distribution'])}%`;
             document.getElementById('NEVIS-distribution-rank-unitary').innerHTML = `${unitary['NEVIS-distribution-rank']}/350`;
         }
@@ -350,8 +356,10 @@ function populate(slug) {
         document.getElementById('current-administration-CA').innerHTML = ca['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-CA').color = ca['current-administration'];
         if (ca['households-without-driveway']) {
-            document.getElementById('households-without-driveway-CA').innerHTML = ca['households-without-driveway'].toLocaleString("en-GB");
-            document.getElementById('households-without-driveway-pct-CA').innerHTML = `${ca['households-without-driveway-pct']}%`;
+            // document.getElementById('households-without-driveway-CA').innerHTML = ca['households-without-driveway'].toLocaleString("en-GB");
+            // document.getElementById('households-without-driveway-pct-CA').innerHTML = `${ca['households-without-driveway-pct']}%`;
+            document.getElementById('households-without-driveway-CA').innerHTML = <a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>;
+            document.getElementById('households-without-driveway-pct-CA').innerHTML = <a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>;
         }
         if (ca['EVI-link']) {
             document.getElementById('EVI-link-CA').innerHTML = `<a href=${ca['EVI-link']}>Click here</a>`;
@@ -413,8 +421,10 @@ function populate(slug) {
         document.getElementById('current-administration-CA2').innerHTML = ca2['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-CA2').color = ca2['current-administration'];
         if (ca2['households-without-driveway']) {
-            document.getElementById('households-without-driveway-CA2').innerHTML = ca2['households-without-driveway'].toLocaleString("en-GB");
-            document.getElementById('households-without-driveway-pct-CA2').innerHTML = `${ca2['households-without-driveway-pct']}%`;
+            // document.getElementById('households-without-driveway-CA2').innerHTML = ca2['households-without-driveway'].toLocaleString("en-GB");
+            // document.getElementById('households-without-driveway-pct-CA2').innerHTML = `${ca2['households-without-driveway-pct']}%`;
+            document.getElementById('households-without-driveway-CA2').innerHTML = <a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>;
+            document.getElementById('households-without-driveway-pct-CA2').innerHTML = <a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>;
         }
         if (ca2['EVI-link']) {
             document.getElementById('EVI-link-CA2').innerHTML = `<a href=${ca2['EVI-link']}>Click here</a>`;
@@ -476,8 +486,10 @@ function populate(slug) {
         document.getElementById('current-administration-CA3').innerHTML = ca3['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-CA3').color = ca3['current-administration'];
         if (ca3['households-without-driveway']) {
-            document.getElementById('households-without-driveway-CA3').innerHTML = ca3['households-without-driveway'].toLocaleString("en-GB");
-            document.getElementById('households-without-driveway-pct-CA3').innerHTML = `${ca3['households-without-driveway-pct']}%`;
+            // document.getElementById('households-without-driveway-CA3').innerHTML = ca3['households-without-driveway'].toLocaleString("en-GB");
+            // document.getElementById('households-without-driveway-pct-CA3').innerHTML = `${ca3['households-without-driveway-pct']}%`;
+            document.getElementById('households-without-driveway-CA3').innerHTML = <a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>;
+            document.getElementById('households-without-driveway-pct-CA3').innerHTML = <a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>;
         }
         if (ca3['EVI-link']) {
             document.getElementById('EVI-link-CA3').innerHTML = `<a href=${ca3['EVI-link']}>Click here</a>`;
@@ -539,8 +551,10 @@ if (ca4) {
         document.getElementById('current-administration-CA4').innerHTML = ca4['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-CA4').color = ca4['current-administration'];
         if (ca4['households-without-driveway']) {
-            document.getElementById('households-without-driveway-CA4').innerHTML = ca4['households-without-driveway'].toLocaleString("en-GB");
-            document.getElementById('households-without-driveway-pct-CA4').innerHTML = `${ca4['households-without-driveway-pct']}%`;
+            // document.getElementById('households-without-driveway-CA4').innerHTML = ca4['households-without-driveway'].toLocaleString("en-GB");
+            // document.getElementById('households-without-driveway-pct-CA4').innerHTML = `${ca4['households-without-driveway-pct']}%`;
+            document.getElementById('households-without-driveway-CA4').innerHTML = <a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>;
+            document.getElementById('households-without-driveway-pct-CA4').innerHTML = <a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>;
         }
         if (ca4['EVI-link']) {
             document.getElementById('EVI-link-CA4').innerHTML = `<a href=${ca4['EVI-link']}>Click here</a>`;
