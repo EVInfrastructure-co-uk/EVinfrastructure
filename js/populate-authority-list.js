@@ -1,9 +1,10 @@
+const authority_list = document.getElementById('authority_select');
+
 fetch('/government/local-government/data/uk_la_evi.json')
   .then(response => response.json())
   .then(jsonData => {
     laData = jsonData.resources[0].data;
 
-    const authority_list = document.getElementById('authority_select');
     // var authority_array
 
     laData.forEach(authority => {
