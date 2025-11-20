@@ -9,7 +9,8 @@
 <nav class="topnav" id="topnav">
     <a href="/">Home</a>
         <div class="dropdown">
-        <a href="/home-charging" class="dropbtn">Home Charging ▼</a>
+        <!-- add aria-expanded and role so JS/screen-readers can manage state -->
+        <a href="/home-charging" class="dropbtn" role="button" aria-expanded="false">Home Charging ▼</a>
         <div class="dropdown-content">
           <a href="/home-charging/tariffs">Tariffs</a>
           <a href="/home-charging/chargers">Chargers</a>
@@ -19,7 +20,7 @@
         </div>
         </div>
  <div class="dropdown">
-        <a href="/public-charging" class="dropbtn">Public Charging ▼</a>
+        <a href="/public-charging" class="dropbtn" role="button" aria-expanded="false">Public Charging ▼</a>
         <div class="dropdown-content">
           <a href="/public-charging/tariffs">Tariffs</a>
           <a href="/public-charging/requesting-chargepoints">Requesting Chargepoints</a>
@@ -29,7 +30,7 @@
         </div>
         </div>
  <div class="dropdown">
-        <a href="/government" class="dropbtn">Government and EVI ▼</a>
+        <a href="/government" class="dropbtn" role="button" aria-expanded="false">Government and EVI ▼</a>
         <div class="dropdown-content">
           <a href="/government/UK-government">UK government</a>
           <a href="/government/local-government">Local Government</a>
@@ -41,7 +42,7 @@
         </div>
         </div>
  <div class="dropdown">
-        <a href="/what-is-a-watt" class="dropbtn">What is a Watt? ▼</a>
+        <a href="/what-is-a-watt" class="dropbtn" role="button" aria-expanded="false">What is a Watt? ▼</a>
         <div class="dropdown-content">
           <a href="/what-is-a-watt/energy">Energy</a>
           <a href="/what-is-a-watt/power-and-connectors">Power and Connectors</a>
@@ -50,7 +51,7 @@
         </div>
         </div>
  <div class="dropdown">
-        <a href="/sustainable-travel" class="dropbtn">Sustainable Travel ▼</a>
+        <a href="/sustainable-travel" class="dropbtn" role="button" aria-expanded="false">Sustainable Travel ▼</a>
         <div class="dropdown-content">
           <a href="/sustainable-travel/climate-change">EVs and Climate Change</a>
           <a href="/sustainable-travel/v2g">Vehicle to Grid</a>

@@ -200,15 +200,21 @@ li {
   color: white;
 }
 
-/* Show the dropdown menu on hover */
+/* Show the dropdown menu on hover (desktop) */
 .dropdown:hover .dropdown-content,
 .dropdown:focus-within .dropdown-content {
   display: block;
 }
 
-/* Highlight dropbtn when dropdown is hovered */
+/* Highlight dropbtn when dropdown is hovered (desktop) */
 .dropdown:hover .dropbtn,
 .dropdown:focus-within .dropbtn {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Visual state for open dropdown (mobile) */
+.dropdown.open .dropbtn {
   background-color: #04AA6D;
   color: white;
 }
@@ -227,11 +233,16 @@ li {
     text-align: left;
     position: static;
   }
+  /* In responsive mode the dropdown contents are hidden by default.
+     They are shown only when the dropdown has the "open" class. */
   .topnav.responsive .dropdown-content {
     position: static;
-    display: block;
+    display: none; /* <-- changed: hide until opened */
     background: #444;
     box-shadow: none;
+  }
+  .topnav.responsive .dropdown.open .dropdown-content {
+    display: block;
   }
 }
 
