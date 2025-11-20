@@ -27,5 +27,10 @@ fetch('/government/local-government/data/uk_la_evi.json')
     //         option.textContent = authority['nice-name'];
     //         authority_list.appendChild(birds[i]);
     // };
-    
+
     })
+
+function authority_page() {
+    const slug = authority_list.value;
+    window.location.href = `/government/local-government/${slug}`;
+}
