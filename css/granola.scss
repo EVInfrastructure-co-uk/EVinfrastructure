@@ -95,6 +95,17 @@ body {
     max-width: 1024px;
   }
 }
+@media (min-width:1500px) { /* hi-res laptops and desktops */
+  .page-content {
+    max-width: 1200px;
+  }
+    .block {
+  font-size: 1.5cqw;
+  }
+  .block2 {
+    font-size: 1.5cqw;
+  }
+}
 
 ul,
 ol {
