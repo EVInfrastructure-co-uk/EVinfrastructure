@@ -8,25 +8,25 @@ title: "Tab test"
   <div class="tabs js-tabs" data-module="tabs">
     <div class="tabs__controls" role="tablist" aria-label="Section">
       <button id="overview" class="tabs__tab tabs__tab--active" role="tab"
-              aria-selected="true" aria-controls="panel-1" tabindex="0">
+              aria-selected="true" aria-controls="overview" tabindex="0">
         Overview
       </button>
 
       <button id="pavement-channels" class="tabs__tab" role="tab"
-              aria-selected="false" aria-controls="panel-2" tabindex="-1">
+              aria-selected="false" aria-controls="pavement-channels" tabindex="-1">
         Pavement channels
       </button>
 
       <button id="levi" class="tabs__tab" role="tab"
-              aria-selected="false" aria-controls="panel-3" tabindex="-1">
+              aria-selected="false" aria-controls="levi" tabindex="-1">
         LEVI
       </button>
     </div>
 
     <div id="overview" class="tabs__panel" role="tabpanel"
-         aria-labelledby="tab-1">
+         aria-labelledby="overview">
       <h2>Overview</h2>
-      <p>This is the details panel.</p>
+      <p>This is the overview panel.</p>
       <div style="max-width: 100%; overflow-x: auto;">
         <table id="authorityTable" class="table">
         <thead>
@@ -93,13 +93,13 @@ title: "Tab test"
     </div>
 
     <div id="pavement-channels" class="tabs__panel tabs__panel--hidden" role="tabpanel"
-         aria-labelledby="tab-2" hidden>
+         aria-labelledby="pavement-channels" hidden>
       <h2>More information</h2>
       <p>This is the more information panel.</p>
     </div>
 
     <div id="levi" class="tabs__panel tabs__panel--hidden" role="tabpanel"
-         aria-labelledby="tab-3" hidden>
+         aria-labelledby="levi" hidden>
       <h2>Disabled</h2>
       <p>This tab is disabled.</p>
     </div>
