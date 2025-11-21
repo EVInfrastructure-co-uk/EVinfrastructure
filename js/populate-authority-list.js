@@ -5,29 +5,25 @@ fetch('/government/local-government/data/uk_la_evi.json')
   .then(jsonData => {
     laData = jsonData.resources[0].data;
 
-    // var authority_array
+    var authority_array = [];
 
     laData.forEach(authority => {
         if  (authority['local-authority-type'] != "COMB") {
-            const option = document.createElement('option');
-            option.value = authority['gov-uk-slug'];
-            option.textContent = authority['nice-name'];
-            authority_list.appendChild(option);
+          authority_array.push(authority['official-name']); 
         }
       });
 
-    //   var authority_array = birdList.getElementsByTagName("li");
+    authority_array = authority_array.sort(function(a, b) {
+        return a.firstChild.data.toLowerCase().localeCompare(b.firstChild.data.toLowerCase());
+    });
 
-    // birds = Array.prototype.slice.call(birds).sort(function(a, b) {
-    //     return a.firstChild.data.toLowerCase().localeCompare(b.firstChild.data.toLowerCase());
-    // });
-
-    // for (var i = 0, length = birds.length; i < length; i++) {
-    //                 const option = document.createElement('option');
-    //         option.value = authority['gov-uk-slug'];
-    //         option.textContent = authority['nice-name'];
-    //         authority_list.appendChild(birds[i]);
-    // };
+    for (var i = 0, length = authority_array.length; i < length; i++) {
+      const authority = laData.find(authority => authority['official-name'] === authority_array[i]);
+      const option = document.createElement('option');
+      option.value = authority['gov-uk-slug'];
+      option.textContent = authority['official-name'];
+      authority_list.appendChild(option);
+    };
 
     })
 
