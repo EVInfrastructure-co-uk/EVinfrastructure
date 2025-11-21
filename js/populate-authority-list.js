@@ -13,9 +13,7 @@ fetch('/government/local-government/data/uk_la_evi.json')
         }
       });
 
-    authority_array = authority_array.sort(function(a, b) {
-        return a.firstChild.data.toLowerCase().localeCompare(b.firstChild.data.toLowerCase());
-    });
+    authority_array = authority_array.sort();
 
     for (var i = 0, length = authority_array.length; i < length; i++) {
       const authority = laData.find(authority => authority['official-name'] === authority_array[i]);
