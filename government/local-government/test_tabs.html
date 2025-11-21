@@ -21,12 +21,21 @@ title: "Tab test"
               aria-selected="false" aria-controls="levi" tabindex="-1">
         LEVI
       </button>
+
+      <button id="tab-orcs" class="tabs__tab" role="tab"
+              aria-selected="false" aria-controls="orcs" tabindex="-1">
+        ORCS
+      </button>
+
+      <button id="tab-levi-pilot" class="tabs__tab" role="tab"
+              aria-selected="false" aria-controls="levi-pilot" tabindex="-1">
+        LEVI pilot
+      </button>
     </div>
 
     <div id="overview" class="tabs__panel" role="tabpanel"
          aria-labelledby="tab-overview">
       <h2>Overview</h2>
-      <p>This is the overview panel.</p>
       <div style="max-width: 100%; overflow-x: auto;">
         <table id="authorityTable" class="table">
         <thead>
@@ -94,14 +103,30 @@ title: "Tab test"
 
     <div id="pavement-channels" class="tabs__panel tabs__panel--hidden" role="tabpanel"
          aria-labelledby="tab-pavement-channels" hidden>
-      <h2>More information</h2>
-      <p>This is the more information panel.</p>
+      <h2>Pavement channels</h2>
+      <p>The highway authority is responsible for decisions on pavement channels, although some combined authorities in England have received the Pavement Channel Grant.</p>
+      <p>See our <a href="/home-charging/pavement-channels">pavement channels</a> page for more information.</p>
     </div>
 
     <div id="levi" class="tabs__panel tabs__panel--hidden" role="tabpanel"
          aria-labelledby="tab-levi" hidden>
-      <h2>Disabled</h2>
-      <p>This tab is disabled.</p>
+      <h2>Local Electric Vehicle Infrastructure fund (LEVI)</h2>
+      <p>LEVI is England's flagship programme for installing public chargers near homes without driveways.</p>
+      <p>For more information, please see the <a href="/government/funding-public-chargepoints#levi">LEVI</a> section of our page on subsidised public charging schemes.</p>
+    </div>
+
+    <div id="orcs" class="tabs__panel tabs__panel--hidden" role="tabpanel"
+         aria-labelledby="tab-orcs" hidden>
+      <h2>On-Street Residential Charging Scheme (ORCS)</h2>
+      <p>ORCS was a UK Government programme for installing public chargers near homes without driveways. Any local authority could apply.</p>
+      <p>For more information, please see the <a href="/government/funding-public-chargepoints#orcs">ORCS</a> section of our page on subsidised public charging schemes.</p>
+    </div>
+
+    <div id="levi-pilot" class="tabs__panel tabs__panel--hidden" role="tabpanel"
+         aria-labelledby="tab-levi-pilot" hidden>
+      <h2>Local Electric Vehicle Infrastructure fund (LEVI) pilot</h2>
+      <p>Before the main LEVI programme, some authorities took part in a pilot.</p>
+      <p>For more information, please see the <a href="/government/funding-public-chargepoints#levi">LEVI</a> section of our page on subsidised public charging schemes.</p>
     </div>
   </div>
 
