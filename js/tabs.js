@@ -46,9 +46,7 @@
     tab.classList.add('tabs__tab--active');
 
     var panelId = tab.getAttribute('aria-controls');
-    console.log(panelId); // debugging
     var panel = container.querySelector('#' + CSS.escape(panelId));
-    console.log(panel) // debugging
     if (panel) {
       panel.removeAttribute('hidden');
       panel.classList.remove('tabs__panel--hidden');
