@@ -29,6 +29,7 @@ england_unitary_extra_2ca = File.read('_templates/england-unitary-extra-2CA.html
 
 ni_ca = File.read('_templates/ni-CA.html')
 ni_unitary_extra_ca = File.read('_templates/ni-unitary-extra-CA.html')
+ni_unitary_extra_2ca = File.read('_templates/ni-unitary-extra-2CA.html')
 
 scotland_ca = File.read('_templates/scotland-CA.html')
 scotland_unitary_ca = File.read('_templates/scotland-unitary-CA.html')
@@ -217,8 +218,13 @@ authorities.select { |a| a['local-authority-type'] == 'NID' }.each do |authority
 
   filename = "#{slug}.html"
 
-  content = ni_unitary_extra_ca.gsub('{{ authority.name }}',name)
-                              .gsub('{{ authority.slug }}',slug)
+  if authority['combined-authority-3'].nil?
+    content = ni_unitary_extra_ca.gsub('{{ authority.name }}',name)
+                                .gsub('{{ authority.slug }}',slug)
+  else
+    content = ni_unitary_extra_2ca.gsub('{{ authority.name }}',name)
+                                .gsub('{{ authority.slug }}',slug)
+  end  
 
   File.write(filename, content)
   puts "Generated #{filename}"

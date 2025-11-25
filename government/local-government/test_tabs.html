@@ -7,6 +7,7 @@ title: "Tab test"
 
   <div class="tabs js-tabs" data-module="tabs">
     <div class="tabs__controls" role="tablist" aria-label="Section">
+      
       <button id="tab-overview" class="tabs__tab tabs__tab--active" role="tab"
               aria-selected="true" aria-controls="overview" tabindex="0">
         Overview
@@ -106,6 +107,63 @@ title: "Tab test"
       <h2>Pavement channels</h2>
       <p>The highway authority is responsible for decisions on pavement channels, although some combined authorities in England have received the Pavement Channel Grant.</p>
       <p>See our <a href="/home-charging/pavement-channels">pavement channels</a> page for more information.</p>
+
+      <div style="max-width: 100%; overflow-x: auto;">
+      <table id="authorityTable" class="table">      
+      <thead>
+            <tr>
+            <th></th>
+            <th>District Council</th>
+            <th>Highway authority</th>
+            </tr>
+        <tr>
+          <th colspan="3", style="text-align: center;"><a href="/home-charging/pavement-channels">Pavement channels</a></th>
+        </tr>
+        <tr>
+          <th></th>
+          <th id="name-district-channels"></th>
+          <th id="name-county-channels"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Channel Status</th>
+          <td id="channel-status-district" rowspan="7">Matter for highway authority</td>
+          <td id="channel-status-county"></td>
+        </tr>
+        <tr>
+          <th>Channel Link</th>
+          <!-- <td id="channel-link-district"></td> -->
+          <td id="channel-link-county"></td>
+        </tr>
+        <tr>
+          <th><a href="https://www.gov.uk/government/publications/electric-vehicle-ev-pavement-channels-grant-local-authority-allocations">Channel Grant Amount</a></th>
+          <!-- <td id="channel-grant-amount-district"></td> -->
+          <td id="channel-grant-amount-county"></td>
+        </tr>
+        <tr>
+          <th>Channel Application Fee</th>
+          <!-- <td id="channel-application-fee-district"></td> -->
+          <td id="channel-application-fee-county"></td>
+        </tr>
+        <tr>
+          <th>Channel Installation Fee</th>
+          <!-- <td id="channel-installation-fee-district"></td> -->
+          <td id="channel-installation-fee-county"></td>
+        </tr>
+        <tr>
+          <th>Channel Annual Fee</th>
+          <!-- <td id="channel-annual-fee-district"></td> -->
+          <td id="channel-annual-fee-county"></td>
+        </tr>
+        <tr>
+          <th>Channel Manufacturer</th>
+          <!-- <td id="channel-manufacturer-district"></td> -->
+          <td id="channel-manufacturer-county"></td>
+        </tr>
+      </tbody>
+      </table>
+      </div>
     </div>
 
     <div id="levi" class="tabs__panel tabs__panel--hidden" role="tabpanel"
