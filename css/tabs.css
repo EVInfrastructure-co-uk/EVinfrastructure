@@ -12,7 +12,7 @@
 /* The outer box that wraps panels (and visually contains the active tab) */
 .tabs {
   position: relative;
-  margin: 0 0 1.5rem 0;
+  margin: 20px 0 1.5rem 0;
   border: 1px solid var(--border);
   border-radius: 2px;
   background: #fff;

@@ -458,6 +458,8 @@ function populate(slug) {
         }
         if (ca['LEVI-capital-amount']) {
             document.getElementById('LEVI-capital-amount-CA').innerHTML = ca['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        }
+        if (ca['LEVI-tender-stage']) {
             document.getElementById('LEVI-tender-stage-CA').innerHTML = ca['LEVI-tender-stage'];
             document.getElementById('LEVI-tender-open-date-CA').innerHTML = ca['LEVI-tender-open-date'];
             document.getElementById('LEVI-tender-close-date-CA').innerHTML = ca['LEVI-tender-close-date'];
@@ -525,6 +527,8 @@ function populate(slug) {
         }
         if (ca2['LEVI-capital-amount']) {
             document.getElementById('LEVI-capital-amount-CA2').innerHTML = ca2['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        }
+        if (ca2['LEVI-tender-stage']) {
             document.getElementById('LEVI-tender-stage-CA2').innerHTML = ca2['LEVI-tender-stage'];
             document.getElementById('LEVI-tender-open-date-CA2').innerHTML = ca2['LEVI-tender-open-date'];
             document.getElementById('LEVI-tender-close-date-CA2').innerHTML = ca2['LEVI-tender-close-date'];
@@ -592,6 +596,8 @@ function populate(slug) {
         }
         if (ca3['LEVI-capital-amount']) {
             document.getElementById('LEVI-capital-amount-CA3').innerHTML = ca3['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        }
+        if (ca3['LEVI-tender-stage']) {
             document.getElementById('LEVI-tender-stage-CA3').innerHTML = ca3['LEVI-tender-stage'];
             document.getElementById('LEVI-tender-open-date-CA3').innerHTML = ca3['LEVI-tender-open-date'];
             document.getElementById('LEVI-tender-close-date-CA3').innerHTML = ca3['LEVI-tender-close-date'];
@@ -659,6 +665,8 @@ if (ca4) {
         }
         if (ca4['LEVI-capital-amount']) {
             document.getElementById('LEVI-capital-amount-CA4').innerHTML = ca4['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        }
+        if (ca4['LEVI-tender-stage']) {
             document.getElementById('LEVI-tender-stage-CA4').innerHTML = ca4['LEVI-tender-stage'];
             document.getElementById('LEVI-tender-open-date-CA4').innerHTML = ca4['LEVI-tender-open-date'];
             document.getElementById('LEVI-tender-close-date-CA4').innerHTML = ca4['LEVI-tender-close-date'];
