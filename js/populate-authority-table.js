@@ -433,9 +433,10 @@ function populate(slug) {
         document.getElementById('EVI-portfolio-holder-CA').innerHTML = ca['EVI-portfolio-holder'];
         if (ca['channel-grant-amount']) {
             document.getElementById('channel-grant-amount-CA').innerHTML = ca['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('channel-status-CA').innerHTML = ca['channel-status'];       
         }
-        if ((ca['channel-status']) || (ca['channel-grant-amount'])) {
+        if (ca['channel-status']) {
+            document.getElementById('channel-status-CA').innerHTML = ca['channel-status'];       
+        }        if ((ca['channel-status']) || (ca['channel-grant-amount'])) {
             if (ca['channel-link']) {
                 document.getElementById('channel-link-CA').innerHTML = `<a href=${ca['channel-link']}>Click here</a>`;
             }
@@ -502,6 +503,8 @@ function populate(slug) {
         document.getElementById('EVI-portfolio-holder-CA2').innerHTML = ca2['EVI-portfolio-holder'];
         if (ca2['channel-grant-amount']) {
             document.getElementById('channel-grant-amount-CA2').innerHTML = ca2['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        }
+        if (ca2['channel-status']) {
             document.getElementById('channel-status-CA2').innerHTML = ca2['channel-status'];       
         }
         if ((ca2['channel-status']) || (ca2['channel-grant-amount'])) {
@@ -571,6 +574,8 @@ function populate(slug) {
         document.getElementById('EVI-portfolio-holder-CA3').innerHTML = ca3['EVI-portfolio-holder'];
         if (ca3['channel-grant-amount']) {
             document.getElementById('channel-grant-amount-CA3').innerHTML = ca3['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        }
+        if (ca3['channel-status']) {
             document.getElementById('channel-status-CA3').innerHTML = ca3['channel-status'];       
         }
         if ((ca3['channel-status']) || (ca3['channel-grant-amount'])) {
@@ -644,6 +649,8 @@ if (ca4) {
         document.getElementById('EVI-portfolio-holder-CA4').innerHTML = ca4['EVI-portfolio-holder'];
         if (ca4['channel-grant-amount']) {
             document.getElementById('channel-grant-amount-CA4').innerHTML = ca4['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        }
+        if (ca4['channel-status']) {
             document.getElementById('channel-status-CA4').innerHTML = ca4['channel-status'];       
         }
         if ((ca4['channel-status']) || (ca4['channel-grant-amount'])) {
