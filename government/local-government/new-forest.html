@@ -1,0 +1,301 @@
+---
+layout: default
+title: "New Forest"
+---
+
+<h1>EV infrastructure in New Forest</h1>
+
+<div>
+  {% include postcode-search.html %}
+</div>
+
+  <div class="tabs js-tabs" data-module="tabs">
+    <div class="tabs__controls" role="tablist" aria-label="Section">
+      
+      <button id="tab-overview" class="tabs__tab tabs__tab--active" role="tab"
+              aria-selected="true" aria-controls="overview" tabindex="0">
+        Overview
+      </button>
+
+      <button id="tab-pavement-channels" class="tabs__tab" role="tab"
+              aria-selected="false" aria-controls="pavement-channels" tabindex="-1">
+        Pavement channels
+      </button>
+
+      <button id="tab-levi" class="tabs__tab" role="tab"
+              aria-selected="false" aria-controls="levi" tabindex="-1">
+        LEVI
+      </button>
+
+      <button id="tab-orcs" class="tabs__tab" role="tab"
+              aria-selected="false" aria-controls="orcs" tabindex="-1">
+        ORCS
+      </button>
+
+      <button id="tab-levi-pilot" class="tabs__tab" role="tab"
+              aria-selected="false" aria-controls="levi-pilot" tabindex="-1">
+        LEVI pilot
+      </button>
+    </div>
+
+    <div id="overview" class="tabs__panel" role="tabpanel"
+         aria-labelledby="tab-overview">
+      <h2>Overview</h2>
+      <div style="max-width: 100%; overflow-x: auto;">
+        <table id="overview-table" class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>District Council</th>
+            <th>Highway authority</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th id="name-district">New Forest</th>
+            <th id="name-county"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Sub-authorities</th>
+            <td id="sub-authorities-district"></td>
+            <td id="sub-authorities-county"></td>
+          </tr>
+          <tr>
+            <th>EVI page on authority website</th>
+            <td id="EVI-link-district"></td>
+            <td id="EVI-link-county"></td>
+          </tr>
+          <tr>
+            <th>Households Without Driveway (% of total)<br><a href="https://www.racfoundation.org/wp-content/uploads/standing-still-Nagler-June-2021.pdf">(RAC Foundation / Field Dynamics, 2021)<a></th>
+            <td id="households-without-driveway-pct-district"></td>
+            <td id="households-without-driveway-pct-county"></td>
+          </tr>
+          <tr>
+            <th>Households Without Driveway (number)<br><a href="https://www.racfoundation.org/wp-content/uploads/standing-still-Nagler-June-2021.pdf">(RAC Foundation / Field Dynamics, 2021)<a></th>
+            <td id="households-without-driveway-district"></td>
+            <td id="households-without-driveway-county"></td>
+          </tr>
+          <tr>
+            <th>NEVIS Near Home Distribution<br>(% of households without driveways within 4 mins of charger)<br><a href="https://nevis.cenex.co.uk/metrics">(Cenex NEVIS, August 2025)</a></th>
+            <td id="NEVIS-distribution-district"></td>
+            <td id="NEVIS-distribution-county"></td>
+          </tr>
+          <tr>
+            <th>NEVIS Near Home Distribution Rank<br><a href="https://nevis.cenex.co.uk/metrics">(Cenex NEVIS, August 2025)</a></th>
+            <td id="NEVIS-distribution-rank-district"></td>
+            <td id="NEVIS-distribution-rank-county"></td>
+          </tr>
+          <tr>
+            <th>EVI Email</th>
+            <td id="EVI-email-district"></td>
+            <td id="EVI-email-county"></td>
+          </tr>
+          <tr>
+            <th>Current administration</th>
+            <td id="current-administration-district"></td>
+            <td id="current-administration-county"></td>
+          </tr>
+          <tr>
+            <th>EVI Portfolio Holder</th>
+            <td id="EVI-portfolio-holder-district"></td>
+            <td id="EVI-portfolio-holder-county"></td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="pavement-channels" class="tabs__panel tabs__panel--hidden" role="tabpanel"
+         aria-labelledby="tab-pavement-channels" hidden>
+      <h2>Pavement channels</h2>
+      <p>The highway authority is responsible for decisions on pavement channels, although some combined authorities in England have received the Pavement Channel Grant.</p>
+      <p>See our <a href="/home-charging/pavement-channels">pavement channels</a> page for more information.</p>
+
+      <div style="max-width: 100%; overflow-x: auto;">
+        <table id="pavement-channels-table" class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>District Council</th>
+            <th>Highway authority</th>
+          </tr>
+        <tr>
+          <th></th>
+          <th id="name-district-channels"></th>
+          <th id="name-county-channels"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Channel Status</th>
+          <td id="channel-status-district" rowspan="7">Matter for highway authority</td>
+          <td id="channel-status-county"></td>
+        </tr>
+        <tr>
+          <th>Channel Link</th>
+          <!-- <td id="channel-link-district"></td> -->
+          <td id="channel-link-county"></td>
+        </tr>
+        <tr>
+          <th>Channel Grant Amount (<a href="https://www.gov.uk/government/publications/electric-vehicle-ev-pavement-channels-grant-local-authority-allocations">OZEV</a>)</th>
+          <!-- <td id="channel-grant-amount-district"></td> -->
+          <td id="channel-grant-amount-county"></td>
+        </tr>
+        <tr>
+          <th>Channel Application Fee</th>
+          <!-- <td id="channel-application-fee-district"></td> -->
+          <td id="channel-application-fee-county"></td>
+        </tr>
+        <tr>
+          <th>Channel Installation Fee</th>
+          <!-- <td id="channel-installation-fee-district"></td> -->
+          <td id="channel-installation-fee-county"></td>
+        </tr>
+        <tr>
+          <th>Channel Annual Fee</th>
+          <!-- <td id="channel-annual-fee-district"></td> -->
+          <td id="channel-annual-fee-county"></td>
+        </tr>
+        <tr>
+          <th>Channel Manufacturer</th>
+          <!-- <td id="channel-manufacturer-district"></td> -->
+          <td id="channel-manufacturer-county"></td>
+        </tr>
+      </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="levi" class="tabs__panel tabs__panel--hidden" role="tabpanel"
+         aria-labelledby="tab-levi" hidden>
+      <h2>Local Electric Vehicle Infrastructure fund (LEVI)</h2>
+      <p>LEVI is England's flagship programme for installing public chargers near homes without driveways.</p>
+      <p>For more information, please see the <a href="/government/funding-public-chargepoints#levi">LEVI</a> section of our page on subsidised public charging schemes.</p>
+      <div style="max-width: 100%; overflow-x: auto;">
+        <table id="levi-table" class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>District Council</th>
+            <th>Highway authority</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th id="name-district-LEVI">New Forest</th>
+            <th id="name-county-LEVI"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>LEVI Capital Amount (<a href="https://www.gov.uk/government/publications/local-ev-infrastructure-levi-funding-amounts/local-electric-vehicle-infrastructure-levi-funding-amounts-capital">OZEV</a>)</th>
+            <td id="LEVI-capital-amount-district" rowspan="6">Matter for highway authority</td>
+            <td id="LEVI-capital-amount-county"></td>
+          </tr>
+          <tr>
+            <th>LEVI Tender Stage</th>
+            <!-- <td id="LEVI-tender-stage-district"></td> -->
+            <td id="LEVI-tender-stage-county"></td>
+          </tr>
+          <tr>
+            <th>LEVI Tender Link</th>
+            <!-- <td id="LEVI-tender-link-district"></td> -->
+            <td id="LEVI-tender-link-county"></td>
+          </tr>
+          <tr>
+            <th>LEVI Tender Open Date</th>
+            <!-- <td id="LEVI-tender-open-date-district"></td> -->
+            <td id="LEVI-tender-open-date-county"></td>
+          </tr>
+          <tr>
+            <th>LEVI Tender Close Date</th>
+            <!-- <td id="LEVI-tender-close-date-district"></td> -->
+            <td id="LEVI-tender-close-date-county"></td>
+          </tr>
+          <tr>
+            <th>LEVI CPO(s)</th>
+            <!-- <td id="LEVI-CPO(s)-district"></td> -->
+            <td id="LEVI-CPO(s)-county"></td>
+          </tr>
+        </tbody>
+        </table>
+      </div>    
+    </div>
+
+    <div id="orcs" class="tabs__panel tabs__panel--hidden" role="tabpanel"
+         aria-labelledby="tab-orcs" hidden>
+      <h2>On-Street Residential Charging Scheme (ORCS)</h2>
+      <p>ORCS was a UK Government programme for installing public chargers near homes without driveways. Any local authority could apply.</p>
+      <p>For more information, please see the <a href="/government/funding-public-chargepoints#orcs">ORCS</a> section of our page on subsidised public charging schemes.</p>
+      <div style="max-width: 100%; overflow-x: auto;">     
+        <table id="orcs-table" class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>District Council</th>
+            <th>Highway authority</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th id="name-district-ORCS">New Forest</th>
+            <th id="name-county-ORCS"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>ORCS Total Amount (<a href="https://www.gov.uk/government/collections/electric-vehicle-charging-infrastructure-statistics">OZEV</a>)</th>
+            <td id="ORCS-total-amount-district"></td>
+            <td id="ORCS-total-amount-county"></td>
+          </tr>
+          <tr>
+            <th>ORCS Total Charging Devices (<a href="https://www.gov.uk/government/collections/electric-vehicle-charging-infrastructure-statistics">OZEV</a>)</th>
+            <td id="ORCS-total-charging-devices-district"></td>
+            <td id="ORCS-total-charging-devices-county"></td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="levi-pilot" class="tabs__panel tabs__panel--hidden" role="tabpanel"
+         aria-labelledby="tab-levi-pilot" hidden>
+      <h2>Local Electric Vehicle Infrastructure fund (LEVI) pilot</h2>
+      <p>Before the main LEVI programme, some authorities took part in a pilot.</p>
+      <p>For more information, please see the <a href="/government/funding-public-chargepoints#levi">LEVI</a> section of our page on subsidised public charging schemes.</p>
+      <div style="max-width: 100%; overflow-x: auto;">    
+        <table id="levi-pilot-table" class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>District Council</th>
+            <th>Highway authority</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th id="name-district-ORCS">New Forest</th>
+            <th id="name-county-ORCS"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>LEVI pilot capital amount</th>
+            <td rowspan="2" id="LEVI-pilot-capital-amount-district">Matter for highway authority</td>
+            <td id="LEVI-pilot-capital-amount-county"></td>
+          </tr>
+          <tr>
+            <th>LEVI pilot CPO(s)</th>
+            <!-- <td id="LEVI-pilot-CPO(s)-district"></td> -->
+            <td id="LEVI-pilot-CPO(s)-county"></td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript" src="/js/tabs.js"></script>
+  <script type="text/javascript" src="/js/populate-authority-table.js"></script>
+<script type="text/javascript">
+  const slug = "new-forest";
+  populate(slug)
+</script>
