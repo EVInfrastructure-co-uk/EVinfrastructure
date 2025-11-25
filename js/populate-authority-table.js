@@ -610,7 +610,11 @@ function populate(slug) {
             document.getElementById('LEVI-pilot-capital-amount-CA3').innerHTML = ca3['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('LEVI-pilot-CPO(s)-CA3').innerHTML = ca3['LEVI-pilot-CPO(s)'];
         }
-        document.getElementById('ORCS-total-amount-CA3').innerHTML = ca3['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        if (ca3['local-authority-code'] === "NIC") {
+        document.getElementById('ORCS-total-amount-CA3').innerHTML = ca3['ORCS-total-amount'];
+        } else {
+            document.getElementById('ORCS-total-amount-CA3').innerHTML = ca3['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        }
         document.getElementById('ORCS-total-charging-devices-CA3').innerHTML = ca3['ORCS-total-charging-devices'].toLocaleString("en-GB");
     }
 
