@@ -9,115 +9,186 @@ title: "Lisburn and Castlereagh"
   {% include postcode-search.html %}
 </div>
 
-<div style="max-width: 100%; overflow-x: auto;">
-<table id="authorityTable" class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Local authority</th>
-      <th id="combined-authority-2-type"></th>
-    </tr>
-    <tr>
-      <th></th>
-      <th id="name-unitary">Lisburn and Castlereagh</th>
-      <th id="combined-authority-2-name"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Sub-authorities</th>
-      <td id="sub-authorities-unitary"></td>
-      <td id="sub-authorities-CA2"></td>
-    </tr>
-    <tr>
-      <th>Current administration</th>
-      <td id="current-administration-unitary"></td>
-      <td id="current-administration-CA2"></td>
-    </tr>
-    <tr>
-      <th>EVI Link</th>
-      <td id="EVI-link-unitary"></td>
-      <td id="EVI-link-CA2"></td>
-    </tr>
-    <tr>
-      <th>EVI Email</th>
-      <td id="EVI-email-unitary"></td>
-      <td id="EVI-email-CA2"></td>
-    </tr>
-    <tr>
-      <th>EVI Portfolio Holder</th>
-      <td id="EVI-portfolio-holder-unitary"></td>
-      <td id="EVI-portfolio-holder-CA2"></td>
-    </tr>
-  </tbody>
-    <thead>
-    <tr>
-      <th colspan="3", style="text-align: center;"><a href="/home-charging/pavement-channels">Pavement channels</a></th>
-    </tr>
-    <tr>
-      <th></th>
-      <th id="name-unitary-channels">Lisburn and Castlereagh</th>
-      <th id="combined-authority-2-name-channels"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Channel Status</th>
-      <td id="channel-status-unitary"></td>
-      <td id="channel-status-CA2"></td>
-    </tr>
-    <tr>
-      <th>Channel Link</th>
-      <td id="channel-link-unitary"></td>
-      <td id="channel-link-CA2"></td>
-    </tr>
-    <tr>
-      <th>Channel Application Fee</th>
-      <td id="channel-application-fee-unitary"></td>
-      <td id="channel-application-fee-CA2"></td>
-    </tr>
-    <tr>
-      <th>Channel Installation Fee</th>
-      <td id="channel-installation-fee-unitary"></td>
-      <td id="channel-installation-fee-CA2"></td>
-    </tr>
-    <tr>
-      <th>Channel Annual Fee</th>
-      <td id="channel-annual-fee-unitary"></td>
-      <td id="channel-annual-fee-CA2"></td>
-    </tr>
-    <tr>
-      <th>Channel Manufacturer</th>
-      <td id="channel-manufacturer-unitary"></td>
-      <td id="channel-manufacturer-CA2"></td>
-    </tr>
-  </tbody>
-  <thead>
-    <tr>
-      <th colspan="3", style="text-align: center;"><a href="/government/funding-public-chargepoints#orcs">On-Street Residential Charging Scheme</a></th>
-    </tr>
-    <tr>
-      <th></th>
-      <th id="name-unitary-ORCS">Lisburn and Castlereagh</th>
-      <th id="combined-authority-2-name-ORCS"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th><a href="https://www.gov.uk/government/collections/electric-vehicle-charging-infrastructure-statistics">ORCS Total Amount</a></th>
-      <td id="ORCS-total-amount-unitary"></td>
-      <td id="ORCS-total-amount-CA2"></td>
-    </tr>
-    <tr>
-      <th><a href="https://www.gov.uk/government/collections/electric-vehicle-charging-infrastructure-statistics">ORCS Total Charging Devices</a></th>
-      <td id="ORCS-total-charging-devices-unitary"></td>
-      <td id="ORCS-total-charging-devices-CA2"></td>
-    </tr>
-  </tbody>
-</table>
-</div>
+  <div class="tabs js-tabs" data-module="tabs">
+    <div class="tabs__controls" role="tablist" aria-label="Section">
+      
+      <button id="tab-overview" class="tabs__tab tabs__tab--active" role="tab"
+              aria-selected="true" aria-controls="overview" tabindex="0">
+        Overview
+      </button>
 
-<script type="text/javascript" src="/js/populate-authority-table.js"></script>
+      <button id="tab-pavement-channels" class="tabs__tab" role="tab"
+              aria-selected="false" aria-controls="pavement-channels" tabindex="-1">
+        Pavement channels
+      </button>
+
+      <button id="tab-orcs" class="tabs__tab" role="tab"
+              aria-selected="false" aria-controls="orcs" tabindex="-1">
+        ORCS
+      </button>
+    </div>
+
+    <div id="overview" class="tabs__panel" role="tabpanel"
+         aria-labelledby="tab-overview">
+      <h2>Overview</h2>
+      <div style="max-width: 100%; overflow-x: auto;">
+        <table id="overview-table" class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Local authority</th>
+            <th id="combined-authority-2-type"></th>
+            <th id="combined-authority-3-type"></th>
+          </tr>
+          <tr>
+            <th></th>
+            <th id="name-unitary">Lisburn and Castlereagh</th>
+            <th id="combined-authority-2-name"></th>
+            <th id="combined-authority-3-name"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Sub-authorities</th>
+            <td id="sub-authorities-unitary"></td>
+            <td id="sub-authorities-CA2"></td>
+            <td id="sub-authorities-CA3"></td>
+          </tr>
+          <tr>
+            <th>EVI page on authority website</th>
+            <td id="EVI-link-unitary"></td>
+            <td id="EVI-link-CA2"></td>
+            <td id="EVI-link-CA3"></td>
+          </tr>
+          <tr>
+            <th>EVI Email</th>
+            <td id="EVI-email-unitary"></td>
+            <td id="EVI-email-CA2"></td>
+            <td id="EVI-email-CA3"></td>
+          </tr>
+          <tr>
+            <th>Current administration</th>
+            <td id="current-administration-unitary"></td>
+            <td id="current-administration-CA2"></td>
+            <td id="current-administration-CA3"></td>
+          </tr>
+          <tr>
+            <th>EVI Portfolio Holder</th>
+            <td id="EVI-portfolio-holder-unitary"></td>
+            <td id="EVI-portfolio-holder-CA2"></td>
+            <td id="EVI-portfolio-holder-CA3"></td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="pavement-channels" class="tabs__panel tabs__panel--hidden" role="tabpanel"
+         aria-labelledby="tab-pavement-channels" hidden>
+      <h2>Pavement channels</h2>
+      <p>The highway authority is responsible for decisions on pavement channels, although some combined authorities in England have received the Pavement Channel Grant.</p>
+      <p>See our <a href="/home-charging/pavement-channels">pavement channels</a> page for more information.</p>
+
+      <div style="max-width: 100%; overflow-x: auto;">
+        <table id="pavement-channels-table" class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Local authority</th>
+            <th id="combined-authority-2-type-channels"></th>
+            <th id="combined-authority-3-type-channels"></th>
+          </tr>
+          <tr>
+            <th></th>
+            <th id="name-unitary-channels">Lisburn and Castlereagh</th>
+            <th id="combined-authority-2-name-channels"></th>
+            <th id="combined-authority-3-name-channels"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Channel Status</th>
+            <td id="channel-status-unitary"></td>
+            <td id="channel-status-CA2"></td>
+            <td id="channel-status-CA3"></td>
+          </tr>
+          <tr>
+            <th>Channel Link</th>
+            <td id="channel-link-unitary"></td>
+            <td id="channel-link-CA2"></td>
+            <td id="channel-link-CA3"></td>
+          </tr>
+          <tr>
+            <th>Channel Application Fee</th>
+            <td id="channel-application-fee-unitary"></td>
+            <td id="channel-application-fee-CA2"></td>
+            <td id="channel-application-fee-CA3"></td>
+          </tr>
+          <tr>
+            <th>Channel Installation Fee</th>
+            <td id="channel-installation-fee-unitary"></td>
+            <td id="channel-installation-fee-CA2"></td>
+            <td id="channel-installation-fee-CA3"></td>
+          </tr>
+          <tr>
+            <th>Channel Annual Fee</th>
+            <td id="channel-annual-fee-unitary"></td>
+            <td id="channel-annual-fee-CA2"></td>
+            <td id="channel-annual-fee-CA3"></td>
+          </tr>
+          <tr>
+            <th>Channel Manufacturer</th>
+            <td id="channel-manufacturer-unitary"></td>
+            <td id="channel-manufacturer-CA2"></td>
+            <td id="channel-manufacturer-CA3"></td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="orcs" class="tabs__panel tabs__panel--hidden" role="tabpanel"
+         aria-labelledby="tab-orcs" hidden>
+      <h2>On-Street Residential Charging Scheme (ORCS)</h2>
+      <p>ORCS was a UK Government programme for installing public chargers near homes without driveways. Any local authority could apply.</p>
+      <p>For more information, please see the <a href="/government/funding-public-chargepoints#orcs">ORCS</a> section of our page on subsidised public charging schemes.</p>
+      <div style="max-width: 100%; overflow-x: auto;">     
+        <table id="orcs-table" class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Local authority</th>
+            <th id="combined-authority-2-type-ORCS"></th>
+            <th id="combined-authority-3-type-ORCS"></th>
+          </tr>
+          <tr>
+            <th></th>
+            <th id="name-unitary-ORCS">Lisburn and Castlereagh</th>
+            <th id="combined-authority-2-name-ORCS"></th>
+            <th id="combined-authority-3-name-ORCS"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><a href="https://www.gov.uk/government/collections/electric-vehicle-charging-infrastructure-statistics">ORCS Total Amount</a></th>
+            <td id="ORCS-total-amount-unitary"></td>
+            <td id="ORCS-total-amount-CA2"></td>
+            <td id="ORCS-total-amount-CA3"></td>
+          </tr>
+          <tr>
+            <th><a href="https://www.gov.uk/government/collections/electric-vehicle-charging-infrastructure-statistics">ORCS Total Charging Devices</a></th>
+            <td id="ORCS-total-charging-devices-unitary"></td>
+            <td id="ORCS-total-charging-devices-CA2"></td>
+            <td id="ORCS-total-charging-devices-CA3"></td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript" src="/js/tabs.js"></script>
+  <script type="text/javascript" src="/js/populate-authority-table.js"></script>
 <script type="text/javascript">
   const slug = "lisburn-castlereagh";
   populate(slug)
