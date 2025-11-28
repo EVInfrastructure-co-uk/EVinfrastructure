@@ -2175,8 +2175,8 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
-          "LEVI-pilot-CPO(s)": null,
+          "LEVI-pilot-capital-amount": 2077000,
+          "LEVI-pilot-CPO(s)": "JOLT",
           "ORCS-CPO(s)": null
         },
         {
@@ -3295,8 +3295,8 @@
           "combined-authority-2": "BUCX",
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
-          "LEVI-pilot-CPO(s)": null,
+          "LEVI-pilot-capital-amount": 70200,
+          "LEVI-pilot-CPO(s)": "Char.gy",
           "ORCS-CPO(s)": null
         },
         {
@@ -3799,7 +3799,7 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-capital-amount": 703000,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null
         },
@@ -6039,8 +6039,8 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
-          "LEVI-pilot-CPO(s)": null,
+          "LEVI-pilot-capital-amount": 1020000,
+          "LEVI-pilot-CPO(s)": "Mer",
           "ORCS-CPO(s)": null
         },
         {
@@ -6151,8 +6151,8 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
-          "LEVI-pilot-CPO(s)": null,
+          "LEVI-pilot-capital-amount": 4375000,
+          "LEVI-pilot-CPO(s)": "Mer, Zest",
           "ORCS-CPO(s)": null
         },
         {
@@ -9063,7 +9063,7 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-capital-amount": 1141073,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null
         },
@@ -9343,8 +9343,8 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
-          "LEVI-pilot-CPO(s)": null,
+          "LEVI-pilot-capital-amount": 528500,
+          "LEVI-pilot-CPO(s)": "Zest",
           "ORCS-CPO(s)": null
         },
         {
@@ -9791,8 +9791,8 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
-          "LEVI-pilot-CPO(s)": null,
+          "LEVI-pilot-capital-amount": 837000,
+          "LEVI-pilot-CPO(s)": "JOLT",
           "ORCS-CPO(s)": null
         },
         {
@@ -10631,7 +10631,7 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-capital-amount": 350000,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null
         },
@@ -11023,7 +11023,7 @@
           "combined-authority-2": "LCCA",
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-capital-amount": 500000,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null
         },
@@ -12987,8 +12987,8 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": "LEVI pilot partnership",
-          "LEVI-pilot-capital-amount": null,
-          "LEVI-pilot-CPO(s)": null,
+          "LEVI-pilot-capital-amount": 948084,
+          "LEVI-pilot-CPO(s)": "Wenea",
           "ORCS-CPO(s)": null
         },
         {
@@ -14337,7 +14337,7 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-capital-amount": 1102630,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null
         },
@@ -15009,7 +15009,7 @@
           "combined-authority-2": "EMCA",
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-capital-amount": 774000,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null
         },
@@ -15401,7 +15401,7 @@
           "combined-authority-2": "YNYC",
           "combined-authority-3": "NYEX",
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-capital-amount": 3237550,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null
         },
@@ -15608,11 +15608,11 @@
           "EVI-email": null,
           "EVI-portfolio-holder": null,
           "LEVI-capital-amount": 3655000,
-          "LEVI-tender-stage": null,
-          "LEVI-tender-link": null,
-          "LEVI-tender-open-date": null,
-          "LEVI-tender-close-date": null,
-          "LEVI-CPO(s)": null,
+          "LEVI-tender-stage": "Awarded (Lot 1)",
+          "LEVI-tender-link": "https://www.find-tender.service.gov.uk/Notice/054858-2025",
+          "LEVI-tender-open-date": "18-02-2025",
+          "LEVI-tender-close-date": "16-04-2025",
+          "LEVI-CPO(s)": "Connected Kerb",
           "channel-status": "Permitted",
           "channel-grant-amount": 140000,
           "channel-application-fee": null,
@@ -15625,7 +15625,7 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-capital-amount": 698407,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null
         },
@@ -16913,7 +16913,7 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-capital-amount": 1290000,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null
         },
@@ -17697,7 +17697,7 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-capital-amount": 1362196,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null
         },
@@ -18537,8 +18537,8 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
-          "LEVI-pilot-CPO(s)": null,
+          "LEVI-pilot-capital-amount": 493568,
+          "LEVI-pilot-CPO(s)": "Connected Kerb",
           "ORCS-CPO(s)": null
         },
         {
@@ -21281,7 +21281,7 @@
           "combined-authority-2": "WAFX",
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-capital-amount": 771000,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null
         },
@@ -21337,7 +21337,7 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-capital-amount": 746250,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null
         },
@@ -21841,8 +21841,8 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
-          "LEVI-pilot-CPO(s)": null,
+          "LEVI-pilot-capital-amount": 740000,
+          "LEVI-pilot-CPO(s)": "Believ",
           "ORCS-CPO(s)": null
         },
         {
@@ -22401,7 +22401,7 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-capital-amount": 3016582,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null
         },
@@ -23017,7 +23017,7 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-capital-amount": 1362196,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null
         },
@@ -23241,8 +23241,8 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
-          "LEVI-pilot-CPO(s)": null,
+          "LEVI-pilot-capital-amount": 1786464,
+          "LEVI-pilot-CPO(s)": "Connected Kerb",
           "ORCS-CPO(s)": null
         },
         {
@@ -23353,8 +23353,8 @@
           "combined-authority-2": null,
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
-          "LEVI-pilot-CPO(s)": null,
+          "LEVI-pilot-capital-amount": 1500000,
+          "LEVI-pilot-CPO(s)": "Blink",
           "ORCS-CPO(s)": null
         },
         {
@@ -23577,7 +23577,7 @@
           "combined-authority-2": "YNYC",
           "combined-authority-3": null,
           "combined-authority-type": null,
-          "LEVI-pilot-capital-amount": null,
+          "LEVI-pilot-capital-amount": 1243028,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null
         },
