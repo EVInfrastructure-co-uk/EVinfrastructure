@@ -484,6 +484,14 @@ function populate(slug) {
             document.getElementById('channel-annual-fee-CA').remove();
             document.getElementById('channel-manufacturer-CA').remove();
             document.getElementById('channel-status-CA').innerHTML = "Matter for highway authority or pavement channel CA";
+        } else {
+            document.getElementById('channel-status-CA').setAttribute("rowspan","6");
+            document.getElementById('channel-link-CA').remove();
+            document.getElementById('channel-application-fee-CA').remove();
+            document.getElementById('channel-installation-fee-CA').remove();
+            document.getElementById('channel-annual-fee-CA').remove();
+            document.getElementById('channel-manufacturer-CA').remove();
+            document.getElementById('channel-status-CA').innerHTML = "Matter for highway authority";
         }
         if (ca['LEVI-capital-amount']) {
             document.getElementById('LEVI-capital-amount-CA').innerHTML = ca['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
