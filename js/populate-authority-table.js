@@ -447,13 +447,15 @@ function populate(slug) {
         if (unitary['LEVI-tender-link']) {
             document.getElementById('LEVI-tender-link-unitary').innerHTML = `<a href=${unitary['LEVI-tender-link']}>Click here</a>`;
         }
-        if (unitary['LEVI-pilot-capital-amount'] == 0) {
-            document.getElementById('LEVI-pilot-capital-amount-unitary').setAttribute("rowspan","2");
-            document.getElementById('LEVI-pilot-CPO(s)-unitary').remove();
-            document.getElementById('LEVI-pilot-capital-amount-unitary').innerHTML = "Did not participate";
-        } else {
-            document.getElementById('LEVI-pilot-capital-amount-unitary').innerHTML = unitary['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('LEVI-pilot-CPO(s)-unitary').innerHTML = unitary['LEVI-pilot-CPO(s)'];
+        if (unitary['region'] != "Northern Ireland") {
+            if (unitary['LEVI-pilot-capital-amount'] == 0) {
+                document.getElementById('LEVI-pilot-capital-amount-unitary').setAttribute("rowspan","2");
+                document.getElementById('LEVI-pilot-CPO(s)-unitary').remove();
+                document.getElementById('LEVI-pilot-capital-amount-unitary').innerHTML = "Did not participate";
+            } else {
+                document.getElementById('LEVI-pilot-capital-amount-unitary').innerHTML = unitary['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+                document.getElementById('LEVI-pilot-CPO(s)-unitary').innerHTML = unitary['LEVI-pilot-CPO(s)'];
+            }
         }
         if (unitary['ORCS-total-amount'] == 0) {
             document.getElementById('ORCS-total-amount-unitary').setAttribute("rowspan","2");
@@ -642,13 +644,15 @@ function populate(slug) {
             document.getElementById('LEVI-CPO(s)-CA2').remove();
             document.getElementById('LEVI-capital-amount-CA2').innerHTML = "Matter for highway authority or LEVI collaboration";
         }
-        if (ca2['LEVI-pilot-capital-amount'] == 0) {
-            document.getElementById('LEVI-pilot-capital-amount-CA2').setAttribute("rowspan","2");
-            document.getElementById('LEVI-pilot-CPO(s)-CA2').remove();
-            document.getElementById('LEVI-pilot-capital-amount-CA2').innerHTML = "Did not participate";
-        } else {
-            document.getElementById('LEVI-pilot-capital-amount-CA2').innerHTML = ca2['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('LEVI-pilot-CPO(s)-CA2').innerHTML = ca2['LEVI-pilot-CPO(s)'];
+        if (ca2['region'] != "Northern Ireland") {
+            if (ca2['LEVI-pilot-capital-amount'] == 0) {
+                document.getElementById('LEVI-pilot-capital-amount-CA2').setAttribute("rowspan","2");
+                document.getElementById('LEVI-pilot-CPO(s)-CA2').remove();
+                document.getElementById('LEVI-pilot-capital-amount-CA2').innerHTML = "Did not participate";
+            } else {
+                document.getElementById('LEVI-pilot-capital-amount-CA2').innerHTML = ca2['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+                document.getElementById('LEVI-pilot-CPO(s)-CA2').innerHTML = ca2['LEVI-pilot-CPO(s)'];
+            }
         }
         if (ca2['ORCS-total-amount'] == 0) {
             document.getElementById('ORCS-total-amount-CA2').setAttribute("rowspan","2");
@@ -737,13 +741,15 @@ function populate(slug) {
             document.getElementById('LEVI-CPO(s)-CA3').remove();
             document.getElementById('LEVI-capital-amount-CA3').innerHTML = "Matter for highway authority or LEVI collaboration";
         }
-        if (ca3['LEVI-pilot-capital-amount'] == 0) {
-            document.getElementById('LEVI-pilot-capital-amount-CA3').setAttribute("rowspan","2");
-            document.getElementById('LEVI-pilot-CPO(s)-CA3').remove();
-            document.getElementById('LEVI-pilot-capital-amount-CA3').innerHTML = "Did not participate";
-        } else {
-            document.getElementById('LEVI-pilot-capital-amount-CA3').innerHTML = ca3['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('LEVI-pilot-CPO(s)-CA3').innerHTML = ca3['LEVI-pilot-CPO(s)'];
+        if (ca3['region'] != "Northern Ireland") {
+            if (ca3['LEVI-pilot-capital-amount'] == 0) {
+                document.getElementById('LEVI-pilot-capital-amount-CA3').setAttribute("rowspan","2");
+                document.getElementById('LEVI-pilot-CPO(s)-CA3').remove();
+                document.getElementById('LEVI-pilot-capital-amount-CA3').innerHTML = "Did not participate";
+            } else {
+                document.getElementById('LEVI-pilot-capital-amount-CA3').innerHTML = ca3['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+                document.getElementById('LEVI-pilot-CPO(s)-CA3').innerHTML = ca3['LEVI-pilot-CPO(s)'];
+            }
         }
         if (ca3['local-authority-code'] === "NIC") {
         document.getElementById('ORCS-total-amount-CA3').innerHTML = ca3['ORCS-total-amount'];
@@ -837,13 +843,15 @@ function populate(slug) {
             document.getElementById('LEVI-CPO(s)-CA4').remove();
             document.getElementById('LEVI-capital-amount-CA4').innerHTML = "Matter for highway authority or LEVI collaboration";
         }
-        if (ca4['LEVI-pilot-capital-amount'] == 0) {
-            document.getElementById('LEVI-pilot-capital-amount-CA4').setAttribute("rowspan","2");
-            document.getElementById('LEVI-pilot-CPO(s)-CA4').remove();
-            document.getElementById('LEVI-pilot-capital-amount-CA4').innerHTML = "Did not participate";
-        } else {
-            document.getElementById('LEVI-pilot-capital-amount-CA4').innerHTML = ca4['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('LEVI-pilot-CPO(s)-CA4').innerHTML = ca4['LEVI-pilot-CPO(s)'];
+        if (ca4['region'] != "Northern Ireland") {
+            if (ca4['LEVI-pilot-capital-amount'] == 0) {
+                document.getElementById('LEVI-pilot-capital-amount-CA4').setAttribute("rowspan","2");
+                document.getElementById('LEVI-pilot-CPO(s)-CA4').remove();
+                document.getElementById('LEVI-pilot-capital-amount-CA4').innerHTML = "Did not participate";
+            } else {
+                document.getElementById('LEVI-pilot-capital-amount-CA4').innerHTML = ca4['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+                document.getElementById('LEVI-pilot-CPO(s)-CA4').innerHTML = ca4['LEVI-pilot-CPO(s)'];
+            }
         }
         if (ca4['ORCS-total-amount'] == 0) {
             document.getElementById('ORCS-total-amount-CA4').setAttribute("rowspan","2");
