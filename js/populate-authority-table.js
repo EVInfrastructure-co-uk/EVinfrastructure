@@ -349,7 +349,11 @@ function populate(slug) {
         if (county['LEVI-tender-link']) {
             document.getElementById('LEVI-tender-link-county').innerHTML = `<a href=${county['LEVI-tender-link']}>Click here</a>`;
         }
-        if (county['LEVI-pilot-capital-amount']) {
+        if (county['LEVI-pilot-capital-amount'] == 0) {
+            document.getElementById('LEVI-pilot-capital-amount-county').setAttribute("rowspan","2");
+            document.getElementById('LEVI-pilot-CPO(s)-county').remove();
+            document.getElementById('LEVI-pilot-capital-amount-county').innerHTML = "Did not participate";
+        } else {
             document.getElementById('LEVI-pilot-capital-amount-county').innerHTML = county['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('LEVI-pilot-CPO(s)-county').innerHTML = county['LEVI-pilot-CPO(s)'];
         }
@@ -443,7 +447,11 @@ function populate(slug) {
         if (unitary['LEVI-tender-link']) {
             document.getElementById('LEVI-tender-link-unitary').innerHTML = `<a href=${unitary['LEVI-tender-link']}>Click here</a>`;
         }
-        if (unitary['LEVI-pilot-capital-amount']) {
+        if (unitary['LEVI-pilot-capital-amount'] == 0) {
+            document.getElementById('LEVI-pilot-capital-amount-unitary').setAttribute("rowspan","2");
+            document.getElementById('LEVI-pilot-CPO(s)-unitary').remove();
+            document.getElementById('LEVI-pilot-capital-amount-unitary').innerHTML = "Did not participate";
+        } else {
             document.getElementById('LEVI-pilot-capital-amount-unitary').innerHTML = unitary['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('LEVI-pilot-CPO(s)-unitary').innerHTML = unitary['LEVI-pilot-CPO(s)'];
         }
@@ -537,7 +545,11 @@ function populate(slug) {
         if (ca['LEVI-tender-link']) {
             document.getElementById('LEVI-tender-link-CA').innerHTML = `<a href=${ca['LEVI-tender-link']}>Click here</a>`;
         }
-        if (ca['LEVI-pilot-capital-amount']) {
+        if (ca['LEVI-pilot-capital-amount'] == 0) {
+            document.getElementById('LEVI-pilot-capital-amount-CA').setAttribute("rowspan","2");
+            document.getElementById('LEVI-pilot-CPO(s)-CA').remove();
+            document.getElementById('LEVI-pilot-capital-amount-CA').innerHTML = "Did not participate";
+        } else {
             document.getElementById('LEVI-pilot-capital-amount-CA').innerHTML = ca['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('LEVI-pilot-CPO(s)-CA').innerHTML = ca['LEVI-pilot-CPO(s)'];
         }
@@ -628,7 +640,11 @@ function populate(slug) {
             document.getElementById('LEVI-CPO(s)-CA2').remove();
             document.getElementById('LEVI-capital-amount-CA2').innerHTML = "Matter for highway authority or LEVI collaboration";
         }
-        if (ca2['LEVI-pilot-capital-amount']) {
+        if (ca2['LEVI-pilot-capital-amount'] == 0) {
+            document.getElementById('LEVI-pilot-capital-amount-CA2').setAttribute("rowspan","2");
+            document.getElementById('LEVI-pilot-CPO(s)-CA2').remove();
+            document.getElementById('LEVI-pilot-capital-amount-CA2').innerHTML = "Did not participate";
+        } else {
             document.getElementById('LEVI-pilot-capital-amount-CA2').innerHTML = ca2['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('LEVI-pilot-CPO(s)-CA2').innerHTML = ca2['LEVI-pilot-CPO(s)'];
         }
@@ -719,7 +735,11 @@ function populate(slug) {
             document.getElementById('LEVI-CPO(s)-CA3').remove();
             document.getElementById('LEVI-capital-amount-CA3').innerHTML = "Matter for highway authority or LEVI collaboration";
         }
-        if (ca3['LEVI-pilot-capital-amount']) {
+        if (ca3['LEVI-pilot-capital-amount'] == 0) {
+            document.getElementById('LEVI-pilot-capital-amount-CA3').setAttribute("rowspan","2");
+            document.getElementById('LEVI-pilot-CPO(s)-CA3').remove();
+            document.getElementById('LEVI-pilot-capital-amount-CA3').innerHTML = "Did not participate";
+        } else {
             document.getElementById('LEVI-pilot-capital-amount-CA3').innerHTML = ca3['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('LEVI-pilot-CPO(s)-CA3').innerHTML = ca3['LEVI-pilot-CPO(s)'];
         }
@@ -815,7 +835,11 @@ function populate(slug) {
             document.getElementById('LEVI-CPO(s)-CA4').remove();
             document.getElementById('LEVI-capital-amount-CA4').innerHTML = "Matter for highway authority or LEVI collaboration";
         }
-        if (ca4['LEVI-pilot-capital-amount']) {
+        if (ca4['LEVI-pilot-capital-amount'] == 0) {
+            document.getElementById('LEVI-pilot-capital-amount-CA4').setAttribute("rowspan","2");
+            document.getElementById('LEVI-pilot-CPO(s)-CA4').remove();
+            document.getElementById('LEVI-pilot-capital-amount-CA4').innerHTML = "Did not participate";
+        } else {
             document.getElementById('LEVI-pilot-capital-amount-CA4').innerHTML = ca4['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('LEVI-pilot-CPO(s)-CA4').innerHTML = ca4['LEVI-pilot-CPO(s)'];
         }
