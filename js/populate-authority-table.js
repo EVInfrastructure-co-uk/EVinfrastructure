@@ -451,29 +451,39 @@ function populate(slug) {
         document.getElementById('EVI-portfolio-holder-CA').innerHTML = ca['EVI-portfolio-holder'];
         if (ca['channel-grant-amount']) {
             document.getElementById('channel-grant-amount-CA').innerHTML = ca['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-        }
-        if (ca['channel-status']) {
-            document.getElementById('channel-status-CA').innerHTML = ca['channel-status'];       
-        }        if ((ca['channel-status']) || (ca['channel-grant-amount'])) {
-            if (ca['channel-link']) {
-                document.getElementById('channel-link-CA').innerHTML = `<a href=${ca['channel-link']}>Click here</a>`;
+            if (ca['channel-status']) {
+                document.getElementById('channel-status-CA').innerHTML = ca['channel-status'];       
             }
-            if (ca['channel-application-fee'] == null || isNaN(ca['channel-application-fee'])) {
-            document.getElementById('channel-application-fee-CA').innerHTML = ca['channel-application-fee']
-            } else {
-                document.getElementById('channel-application-fee-CA').innerHTML = ca['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+            if ((ca['channel-status']) || (ca['channel-grant-amount'])) {
+                if (ca['channel-link']) {
+                    document.getElementById('channel-link-CA').innerHTML = `<a href=${ca['channel-link']}>Click here</a>`;
+                }
+                if (ca['channel-application-fee'] == null || isNaN(ca['channel-application-fee'])) {
+                document.getElementById('channel-application-fee-CA').innerHTML = ca['channel-application-fee']
+                } else {
+                    document.getElementById('channel-application-fee-CA').innerHTML = ca['channel-application-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+                }
+                if (ca['channel-installation-fee'] == null || isNaN(ca['channel-installation-fee'])) {
+                document.getElementById('channel-installation-fee-CA').innerHTML = ca['channel-installation-fee']
+                } else {
+                    document.getElementById('channel-installation-fee-CA').innerHTML = ca['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+                }
+                if (ca['channel-annual-fee'] == null || isNaN(ca['channel-annual-fee'])) {
+                document.getElementById('channel-annual-fee-CA').innerHTML = ca['channel-annual-fee']
+                } else {
+                    document.getElementById('channel-annual-fee-CA').innerHTML = ca['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+                }
+                document.getElementById('channel-manufacturer-CA').innerHTML = ca['channel-manufacturer'];
             }
-            if (ca['channel-installation-fee'] == null || isNaN(ca['channel-installation-fee'])) {
-            document.getElementById('channel-installation-fee-CA').innerHTML = ca['channel-installation-fee']
-            } else {
-                document.getElementById('channel-installation-fee-CA').innerHTML = ca['channel-installation-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            }
-            if (ca['channel-annual-fee'] == null || isNaN(ca['channel-annual-fee'])) {
-            document.getElementById('channel-annual-fee-CA').innerHTML = ca['channel-annual-fee']
-            } else {
-                document.getElementById('channel-annual-fee-CA').innerHTML = ca['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            }
-            document.getElementById('channel-manufacturer-CA').innerHTML = ca['channel-manufacturer'];
+        } else if (ca['region'] != "Scotland" && ca['region'] != "Wales" && ca['region'] != "Northern Ireland") {
+            document.getElementById('channel-status-CA').setAttribute("rowspan","7");
+            document.getElementById('channel-link-CA').remove();
+            document.getElementById('channel-grant-amount-CA').remove();
+            document.getElementById('channel-application-fee-CA').remove();
+            document.getElementById('channel-installation-fee-CA').remove();
+            document.getElementById('channel-annual-fee-CA').remove();
+            document.getElementById('channel-manufacturer-CA').remove();
+            document.getElementById('channel-status-CA').innerHTML = "Matter for highway authority or pavement channel CA";
         }
         if (ca['LEVI-capital-amount']) {
             document.getElementById('LEVI-capital-amount-CA').innerHTML = ca['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
