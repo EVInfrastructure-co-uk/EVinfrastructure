@@ -533,7 +533,7 @@ function populate(slug) {
             document.getElementById('channel-manufacturer-CA').remove();
             document.getElementById('channel-status-CA').innerHTML = "Matter for highway authority";
         }
-        if isNaN(ca['LEVI-capital-amount']) {
+        if (isNaN(ca['LEVI-capital-amount'])) {
             document.getElementById('LEVI-capital-amount-CA').innerHTML = ca['LEVI-capital-amount']
         } else if (ca['LEVI-capital-amount']) {
             document.getElementById('LEVI-capital-amount-CA').innerHTML = ca['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
