@@ -569,6 +569,23 @@ function populate(slug) {
                 document.getElementById('channel-annual-fee-CA2').innerHTML = ca2['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             }
             document.getElementById('channel-manufacturer-CA2').innerHTML = ca2['channel-manufacturer'];
+        } else if (ca2['region'] != "Scotland" && ca2['region'] != "Wales" && ca2['region'] != "Northern Ireland") {
+            document.getElementById('channel-status-CA2').setAttribute("rowspan","7");
+            document.getElementById('channel-link-CA2').remove();
+            document.getElementById('channel-grant-amount-CA2').remove();
+            document.getElementById('channel-application-fee-CA2').remove();
+            document.getElementById('channel-installation-fee-CA2').remove();
+            document.getElementById('channel-annual-fee-CA2').remove();
+            document.getElementById('channel-manufacturer-CA2').remove();
+            document.getElementById('channel-status-CA2').innerHTML = "Matter for highway authority or pavement channel CA";
+        } else {
+            document.getElementById('channel-status-CA2').setAttribute("rowspan","6");
+            document.getElementById('channel-link-CA2').remove();
+            document.getElementById('channel-application-fee-CA2').remove();
+            document.getElementById('channel-installation-fee-CA2').remove();
+            document.getElementById('channel-annual-fee-CA2').remove();
+            document.getElementById('channel-manufacturer-CA2').remove();
+            document.getElementById('channel-status-CA2').innerHTML = "Matter for highway authority";
         }
         if (ca2['LEVI-capital-amount']) {
             document.getElementById('LEVI-capital-amount-CA2').innerHTML = ca2['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
@@ -646,6 +663,23 @@ function populate(slug) {
                 document.getElementById('channel-annual-fee-CA3').innerHTML = ca3['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             }
             document.getElementById('channel-manufacturer-CA3').innerHTML = ca3['channel-manufacturer'];
+        } else if (ca3['region'] != "Scotland" && ca3['region'] != "Wales" && ca3['region'] != "Northern Ireland") {
+            document.getElementById('channel-status-CA3').setAttribute("rowspan","7");
+            document.getElementById('channel-link-CA3').remove();
+            document.getElementById('channel-grant-amount-CA3').remove();
+            document.getElementById('channel-application-fee-CA3').remove();
+            document.getElementById('channel-installation-fee-CA3').remove();
+            document.getElementById('channel-annual-fee-CA3').remove();
+            document.getElementById('channel-manufacturer-CA3').remove();
+            document.getElementById('channel-status-CA3').innerHTML = "Matter for highway authority or pavement channel CA";
+        } else {
+            document.getElementById('channel-status-CA3').setAttribute("rowspan","6");
+            document.getElementById('channel-link-CA3').remove();
+            document.getElementById('channel-application-fee-CA3').remove();
+            document.getElementById('channel-installation-fee-CA3').remove();
+            document.getElementById('channel-annual-fee-CA3').remove();
+            document.getElementById('channel-manufacturer-CA3').remove();
+            document.getElementById('channel-status-CA3').innerHTML = "Matter for highway authority";
         }
         if (ca3['LEVI-capital-amount']) {
             document.getElementById('LEVI-capital-amount-CA3').innerHTML = ca3['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
@@ -728,6 +762,23 @@ function populate(slug) {
                 document.getElementById('channel-annual-fee-CA4').innerHTML = ca4['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             }
             document.getElementById('channel-manufacturer-CA4').innerHTML = ca4['channel-manufacturer'];
+        } else if (ca4['region'] != "Scotland" && ca4['region'] != "Wales" && ca4['region'] != "Northern Ireland") {
+            document.getElementById('channel-status-CA4').setAttribute("rowspan","7");
+            document.getElementById('channel-link-CA4').remove();
+            document.getElementById('channel-grant-amount-CA4').remove();
+            document.getElementById('channel-application-fee-CA4').remove();
+            document.getElementById('channel-installation-fee-CA4').remove();
+            document.getElementById('channel-annual-fee-CA4').remove();
+            document.getElementById('channel-manufacturer-CA4').remove();
+            document.getElementById('channel-status-CA4').innerHTML = "Matter for highway authority or pavement channel CA";
+        } else {
+            document.getElementById('channel-status-CA4').setAttribute("rowspan","6");
+            document.getElementById('channel-link-CA4').remove();
+            document.getElementById('channel-application-fee-CA4').remove();
+            document.getElementById('channel-installation-fee-CA4').remove();
+            document.getElementById('channel-annual-fee-CA4').remove();
+            document.getElementById('channel-manufacturer-CA4').remove();
+            document.getElementById('channel-status-CA4').innerHTML = "Matter for highway authority";
         }
         if (ca4['LEVI-capital-amount']) {
             document.getElementById('LEVI-capital-amount-CA4').innerHTML = ca4['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
