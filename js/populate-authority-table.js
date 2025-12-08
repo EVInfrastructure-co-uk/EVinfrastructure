@@ -447,7 +447,7 @@ function populate(slug) {
         if (unitary['LEVI-tender-link']) {
             document.getElementById('LEVI-tender-link-unitary').innerHTML = `<a href=${unitary['LEVI-tender-link']}>Click here</a>`;
         }
-        if (unitary['region'] != "Northern Ireland") {
+        if (unitary['region'] != "Scotland" && unitary['region'] != "Wales" && unitary['region'] != "Northern Ireland") {
             if (unitary['LEVI-pilot-capital-amount'] == 0) {
                 document.getElementById('LEVI-pilot-capital-amount-unitary').setAttribute("rowspan","2");
                 document.getElementById('LEVI-pilot-CPO(s)-unitary').remove();
@@ -549,13 +549,15 @@ function populate(slug) {
         if (ca['LEVI-tender-link']) {
             document.getElementById('LEVI-tender-link-CA').innerHTML = `<a href=${ca['LEVI-tender-link']}>Click here</a>`;
         }
-        if (ca['LEVI-pilot-capital-amount'] == 0) {
-            document.getElementById('LEVI-pilot-capital-amount-CA').setAttribute("rowspan","2");
-            document.getElementById('LEVI-pilot-CPO(s)-CA').remove();
-            document.getElementById('LEVI-pilot-capital-amount-CA').innerHTML = "Did not participate";
-        } else {
-            document.getElementById('LEVI-pilot-capital-amount-CA').innerHTML = ca['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-            document.getElementById('LEVI-pilot-CPO(s)-CA').innerHTML = ca['LEVI-pilot-CPO(s)'];
+        if (ca['region'] != "Scotland" && ca['region'] != "Wales" && ca['region'] != "Northern Ireland"){
+            if (ca['LEVI-pilot-capital-amount'] == 0) {
+                document.getElementById('LEVI-pilot-capital-amount-CA').setAttribute("rowspan","2");
+                document.getElementById('LEVI-pilot-CPO(s)-CA').remove();
+                document.getElementById('LEVI-pilot-capital-amount-CA').innerHTML = "Did not participate";
+            } else {
+                document.getElementById('LEVI-pilot-capital-amount-CA').innerHTML = ca['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+                document.getElementById('LEVI-pilot-CPO(s)-CA').innerHTML = ca['LEVI-pilot-CPO(s)'];
+            }
         }
         if (ca['ORCS-total-amount'] == 0) {
             document.getElementById('ORCS-total-amount-CA').setAttribute("rowspan","2");
@@ -644,7 +646,7 @@ function populate(slug) {
             document.getElementById('LEVI-CPO(s)-CA2').remove();
             document.getElementById('LEVI-capital-amount-CA2').innerHTML = "Matter for highway authority or LEVI collaboration";
         }
-        if (ca2['region'] != "Northern Ireland") {
+        if (ca2['region'] != "Scotland" && ca2['region'] != "Wales" && ca2['region'] != "Northern Ireland") {
             if (ca2['LEVI-pilot-capital-amount'] == 0) {
                 document.getElementById('LEVI-pilot-capital-amount-CA2').setAttribute("rowspan","2");
                 document.getElementById('LEVI-pilot-CPO(s)-CA2').remove();
@@ -741,7 +743,7 @@ function populate(slug) {
             document.getElementById('LEVI-CPO(s)-CA3').remove();
             document.getElementById('LEVI-capital-amount-CA3').innerHTML = "Matter for highway authority or LEVI collaboration";
         }
-        if (ca3['region'] != "Northern Ireland") {
+        if (ca3['region'] != "Scotland" && ca3['region'] != "Wales" && ca3['region'] != "Northern Ireland") {
             if (ca3['LEVI-pilot-capital-amount'] == 0) {
                 document.getElementById('LEVI-pilot-capital-amount-CA3').setAttribute("rowspan","2");
                 document.getElementById('LEVI-pilot-CPO(s)-CA3').remove();
@@ -843,7 +845,7 @@ function populate(slug) {
             document.getElementById('LEVI-CPO(s)-CA4').remove();
             document.getElementById('LEVI-capital-amount-CA4').innerHTML = "Matter for highway authority or LEVI collaboration";
         }
-        if (ca4['region'] != "Northern Ireland") {
+        if (ca4['region'] != "Scotland" && ca4['region'] != "Wales" && ca4['region'] != "Northern Ireland") {
             if (ca4['LEVI-pilot-capital-amount'] == 0) {
                 document.getElementById('LEVI-pilot-capital-amount-CA4').setAttribute("rowspan","2");
                 document.getElementById('LEVI-pilot-CPO(s)-CA4').remove();
