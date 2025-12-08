@@ -329,7 +329,23 @@ function populate(slug) {
             document.getElementById('LEVI-tender-open-date-county').innerHTML = county['LEVI-tender-open-date'];
             document.getElementById('LEVI-tender-close-date-county').innerHTML = county['LEVI-tender-close-date'];
             document.getElementById('LEVI-CPO(s)-county').innerHTML = county['LEVI-CPO(s)'];
-        };
+            if (county['combined-authority']) {
+                document.getElementById('LEVI-tender-stage-county').setAttribute("rowspan","5");
+                document.getElementById('LEVI-tender-link-county').remove();
+                document.getElementById('LEVI-tender-open-date-county').remove();
+                document.getElementById('LEVI-tender-close-date-county').remove();
+                document.getElementById('LEVI-CPO(s)-county').remove();
+                document.getElementById('LEVI-tender-stage-county').innerHTML = "Administered as part of LEVI collaboration";
+            }
+        } else if (county['combined-authority']) {
+            document.getElementById('LEVI-capital-amount-county').setAttribute("rowspan","6");
+            document.getElementById('LEVI-tender-stage-county').remove();
+            document.getElementById('LEVI-tender-link-county').remove();
+            document.getElementById('LEVI-tender-open-date-county').remove();
+            document.getElementById('LEVI-tender-close-date-county').remove();
+            document.getElementById('LEVI-CPO(s)-county').remove();
+            document.getElementById('LEVI-capital-amount-county').innerHTML = "Matter for LEVI collaboration";
+        }
         if (county['LEVI-tender-link']) {
             document.getElementById('LEVI-tender-link-county').innerHTML = `<a href=${county['LEVI-tender-link']}>Click here</a>`;
         }
@@ -407,6 +423,22 @@ function populate(slug) {
             document.getElementById('LEVI-tender-open-date-unitary').innerHTML = unitary['LEVI-tender-open-date'];
             document.getElementById('LEVI-tender-close-date-unitary').innerHTML = unitary['LEVI-tender-close-date'];
             document.getElementById('LEVI-CPO(s)-unitary').innerHTML = unitary['LEVI-CPO(s)'];
+            if (unitary['combined-authority']) {
+                document.getElementById('LEVI-tender-stage-unitary').setAttribute("rowspan","5");
+                document.getElementById('LEVI-tender-link-unitary').remove();
+                document.getElementById('LEVI-tender-open-date-unitary').remove();
+                document.getElementById('LEVI-tender-close-date-unitary').remove();
+                document.getElementById('LEVI-CPO(s)-unitary').remove();
+                document.getElementById('LEVI-tender-stage-unitary').innerHTML = "Administered as part of LEVI collaboration";
+            }
+        } else if (unitary['combined-authority']) {
+            document.getElementById('LEVI-capital-amount-unitary').setAttribute("rowspan","6");
+            document.getElementById('LEVI-tender-stage-unitary').remove();
+            document.getElementById('LEVI-tender-link-unitary').remove();
+            document.getElementById('LEVI-tender-open-date-unitary').remove();
+            document.getElementById('LEVI-tender-close-date-unitary').remove();
+            document.getElementById('LEVI-CPO(s)-unitary').remove();
+            document.getElementById('LEVI-capital-amount-unitary').innerHTML = "Matter for LEVI collaboration";
         }
         if (unitary['LEVI-tender-link']) {
             document.getElementById('LEVI-tender-link-unitary').innerHTML = `<a href=${unitary['LEVI-tender-link']}>Click here</a>`;
@@ -587,17 +619,14 @@ function populate(slug) {
             document.getElementById('channel-manufacturer-CA2').remove();
             document.getElementById('channel-status-CA2').innerHTML = "Matter for highway authority";
         }
-        if (ca2['LEVI-capital-amount']) {
-            document.getElementById('LEVI-capital-amount-CA2').innerHTML = ca2['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-        }
-        if (ca2['LEVI-tender-stage']) {
-            document.getElementById('LEVI-tender-stage-CA2').innerHTML = ca2['LEVI-tender-stage'];
-            document.getElementById('LEVI-tender-open-date-CA2').innerHTML = ca2['LEVI-tender-open-date'];
-            document.getElementById('LEVI-tender-close-date-CA2').innerHTML = ca2['LEVI-tender-close-date'];
-            document.getElementById('LEVI-CPO(s)-CA2').innerHTML = ca2['LEVI-CPO(s)'];
-        }
-        if (ca2['LEVI-tender-link']) {
-            document.getElementById('LEVI-tender-link-CA2').innerHTML = `<a href=${ca2['LEVI-tender-link']}>Click here</a>`;
+        if (ca2['region'] != "Scotland" && ca2['region'] != "Wales" && ca2['region'] != "Northern Ireland") {
+            document.getElementById('LEVI-capital-amount-CA2').setAttribute("rowspan","6");
+            document.getElementById('LEVI-tender-stage-CA2').remove();
+            document.getElementById('LEVI-tender-link-CA2').remove();
+            document.getElementById('LEVI-tender-open-date-CA2').remove();
+            document.getElementById('LEVI-tender-close-date-CA2').remove();
+            document.getElementById('LEVI-CPO(s)-CA2').remove();
+            document.getElementById('LEVI-capital-amount-CA2').innerHTML = "Matter for highway authority or LEVI collaboration";
         }
         if (ca2['LEVI-pilot-capital-amount']) {
             document.getElementById('LEVI-pilot-capital-amount-CA2').innerHTML = ca2['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
@@ -681,17 +710,14 @@ function populate(slug) {
             document.getElementById('channel-manufacturer-CA3').remove();
             document.getElementById('channel-status-CA3').innerHTML = "Matter for highway authority";
         }
-        if (ca3['LEVI-capital-amount']) {
-            document.getElementById('LEVI-capital-amount-CA3').innerHTML = ca3['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-        }
-        if (ca3['LEVI-tender-stage']) {
-            document.getElementById('LEVI-tender-stage-CA3').innerHTML = ca3['LEVI-tender-stage'];
-            document.getElementById('LEVI-tender-open-date-CA3').innerHTML = ca3['LEVI-tender-open-date'];
-            document.getElementById('LEVI-tender-close-date-CA3').innerHTML = ca3['LEVI-tender-close-date'];
-            document.getElementById('LEVI-CPO(s)-CA3').innerHTML = ca3['LEVI-CPO(s)'];
-        }
-        if (ca3['LEVI-tender-link']) {
-            document.getElementById('LEVI-tender-link-CA3').innerHTML = `<a href=${ca3['LEVI-tender-link']}>Click here</a>`;
+        if (ca3['region'] != "Scotland" && ca3['region'] != "Wales" && ca3['region'] != "Northern Ireland") {
+            document.getElementById('LEVI-capital-amount-CA3').setAttribute("rowspan","6");
+            document.getElementById('LEVI-tender-stage-CA3').remove();
+            document.getElementById('LEVI-tender-link-CA3').remove();
+            document.getElementById('LEVI-tender-open-date-CA3').remove();
+            document.getElementById('LEVI-tender-close-date-CA3').remove();
+            document.getElementById('LEVI-CPO(s)-CA3').remove();
+            document.getElementById('LEVI-capital-amount-CA3').innerHTML = "Matter for highway authority or LEVI collaboration";
         }
         if (ca3['LEVI-pilot-capital-amount']) {
             document.getElementById('LEVI-pilot-capital-amount-CA3').innerHTML = ca3['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
@@ -780,17 +806,14 @@ function populate(slug) {
             document.getElementById('channel-manufacturer-CA4').remove();
             document.getElementById('channel-status-CA4').innerHTML = "Matter for highway authority";
         }
-        if (ca4['LEVI-capital-amount']) {
-            document.getElementById('LEVI-capital-amount-CA4').innerHTML = ca4['LEVI-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
-        }
-        if (ca4['LEVI-tender-stage']) {
-            document.getElementById('LEVI-tender-stage-CA4').innerHTML = ca4['LEVI-tender-stage'];
-            document.getElementById('LEVI-tender-open-date-CA4').innerHTML = ca4['LEVI-tender-open-date'];
-            document.getElementById('LEVI-tender-close-date-CA4').innerHTML = ca4['LEVI-tender-close-date'];
-            document.getElementById('LEVI-CPO(s)-CA4').innerHTML = ca4['LEVI-CPO(s)'];
-        }
-        if (ca4['LEVI-tender-link']) {
-            document.getElementById('LEVI-tender-link-CA4').innerHTML = `<a href=${ca4['LEVI-tender-link']}>Click here</a>`;
+        if (ca4['region'] != "Scotland" && ca4['region'] != "Wales" && ca4['region'] != "Northern Ireland") {
+            document.getElementById('LEVI-capital-amount-CA4').setAttribute("rowspan","6");
+            document.getElementById('LEVI-tender-stage-CA4').remove();
+            document.getElementById('LEVI-tender-link-CA4').remove();
+            document.getElementById('LEVI-tender-open-date-CA4').remove();
+            document.getElementById('LEVI-tender-close-date-CA4').remove();
+            document.getElementById('LEVI-CPO(s)-CA4').remove();
+            document.getElementById('LEVI-capital-amount-CA4').innerHTML = "Matter for highway authority or LEVI collaboration";
         }
         if (ca4['LEVI-pilot-capital-amount']) {
             document.getElementById('LEVI-pilot-capital-amount-CA4').innerHTML = ca4['LEVI-pilot-capital-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
