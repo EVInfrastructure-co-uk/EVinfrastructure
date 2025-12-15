@@ -275,8 +275,8 @@ function populate(slug) {
             document.getElementById('ORCS-total-charging-devices-district').innerHTML = district['ORCS-total-charging-devices'].toLocaleString("en-GB");
         }
         if (district['LEVI-pilot-capital-amount'] > 0) {
-            document.getElementById('LEVI-pilot-capital-amount-district') = district['LEVI-pilot-capital-amount'];
-            
+            document.getElementById('LEVI-pilot-capital-amount-district').innerHTML = district['LEVI-pilot-capital-amount'];
+
         }
     }
 
