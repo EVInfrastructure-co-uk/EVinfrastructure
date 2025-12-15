@@ -274,6 +274,10 @@ function populate(slug) {
             document.getElementById('ORCS-total-amount-district').innerHTML = district['ORCS-total-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             document.getElementById('ORCS-total-charging-devices-district').innerHTML = district['ORCS-total-charging-devices'].toLocaleString("en-GB");
         }
+        if (district['LEVI-pilot-capital-amount'] > 0) {
+            document.getElementById('LEVI-pilot-capital-amount-district') = district['LEVI-pilot-capital-amount'];
+            
+        }
     }
 
     if (county) {
