@@ -6,15 +6,61 @@ title: "UK LAs — ORCS charging devices"
 <head>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <style>
-    #map {height:100vh;}
+    #map {height:80vh;}
     .legend { background: white; padding: 6px 8px; font: 12px/1.5 sans-serif; box-shadow:0 0 8px rgba(0,0,0,0.2); }
     .legend .swatch { width:18px; height:12px; display:inline-block; margin-right:6px; vertical-align:middle; }
   </style>
 </head>
 
-<h1>Map of UK local authorities</h1>
+<h1>Maps of local authorities</h1>
 
-  <div id="map" aria-label="Map of UK local authorities coloured by ORCS charging devices (deciles)"></div>
+  <div class="tabs js-tabs" data-module="tabs">
+    <div class="tabs__controls" role="tablist" aria-label="Section">
+      
+      <button id="tab-near-home" class="tabs__tab tabs__tab--active" role="tab"
+              aria-selected="true" aria-controls="near-home" tabindex="0">
+        Public charging
+      </button>
+
+      <button id="tab-pavement-channels" class="tabs__tab" role="tab"
+              aria-selected="false" aria-controls="pavement-channels" tabindex="-1">
+        Pavement channels
+      </button>
+
+      <button id="tab-levi" class="tabs__tab" role="tab"
+              aria-selected="false" aria-controls="levi" tabindex="-1">
+        LEVI
+      </button>
+
+      <button id="tab-orcs" class="tabs__tab" role="tab"
+              aria-selected="false" aria-controls="orcs" tabindex="-1">
+        ORCS
+      </button>
+
+      <button id="tab-levi-pilot" class="tabs__tab" role="tab"
+              aria-selected="false" aria-controls="levi-pilot" tabindex="-1">
+        LEVI pilot
+      </button>
+    </div>
+
+<div id="near-home" class="tabs__panel" role="tabpanel"
+         aria-labelledby="tab-near-home">
+</div>
+
+<div id="pavement-channels" class="tabs__panel" role="tabpanel"
+         aria-labelledby="tab-pavement-channels">
+</div>
+
+<div id="levi" class="tabs__panel" role="tabpanel"
+         aria-labelledby="tab-levi">
+</div>
+
+<div id="orcs" class="tabs__panel" role="tabpanel"
+         aria-labelledby="tab-orcs">
+
+<h2>On-Street Charging Scheme (ORCS)</h2>
+
+  <div id="map-orcs" aria-label="Map of UK local authorities coloured by ORCS charging devices (deciles)"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
@@ -28,7 +74,7 @@ title: "UK LAs — ORCS charging devices"
     const topoObjectName = 'LAD_DEC_24_UK_BSC_-416161531269609018';
     // --- END CONFIG ---
 
-    const map = L.map('map').setView([54.5, -3], 5);
+    const map = L.map('map-orcs').setView([54.5, -3], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
@@ -182,3 +228,9 @@ title: "UK LAs — ORCS charging devices"
     alert('Map initialization failed: ' + err.message);
   });
   </script>
+
+</div>
+
+<div id="levi-pilot" class="tabs__panel" role="tabpanel"
+         aria-labelledby="tab-levi-pilot">
+</div>
