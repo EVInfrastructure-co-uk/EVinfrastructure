@@ -54,7 +54,7 @@ title: "UK LAs — ORCS charging devices"
          <h2>Pavement Channels</h2>
 
 
-  <div id="map" aria-label="Map of UK local authorities coloured by pavement channel status"></div>
+  <div id="map-pavement-channels" aria-label="Map of UK local authorities coloured by pavement channel status"></div>
 
   <script>
   (async function () {
@@ -64,7 +64,7 @@ title: "UK LAs — ORCS charging devices"
     const topoObjectName = 'LAD_DEC_24_UK_BSC_-416161531269609018';
     // END CONFIG
 
-    const map = L.map('map').setView([54.5, -3], 5);
+    const map = L.map('map-pavement-channels').setView([54.5, -3], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
