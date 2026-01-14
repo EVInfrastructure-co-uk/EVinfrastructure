@@ -52,6 +52,223 @@ title: "UK LAs — ORCS charging devices"
 <div id="pavement-channels" class="tabs__panel" role="tabpanel"
          aria-labelledby="tab-pavement-channels">
          <h2>Pavement Channels</h2>
+
+
+  <div id="map" aria-label="Map of UK local authorities coloured by pavement channel status"></div>
+
+  <script>
+  (async function () {
+    // CONFIG: update these to where you host the files
+    const topojsonPath = '/assets/LAD_DEC_24_UK_BSC_-416161531269609018.topojson';
+    const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
+    const topoObjectName = 'LAD_DEC_24_UK_BSC_-416161531269609018';
+    // END CONFIG
+
+    const map = L.map('map').setView([54.5, -3], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    window.pavementchannelsMap = map;
+
+    // Load TopoJSON and EVI JSON
+    const [topo, eviBundle] = await Promise.all([
+      fetch(topojsonPath).then(r => { if(!r.ok) throw new Error('TopoJSON load failed'); return r.json(); }),
+      fetch(eviJsonPath).then(r => { if(!r.ok) throw new Error('EVI JSON load failed'); return r.json(); })
+    ]);
+
+    // get the raw geometry objects from the topojson (array of geometry objects)
+    const topoGeoms = topo.objects[topoObjectName].geometries;
+
+    // find the resource that holds the table rows
+    const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
+    if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
+    const rows = resource.data;
+
+    // Build lookups:
+    // - gssCodeMap: gss-code -> row (for individual LA rows)
+    // - laCodeMap: local-authority-code -> row (for parent/merged rows, e.g. HRT)
+    const gssCodeMap = new Map();
+    const laCodeMap = new Map();
+    rows.forEach(r => {
+      if (r['gss-code']) gssCodeMap.set(r['gss-code'], r);
+      if (r['local-authority-code']) laCodeMap.set(r['local-authority-code'], r);
+    });
+
+    // Group TopoJSON geometries by county-la, but only when that county code has a row in laCodeMap
+    const groups = new Map(); // countyCode -> array of geometry objects
+    topoGeoms.forEach(geom => {
+      // the geometry's properties hold the GSS code (LAD24CD)
+      const gss = geom.properties && geom.properties.LAD24CD;
+      const row = gssCodeMap.get(gss);
+      const county = row ? row['county-la'] : null;
+      // Only create groups that have parent row available (so we can use that parent row's values)
+      if (county && laCodeMap.has(county)) {
+        if (!groups.has(county)) groups.set(county, []);
+        groups.get(county).push(geom);
+      }
+    });
+
+    // Keep track of which GSS codes will be consumed into merged groups
+    const consumedGss = new Set();
+    for (const [county, geoms] of groups.entries()) {
+      for (const g of geoms) {
+        const gss = g.properties && g.properties.LAD24CD;
+        if (gss) consumedGss.add(gss);
+      }
+    }
+
+    // Convert the full TopoJSON into a GeoJSON FeatureCollection (all individual features)
+    const allGeo = topojson.feature(topo, topo.objects[topoObjectName]);
+    // Build merged features using topojson.merge for each group
+    const mergedFeatures = [];
+    for (const [county, geoms] of groups.entries()) {
+      // Merge the array of geometry objects into one geometry
+      const mergedGeom = topojson.merge(topo, geoms);
+      // Use the row corresponding to the parent code (local-authority-code === county) for properties
+      const parentRow = laCodeMap.get(county) || {};
+      // build properties for the merged feature — copy relevant fields you need
+      const props = {
+        localAuthorityCode: county,
+        officialName: parentRow['official-name'] || parentRow['nice-name'] || county,
+        source: 'merged',
+        merged_from: geoms.map(g => g.properties && g.properties.LAD24CD).filter(Boolean)
+      };
+      // include original parentRow fields for access (like pavement channel status)
+      Object.assign(props, parentRow);
+      mergedFeatures.push({
+        type: 'Feature',
+        id: county,
+        properties: props,
+        geometry: mergedGeom
+      });
+    }
+
+    // Build feature list that excludes the consumed individual features
+    const remainingFeatures = allGeo.features.filter(f => {
+      const gss = f.properties && f.properties.LAD24CD;
+      return !consumedGss.has(gss);
+    });
+
+    // Final feature collection: merged features + remaining unmerged features
+    const finalFC = {
+      type: 'FeatureCollection',
+      features: mergedFeatures.concat(remainingFeatures)
+    };
+
+    // Helper: get pavement channel status value for any feature. For merged features we use the parent row (localAuthorityCode),
+    // for unmerged we use the gss-code lookup.
+    function getPavementChannelStatusForFeature(feature) {
+      if (!feature || !feature.properties) return NaN;
+      // If this is a merged feature we attached localAuthorityCode and parent row fields
+      if (feature.properties.localAuthorityCode && laCodeMap.has(feature.properties.localAuthorityCode)) {
+        const parent = laCodeMap.get(feature.properties.localAuthorityCode);
+        const v = parent['pavement-channel-status'];
+        return (v === null || v === undefined || v === '') ? NaN : Number(v);
+      }
+      // Otherwise treat it as a normal LA feature and look up by GSS
+      const gss = feature.properties.LAD24CD || feature.properties.gss || feature.id;
+      const row = gssCodeMap.get(gss);
+      if (!row) return NaN;
+      const v = row['pavement-channel-status'];
+      return (v === null || v === undefined || v === '') ? NaN : Number(v);
+    }
+
+    // Collect values for deciles from the final features
+    const allValues = finalFC.features.map(f => getPavementChannelStatusForFeature(f)).sort((a,b)=>a-b);
+    const nValues = allValues.length
+
+    // palette (based on number of possible values)
+    const palette = chroma.scale('YlGnBu').mode('lab').colors(nValues);
+
+    // Style function using deciles
+    function style(feature) {
+      const v = getPavementChannelStatusForFeature(feature);
+      const idx = allValues.indexOf(v);
+      return {
+        weight: 1,
+        color: '#444',
+        opacity: 1,
+        fillOpacity: 0.85,
+        fillColor: palette[idx]
+      };
+    }
+
+    // Add the final feature collection to the map
+    const geoLayer = L.geoJSON(finalFC, {
+      style,
+      onEachFeature: (feature, layer) => {
+        const v = getPavementChannelStatusForFeature(feature);
+        const name = feature.properties && (feature.properties.officialName || feature.properties.LAD24NM || feature.properties.nice_name || feature.properties.nice-name || feature.properties.name || feature.properties['official-name']);
+        layer.on({
+          mouseover(e) {
+            const t = e.target;
+            t.setStyle({ weight: 2, color: '#000' });
+            t.bringToFront();
+            const html = `<strong>${name || 'Unknown'}</strong><br/>Pavement Channel Status: ${isNaN(v) ? 'N/A' : v}`;
+            t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
+          },
+          mouseout(e) {
+            geoLayer.resetStyle(e.target);
+            e.target.closeTooltip();
+          },
+          click(e) {
+            map.fitBounds(e.target.getBounds(), { maxZoom: 12 });
+          }
+        });
+      }
+    }).addTo(map);
+
+    // Legend
+    const legend = L.control({ position: 'bottomright' });
+    legend.onAdd = () => {
+      const div = L.DomUtil.create('div', 'legend');
+      div.setAttribute('role', 'group');
+      div.setAttribute('aria-label', 'Pavement channel status legend');
+      if (!allValues.length) {
+        div.innerHTML = '<strong>Pavement channel status</strong><br/>No data';
+        return div;
+      }
+      div.innerHTML = '<strong>Pavement channel status</strong><br/>';
+      for (let i = 0; i < nValues; i++) {
+        const color = palette[i];
+        const label = `${allValues[i]}`;
+        const row = document.createElement('div');
+        row.className = 'row';
+        row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${label}`;
+        div.appendChild(row);
+      }
+      const nodata = document.createElement('div');
+      nodata.className = 'row';
+      nodata.style.marginTop = '6px';
+      nodata.innerHTML = `<span class="swatch" style="background:#cccccc"></span> No data`;
+      div.appendChild(nodata);
+      return div;
+    };
+    legend.addTo(map);
+
+    // If the Pavement channels tab becomes active (user clicks) we must invalidate the Leaflet map size.
+    // Add a small delay to allow the tab JS to show the panel.
+    const pavementChannelsTabButton = document.getElementById('tab-pavement-channels');
+    if (pavementChannelsTabButton) {
+      pavementChannelsTabButton.addEventListener('click', () => {
+        setTimeout(() => {
+          if (window.pavementchannelsMap) window.pavementchannelsMap.invalidateSize();
+        }, 200);
+      });
+      // If the pavement channels tab is already active on load, ensure the map sizes correctly:
+      if (pavementChannelsTabButton.classList.contains('tabs__tab--active') || pavementChannelsTabButton.getAttribute('aria-selected') === 'true') {
+        setTimeout(() => { if (window.pavementchannelsMap) window.pavementchannelsMap.invalidateSize(); }, 200);
+      }
+    }
+
+  })().catch(err => {
+    console.error(err);
+    alert('Map initialization failed: ' + (err && err.message));
+  });
+  </script>
+</div>
+
 </div>
 
 <div id="levi" class="tabs__panel" role="tabpanel"
@@ -65,10 +282,6 @@ title: "UK LAs — ORCS charging devices"
 <h2>On-Street Charging Scheme (ORCS)</h2>
 
   <div id="map-orcs" aria-label="Map of UK local authorities coloured by ORCS charging devices (deciles)"></div>
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
-  <script src="https://unpkg.com/chroma-js@2.4.2/chroma.min.js"></script>
 
   <script>
   (async function () {
@@ -261,3 +474,6 @@ title: "UK LAs — ORCS charging devices"
 </div>
 
 <script type="text/javascript" src="/js/tabs.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+  <script src="https://unpkg.com/chroma-js@2.4.2/chroma.min.js"></script>
