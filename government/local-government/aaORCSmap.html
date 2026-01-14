@@ -47,6 +47,10 @@ title: "UK LAs — ORCS charging devices"
 
   <div id="near-home" class="tabs__panel" role="tabpanel" aria-labelledby="tab-near-home">
     <h2>NEVIS Near Home Charging distribution metric</h2>
+
+    <div id="map-nearhome" aria-label="Map of UK local authorities coloured by NEVIS near home charging distribution (deciles)"></div>
+  </div>
+
   </div>
 
   <div id="pavement-channels" class="tabs__panel" role="tabpanel" aria-labelledby="tab-pavement-channels">
@@ -106,6 +110,112 @@ title: "UK LAs — ORCS charging devices"
     rows.forEach(r => {
       if (r['gss-code']) rowByGss.set(r['gss-code'], r);
     });
+
+    // ------------------------
+    // NEVIS map (deciles) — existing behaviour
+    // ------------------------
+
+    // Build NEVIS numeric map
+    const nearhomeValueByGss = new Map();
+    rows.forEach(r => {
+      const gss = r['gss-code'];
+      const val = r['NEVIS-near-home-charging-distribution-metric'];
+      const n = (val === null || val === undefined || val === '') ? NaN : Number(val);
+      nearhomeValueByGss.set(gss, n);
+    });
+
+    const nearhomeValues = Array.from(nearhomeValueByGss.values()).filter(v => !isNaN(v)).sort((a,b)=>a-b);
+
+    function quantile(sortedArr, p) {
+      if (!sortedArr.length) return NaN;
+      const idx = (sortedArr.length - 1) * p;
+      const lo = Math.floor(idx);
+      const hi = Math.ceil(idx);
+      if (hi === lo) return sortedArr[lo];
+      const frac = idx - lo;
+      return sortedArr[lo] * (1 - frac) + sortedArr[hi] * frac;
+    }
+
+    const nearhomeThresholds = [];
+    if (nearhomeValues.length) for (let i = 1; i <= 9; i++) nearhomeThresholds.push(quantile(nearhomeValues, i / 10));
+    const nearhomePalette = chroma.scale('YlGnBu').mode('lab').colors(10);
+
+    function nearhomeDecileIndex(v) {
+      if (isNaN(v)) return -1;
+      for (let i = 0; i < nearhomeThresholds.length; i++) if (v <= nearhomeThresholds[i]) return i;
+      return 9;
+    }
+
+    // Create NEVIS map
+    const mapNearHome = L.map('map-nearhome').setView([54.5, -3], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(mapNearHome);
+    window.nearhomeMap = mapNearHome; // expose for tab invalidation
+
+    const nearhomeLayer = L.geoJSON(geojson, {
+      style(feature) {
+        const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
+        const v = nearhomeValueByGss.get(code);
+        const idx = nearhomeDecileIndex(v);
+        return {
+          weight: 1,
+          color: '#444',
+          opacity: 1,
+          fillOpacity: idx === -1 ? 0.15 : 0.85,
+          fillColor: idx === -1 ? '#cccccc' : nearhomePalette[idx]
+        };
+      },
+      onEachFeature(feature, layer) {
+        const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
+        const name = feature.properties && (feature.properties.LAD24NM || feature.properties.name || 'Unknown');
+        const v = nearhomeValueByGss.get(code);
+        layer.on({
+          mouseover(e) {
+            const t = e.target;
+            t.setStyle({ weight: 2, color: '#000' });
+            t.bringToFront();
+            const html = `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${isNaN(v) ? 'N/A' : v}`;
+            t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
+          },
+          mouseout(e) {
+            nearhomeLayer.resetStyle(e.target);
+            e.target.closeTooltip();
+          },
+          click(e) {
+            mapNearHome.fitBounds(e.target.getBounds(), { maxZoom: 12 });
+          }
+        });
+      }
+    }).addTo(mapNearHome);
+
+    // Near home legend
+    const nearhomeLegend = L.control({ position: 'bottomright' });
+    nearhomeLegend.onAdd = function () {
+      const div = L.DomUtil.create('div', 'legend');
+      div.setAttribute('role', 'group');
+      div.setAttribute('aria-label', 'Near home decile legend');
+      if (!nearhomeValues.length) { div.innerHTML = '<strong>NEVIS Near Home distribution</strong><br/>No data'; return div; }
+      div.innerHTML = '<strong>NEVIS Near home distribution (deciles)</strong><br/>';
+      let lower = nearhomeValues[0];
+      for (let i = 0; i < 10; i++) {
+        const color = nearhomePalette[i];
+        const upper = (i < 9) ? nearhomeThresholds[i] : nearhomeValues[nearhomeValues.length - 1];
+        const row = document.createElement('div');
+        row.className = 'row';
+        row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${Math.round(lower)} – ${Math.round(upper)}`;
+        div.appendChild(row);
+        lower = (i < 9) ? (nearhomeThresholds[i] + Number.EPSILON) : upper;
+      }
+      const nodata = document.createElement('div');
+      nodata.className = 'row';
+      nodata.style.marginTop = '6px';
+      nodata.innerHTML = `<span class="swatch" style="background:#cccccc"></span> No data`;
+      div.appendChild(nodata);
+      return div;
+    };
+    nearhomeLegend.addTo(mapNearHome);
+
 
     // ------------------------
     // ORCS map (deciles) — existing behaviour
@@ -211,7 +321,7 @@ title: "UK LAs — ORCS charging devices"
       return div;
     };
     orcsLegend.addTo(mapOrcs);
-
+    
     // ------------------------
     // Pavement Channels map (categorical by channel-status)
     // ------------------------
