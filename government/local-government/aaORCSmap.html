@@ -1,20 +1,20 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>UK LAs — ORCS charging devices</title>
+---
+layout: default
+title: "UK LAs — ORCS charging devices"
+---
 
+<head>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <style>
-    body { margin:0; }
     #map { width:100vw; height:100vh; }
     .legend { background: white; padding: 6px 8px; font: 12px/1.5 sans-serif; box-shadow:0 0 8px rgba(0,0,0,0.2); }
     .legend .swatch { width:18px; height:12px; display:inline-block; margin-right:6px; vertical-align:middle; }
   </style>
 </head>
-<body>
-  <div id="map" aria-label="Map of UK local authorities"></div>
+
+<h1>EV infrastructure in Aberdeen City</h1>
+
+  <div id="map" aria-label="Map of UK local authorities coloured by ORCS charging devices (deciles)"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
@@ -25,9 +25,9 @@
     // --- CONFIG: adjust these paths to where the files are hosted on your site ---
     const topojsonPath = '/government/local-government/data/LAD_DEC_24_UK_BSC_-416161531269609018.topojson';
     const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
+    const topoObjectName = 'LAD_DEC_24_UK_BSC_-416161531269609018';
     // --- END CONFIG ---
 
-    // Create map
     const map = L.map('map').setView([54.5, -3], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
@@ -38,55 +38,81 @@
       if (!r.ok) throw new Error('TopoJSON load failed: ' + r.status);
       return r.json();
     });
-
-    // The object name in this TopoJSON file (from your attached file)
-    const topoObjectName = 'LAD_DEC_24_UK_BSC_-416161531269609018';
     const geojson = topojson.feature(topo, topo.objects[topoObjectName]);
 
-    // Load your EVI JSON (the file you attached). It contains resources -> [ { data: [...] } ]
+    // Load EVI JSON
     const eviBundle = await fetch(eviJsonPath).then(r => {
       if (!r.ok) throw new Error('EVI JSON load failed: ' + r.status);
       return r.json();
     });
 
-    // Find the table resource that includes the LA rows. Try by common resource name then fallback to first resource.
+    // Find resource with the table rows
     const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
     if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
-
     const rows = resource.data;
 
     // Build lookup: gss-code -> numeric ORCS-total-charging-devices
     const valueByGss = new Map();
     rows.forEach(row => {
       const gss = row['gss-code'];
-      // parse numeric (may be null/undefined)
       const val = row['ORCS-total-charging-devices'];
       const n = (val === null || val === undefined || val === '') ? NaN : Number(val);
       valueByGss.set(gss, n);
     });
 
-    // Prepare color scale using actual numeric values present
-    const values = Array.from(valueByGss.values()).filter(v => !isNaN(v));
-    const min = values.length ? Math.min(...values) : 0;
-    const max = values.length ? Math.max(...values) : 1;
-    // Use chroma scale - change palette as desired (colorblind friendly options available)
-    const colorScale = chroma.scale(['#f7fbff','#6baed6','#08306b']).domain([min, max]);
+    // Prepare list of numeric values (non-NaN)
+    const values = Array.from(valueByGss.values()).filter(v => !isNaN(v)).sort((a,b)=>a-b);
 
-    // Style & interactivity
+    // quantile function (linear interpolation)
+    function quantile(sortedArr, p) {
+      if (!sortedArr.length) return NaN;
+      const idx = (sortedArr.length - 1) * p;
+      const lo = Math.floor(idx);
+      const hi = Math.ceil(idx);
+      if (hi === lo) return sortedArr[lo];
+      const frac = idx - lo;
+      return sortedArr[lo] * (1 - frac) + sortedArr[hi] * frac;
+    }
+
+    // Compute decile thresholds (9 thresholds dividing into 10 bins)
+    let thresholds = [];
+    if (values.length) {
+      for (let i = 1; i <= 9; i++) {
+        thresholds.push(quantile(values, i / 10));
+      }
+    }
+
+    const min = values.length ? values[0] : 0;
+    const max = values.length ? values[values.length - 1] : 1;
+
+    // choose 10 colors (deciles) — change palette if you prefer
+    const palette = chroma.scale('YlGnBu').mode('lab').colors(10);
+
+    // Determine decile index 0..9 for a value
+    function decileIndex(v) {
+      if (isNaN(v)) return -1; // sentinel for no-data
+      for (let i = 0; i < thresholds.length; i++) {
+        if (v <= thresholds[i]) return i;
+      }
+      return 9;
+    }
+
+    // Style function uses decile bin color
     function style(feature) {
       const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
       const v = valueByGss.get(code);
-      const has = !isNaN(v);
+      const idx = decileIndex(v);
       return {
         weight: 1,
         color: '#444',
         opacity: 1,
-        fillOpacity: has ? 0.8 : 0.15,
-        fillColor: has ? colorScale(v).hex() : '#cccccc'
+        fillOpacity: idx === -1 ? 0.15 : 0.85,
+        fillColor: idx === -1 ? '#cccccc' : palette[idx]
       };
     }
 
-    let geoLayer = L.geoJSON(geojson, {
+    // Add geo layer with hover tooltip
+    const geoLayer = L.geoJSON(geojson, {
       style,
       onEachFeature: (feature, layer) => {
         const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
@@ -105,33 +131,48 @@
             e.target.closeTooltip();
           },
           click(e) {
-            // optional: zoom to clicked LA
             map.fitBounds(e.target.getBounds(), { maxZoom: 12 });
           }
         });
       }
     }).addTo(map);
 
-    // Add a simple legend
+    // Legend: display decile swatches and ranges
     const legend = L.control({ position: 'bottomright' });
     legend.onAdd = function () {
       const div = L.DomUtil.create('div', 'legend');
-      if (values.length === 0) {
+      div.setAttribute('role', 'group');
+      div.setAttribute('aria-label', 'ORCS devices decile legend');
+
+      if (!values.length) {
         div.innerHTML = '<strong>ORCS devices</strong><br/>No data';
         return div;
       }
-      const steps = 5;
-      const stepVals = [];
-      for (let i = 0; i <= steps; i++) {
-        stepVals.push(min + (i / steps) * (max - min));
+
+      div.innerHTML = '<strong>ORCS devices (deciles)</strong><br/>';
+      // Build ranges for display
+      const rounded = v => (Math.round(v * 10) / 10).toLocaleString();
+      let lower = min;
+      for (let i = 0; i < 10; i++) {
+        const color = palette[i];
+        let upper;
+        if (i < 9) upper = thresholds[i];
+        else upper = max;
+        const label = (i === 0)
+          ? `${Math.round(lower)} – ${Math.round(upper)}`
+          : `${Math.round(lower)} – ${Math.round(upper)}`;
+        const row = document.createElement('div');
+        row.className = 'row';
+        row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${label}`;
+        div.appendChild(row);
+        lower = (i < 9) ? (thresholds[i] + Number.EPSILON) : (upper); // move lower bound forward slightly
       }
-      div.innerHTML = '<strong>ORCS devices</strong><br/>';
-      for (let i = 0; i < stepVals.length - 1; i++) {
-        const v = Math.round(stepVals[i]);
-        const c = colorScale(stepVals[i] + 0.00001).hex();
-        div.innerHTML += `<div><span class="swatch" style="background:${c}"></span> ${v}${i === stepVals.length - 2 ? '+' : ''}</div>`;
-      }
-      div.innerHTML += `<div style="margin-top:6px"><span class="swatch" style="background:#cccccc"></span> No data</div>`;
+      // No data
+      const nodatarow = document.createElement('div');
+      nodatarow.className = 'row';
+      nodatarow.style.marginTop = '6px';
+      nodatarow.innerHTML = `<span class="swatch" style="background:#cccccc"></span> No data`;
+      div.appendChild(nodatarow);
       return div;
     };
     legend.addTo(map);
@@ -141,5 +182,3 @@
     alert('Map initialization failed: ' + err.message);
   });
   </script>
-</body>
-</html>
