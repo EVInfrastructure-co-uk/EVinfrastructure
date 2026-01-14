@@ -119,7 +119,7 @@ title: "UK LAs — ORCS charging devices"
     const nearhomeValueByGss = new Map();
     rows.forEach(r => {
       const gss = r['gss-code'];
-      const val = r['NEVIS-near-home-charging-distribution-metric'];
+      const val = r['NEVIS-distribution'];
       const n = (val === null || val === undefined || val === '') ? NaN : Number(val);
       nearhomeValueByGss.set(gss, n);
     });
