@@ -53,8 +53,11 @@ title: "UK LAs — ORCS charging devices"
          aria-labelledby="tab-pavement-channels">
          <h2>Pavement Channels</h2>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+  <script src="https://unpkg.com/chroma-js@2.4.2/chroma.min.js"></script>
 
-  <!-- <div id="map-pavement-channels" aria-label="Map of UK local authorities coloured by pavement channel status"></div>
+  <div id="map-pavement-channels" aria-label="Map of UK local authorities coloured by pavement channel status"></div>
 
   <script>
   (async function () {
@@ -267,7 +270,7 @@ title: "UK LAs — ORCS charging devices"
     alert('Map initialization failed: ' + (err && err.message));
   });
   </script>
-  </div> -->
+  </div>
 
 </div>
 
@@ -283,6 +286,10 @@ title: "UK LAs — ORCS charging devices"
 
   <div id="map-orcs" aria-label="Map of UK local authorities coloured by ORCS charging devices (deciles)"></div>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+  <script src="https://unpkg.com/chroma-js@2.4.2/chroma.min.js"></script>
+
   <script>
   (async function () {
     // --- CONFIG: adjust these paths to where the files are hosted on your site ---
@@ -290,7 +297,7 @@ title: "UK LAs — ORCS charging devices"
     const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
     const topoObjectName = 'LAD_DEC_24_UK_BSC_-416161531269609018';
     // --- END CONFIG ---
-
+    
     const map = L.map('map-orcs').setView([54.5, -3], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
