@@ -6,337 +6,122 @@ title: "UK LAs — ORCS charging devices"
 <head>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <style>
-    /* added #map-orcs so the ORCS map gets a height */
-    #map, #map-near-home, #map-pavement-channels, #map-levi, #map-orcs, #map-levi-pilot {height:80vh;}
+    /* ensure both map containers have height */
+    #map-orcs, #map-pavement { height: 80vh; }
     .legend { background: white; padding: 6px 8px; font: 12px/1.5 sans-serif; box-shadow:0 0 8px rgba(0,0,0,0.2); }
     .legend .swatch { width:18px; height:12px; display:inline-block; margin-right:6px; vertical-align:middle; }
+    .row { margin-bottom:4px; white-space:nowrap; }
   </style>
 </head>
 
 <h1>Maps of local authorities</h1>
 
 <div class="tabs js-tabs" data-module="tabs">
-    <div class="tabs__controls" role="tablist" aria-label="Section">
-      
-      <button id="tab-near-home" class="tabs__tab tabs__tab--active" role="tab"
-              aria-selected="true" aria-controls="near-home" tabindex="0">
-        Near home charging
-      </button>
+  <div class="tabs__controls" role="tablist" aria-label="Section">
 
-      <button id="tab-pavement-channels" class="tabs__tab" role="tab"
-              aria-selected="false" aria-controls="pavement-channels" tabindex="-1">
-        Pavement channels
-      </button>
+    <button id="tab-near-home" class="tabs__tab tabs__tab--active" role="tab"
+            aria-selected="true" aria-controls="near-home" tabindex="0">
+      Near home charging
+    </button>
 
-      <button id="tab-levi" class="tabs__tab" role="tab"
-              aria-selected="false" aria-controls="levi" tabindex="-1">
-        LEVI/EVIF/ULEVTF
-      </button>
+    <button id="tab-pavement-channels" class="tabs__tab" role="tab"
+            aria-selected="false" aria-controls="pavement-channels" tabindex="-1">
+      Pavement channels
+    </button>
 
-      <button id="tab-orcs" class="tabs__tab" role="tab"
-              aria-selected="false" aria-controls="orcs" tabindex="-1">
-        ORCS
-      </button>
+    <button id="tab-levi" class="tabs__tab" role="tab"
+            aria-selected="false" aria-controls="levi" tabindex="-1">
+      LEVI/EVIF/ULEVTF
+    </button>
 
-      <button id="tab-levi-pilot" class="tabs__tab" role="tab"
-              aria-selected="false" aria-controls="levi-pilot" tabindex="-1">
-        LEVI pilot
-      </button>
-    </div>
+    <button id="tab-orcs" class="tabs__tab" role="tab"
+            aria-selected="false" aria-controls="orcs" tabindex="-1">
+      ORCS
+    </button>
 
-<div id="near-home" class="tabs__panel" role="tabpanel"
-         aria-labelledby="tab-near-home">
-         <h2>NEVIS Near Home Charging distribution metric</h2>
-</div>
-
-<div id="pavement-channels" class="tabs__panel" role="tabpanel"
-         aria-labelledby="tab-pavement-channels">
-         <h2>Pavement Channels</h2>
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
-  <script src="https://unpkg.com/chroma-js@2.4.2/chroma.min.js"></script>
-
-  <div id="map-pavement-channels" aria-label="Map of UK local authorities coloured by pavement channel status"></div>
-
-  <script>
-  (async function () {
-    // CONFIG: update these to where you host the files
-    const topojsonPath = '/government/local-government/data/LAD_DEC_24_UK_BSC_-416161531269609018.topojson';
-    const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
-    const topoObjectName = 'LAD_DEC_24_UK_BSC_-416161531269609018';
-    // END CONFIG
-
-    const map = L.map('map-pavement-channels').setView([54.5, -3], 5);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-    window.pavementchannelsMap = map;
-
-    // Load TopoJSON and EVI JSON
-    const [topo, eviBundle] = await Promise.all([
-      fetch(topojsonPath).then(r => { if(!r.ok) throw new Error('TopoJSON load failed'); return r.json(); }),
-      fetch(eviJsonPath).then(r => { if(!r.ok) throw new Error('EVI JSON load failed'); return r.json(); })
-    ]);
-
-    // get the raw geometry objects from the topojson (array of geometry objects)
-    const topoGeoms = topo.objects[topoObjectName].geometries;
-
-    // find the resource that holds the table rows
-    const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
-    if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
-    const rows = resource.data;
-
-    // Build lookups:
-    // - gssCodeMap: gss-code -> row (for individual LA rows)
-    // - laCodeMap: local-authority-code -> row (for parent/merged rows, e.g. HRT)
-    const gssCodeMap = new Map();
-    const laCodeMap = new Map();
-    rows.forEach(r => {
-      if (r['gss-code']) gssCodeMap.set(r['gss-code'], r);
-      if (r['local-authority-code']) laCodeMap.set(r['local-authority-code'], r);
-    });
-
-    // Group TopoJSON geometries by county-la, but only when that county code has a row in laCodeMap
-    const groups = new Map(); // countyCode -> array of geometry objects
-    topoGeoms.forEach(geom => {
-      // the geometry's properties hold the GSS code (LAD24CD)
-      const gss = geom.properties && geom.properties.LAD24CD;
-      const row = gssCodeMap.get(gss);
-      const county = row ? row['county-la'] : null;
-      // Only create groups that have parent row available (so we can use that parent row's values)
-      if (county && laCodeMap.has(county)) {
-        if (!groups.has(county)) groups.set(county, []);
-        groups.get(county).push(geom);
-      }
-    });
-
-    // Keep track of which GSS codes will be consumed into merged groups
-    const consumedGss = new Set();
-    for (const [county, geoms] of groups.entries()) {
-      for (const g of geoms) {
-        const gss = g.properties && g.properties.LAD24CD;
-        if (gss) consumedGss.add(gss);
-      }
-    }
-
-    // Convert the full TopoJSON into a GeoJSON FeatureCollection (all individual features)
-    const allGeo = topojson.feature(topo, topo.objects[topoObjectName]);
-    // Build merged features using topojson.merge for each group
-    const mergedFeatures = [];
-    for (const [county, geoms] of groups.entries()) {
-      // Merge the array of geometry objects into one geometry
-      const mergedGeom = topojson.merge(topo, geoms);
-      // Use the row corresponding to the parent code (local-authority-code === county) for properties
-      const parentRow = laCodeMap.get(county) || {};
-      // build properties for the merged feature — copy relevant fields you need
-      const props = {
-        localAuthorityCode: county,
-        officialName: parentRow['official-name'] || parentRow['nice-name'] || county,
-        source: 'merged',
-        merged_from: geoms.map(g => g.properties && g.properties.LAD24CD).filter(Boolean)
-      };
-      // include original parentRow fields for access (like pavement channel status)
-      Object.assign(props, parentRow);
-      mergedFeatures.push({
-        type: 'Feature',
-        id: county,
-        properties: props,
-        geometry: mergedGeom
-      });
-    }
-
-    // Build feature list that excludes the consumed individual features
-    const remainingFeatures = allGeo.features.filter(f => {
-      const gss = f.properties && f.properties.LAD24CD;
-      return !consumedGss.has(gss);
-    });
-
-    // Final feature collection: merged features + remaining unmerged features
-    const finalFC = {
-      type: 'FeatureCollection',
-      features: mergedFeatures.concat(remainingFeatures)
-    };
-
-    // Helper: get pavement channel status value for any feature. For merged features we use the parent row (localAuthorityCode),
-    // for unmerged we use the gss-code lookup.
-    function getPavementChannelStatusForFeature(feature) {
-      if (!feature || !feature.properties) return NaN;
-      // If this is a merged feature we attached localAuthorityCode and parent row fields
-      if (feature.properties.localAuthorityCode && laCodeMap.has(feature.properties.localAuthorityCode)) {
-        const parent = laCodeMap.get(feature.properties.localAuthorityCode);
-        const v = parent['pavement-channel-status'];
-        return (v === null || v === undefined || v === '') ? NaN : Number(v);
-      }
-      // Otherwise treat it as a normal LA feature and look up by GSS
-      const gss = feature.properties.LAD24CD || feature.properties.gss || feature.id;
-      const row = gssCodeMap.get(gss);
-      if (!row) return NaN;
-      const v = row['pavement-channel-status'];
-      return (v === null || v === undefined || v === '') ? NaN : Number(v);
-    }
-
-    // Collect values for deciles from the final features
-    const allValues = finalFC.features.map(f => getPavementChannelStatusForFeature(f)).sort((a,b)=>a-b);
-    const nValues = allValues.length
-
-    // palette (based on number of possible values)
-    const palette = chroma.scale('YlGnBu').mode('lab').colors(nValues);
-
-    // Style function using deciles
-    function style(feature) {
-      const v = getPavementChannelStatusForFeature(feature);
-      const idx = allValues.indexOf(v);
-      return {
-        weight: 1,
-        color: '#444',
-        opacity: 1,
-        fillOpacity: 0.85,
-        fillColor: palette[idx]
-      };
-    }
-
-    // Add the final feature collection to the map
-    const geoLayer = L.geoJSON(finalFC, {
-      style,
-      onEachFeature: (feature, layer) => {
-        const v = getPavementChannelStatusForFeature(feature);
-        const name = feature.properties && (feature.properties.officialName || feature.properties.LAD24NM || feature.properties.nice_name || feature.properties.nice-name || feature.properties.name || feature.properties['official-name']);
-        layer.on({
-          mouseover(e) {
-            const t = e.target;
-            t.setStyle({ weight: 2, color: '#000' });
-            t.bringToFront();
-            const html = `<strong>${name || 'Unknown'}</strong><br/>Pavement Channel Status: ${isNaN(v) ? 'N/A' : v}`;
-            t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
-          },
-          mouseout(e) {
-            geoLayer.resetStyle(e.target);
-            e.target.closeTooltip();
-          },
-          click(e) {
-            map.fitBounds(e.target.getBounds(), { maxZoom: 12 });
-          }
-        });
-      }
-    }).addTo(map);
-
-    // Legend
-    const legend = L.control({ position: 'bottomright' });
-    legend.onAdd = () => {
-      const div = L.DomUtil.create('div', 'legend');
-      div.setAttribute('role', 'group');
-      div.setAttribute('aria-label', 'Pavement channel status legend');
-      if (!allValues.length) {
-        div.innerHTML = '<strong>Pavement channel status</strong><br/>No data';
-        return div;
-      }
-      div.innerHTML = '<strong>Pavement channel status</strong><br/>';
-      for (let i = 0; i < nValues; i++) {
-        const color = palette[i];
-        const label = `${allValues[i]}`;
-        const row = document.createElement('div');
-        row.className = 'row';
-        row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${label}`;
-        div.appendChild(row);
-      }
-      const nodata = document.createElement('div');
-      nodata.className = 'row';
-      nodata.style.marginTop = '6px';
-      nodata.innerHTML = `<span class="swatch" style="background:#cccccc"></span> No data`;
-      div.appendChild(nodata);
-      return div;
-    };
-    legend.addTo(map);
-
-    // If the Pavement channels tab becomes active (user clicks) we must invalidate the Leaflet map size.
-    // Add a small delay to allow the tab JS to show the panel.
-    const pavementChannelsTabButton = document.getElementById('tab-pavement-channels');
-    if (pavementChannelsTabButton) {
-      pavementChannelsTabButton.addEventListener('click', () => {
-        setTimeout(() => {
-          if (window.pavementchannelsMap) window.pavementchannelsMap.invalidateSize();
-        }, 200);
-      });
-      // If the pavement channels tab is already active on load, ensure the map sizes correctly:
-      if (pavementChannelsTabButton.classList.contains('tabs__tab--active') || pavementChannelsTabButton.getAttribute('aria-selected') === 'true') {
-        setTimeout(() => { if (window.pavementchannelsMap) window.pavementchannelsMap.invalidateSize(); }, 200);
-      }
-    }
-
-  })().catch(err => {
-    console.error(err);
-    alert('Map initialization failed: ' + (err && err.message));
-  });
-  </script>
+    <button id="tab-levi-pilot" class="tabs__tab" role="tab"
+            aria-selected="false" aria-controls="levi-pilot" tabindex="-1">
+      LEVI pilot
+    </button>
   </div>
 
+  <div id="near-home" class="tabs__panel" role="tabpanel" aria-labelledby="tab-near-home">
+    <h2>NEVIS Near Home Charging distribution metric</h2>
+  </div>
+
+  <div id="pavement-channels" class="tabs__panel" role="tabpanel" aria-labelledby="tab-pavement-channels">
+    <h2>Pavement Channels</h2>
+
+    <!-- New pavement map container -->
+    <div id="map-pavement" aria-label="Pavement channels map — local authorities coloured by channel status or grant amount"></div>
+  </div>
+
+  <div id="levi" class="tabs__panel" role="tabpanel" aria-labelledby="tab-levi">
+    <h2>Local Electric Vehicle Infrastructure fund (LEVI, England),<br>Electric Vehicle Infrastructure Fund (EVIF, Scotland)<br>Ultra Low Emission Vehicle Transformation Fund (ULEVTF, Wales)</h2>[...]
+  </div>
+
+  <div id="orcs" class="tabs__panel" role="tabpanel" aria-labelledby="tab-orcs">
+    <h2>On-Street Charging Scheme (ORCS)</h2>
+
+    <div id="map-orcs" aria-label="Map of UK local authorities coloured by ORCS charging devices (deciles)"></div>
+  </div>
+
+  <div id="levi-pilot" class="tabs__panel" role="tabpanel" aria-labelledby="tab-levi-pilot">
+    <h3>Local Electric Vehicle Infrastructure Fund Pilot (England only)</h3>
+  </div>
 </div>
 
-<div id="levi" class="tabs__panel" role="tabpanel"
-         aria-labelledby="tab-levi">
-         <h2>Local Electric Vehicle Infrastructure fund (LEVI, England),<br>Electric Vehicle Infrastructure Fund (EVIF, Scotland),<br>Ultra Low Emission Vehicle Transformation Fund (ULEVTF, Wales)</h2>
-</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script src="https://unpkg.com/chroma-js@2.4.2/chroma.min.js"></script>
 
-<div id="orcs" class="tabs__panel" role="tabpanel"
-         aria-labelledby="tab-orcs">
+<script>
+(async function () {
+  // CONFIG
+  const topojsonPath = '/government/local-government/data/LAD_DEC_24_UK_BSC_-416161531269609018.topojson';
+  const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
+  const topoObjectName = 'LAD_DEC_24_UK_BSC_-416161531269609018';
 
-<h2>On-Street Charging Scheme (ORCS)</h2>
+  try {
+    // Load both resources in parallel
+    const [topoResp, eviResp] = await Promise.all([
+      fetch(topojsonPath),
+      fetch(eviJsonPath)
+    ]);
+    if (!topoResp.ok) throw new Error('TopoJSON load failed: ' + topoResp.status);
+    if (!eviResp.ok) throw new Error('EVI JSON load failed: ' + eviResp.status);
+    const topo = await topoResp.json();
+    const eviBundle = await eviResp.json();
 
-  <div id="map-orcs" aria-label="Map of UK local authorities coloured by ORCS charging devices (deciles)"></div>
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
-  <script src="https://unpkg.com/chroma-js@2.4.2/chroma.min.js"></script>
-
-  <script>
-  (async function () {
-    // --- CONFIG: adjust these paths to where the files are hosted on your site ---
-    const topojsonPath = '/government/local-government/data/LAD_DEC_24_UK_BSC_-416161531269609018.topojson';
-    const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
-    const topoObjectName = 'LAD_DEC_24_UK_BSC_-416161531269609018';
-    // --- END CONFIG ---
-    
-    const map = L.map('map-orcs').setView([54.5, -3], 5);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-    // Expose map so outside handlers can invalidate size when tab shown
-    window.orcsMap = map;
-
-    // Load TopoJSON
-    const topo = await fetch(topojsonPath).then(r => {
-      if (!r.ok) throw new Error('TopoJSON load failed: ' + r.status);
-      return r.json();
-    });
+    // Convert topology to geojson features
     const geojson = topojson.feature(topo, topo.objects[topoObjectName]);
 
-    // Load EVI JSON
-    const eviBundle = await fetch(eviJsonPath).then(r => {
-      if (!r.ok) throw new Error('EVI JSON load failed: ' + r.status);
-      return r.json();
-    });
-
-    // Find resource with the table rows
+    // Find resource row table
     const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
     if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
     const rows = resource.data;
 
-    // Build lookup: gss-code -> numeric ORCS-total-charging-devices
-    const valueByGss = new Map();
-    rows.forEach(row => {
-      const gss = row['gss-code'];
-      const val = row['ORCS-total-charging-devices'];
-      const n = (val === null || val === undefined || val === '') ? NaN : Number(val);
-      valueByGss.set(gss, n);
+    // Build gss-code -> row lookup
+    const rowByGss = new Map();
+    rows.forEach(r => {
+      if (r['gss-code']) rowByGss.set(r['gss-code'], r);
     });
 
-    // Prepare list of numeric values (non-NaN)
-    const values = Array.from(valueByGss.values()).filter(v => !isNaN(v)).sort((a,b)=>a-b);
+    // ------------------------
+    // ORCS map (deciles) — existing behaviour
+    // ------------------------
 
-    // quantile function (linear interpolation)
+    // Build ORCS numeric map
+    const orcsValueByGss = new Map();
+    rows.forEach(r => {
+      const gss = r['gss-code'];
+      const val = r['ORCS-total-charging-devices'];
+      const n = (val === null || val === undefined || val === '') ? NaN : Number(val);
+      orcsValueByGss.set(gss, n);
+    });
+
+    const orcsValues = Array.from(orcsValueByGss.values()).filter(v => !isNaN(v)).sort((a,b)=>a-b);
+
     function quantile(sortedArr, p) {
       if (!sortedArr.length) return NaN;
       const idx = (sortedArr.length - 1) * p;
@@ -347,137 +132,212 @@ title: "UK LAs — ORCS charging devices"
       return sortedArr[lo] * (1 - frac) + sortedArr[hi] * frac;
     }
 
-    // Compute decile thresholds (9 thresholds dividing into 10 bins)
-    let thresholds = [];
-    if (values.length) {
-      for (let i = 1; i <= 9; i++) {
-        thresholds.push(quantile(values, i / 10));
-      }
-    }
+    const orcsThresholds = [];
+    if (orcsValues.length) for (let i = 1; i <= 9; i++) orcsThresholds.push(quantile(orcsValues, i / 10));
+    const orcsPalette = chroma.scale('YlGnBu').mode('lab').colors(10);
 
-    const min = values.length ? values[0] : 0;
-    const max = values.length ? values[values.length - 1] : 1;
-
-    // choose 10 colors (deciles) — change palette if you prefer
-    const palette = chroma.scale('YlGnBu').mode('lab').colors(10);
-
-    // Determine decile index 0..9 for a value
-    function decileIndex(v) {
-      if (isNaN(v)) return -1; // sentinel for no-data
-      for (let i = 0; i < thresholds.length; i++) {
-        if (v <= thresholds[i]) return i;
-      }
+    function orcsDecileIndex(v) {
+      if (isNaN(v)) return -1;
+      for (let i = 0; i < orcsThresholds.length; i++) if (v <= orcsThresholds[i]) return i;
       return 9;
     }
 
-    // Style function uses decile bin color
-    function style(feature) {
-      const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
-      const v = valueByGss.get(code);
-      const idx = decileIndex(v);
-      return {
-        weight: 1,
-        color: '#444',
-        opacity: 1,
-        fillOpacity: idx === -1 ? 0.15 : 0.85,
-        fillColor: idx === -1 ? '#cccccc' : palette[idx]
-      };
-    }
+    // Create ORCS map
+    const mapOrcs = L.map('map-orcs').setView([54.5, -3], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(mapOrcs);
+    window.orcsMap = mapOrcs; // expose for tab invalidation
 
-    // Add geo layer with hover tooltip
-    const geoLayer = L.geoJSON(geojson, {
-      style,
-      onEachFeature: (feature, layer) => {
+    const orcsLayer = L.geoJSON(geojson, {
+      style(feature) {
+        const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
+        const v = orcsValueByGss.get(code);
+        const idx = orcsDecileIndex(v);
+        return {
+          weight: 1,
+          color: '#444',
+          opacity: 1,
+          fillOpacity: idx === -1 ? 0.15 : 0.85,
+          fillColor: idx === -1 ? '#cccccc' : orcsPalette[idx]
+        };
+      },
+      onEachFeature(feature, layer) {
         const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
         const name = feature.properties && (feature.properties.LAD24NM || feature.properties.name || 'Unknown');
-        const v = valueByGss.get(code);
+        const v = orcsValueByGss.get(code);
         layer.on({
           mouseover(e) {
-            const target = e.target;
-            target.setStyle({ weight: 2, color: '#000' });
-            target.bringToFront();
+            const t = e.target;
+            t.setStyle({ weight: 2, color: '#000' });
+            t.bringToFront();
             const html = `<strong>${name}</strong><br/>ORCS devices: ${isNaN(v) ? 'N/A' : v}`;
-            target.bindTooltip(html, {sticky: true, direction: 'auto'}).openTooltip();
+            t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
           },
           mouseout(e) {
-            geoLayer.resetStyle(e.target);
+            orcsLayer.resetStyle(e.target);
             e.target.closeTooltip();
           },
           click(e) {
-            map.fitBounds(e.target.getBounds(), { maxZoom: 12 });
+            mapOrcs.fitBounds(e.target.getBounds(), { maxZoom: 12 });
           }
         });
       }
-    }).addTo(map);
+    }).addTo(mapOrcs);
 
-    // Legend: display decile swatches and ranges
-    const legend = L.control({ position: 'bottomright' });
-    legend.onAdd = function () {
+    // ORCS legend
+    const orcsLegend = L.control({ position: 'bottomright' });
+    orcsLegend.onAdd = function () {
       const div = L.DomUtil.create('div', 'legend');
       div.setAttribute('role', 'group');
       div.setAttribute('aria-label', 'ORCS devices decile legend');
-
-      if (!values.length) {
-        div.innerHTML = '<strong>ORCS devices</strong><br/>No data';
-        return div;
-      }
-
+      if (!orcsValues.length) { div.innerHTML = '<strong>ORCS devices</strong><br/>No data'; return div; }
       div.innerHTML = '<strong>ORCS devices (deciles)</strong><br/>';
-      // Build ranges for display
-      const rounded = v => (Math.round(v * 10) / 10).toLocaleString();
-      let lower = min;
+      let lower = orcsValues[0];
       for (let i = 0; i < 10; i++) {
-        const color = palette[i];
-        let upper;
-        if (i < 9) upper = thresholds[i];
-        else upper = max;
-        const label = (i === 0)
-          ? `${Math.round(lower)} – ${Math.round(upper)}`
-          : `${Math.round(lower)} – ${Math.round(upper)}`;
+        const color = orcsPalette[i];
+        const upper = (i < 9) ? orcsThresholds[i] : orcsValues[orcsValues.length - 1];
         const row = document.createElement('div');
         row.className = 'row';
-        row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${label}`;
+        row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${Math.round(lower)} – ${Math.round(upper)}`;
         div.appendChild(row);
-        lower = (i < 9) ? (thresholds[i] + Number.EPSILON) : (upper); // move lower bound forward slightly
+        lower = (i < 9) ? (orcsThresholds[i] + Number.EPSILON) : upper;
       }
-      // No data
-      const nodatarow = document.createElement('div');
-      nodatarow.className = 'row';
-      nodatarow.style.marginTop = '6px';
-      nodatarow.innerHTML = `<span class="swatch" style="background:#cccccc"></span> No data`;
-      div.appendChild(nodatarow);
+      const nodata = document.createElement('div');
+      nodata.className = 'row';
+      nodata.style.marginTop = '6px';
+      nodata.innerHTML = `<span class="swatch" style="background:#cccccc"></span> No data`;
+      div.appendChild(nodata);
       return div;
     };
-    legend.addTo(map);
+    orcsLegend.addTo(mapOrcs);
 
-    // If the ORCS tab becomes active (user clicks) we must invalidate the Leaflet map size.
-    // Add a small delay to allow the tab JS to show the panel.
-    const orcsTabButton = document.getElementById('tab-orcs');
-    if (orcsTabButton) {
-      orcsTabButton.addEventListener('click', () => {
-        setTimeout(() => {
-          if (window.orcsMap) window.orcsMap.invalidateSize();
-        }, 200);
+    // ------------------------
+    // Pavement Channels map (categorical by channel-status)
+    // ------------------------
+
+    // Build status mapping (gss -> status) and collect distinct statuses
+    const statusByGss = new Map();
+    const statusesSet = new Set();
+    rows.forEach(r => {
+      const gss = r['gss-code'];
+      let status = r['channel-status'];
+      if (status === null || status === undefined || status === '') status = 'No data';
+      // Normalize small whitespace
+      status = String(status).trim();
+      statusByGss.set(gss, status);
+      statusesSet.add(status);
+    });
+
+    // Build ordered list of distinct statuses
+    const statuses = Array.from(statusesSet).sort();
+
+    // Simple categorical palette (falls back to cycling if more categories than colours)
+    const baseColors = [
+      '#1f78b4', '#33a02c', '#e31a1c', '#ff7f00',
+      '#6a3d9a', '#b15928', '#a6cee3', '#b2df8a',
+      '#fb9a99', '#fdbf6f', '#cab2d6', '#ffff99'
+    ];
+    const statusColor = {};
+    statuses.forEach((s, i) => {
+      statusColor[s] = baseColors[i % baseColors.length];
+    });
+
+    // Create pavement map
+    const mapPav = L.map('map-pavement').setView([54.5, -3], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(mapPav);
+    window.pavementMap = mapPav;
+
+    const pavLayer = L.geoJSON(geojson, {
+      style(feature) {
+        const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
+        const status = statusByGss.get(code) || 'No data';
+        const color = statusColor[status] || '#cccccc';
+        return {
+          weight: 1,
+          color: '#444',
+          opacity: 1,
+          fillOpacity: status === 'No data' ? 0.15 : 0.85,
+          fillColor: color
+        };
+      },
+      onEachFeature(feature, layer) {
+        const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
+        const name = feature.properties && (feature.properties.LAD24NM || feature.properties.name || 'Unknown');
+        const status = statusByGss.get(code) || 'No data';
+        // include grant amount if present
+        const row = rowByGss.get(code) || {};
+        const grant = row['channel-grant-amount'];
+        const grantLabel = (grant === null || grant === undefined || grant === '') ? '' : `<br/>Grant amount: £${Number(grant).toLocaleString()}`;
+        layer.on({
+          mouseover(e) {
+            const t = e.target;
+            t.setStyle({ weight: 2, color: '#000' });
+            t.bringToFront();
+            const html = `<strong>${name}</strong><br/>Status: ${status}${grantLabel}`;
+            t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
+          },
+          mouseout(e) {
+            pavLayer.resetStyle(e.target);
+            e.target.closeTooltip();
+          },
+          click(e) {
+            mapPav.fitBounds(e.target.getBounds(), { maxZoom: 12 });
+          }
+        });
+      }
+    }).addTo(mapPav);
+
+    // Pavement legend — categorical
+    const pavLegend = L.control({ position: 'bottomright' });
+    pavLegend.onAdd = function () {
+      const div = L.DomUtil.create('div', 'legend');
+      div.setAttribute('role', 'group');
+      div.setAttribute('aria-label', 'Pavement channels status legend');
+      if (!statuses.length) { div.innerHTML = '<strong>Pavement channels</strong><br/>No data'; return div; }
+      div.innerHTML = '<strong>Pavement channels</strong><br/>';
+      statuses.forEach(s => {
+        const color = statusColor[s] || '#cccccc';
+        const row = document.createElement('div');
+        row.className = 'row';
+        row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${s}`;
+        div.appendChild(row);
       });
-      // If the ORCS tab is already active on load, ensure the map sizes correctly:
-      if (orcsTabButton.classList.contains('tabs__tab--active') || orcsTabButton.getAttribute('aria-selected') === 'true') {
-        setTimeout(() => { if (window.orcsMap) window.orcsMap.invalidateSize(); }, 200);
+      // No data row (if not present in statuses)
+      if (!statuses.includes('No data')) {
+        const nodata = document.createElement('div');
+        nodata.className = 'row';
+        nodata.style.marginTop = '6px';
+        nodata.innerHTML = `<span class="swatch" style="background:#cccccc"></span> No data`;
+        div.appendChild(nodata);
+      }
+      return div;
+    };
+    pavLegend.addTo(mapPav);
+
+    // Handle tab show behaviour: invalidate map size after tab is displayed.
+    function hookTabInvalidate(tabId, mapObj) {
+      const btn = document.getElementById(tabId);
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        // small delay to allow tab content to become visible
+        setTimeout(() => { try { mapObj.invalidateSize(); } catch (e) {/*ignore*/} }, 200);
+      });
+      // If tab already active on load
+      if (btn.classList.contains('tabs__tab--active') || btn.getAttribute('aria-selected') === 'true') {
+        setTimeout(() => { try { mapObj.invalidateSize(); } catch (e) {/*ignore*/} }, 200);
       }
     }
+    hookTabInvalidate('tab-orcs', mapOrcs);
+    hookTabInvalidate('tab-pavement-channels', mapPav);
 
-  })().catch(err => {
+  } catch (err) {
     console.error(err);
-    alert('Map initialization failed: ' + err.message);
-  });
-  </script>
-</div>
-</div>
-
-<div id="levi-pilot" class="tabs__panel" role="tabpanel"
-         aria-labelledby="tab-levi-pilot">
-         <h3>Local Electric Vehicle Infrastructure Fund Pilot (England only)</h3>
-</div>
-
-</div>
+    alert('Map initialization failed: ' + (err && err.message));
+  }
+})();
+</script>
 
 <script type="text/javascript" src="/js/tabs.js"></script>
