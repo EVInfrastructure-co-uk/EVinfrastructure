@@ -57,7 +57,7 @@ title: "UK LAs — ORCS charging devices"
   </div>
 
   <div id="levi" class="tabs__panel" role="tabpanel" aria-labelledby="tab-levi">
-    <h2>Local Electric Vehicle Infrastructure fund (LEVI, England),<br>Electric Vehicle Infrastructure Fund (EVIF, Scotland)<br>Ultra Low Emission Vehicle Transformation Fund (ULEVTF, Wales)</h2>[...]
+    <h2>Local Electric Vehicle Infrastructure fund (LEVI, England),<br>Electric Vehicle Infrastructure Fund (EVIF, Scotland)<br>Ultra Low Emission Vehicle Transformation Fund (ULEVTF, Wales)</h2>
   </div>
 
   <div id="orcs" class="tabs__panel" role="tabpanel" aria-labelledby="tab-orcs">
@@ -231,7 +231,7 @@ title: "UK LAs — ORCS charging devices"
 
     // Build ordered list of distinct statuses
     const statuses = Array.from(statusesSet).sort();
-
+    console.log('Pavement channel statuses:', statuses);
     // Simple categorical palette (falls back to cycling if more categories than colours)
     const baseColors = [
       '#1f78b4', '#33a02c', '#e31a1c', '#ff7f00',
