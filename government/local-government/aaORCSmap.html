@@ -6,7 +6,8 @@ title: "UK LAs — ORCS charging devices"
 <head>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <style>
-    #map {height:80vh;}
+    /* added #map-orcs so the ORCS map gets a height */
+    #map, #map-near-home, #map-pavement-channels, #map-levi, #map-orcs, #map-levi-pilot {height:80vh;}
     .legend { background: white; padding: 6px 8px; font: 12px/1.5 sans-serif; box-shadow:0 0 8px rgba(0,0,0,0.2); }
     .legend .swatch { width:18px; height:12px; display:inline-block; margin-right:6px; vertical-align:middle; }
   </style>
@@ -55,7 +56,7 @@ title: "UK LAs — ORCS charging devices"
 
 <div id="levi" class="tabs__panel" role="tabpanel"
          aria-labelledby="tab-levi">
-         <h2>Local Electric Vehicle Infrastructure fund (LEVI, England),<br>Electric Vehicle Infrastructure Fund (EVIF, Scotland)<br>Ultra Low Emission Vehicle Transformation Fund (ULEVTF, Wales)</h2>
+         <h2>Local Electric Vehicle Infrastructure fund (LEVI, England),<br>Electric Vehicle Infrastructure Fund (EVIF, Scotland),<br>Ultra Low Emission Vehicle Transformation Fund (ULEVTF, Wales)</h2>
 </div>
 
 <div id="orcs" class="tabs__panel" role="tabpanel"
@@ -81,6 +82,9 @@ title: "UK LAs — ORCS charging devices"
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
+
+    // Expose map so outside handlers can invalidate size when tab shown
+    window.orcsMap = map;
 
     // Load TopoJSON
     const topo = await fetch(topojsonPath).then(r => {
@@ -225,6 +229,21 @@ title: "UK LAs — ORCS charging devices"
       return div;
     };
     legend.addTo(map);
+
+    // If the ORCS tab becomes active (user clicks) we must invalidate the Leaflet map size.
+    // Add a small delay to allow the tab JS to show the panel.
+    const orcsTabButton = document.getElementById('tab-orcs');
+    if (orcsTabButton) {
+      orcsTabButton.addEventListener('click', () => {
+        setTimeout(() => {
+          if (window.orcsMap) window.orcsMap.invalidateSize();
+        }, 200);
+      });
+      // If the ORCS tab is already active on load, ensure the map sizes correctly:
+      if (orcsTabButton.classList.contains('tabs__tab--active') || orcsTabButton.getAttribute('aria-selected') === 'true') {
+        setTimeout(() => { if (window.orcsMap) window.orcsMap.invalidateSize(); }, 200);
+      }
+    }
 
   })().catch(err => {
     console.error(err);
