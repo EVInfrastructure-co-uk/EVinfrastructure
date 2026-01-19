@@ -7,7 +7,7 @@ title: "Local authority maps"
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <style>
     /* ensure all three map containers have height */
-    #map-orcs, #map-pavement, #map-nearhome { height: 80vh; }
+    #map-levi, #map-pavement, #map-nearhome { height: 80vh; }
     .legend { background: white; padding: 6px 8px; font: 12px/1.5 sans-serif; box-shadow:0 0 8px rgba(0,0,0,0.2); }
     .legend .swatch { width:18px; height:12px; display:inline-block; margin-right:6px; vertical-align:middle; }
     .row { margin-bottom:4px; white-space:nowrap; }
@@ -39,7 +39,7 @@ title: "Local authority maps"
     <h2>NEVIS Near Home Charging distribution metric</h2>
 
     <div id="map-nearhome" aria-label="Map of UK local authorities coloured by NEVIS near home charging distribution (deciles)">
-  </div>
+    </div>
 
   </div>
 
@@ -52,6 +52,9 @@ title: "Local authority maps"
 
   <div id="levi" class="tabs__panel" role="tabpanel" aria-labelledby="tab-levi">
     <h2>Local Electric Vehicle Infrastructure fund (LEVI, England),<br>Electric Vehicle Infrastructure Fund (EVIF, Scotland)<br>Ultra Low Emission Vehicle Transformation Fund (ULEVTF, Wales)</h2>
+
+    <!-- LEVI map container -->
+    <div id="map-levi" aria-label="LEVI/EVIF/ULEVTF map — local authorities coloured by ORCS/LEVI metric (deciles)"></div>
   </div>
 
 </div>
@@ -62,50 +65,107 @@ title: "Local authority maps"
 
 <script>
 (async function () {
-  // CONFIG
-  const topojsonPath = '/government/local-government/data/localauthorities.topojson';
+  // CONFIG - distinct topojsons for each tab
+  const topoNearPath = '/government/local-government/data/GBlocalauthorities.topojson';
+  const topoPavementPath = '/government/local-government/data/pavementchannelauthorities.topojson';
+  const topoLeviPath = '/government/local-government/data/LEVI-EVIF-ULEVTF-authorities.topojson';
   const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
-  const topoObjectName = 'localauthorities';
 
   try {
-    // Load both resources in parallel
-    const [topoResp, eviResp] = await Promise.all([
-      fetch(topojsonPath),
+    // Load all three topology files and the EVI json in parallel
+    const [topoNearResp, topoPavResp, topoLeviResp, eviResp] = await Promise.all([
+      fetch(topoNearPath),
+      fetch(topoPavementPath),
+      fetch(topoLeviPath),
       fetch(eviJsonPath)
     ]);
-    if (!topoResp.ok) throw new Error('TopoJSON load failed: ' + topoResp.status);
+
+    if (!topoNearResp.ok) throw new Error('Near-home TopoJSON load failed: ' + topoNearResp.status);
+    if (!topoPavResp.ok) throw new Error('Pavement TopoJSON load failed: ' + topoPavResp.status);
+    if (!topoLeviResp.ok) throw new Error('LEVI TopoJSON load failed: ' + topoLeviResp.status);
     if (!eviResp.ok) throw new Error('EVI JSON load failed: ' + eviResp.status);
-    const topo = await topoResp.json();
-    const eviBundle = await eviResp.json();
 
-    // Convert topology to geojson features
-    const geojson = topojson.feature(topo, topo.objects[topoObjectName]);
+    const [topoNear, topoPav, topoLevi, eviBundle] = await Promise.all([
+      topoNearResp.json(),
+      topoPavResp.json(),
+      topoLeviResp.json(),
+      eviResp.json()
+    ]);
 
-    // Find resource row table
+    // helper to pick the first object name in a topojson (robust if different object names)
+    function topoFirstObjectName(topo) {
+      const keys = Object.keys(topo.objects || {});
+      return keys.length ? keys[0] : null;
+    }
+
+    // Convert each topology to GeoJSON FeatureCollection
+    const nearObjName = topoFirstObjectName(topoNear);
+    const pavObjName = topoFirstObjectName(topoPav);
+    const leviObjName = topoFirstObjectName(topoLevi);
+    if (!nearObjName || !pavObjName || !leviObjName) throw new Error('One of the topojson files has no objects');
+
+    const geoNear = topojson.feature(topoNear, topoNear.objects[nearObjName]);
+    const geoPav = topojson.feature(topoPav, topoPav.objects[pavObjName]);
+    const geoLevi = topojson.feature(topoLevi, topoLevi.objects[leviObjName]);
+
+    // Find resource row table in eviBundle
     const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
     if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
     const rows = resource.data;
 
-    // Build gss-code -> row lookup
+    // Build two lookup maps: by gss-code and by local-authority-code
     const rowByGss = new Map();
+    const rowByLocal = new Map();
     rows.forEach(r => {
-      if (r['gss-code']) rowByGss.set(r['gss-code'], r);
+      if (r['gss-code']) rowByGss.set(String(r['gss-code']).trim(), r);
+      if (r['local-authority-code']) rowByLocal.set(String(r['local-authority-code']).trim(), r);
     });
 
+    // Generic helper to find the matching row for a topojson feature.
+    // It tries several possible properties for GSS or local-authority-code and returns the row or null.
+    function getRowForFeature(feature) {
+      const p = (feature && feature.properties) ? feature.properties : {};
+      const candidates = [];
+
+      // common gss-like fields
+      ['LAD24CD','CTYUA24CD','gss','gss_code','gss-code','GSS_CODE','GSS'].forEach(k=>{
+        if (p[k]) candidates.push(String(p[k]).trim());
+      });
+
+      // common local-authority-code fields
+      ['local-authority-code','local_authority_code','localAuthorityCode','LAD24CD'].forEach(k=>{
+        if (p[k]) candidates.push(String(p[k]).trim());
+      });
+
+      // Also consider any property whose key contains 'gss' or 'lad' or 'local' (best-effort)
+      Object.keys(p).forEach(k => {
+        const lk = k.toLowerCase();
+        if ((lk.includes('gss') || lk.includes('lad') || lk.includes('local')) && p[k]) {
+          candidates.push(String(p[k]).trim());
+        }
+      });
+
+      for (const c of candidates) {
+        if (!c) continue;
+        if (rowByGss.has(c)) return rowByGss.get(c);
+        if (rowByLocal.has(c)) return rowByLocal.get(c);
+      }
+      return null;
+    }
+
+    // Utility to convert possibly-null values to numbers; NaN for missing
+    function toNum(v) {
+      if (v === null || v === undefined || v === '') return NaN;
+      const n = Number(v);
+      return Number.isFinite(n) ? n : NaN;
+    }
+
     // ------------------------
-    // NEVIS map (deciles) — existing behaviour
+    // NEVIS map (deciles)
     // ------------------------
 
-    // Build NEVIS numeric map
-    const nearhomeValueByGss = new Map();
-    rows.forEach(r => {
-      const gss = r['gss-code'];
-      const val = r['NEVIS-distribution'];
-      const n = (val === null || val === undefined || val === '') ? NaN : Number(val);
-      nearhomeValueByGss.set(gss, n);
-    });
-
-    const nearhomeValues = Array.from(nearhomeValueByGss.values()).filter(v => !isNaN(v)).sort((a,b)=>a-b);
+    // Gather numeric NEVIS values from rows
+    const nearhomeValues = rows.map(r => toNum(r['NEVIS-distribution'])).filter(v => !isNaN(v)).sort((a,b)=>a-b);
 
     function quantile(sortedArr, p) {
       if (!sortedArr.length) return NaN;
@@ -120,24 +180,22 @@ title: "Local authority maps"
     const nearhomeThresholds = [];
     if (nearhomeValues.length) for (let i = 1; i <= 9; i++) nearhomeThresholds.push(quantile(nearhomeValues, i / 10));
     const nearhomePalette = chroma.scale('YlGnBu').mode('lab').colors(10);
-
     function nearhomeDecileIndex(v) {
       if (isNaN(v)) return -1;
       for (let i = 0; i < nearhomeThresholds.length; i++) if (v <= nearhomeThresholds[i]) return i;
       return 9;
     }
 
-    // Create NEVIS map
     const mapNearHome = L.map('map-nearhome').setView([54.5, -3], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(mapNearHome);
-    window.nearhomeMap = mapNearHome; // expose for tab invalidation
+    window.nearhomeMap = mapNearHome;
 
-    const nearhomeLayer = L.geoJSON(geojson, {
+    const nearhomeLayer = L.geoJSON(geoNear, {
       style(feature) {
-        const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
-        const v = nearhomeValueByGss.get(code);
+        const row = getRowForFeature(feature);
+        const v = row ? toNum(row['NEVIS-distribution']) : NaN;
         const idx = nearhomeDecileIndex(v);
         return {
           weight: 1,
@@ -148,15 +206,15 @@ title: "Local authority maps"
         };
       },
       onEachFeature(feature, layer) {
-        const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
-        const name = feature.properties && (feature.properties.LAD24NM || feature.properties.name || 'Unknown');
-        const v = nearhomeValueByGss.get(code);
+        const row = getRowForFeature(feature);
+        const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
+        const v = row ? row['NEVIS-distribution'] : null;
         layer.on({
           mouseover(e) {
             const t = e.target;
             t.setStyle({ weight: 2, color: '#000' });
             t.bringToFront();
-            const html = `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${isNaN(v) ? 'N/A' : v}`;
+            const html = `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${isNaN(toNum(v)) ? 'N/A' : v}`;
             t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
           },
           mouseout(e) {
@@ -197,53 +255,30 @@ title: "Local authority maps"
     };
     nearhomeLegend.addTo(mapNearHome);
 
-
     // ------------------------
-    // ORCS map (deciles) — existing behaviour
+    // LEVI/ORCS map (deciles) - previously "ORCS map" - now rendered in LEVI tab using its own topojson
     // ------------------------
 
-    // Build ORCS numeric map
-    const orcsValueByGss = new Map();
-    rows.forEach(r => {
-      const gss = r['gss-code'];
-      const val = r['ORCS-total-charging-devices'];
-      const n = (val === null || val === undefined || val === '') ? NaN : Number(val);
-      orcsValueByGss.set(gss, n);
-    });
-
-    const orcsValues = Array.from(orcsValueByGss.values()).filter(v => !isNaN(v)).sort((a,b)=>a-b);
-
-    function quantile(sortedArr, p) {
-      if (!sortedArr.length) return NaN;
-      const idx = (sortedArr.length - 1) * p;
-      const lo = Math.floor(idx);
-      const hi = Math.ceil(idx);
-      if (hi === lo) return sortedArr[lo];
-      const frac = idx - lo;
-      return sortedArr[lo] * (1 - frac) + sortedArr[hi] * frac;
-    }
-
+    const orcsValues = rows.map(r => toNum(r['ORCS-total-charging-devices'])).filter(v => !isNaN(v)).sort((a,b)=>a-b);
     const orcsThresholds = [];
     if (orcsValues.length) for (let i = 1; i <= 9; i++) orcsThresholds.push(quantile(orcsValues, i / 10));
     const orcsPalette = chroma.scale('YlGnBu').mode('lab').colors(10);
-
     function orcsDecileIndex(v) {
       if (isNaN(v)) return -1;
       for (let i = 0; i < orcsThresholds.length; i++) if (v <= orcsThresholds[i]) return i;
       return 9;
     }
 
-    // Create ORCS map
-    const mapOrcs = L.map('map-orcs').setView([54.5, -3], 5);
+    const mapLevi = L.map('map-levi').setView([54.5, -3], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(mapOrcs);
-    window.orcsMap = mapOrcs; // expose for tab invalidation
+    }).addTo(mapLevi);
+    window.leviMap = mapLevi;
 
-    const orcsLayer = L.geoJSON(geojson, {
+    const leviLayer = L.geoJSON(geoLevi, {
       style(feature) {
-        const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
-        const v = orcsValueByGss.get(code);
+        const row = getRowForFeature(feature);
+        const v = row ? toNum(row['ORCS-total-charging-devices']) : NaN;
         const idx = orcsDecileIndex(v);
         return {
           weight: 1,
@@ -254,29 +289,29 @@ title: "Local authority maps"
         };
       },
       onEachFeature(feature, layer) {
-        const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
-        const name = feature.properties && (feature.properties.LAD24NM || feature.properties.name || 'Unknown');
-        const v = orcsValueByGss.get(code);
+        const row = getRowForFeature(feature);
+        const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
+        const v = row ? row['ORCS-total-charging-devices'] : null;
         layer.on({
           mouseover(e) {
             const t = e.target;
             t.setStyle({ weight: 2, color: '#000' });
             t.bringToFront();
-            const html = `<strong>${name}</strong><br/>ORCS devices: ${isNaN(v) ? 'N/A' : v}`;
+            const html = `<strong>${name}</strong><br/>ORCS devices: ${isNaN(toNum(v)) ? 'N/A' : v}`;
             t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
           },
           mouseout(e) {
-            orcsLayer.resetStyle(e.target);
+            leviLayer.resetStyle(e.target);
             e.target.closeTooltip();
           },
           click(e) {
-            mapOrcs.fitBounds(e.target.getBounds(), { maxZoom: 12 });
+            mapLevi.fitBounds(e.target.getBounds(), { maxZoom: 12 });
           }
         });
       }
-    }).addTo(mapOrcs);
+    }).addTo(mapLevi);
 
-    // ORCS legend
+    // ORCS (LEVI tab) legend
     const orcsLegend = L.control({ position: 'bottomright' });
     orcsLegend.onAdd = function () {
       const div = L.DomUtil.create('div', 'legend');
@@ -301,29 +336,21 @@ title: "Local authority maps"
       div.appendChild(nodata);
       return div;
     };
-    orcsLegend.addTo(mapOrcs);
-    
+    orcsLegend.addTo(mapLevi);
+
     // ------------------------
     // Pavement Channels map (categorical by channel-status)
     // ------------------------
 
-    // Build status mapping (gss -> status) and collect distinct statuses
-    const statusByGss = new Map();
+    // Build status mapping (row-based) and collect distinct statuses
     const statusesSet = new Set();
     rows.forEach(r => {
-      const gss = r['gss-code'];
       let status = r['channel-status'];
       if (status === null || status === undefined || status === '') status = 'No data';
-      // Normalize small whitespace
       status = String(status).trim();
-      statusByGss.set(gss, status);
       statusesSet.add(status);
     });
-
-    // Build ordered list of distinct statuses
     const statuses = Array.from(statusesSet).sort();
-    console.log('Pavement channel statuses:', statuses);
-    // Simple categorical palette (falls back to cycling if more categories than colours)
     const baseColors = [
       '#1f78b4', '#33a02c', '#e31a1c', '#ff7f00',
       '#6a3d9a', '#b15928', '#a6cee3', '#b2df8a',
@@ -334,17 +361,16 @@ title: "Local authority maps"
       statusColor[s] = baseColors[i % baseColors.length];
     });
 
-    // Create pavement map
     const mapPav = L.map('map-pavement').setView([54.5, -3], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(mapPav);
     window.pavementMap = mapPav;
 
-    const pavLayer = L.geoJSON(geojson, {
+    const pavLayer = L.geoJSON(geoPav, {
       style(feature) {
-        const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
-        const status = statusByGss.get(code) || 'No data';
+        const row = getRowForFeature(feature);
+        const status = row ? (row['channel-status'] ? String(row['channel-status']).trim() : 'No data') : 'No data';
         const color = statusColor[status] || '#cccccc';
         return {
           weight: 1,
@@ -355,12 +381,10 @@ title: "Local authority maps"
         };
       },
       onEachFeature(feature, layer) {
-        const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
-        const name = feature.properties && (feature.properties.LAD24NM || feature.properties.name || 'Unknown');
-        const status = statusByGss.get(code) || 'No data';
-        // include grant amount if present
-        const row = rowByGss.get(code) || {};
-        const grant = row['channel-grant-amount'];
+        const row = getRowForFeature(feature);
+        const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
+        const status = row ? (row['channel-status'] ? String(row['channel-status']).trim() : 'No data') : 'No data';
+        const grant = row ? row['channel-grant-amount'] : null;
         const grantLabel = (grant === null || grant === undefined || grant === '') ? '' : `<br/>Grant amount: £${Number(grant).toLocaleString()}`;
         layer.on({
           mouseover(e) {
@@ -396,7 +420,6 @@ title: "Local authority maps"
         row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${s}`;
         div.appendChild(row);
       });
-      // No data row (if not present in statuses)
       if (!statuses.includes('No data')) {
         const nodata = document.createElement('div');
         nodata.className = 'row';
@@ -408,21 +431,20 @@ title: "Local authority maps"
     };
     pavLegend.addTo(mapPav);
 
-    // Handle tab show behaviour: invalidate map size after tab is displayed.
+    // Tab invalidation hooks
     function hookTabInvalidate(tabId, mapObj) {
       const btn = document.getElementById(tabId);
       if (!btn) return;
       btn.addEventListener('click', () => {
-        // small delay to allow tab content to become visible
         setTimeout(() => { try { mapObj.invalidateSize(); } catch (e) {/*ignore*/} }, 200);
       });
-      // If tab already active on load
       if (btn.classList.contains('tabs__tab--active') || btn.getAttribute('aria-selected') === 'true') {
         setTimeout(() => { try { mapObj.invalidateSize(); } catch (e) {/*ignore*/} }, 200);
       }
     }
-    hookTabInvalidate('tab-orcs', mapOrcs);
+    hookTabInvalidate('tab-near-home', mapNearHome);
     hookTabInvalidate('tab-pavement-channels', mapPav);
+    hookTabInvalidate('tab-levi', mapLevi);
 
   } catch (err) {
     console.error(err);
