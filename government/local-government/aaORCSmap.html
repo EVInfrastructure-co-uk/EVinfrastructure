@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "UK LAs — ORCS charging devices"
+title: "Local authority maps"
 ---
 
 <head>
@@ -33,16 +33,6 @@ title: "UK LAs — ORCS charging devices"
             aria-selected="false" aria-controls="levi" tabindex="-1">
       LEVI/EVIF/ULEVTF
     </button>
-
-    <button id="tab-orcs" class="tabs__tab" role="tab"
-            aria-selected="false" aria-controls="orcs" tabindex="-1">
-      ORCS
-    </button>
-
-    <button id="tab-levi-pilot" class="tabs__tab" role="tab"
-            aria-selected="false" aria-controls="levi-pilot" tabindex="-1">
-      LEVI pilot
-    </button>
   </div>
 
   <div id="near-home" class="tabs__panel" role="tabpanel" aria-labelledby="tab-near-home">
@@ -64,15 +54,6 @@ title: "UK LAs — ORCS charging devices"
     <h2>Local Electric Vehicle Infrastructure fund (LEVI, England),<br>Electric Vehicle Infrastructure Fund (EVIF, Scotland)<br>Ultra Low Emission Vehicle Transformation Fund (ULEVTF, Wales)</h2>
   </div>
 
-  <div id="orcs" class="tabs__panel" role="tabpanel" aria-labelledby="tab-orcs">
-    <h2>On-Street Charging Scheme (ORCS)</h2>
-
-    <div id="map-orcs" aria-label="Map of UK local authorities coloured by ORCS charging devices (deciles)"></div>
-  </div>
-
-  <div id="levi-pilot" class="tabs__panel" role="tabpanel" aria-labelledby="tab-levi-pilot">
-    <h3>Local Electric Vehicle Infrastructure Fund Pilot (England only)</h3>
-  </div>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
