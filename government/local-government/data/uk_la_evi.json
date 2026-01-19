@@ -553,7 +553,7 @@
           {
             "name": "channel-grant-status",
             "type": "string",
-            "description": "The status of an authority's application for the Pavement Channel Grant, such as applied or rejected. For those highway authorities who are not managing a pavement channel grant, this will show that the grant is assigned to a combined authority",
+            "description": "The status of an authority's application for the Pavement Channel Grant, such as applied or declined to apply. For those highway authorities who are not managing a pavement channel grant, this will show that the grant is assigned to a combined authority",
             "constraints": {
               "unique": false
             }
@@ -1686,7 +1686,7 @@
           "LEVI-tender-open-date": "20-02-2025",
           "LEVI-tender-close-date": "21-03-2025",
           "LEVI-CPO(s)": null,
-          "channel-status": "Accepted Pavement Channel Grant",
+          "channel-status": null,
           "channel-grant-amount": 56000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -1701,7 +1701,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Applied"
         },
         {
           "local-authority-code": "BDG",
@@ -1743,7 +1743,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Accepted Pavement Channel Grant",
+          "channel-status": null,
           "channel-grant-amount": 142000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -1758,7 +1758,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Applied"
         },
         {
           "local-authority-code": "BEN",
@@ -1800,7 +1800,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Accepted Pavement Channel Grant",
+          "channel-status": null,
           "channel-grant-amount": 169000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -1815,7 +1815,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Applied"
         },
         {
           "local-authority-code": "BEX",
@@ -1857,7 +1857,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Accepted Pavement Channel Grant",
+          "channel-status": null,
           "channel-grant-amount": 61000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -1872,7 +1872,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Applied"
         },
         {
           "local-authority-code": "BFS",
@@ -2199,7 +2199,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Not permitted; Accepted Pavement Channel Grant",
+          "channel-status": "Not permitted",
           "channel-grant-amount": 135000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -2214,7 +2214,7 @@
           "LEVI-pilot-capital-amount": 2077000,
           "LEVI-pilot-CPO(s)": "JOLT",
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Applied"
         },
         {
           "local-authority-code": "BNH",
@@ -2256,7 +2256,7 @@
           "LEVI-tender-open-date": "29-08-2024",
           "LEVI-tender-close-date": "24-10-2024",
           "LEVI-CPO(s)": "Char.gy",
-          "channel-status": "Not permitted; Accepted Pavement Channel Grant",
+          "channel-status": "Not permitted",
           "channel-grant-amount": 187000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -2271,7 +2271,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Applied"
         },
         {
           "local-authority-code": "BNS",
@@ -2541,7 +2541,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Accepted Pavement Channel Grant",
+          "channel-status": null,
           "channel-grant-amount": 93000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -2556,7 +2556,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Applied"
         },
         {
           "local-authority-code": "BCPD",
@@ -2769,7 +2769,7 @@
           "LEVI-tender-open-date": "10-09-2025",
           "LEVI-tender-close-date": "04-12-2025",
           "LEVI-CPO(s)": null,
-          "channel-status": "Accepted Pavement Channel Grant",
+          "channel-status": null,
           "channel-grant-amount": 50000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -2784,7 +2784,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Applied"
         },
         {
           "local-authority-code": "BRD",
@@ -4878,7 +4878,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Permitted; Rejected Pavement Channel Grant",
+          "channel-status": "Permitted",
           "channel-grant-amount": 238000,
           "channel-application-fee": 175,
           "channel-installation-fee": "varies",
@@ -4893,7 +4893,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "COT",
@@ -6360,7 +6360,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Not permitted; Rejected Pavement Channel Grant",
+          "channel-status": "Not permitted",
           "channel-grant-amount": 195000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -6375,7 +6375,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "EAS",
@@ -9495,7 +9495,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Not permitted; Rejected Pavement Channel Grant",
+          "channel-status": "Not permitted",
           "channel-grant-amount": 141000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -9510,7 +9510,7 @@
           "LEVI-pilot-capital-amount": 528500,
           "LEVI-pilot-CPO(s)": "Zest",
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "HEF",
@@ -9552,7 +9552,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Not permitted; Rejected Pavement Channel Grant",
+          "channel-status": "Not permitted",
           "channel-grant-amount": 52000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -9567,7 +9567,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "HER",
@@ -9951,7 +9951,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Not permitted; Rejected Pavement Channel Grant",
+          "channel-status": "Not permitted",
           "channel-grant-amount": 123000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -9966,7 +9966,7 @@
           "LEVI-pilot-capital-amount": 837000,
           "LEVI-pilot-CPO(s)": "JOLT",
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "HOR",
@@ -10635,7 +10635,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Not permitted; Rejected Pavement Channel Grant",
+          "channel-status": "Not permitted",
           "channel-grant-amount": 107000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -10650,7 +10650,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "IVC",
@@ -10749,7 +10749,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Not permitted; Rejected Pavement Channel Grant",
+          "channel-status": "Not permitted",
           "channel-grant-amount": 85000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -10764,7 +10764,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "KEN",
@@ -10806,7 +10806,7 @@
           "LEVI-tender-open-date": "25-11-2024",
           "LEVI-tender-close-date": "03-01-2025",
           "LEVI-CPO(s)": null,
-          "channel-status": "Trial live; Rejected Pavement Channel Grant",
+          "channel-status": "Trial live",
           "channel-grant-amount": 667000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -10821,7 +10821,7 @@
           "LEVI-pilot-capital-amount": 350000,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "KHL",
@@ -11319,7 +11319,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Not permitted; Rejected Pavement Channel Grant",
+          "channel-status": "Not permitted",
           "channel-grant-amount": 165000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -11334,7 +11334,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "LCCA",
@@ -11433,7 +11433,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Rejected Pavement Channel Grant",
+          "channel-status": null,
           "channel-grant-amount": 249000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -11448,7 +11448,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "LCR",
@@ -12003,7 +12003,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Rejected Pavement Channel Grant",
+          "channel-status": null,
           "channel-grant-amount": 50000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -12018,7 +12018,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "LP1",
@@ -13086,7 +13086,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Not permitted; Rejected Pavement Channel Grant",
+          "channel-status": "Not permitted",
           "channel-grant-amount": 149000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -13101,7 +13101,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "MEA",
@@ -13723,7 +13723,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Not permitted; Rejected Pavement Channel Grant",
+          "channel-status": "Not permitted",
           "channel-grant-amount": 71000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -13738,7 +13738,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "MRY",
@@ -19879,7 +19879,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Not permitted; Rejected Pavement Channel Grant",
+          "channel-status": "Not permitted",
           "channel-grant-amount": null,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -19894,7 +19894,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "STT",
@@ -21418,7 +21418,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Rejected Pavement Channel Grant",
+          "channel-status": null,
           "channel-grant-amount": 121000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -21433,7 +21433,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "UTT",
@@ -22273,7 +22273,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Not permitted; Rejected Pavement Channel Grant",
+          "channel-status": "Not permitted",
           "channel-grant-amount": 163000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -22288,7 +22288,7 @@
           "LEVI-pilot-capital-amount": 740000,
           "LEVI-pilot-CPO(s)": "Believ",
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "WGN",
@@ -23185,7 +23185,7 @@
           "LEVI-tender-open-date": "18-11-2024",
           "LEVI-tender-close-date": "13-01-2025",
           "LEVI-CPO(s)": "Believ",
-          "channel-status": "Not permitted; Rejected Pavement Channel Grant",
+          "channel-status": "Not permitted",
           "channel-grant-amount": 50000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -23200,7 +23200,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "WOR",
@@ -23641,7 +23641,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": "Not permitted; Rejected Pavement Channel Grant",
+          "channel-status": "Not permitted",
           "channel-grant-amount": 88000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
@@ -23656,7 +23656,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "WSX",
