@@ -11,6 +11,7 @@ title: "Local authority maps"
     .legend { background: white; padding: 6px 8px; font: 12px/1.5 sans-serif; box-shadow:0 0 8px rgba(0,0,0,0.2); }
     .legend .swatch { width:18px; height:12px; display:inline-block; margin-right:6px; vertical-align:middle; }
     .row { margin-bottom:4px; white-space:nowrap; }
+    .legend .gradient { height:12px; width:160px; background:linear-gradient(to right, red, orange, green); display:block; margin:6px 0; border:1px solid #ccc; }
   </style>
 </head>
 
@@ -38,15 +39,15 @@ title: "Local authority maps"
   <div id="near-home" class="tabs__panel" role="tabpanel" aria-labelledby="tab-near-home">
     <h2>NEVIS Near Home Charging distribution metric</h2>
 
-    <div id="map-nearhome" aria-label="Map of UK local authorities coloured by NEVIS near home charging distribution (deciles)">
-    </div>
+    <div id="map-nearhome" aria-label="Map of UK local authorities coloured by NEVIS near home charging distribution (continuous red–amber–green)">
+  </div>
 
   </div>
 
   <div id="pavement-channels" class="tabs__panel" role="tabpanel" aria-labelledby="tab-pavement-channels">
     <h2>Pavement Channels</h2>
 
-    <!-- New pavement map container -->
+    <!-- Pavement map container -->
     <div id="map-pavement" aria-label="Pavement channels map — local authorities coloured by channel status or grant amount"></div>
   </div>
 
@@ -54,7 +55,7 @@ title: "Local authority maps"
     <h2>Local Electric Vehicle Infrastructure fund (LEVI, England),<br>Electric Vehicle Infrastructure Fund (EVIF, Scotland)<br>Ultra Low Emission Vehicle Transformation Fund (ULEVTF, Wales)</h2>
 
     <!-- LEVI map container -->
-    <div id="map-levi" aria-label="LEVI/EVIF/ULEVTF map — local authorities coloured by ORCS/LEVI metric (deciles)"></div>
+    <div id="map-levi" aria-label="LEVI/EVIF/ULEVTF map — local authorities coloured by LEVI-tender-stage"></div>
   </div>
 
 </div>
@@ -65,55 +66,31 @@ title: "Local authority maps"
 
 <script>
 (async function () {
-  // CONFIG - distinct topojsons for each tab
-  const topoNearPath = '/government/local-government/data/GBlocalauthorities.topojson';
-  const topoPavementPath = '/government/local-government/data/pavementchannelauthorities.topojson';
-  const topoLeviPath = '/government/local-government/data/LEVI-EVIF-ULEVTF-authorities.topojson';
+  // CONFIG
+  const topojsonPath = '/government/local-government/data/localauthorities.topojson';
   const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
+  const topoObjectName = 'localauthorities';
 
   try {
-    // Load all three topology files and the EVI json in parallel
-    const [topoNearResp, topoPavResp, topoLeviResp, eviResp] = await Promise.all([
-      fetch(topoNearPath),
-      fetch(topoPavementPath),
-      fetch(topoLeviPath),
+    // Load both resources in parallel
+    const [topoResp, eviResp] = await Promise.all([
+      fetch(topojsonPath),
       fetch(eviJsonPath)
     ]);
-
-    if (!topoNearResp.ok) throw new Error('Near-home TopoJSON load failed: ' + topoNearResp.status);
-    if (!topoPavResp.ok) throw new Error('Pavement TopoJSON load failed: ' + topoPavResp.status);
-    if (!topoLeviResp.ok) throw new Error('LEVI TopoJSON load failed: ' + topoLeviResp.status);
+    if (!topoResp.ok) throw new Error('TopoJSON load failed: ' + topoResp.status);
     if (!eviResp.ok) throw new Error('EVI JSON load failed: ' + eviResp.status);
+    const topo = await topoResp.json();
+    const eviBundle = await eviResp.json();
 
-    const [topoNear, topoPav, topoLevi, eviBundle] = await Promise.all([
-      topoNearResp.json(),
-      topoPavResp.json(),
-      topoLeviResp.json(),
-      eviResp.json()
-    ]);
+    // Convert topology to geojson features
+    const geojson = topojson.feature(topo, topo.objects[topoObjectName]);
 
-    // helper to pick the first object name in a topojson (robust if different object names)
-    function topoFirstObjectName(topo) {
-      const keys = Object.keys(topo.objects || {});
-      return keys.length ? keys[0] : null;
-    }
-
-    // Convert each topology to GeoJSON FeatureCollection
-    const nearObjName = topoFirstObjectName(topoNear);
-    const pavObjName = topoFirstObjectName(topoPav);
-    const leviObjName = topoFirstObjectName(topoLevi);
-    if (!nearObjName || !pavObjName || !leviObjName) throw new Error('One of the topojson files has no objects');
-
-    const geoNear = topojson.feature(topoNear, topoNear.objects[nearObjName]);
-    const geoPav = topojson.feature(topoPav, topoPav.objects[pavObjName]);
-    const geoLevi = topojson.feature(topoLevi, topoLevi.objects[leviObjName]);
-
-    // Find resource row table in eviBundle
+    // Find resource row table
     const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
     if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
     const rows = resource.data;
 
-    // Build two lookup maps: by gss-code and by local-authority-code
+    // Build lookups: by gss-code and by local-authority-code (fallback)
     const rowByGss = new Map();
     const rowByLocal = new Map();
     rows.forEach(r => {
@@ -121,34 +98,34 @@ title: "Local authority maps"
       if (r['local-authority-code']) rowByLocal.set(String(r['local-authority-code']).trim(), r);
     });
 
-    // Generic helper to find the matching row for a topojson feature.
-    // It tries several possible properties for GSS or local-authority-code and returns the row or null.
+    // Helper to find Row for a topojson feature: try GSS-like properties then local-authority-code
     function getRowForFeature(feature) {
       const p = (feature && feature.properties) ? feature.properties : {};
-      const candidates = [];
-
-      // common gss-like fields
-      ['LAD24CD','CTYUA24CD','gss','gss_code','gss-code','GSS_CODE','GSS'].forEach(k=>{
-        if (p[k]) candidates.push(String(p[k]).trim());
-      });
-
-      // common local-authority-code fields
-      ['local-authority-code','local_authority_code','localAuthorityCode','LAD24CD'].forEach(k=>{
-        if (p[k]) candidates.push(String(p[k]).trim());
-      });
-
-      // Also consider any property whose key contains 'gss' or 'lad' or 'local' (best-effort)
-      Object.keys(p).forEach(k => {
-        const lk = k.toLowerCase();
-        if ((lk.includes('gss') || lk.includes('lad') || lk.includes('local')) && p[k]) {
-          candidates.push(String(p[k]).trim());
+      const candKeys = ['LAD24CD','CTYUA24CD','gss','gss_code','gss-code','GSS_CODE','GSS'];
+      for (const k of candKeys) {
+        if (p[k]) {
+          const val = String(p[k]).trim();
+          if (rowByGss.has(val)) return rowByGss.get(val);
+          if (rowByLocal.has(val)) return rowByLocal.get(val);
         }
-      });
-
-      for (const c of candidates) {
-        if (!c) continue;
-        if (rowByGss.has(c)) return rowByGss.get(c);
-        if (rowByLocal.has(c)) return rowByLocal.get(c);
+      }
+      // fallback: look for local-authority-code-like properties
+      const localKeys = ['local-authority-code','local_authority_code','localAuthorityCode','code','LAD24CD'];
+      for (const k of localKeys) {
+        if (p[k]) {
+          const val = String(p[k]).trim();
+          if (rowByLocal.has(val)) return rowByLocal.get(val);
+          if (rowByGss.has(val)) return rowByGss.get(val);
+        }
+      }
+      // best-effort: check any property names for 'gss'/'lad'/'local'
+      for (const k of Object.keys(p)) {
+        const lk = k.toLowerCase();
+        if ((lk.includes('gss') || lk.includes('lad') || lk.includes('local') || lk.includes('code')) && p[k]) {
+          const val = String(p[k]).trim();
+          if (rowByGss.has(val)) return rowByGss.get(val);
+          if (rowByLocal.has(val)) return rowByLocal.get(val);
+        }
       }
       return null;
     }
@@ -161,53 +138,36 @@ title: "Local authority maps"
     }
 
     // ------------------------
-    // NEVIS map (deciles)
+    // NEVIS map (continuous red->amber->green)
     // ------------------------
 
-    // Gather numeric NEVIS values from rows
+    // Build NEVIS numeric array
     const nearhomeValues = rows.map(r => toNum(r['NEVIS-distribution'])).filter(v => !isNaN(v)).sort((a,b)=>a-b);
 
-    function quantile(sortedArr, p) {
-      if (!sortedArr.length) return NaN;
-      const idx = (sortedArr.length - 1) * p;
-      const lo = Math.floor(idx);
-      const hi = Math.ceil(idx);
-      if (hi === lo) return sortedArr[lo];
-      const frac = idx - lo;
-      return sortedArr[lo] * (1 - frac) + sortedArr[hi] * frac;
-    }
-
-    const nearhomeThresholds = [];
-    if (nearhomeValues.length) for (let i = 1; i <= 9; i++) nearhomeThresholds.push(quantile(nearhomeValues, i / 10));
-    const nearhomePalette = chroma.scale('YlGnBu').mode('lab').colors(10);
-    function nearhomeDecileIndex(v) {
-      if (isNaN(v)) return -1;
-      for (let i = 0; i < nearhomeThresholds.length; i++) if (v <= nearhomeThresholds[i]) return i;
-      return 9;
-    }
+    // continuous colour scale: red -> amber -> green mapped over 0..100
+    const nearScale = chroma.scale(['#d7191c', '#fdae61', '#1a9641']).mode('lab').domain([0,100]);
 
     const mapNearHome = L.map('map-nearhome').setView([54.5, -3], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'Office for National Statistics licensed under the Open Government Licence v.3.0 (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
+      attribution: '&copy; OpenStreetMap contributors'
     }).addTo(mapNearHome);
-    window.nearhomeMap = mapNearHome;
+    window.nearhomeMap = mapNearHome; // expose for tab invalidation
 
-    const nearhomeLayer = L.geoJSON(geoNear, {
+    const nearhomeLayer = L.geoJSON(geojson, {
       style(feature) {
         const row = getRowForFeature(feature);
         const v = row ? toNum(row['NEVIS-distribution']) : NaN;
-        const idx = nearhomeDecileIndex(v);
         return {
           weight: 1,
           color: '#444',
           opacity: 1,
-          fillOpacity: idx === -1 ? 0.15 : 0.85,
-          fillColor: idx === -1 ? '#cccccc' : nearhomePalette[idx]
+          fillOpacity: isNaN(v) ? 0.15 : 0.85,
+          fillColor: isNaN(v) ? '#cccccc' : nearScale(Math.max(0, Math.min(100, v))).hex()
         };
       },
       onEachFeature(feature, layer) {
         const row = getRowForFeature(feature);
-        const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
+        const name = feature.properties && (feature.properties.LAD24NM || feature.properties.name || 'Unknown');
         const v = row ? row['NEVIS-distribution'] : null;
         layer.on({
           mouseover(e) {
@@ -228,24 +188,27 @@ title: "Local authority maps"
       }
     }).addTo(mapNearHome);
 
-    // Near home legend
+    // Near home legend (continuous)
     const nearhomeLegend = L.control({ position: 'bottomright' });
     nearhomeLegend.onAdd = function () {
       const div = L.DomUtil.create('div', 'legend');
       div.setAttribute('role', 'group');
-      div.setAttribute('aria-label', 'Near home decile legend');
-      if (!nearhomeValues.length) { div.innerHTML = '<strong>NEVIS Near Home distribution</strong><br/>No data'; return div; }
-      div.innerHTML = '<strong>NEVIS Near home distribution (deciles)</strong><br/>';
-      let lower = nearhomeValues[0];
-      for (let i = 0; i < 10; i++) {
-        const color = nearhomePalette[i];
-        const upper = (i < 9) ? nearhomeThresholds[i] : nearhomeValues[nearhomeValues.length - 1];
-        const row = document.createElement('div');
-        row.className = 'row';
-        row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${Math.round(lower)} – ${Math.round(upper)}`;
-        div.appendChild(row);
-        lower = (i < 9) ? (nearhomeThresholds[i] + Number.EPSILON) : upper;
-      }
+      div.setAttribute('aria-label', 'Near home continuous legend');
+      div.innerHTML = '<strong>NEVIS Near home distribution</strong><br/>';
+      // gradient bar
+      const grad = document.createElement('div');
+      grad.className = 'gradient';
+      // create a canvas-like gradient using inline style consistent with the colour scale
+      // fallback gradient uses same colours as nearScale
+      grad.style.background = 'linear-gradient(to right, #d7191c, #fdae61, #1a9641)';
+      div.appendChild(grad);
+      // labels
+      const lbls = document.createElement('div');
+      lbls.style.display = 'flex';
+      lbls.style.justifyContent = 'space-between';
+      lbls.style.fontSize = '11px';
+      lbls.innerHTML = '<span>0</span><span>50</span><span>100</span>';
+      div.appendChild(lbls);
       const nodata = document.createElement('div');
       nodata.className = 'row';
       nodata.style.marginTop = '6px';
@@ -255,122 +218,70 @@ title: "Local authority maps"
     };
     nearhomeLegend.addTo(mapNearHome);
 
-    // ------------------------
-    // LEVI/ORCS map (deciles) - previously "ORCS map" - now rendered in LEVI tab using its own topojson
-    // ------------------------
-
-    const orcsValues = rows.map(r => toNum(r['ORCS-total-charging-devices'])).filter(v => !isNaN(v)).sort((a,b)=>a-b);
-    const orcsThresholds = [];
-    if (orcsValues.length) for (let i = 1; i <= 9; i++) orcsThresholds.push(quantile(orcsValues, i / 10));
-    const orcsPalette = chroma.scale('YlGnBu').mode('lab').colors(10);
-    function orcsDecileIndex(v) {
-      if (isNaN(v)) return -1;
-      for (let i = 0; i < orcsThresholds.length; i++) if (v <= orcsThresholds[i]) return i;
-      return 9;
-    }
-
-    const mapLevi = L.map('map-levi').setView([54.5, -3], 5);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'Office for National Statistics licensed under the Open Government Licence v.3.0 (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
-    }).addTo(mapLevi);
-    window.leviMap = mapLevi;
-
-    const leviLayer = L.geoJSON(geoLevi, {
-      style(feature) {
-        const row = getRowForFeature(feature);
-        const v = row ? toNum(row['ORCS-total-charging-devices']) : NaN;
-        const idx = orcsDecileIndex(v);
-        return {
-          weight: 1,
-          color: '#444',
-          opacity: 1,
-          fillOpacity: idx === -1 ? 0.15 : 0.85,
-          fillColor: idx === -1 ? '#cccccc' : orcsPalette[idx]
-        };
-      },
-      onEachFeature(feature, layer) {
-        const row = getRowForFeature(feature);
-        const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
-        const v = row ? row['ORCS-total-charging-devices'] : null;
-        layer.on({
-          mouseover(e) {
-            const t = e.target;
-            t.setStyle({ weight: 2, color: '#000' });
-            t.bringToFront();
-            const html = `<strong>${name}</strong><br/>ORCS devices: ${isNaN(toNum(v)) ? 'N/A' : v}`;
-            t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
-          },
-          mouseout(e) {
-            leviLayer.resetStyle(e.target);
-            e.target.closeTooltip();
-          },
-          click(e) {
-            mapLevi.fitBounds(e.target.getBounds(), { maxZoom: 12 });
-          }
-        });
-      }
-    }).addTo(mapLevi);
-
-    // ORCS (LEVI tab) legend
-    const orcsLegend = L.control({ position: 'bottomright' });
-    orcsLegend.onAdd = function () {
-      const div = L.DomUtil.create('div', 'legend');
-      div.setAttribute('role', 'group');
-      div.setAttribute('aria-label', 'ORCS devices decile legend');
-      if (!orcsValues.length) { div.innerHTML = '<strong>ORCS devices</strong><br/>No data'; return div; }
-      div.innerHTML = '<strong>ORCS devices (deciles)</strong><br/>';
-      let lower = orcsValues[0];
-      for (let i = 0; i < 10; i++) {
-        const color = orcsPalette[i];
-        const upper = (i < 9) ? orcsThresholds[i] : orcsValues[orcsValues.length - 1];
-        const row = document.createElement('div');
-        row.className = 'row';
-        row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${Math.round(lower)} – ${Math.round(upper)}`;
-        div.appendChild(row);
-        lower = (i < 9) ? (orcsThresholds[i] + Number.EPSILON) : upper;
-      }
-      const nodata = document.createElement('div');
-      nodata.className = 'row';
-      nodata.style.marginTop = '6px';
-      nodata.innerHTML = `<span class="swatch" style="background:#cccccc"></span> No data`;
-      div.appendChild(nodata);
-      return div;
-    };
-    orcsLegend.addTo(mapLevi);
 
     // ------------------------
-    // Pavement Channels map (categorical by channel-status)
+    // Pavement Channels map (categorical)
+    // - "Permitted" -> dark green
+    // - "Not permitted" -> red
+    // - values containing "trial" (case-insensitive) -> various shades of amber
     // ------------------------
 
-    // Build status mapping (row-based) and collect distinct statuses
+    // Build status mapping (gss -> status) and collect distinct statuses
+    const statusByGss = new Map();
     const statusesSet = new Set();
     rows.forEach(r => {
+      const gss = r['gss-code'];
       let status = r['channel-status'];
       if (status === null || status === undefined || status === '') status = 'No data';
       status = String(status).trim();
+      statusByGss.set(gss, status);
       statusesSet.add(status);
     });
+
     const statuses = Array.from(statusesSet).sort();
-    const baseColors = [
-      '#1f78b4', '#33a02c', '#e31a1c', '#ff7f00',
-      '#6a3d9a', '#b15928', '#a6cee3', '#b2df8a',
-      '#fb9a99', '#fdbf6f', '#cab2d6', '#ffff99'
-    ];
+    // palettes
+    const amberPalette = ['#ffb84d', '#ffbf66', '#ffc87f', '#ffd399']; // various ambers
+    const redPalette = ['#a50f15','#d73027','#f46d43','#fdae61']; // shades of red
+    const permittedColor = '#006400'; // dark green
+    const notPermittedColor = '#d73027'; // red
+
+    // Build status->colour mapping
     const statusColor = {};
     statuses.forEach((s, i) => {
-      statusColor[s] = baseColors[i % baseColors.length];
+      const sl = s.toLowerCase();
+      if (s === 'Permitted' || sl === 'permitted') {
+        statusColor[s] = permittedColor;
+      } else if (s === 'Not permitted' || sl === 'not permitted' || sl === 'not-permitted') {
+        statusColor[s] = notPermittedColor;
+      } else if (sl.includes('trial')) {
+        // pick an amber shade based on index among trial statuses
+        // find all statuses that include 'trial' and map consistently
+        const trialStatuses = statuses.filter(ss => ss.toLowerCase().includes('trial'));
+        const idx = trialStatuses.indexOf(s);
+        statusColor[s] = amberPalette[idx % amberPalette.length];
+      } else if (s === 'No data') {
+        statusColor[s] = '#cccccc';
+      } else {
+        // other values -> shades of red, choose by index among "other" statuses
+        const otherStatuses = statuses.filter(ss => {
+          const l = ss.toLowerCase();
+          return !(l === 'permitted' || l === 'not permitted' || l.includes('trial') || ss === 'No data');
+        });
+        const idx = otherStatuses.indexOf(s);
+        statusColor[s] = redPalette[idx % redPalette.length] || '#d73027';
+      }
     });
 
     const mapPav = L.map('map-pavement').setView([54.5, -3], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; CENEX NEVIS 2025; Office for National Statistics licensed under the Open Government Licence v.3.0 (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
+      attribution: '&copy; OpenStreetMap contributors'
     }).addTo(mapPav);
     window.pavementMap = mapPav;
 
-    const pavLayer = L.geoJSON(geoPav, {
+    const pavLayer = L.geoJSON(geojson, {
       style(feature) {
-        const row = getRowForFeature(feature);
-        const status = row ? (row['channel-status'] ? String(row['channel-status']).trim() : 'No data') : 'No data';
+        const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
+        const status = statusByGss.get(code) || 'No data';
         const color = statusColor[status] || '#cccccc';
         return {
           weight: 1,
@@ -381,10 +292,13 @@ title: "Local authority maps"
         };
       },
       onEachFeature(feature, layer) {
-        const row = getRowForFeature(feature);
-        const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
-        const status = row ? (row['channel-status'] ? String(row['channel-status']).trim() : 'No data') : 'No data';
-        const grant = row ? row['channel-grant-amount'] : null;
+        const code = feature.properties && (feature.properties.LAD24CD || feature.properties.gss || feature.properties.gss_code);
+        const name = feature.properties && (feature.properties.LAD24NM || feature.properties.name || 'Unknown');
+        const status = statusByGss.get(code) || 'No data';
+        // include grant amount if present
+        // try to find the row by code (gss) or fallback to local-authority-code via getRowForFeature
+        const row = rowByGss.get(code) || getRowForFeature(feature) || {};
+        const grant = row['channel-grant-amount'];
         const grantLabel = (grant === null || grant === undefined || grant === '') ? '' : `<br/>Grant amount: £${Number(grant).toLocaleString()}`;
         layer.on({
           mouseover(e) {
@@ -413,31 +327,144 @@ title: "Local authority maps"
       div.setAttribute('aria-label', 'Pavement channels status legend');
       if (!statuses.length) { div.innerHTML = '<strong>Pavement channels</strong><br/>No data'; return div; }
       div.innerHTML = '<strong>Pavement channels</strong><br/>';
-      statuses.forEach(s => {
+      // show Permitted first, Not permitted second, then trials, then others
+      const ordered = [];
+      if (statuses.includes('Permitted')) ordered.push('Permitted');
+      if (statuses.includes('Not permitted')) ordered.push('Not permitted');
+      statuses.filter(s => s.toLowerCase().includes('trial')).forEach(s => ordered.push(s));
+      statuses.filter(s => !ordered.includes(s) && s !== 'No data').forEach(s => ordered.push(s));
+      if (!ordered.includes('No data')) ordered.push('No data');
+
+      ordered.forEach(s => {
         const color = statusColor[s] || '#cccccc';
         const row = document.createElement('div');
         row.className = 'row';
         row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${s}`;
         div.appendChild(row);
       });
-      if (!statuses.includes('No data')) {
-        const nodata = document.createElement('div');
-        nodata.className = 'row';
-        nodata.style.marginTop = '6px';
-        nodata.innerHTML = `<span class="swatch" style="background:#cccccc"></span> No data`;
-        div.appendChild(nodata);
-      }
       return div;
     };
     pavLegend.addTo(mapPav);
 
-    // Tab invalidation hooks
+
+    // ------------------------
+    // LEVI map — categorical by LEVI-tender-stage
+    // - "Awarded" => dark green
+    // - "Yet to award" => light green
+    // - "Tender live" => amber
+    // - other values => shades of red
+    // ------------------------
+
+    // collect tender-stage values from rows
+    const tenderStagesSet = new Set();
+    rows.forEach(r => {
+      let s = r['LEVI-tender-stage'];
+      if (s === null || s === undefined || s === '') s = 'No data';
+      tenderStagesSet.add(String(s).trim());
+    });
+    const tenderStages = Array.from(tenderStagesSet).sort();
+
+    const leviColorMap = {};
+    const darkGreen = '#006400';
+    const lightGreen = '#8bc34a';
+    const amber = '#ffbf00';
+    const otherReds = ['#a50f15','#d73027','#f46d43','#fdae61'];
+
+    tenderStages.forEach((stage, i) => {
+      const sl = String(stage).trim();
+      if (sl.toLowerCase() === 'awarded') {
+        leviColorMap[stage] = darkGreen;
+      } else if (sl.toLowerCase() === 'yet to award' || sl.toLowerCase() === 'yet to be awarded' || sl.toLowerCase() === 'yet to award ') {
+        leviColorMap[stage] = lightGreen;
+      } else if (sl.toLowerCase().includes('tender live') || sl.toLowerCase().includes('tender')) {
+        leviColorMap[stage] = amber;
+      } else if (sl === 'No data') {
+        leviColorMap[stage] = '#cccccc';
+      } else {
+        // other -> shades of red
+        const otherIdx = tenderStages.filter(ss => !['awarded','yet to award','no data'].includes(String(ss).toLowerCase()) && !String(ss).toLowerCase().includes('tender')).indexOf(stage);
+        leviColorMap[stage] = otherReds[(otherIdx >= 0 ? otherIdx : i) % otherReds.length];
+      }
+    });
+
+    const mapLevi = L.map('map-levi').setView([54.5, -3], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(mapLevi);
+    window.leviMap = mapLevi;
+
+    const leviLayer = L.geoJSON(geojson, {
+      style(feature) {
+        const row = getRowForFeature(feature);
+        const stage = row ? (row['LEVI-tender-stage'] === null || row['LEVI-tender-stage'] === undefined || row['LEVI-tender-stage'] === '' ? 'No data' : String(row['LEVI-tender-stage']).trim()) : 'No data';
+        const color = leviColorMap[stage] || '#d73027';
+        return {
+          weight: 1,
+          color: '#444',
+          opacity: 1,
+          fillOpacity: stage === 'No data' ? 0.15 : 0.85,
+          fillColor: color
+        };
+      },
+      onEachFeature(feature, layer) {
+        const row = getRowForFeature(feature);
+        const name = feature.properties && (feature.properties.LAD24NM || feature.properties.name || 'Unknown');
+        const stage = row ? (row['LEVI-tender-stage'] === null || row['LEVI-tender-stage'] === undefined || row['LEVI-tender-stage'] === '' ? 'No data' : String(row['LEVI-tender-stage']).trim()) : 'No data';
+        layer.on({
+          mouseover(e) {
+            const t = e.target;
+            t.setStyle({ weight: 2, color: '#000' });
+            t.bringToFront();
+            const html = `<strong>${name}</strong><br/>LEVI tender stage: ${stage}`;
+            t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
+          },
+          mouseout(e) {
+            leviLayer.resetStyle(e.target);
+            e.target.closeTooltip();
+          },
+          click(e) {
+            mapLevi.fitBounds(e.target.getBounds(), { maxZoom: 12 });
+          }
+        });
+      }
+    }).addTo(mapLevi);
+
+    // LEVI legend (categorical)
+    const leviLegend = L.control({ position: 'bottomright' });
+    leviLegend.onAdd = function () {
+      const div = L.DomUtil.create('div', 'legend');
+      div.setAttribute('role', 'group');
+      div.setAttribute('aria-label', 'LEVI tender stage legend');
+      if (!tenderStages.length) { div.innerHTML = '<strong>LEVI tender stage</strong><br/>No data'; return div; }
+      div.innerHTML = '<strong>LEVI tender stage</strong><br/>';
+      // Order: Awarded, Yet to award, Tender live, then others
+      const ordered = [];
+      tenderStages.forEach(s => { if (String(s).toLowerCase() === 'awarded') ordered.push(s); });
+      tenderStages.forEach(s => { if (String(s).toLowerCase() === 'yet to award' || String(s).toLowerCase().includes('yet to')) ordered.push(s); });
+      tenderStages.forEach(s => { if (String(s).toLowerCase().includes('tender')) ordered.push(s); });
+      tenderStages.forEach(s => { if (!ordered.includes(s)) ordered.push(s); });
+
+      ordered.forEach(s => {
+        const color = leviColorMap[s] || '#d73027';
+        const row = document.createElement('div');
+        row.className = 'row';
+        row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${s}`;
+        div.appendChild(row);
+      });
+      return div;
+    };
+    leviLegend.addTo(mapLevi);
+
+
+    // Handle tab show behaviour: invalidate map size after tab is displayed.
     function hookTabInvalidate(tabId, mapObj) {
       const btn = document.getElementById(tabId);
       if (!btn) return;
       btn.addEventListener('click', () => {
+        // small delay to allow tab content to become visible
         setTimeout(() => { try { mapObj.invalidateSize(); } catch (e) {/*ignore*/} }, 200);
       });
+      // If tab already active on load
       if (btn.classList.contains('tabs__tab--active') || btn.getAttribute('aria-selected') === 'true') {
         setTimeout(() => { try { mapObj.invalidateSize(); } catch (e) {/*ignore*/} }, 200);
       }
