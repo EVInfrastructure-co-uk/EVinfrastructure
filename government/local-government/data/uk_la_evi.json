@@ -549,6 +549,14 @@
             "constraints": {
               "unique": false
             }
+          },
+          {
+            "name": "channel-grant-status",
+            "type": "string",
+            "description": "The status of an authority's application for the Pavement Channel Grant, such as applied or rejected. For those highway authorities who are not managing a pavement channel grant, this will show that the grant is assigned to a combined authority",
+            "constraints": {
+              "unique": false
+            }
           }
         ]
       },
@@ -609,7 +617,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ABD",
@@ -665,7 +674,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ABE",
@@ -721,7 +731,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ADU",
@@ -777,7 +788,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "AGB",
@@ -833,7 +845,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "AGY",
@@ -889,7 +902,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "AMB",
@@ -945,7 +959,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "AND",
@@ -1001,7 +1016,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ANN",
@@ -1057,7 +1073,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ANS",
@@ -1113,7 +1130,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ARU",
@@ -1169,7 +1187,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ASF",
@@ -1225,7 +1244,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ASH",
@@ -1281,7 +1301,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BAB",
@@ -1337,7 +1358,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BAE",
@@ -1393,7 +1415,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BAI",
@@ -1449,7 +1472,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BAN",
@@ -1505,7 +1529,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BAS",
@@ -1561,7 +1586,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BBD",
@@ -1617,7 +1643,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BDF",
@@ -1673,7 +1700,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BDG",
@@ -1729,7 +1757,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BEN",
@@ -1785,7 +1814,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BEX",
@@ -1841,7 +1871,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BFS",
@@ -1897,7 +1928,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BGE",
@@ -1953,7 +1985,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BGW",
@@ -2009,7 +2042,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BIR",
@@ -2065,7 +2099,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BLA",
@@ -2121,7 +2156,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BNE",
@@ -2177,7 +2213,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 2077000,
           "LEVI-pilot-CPO(s)": "JOLT",
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BNH",
@@ -2233,7 +2270,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BNS",
@@ -2289,7 +2327,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BOL",
@@ -2345,7 +2384,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BOS",
@@ -2401,7 +2441,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BOT",
@@ -2457,7 +2498,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BPC",
@@ -2513,7 +2555,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BCPD",
@@ -2569,7 +2612,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BPL",
@@ -2625,7 +2669,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BRA",
@@ -2681,7 +2726,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BRC",
@@ -2737,7 +2783,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BRD",
@@ -2793,7 +2840,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BRE",
@@ -2849,7 +2897,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BRM",
@@ -2905,7 +2954,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BRO",
@@ -2961,7 +3011,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BRT",
@@ -3017,7 +3068,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BRW",
@@ -3073,7 +3125,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BRX",
@@ -3129,7 +3182,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BRY",
@@ -3185,7 +3239,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BST",
@@ -3241,7 +3296,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BUC",
@@ -3297,7 +3353,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 70200,
           "LEVI-pilot-CPO(s)": "Char.gy",
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BUN",
@@ -3353,7 +3410,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BUR",
@@ -3409,7 +3467,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CAB",
@@ -3465,7 +3524,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CAM",
@@ -3521,7 +3581,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CAN",
@@ -3577,7 +3638,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CAS",
@@ -3633,7 +3695,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CAT",
@@ -3689,7 +3752,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CAY",
@@ -3745,7 +3809,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CBD",
@@ -3801,7 +3866,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 703000,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CBF",
@@ -3857,7 +3923,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CCG",
@@ -3913,7 +3980,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CGN",
@@ -3969,7 +4037,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CHA",
@@ -4025,7 +4094,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CHE",
@@ -4081,7 +4151,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CHI",
@@ -4137,7 +4208,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CHL",
@@ -4193,7 +4265,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CHO",
@@ -4249,7 +4322,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CHR",
@@ -4305,7 +4379,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CHS",
@@ -4361,7 +4436,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CHT",
@@ -4417,7 +4493,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CHW",
@@ -4473,7 +4550,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CLD",
@@ -4529,7 +4607,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CLK",
@@ -4585,7 +4664,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CMD",
@@ -4641,7 +4721,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CMN",
@@ -4697,7 +4778,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "COL",
@@ -4753,7 +4835,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CON",
@@ -4809,7 +4892,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "COT",
@@ -4865,7 +4949,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "COV",
@@ -4921,7 +5006,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CPCA",
@@ -4977,7 +5063,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CCR",
@@ -5033,7 +5120,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CRF",
@@ -5089,7 +5177,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CRW",
@@ -5145,7 +5234,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CRY",
@@ -5201,7 +5291,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CWY",
@@ -5257,7 +5348,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DAC",
@@ -5313,7 +5405,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DAL",
@@ -5369,7 +5462,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DAR",
@@ -5425,7 +5519,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DBY",
@@ -5481,7 +5576,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DEB",
@@ -5537,7 +5633,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DEN",
@@ -5593,7 +5690,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DER",
@@ -5649,7 +5747,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DEV",
@@ -5705,7 +5804,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DGY",
@@ -5761,7 +5861,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DNC",
@@ -5817,7 +5918,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DND",
@@ -5873,7 +5975,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DOV",
@@ -5929,7 +6032,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DRS",
@@ -5985,7 +6089,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DST",
@@ -6041,7 +6146,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 1020000,
           "LEVI-pilot-CPO(s)": "Mer",
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DUD",
@@ -6097,7 +6203,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DUR",
@@ -6153,7 +6260,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 4375000,
           "LEVI-pilot-CPO(s)": "Mer, Zest",
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DVT",
@@ -6209,7 +6317,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "EAL",
@@ -6265,7 +6374,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "EAS",
@@ -6321,7 +6431,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "EAT",
@@ -6377,7 +6488,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "EAY",
@@ -6433,7 +6545,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ECA",
@@ -6489,7 +6602,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "EDE",
@@ -6545,7 +6659,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "EDH",
@@ -6601,7 +6716,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "EDU",
@@ -6657,7 +6773,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "EHA",
@@ -6713,7 +6830,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "EHE",
@@ -6769,7 +6887,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ELI",
@@ -6825,7 +6944,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ELM",
@@ -6881,7 +7001,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ELN",
@@ -6937,7 +7058,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ELS",
@@ -6993,7 +7115,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "EMCA",
@@ -7049,7 +7172,8 @@
           "combined-authority-type": "Pavement Channel Grant authority",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ENF",
@@ -7105,7 +7229,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "EPP",
@@ -7161,7 +7286,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "EPS",
@@ -7217,7 +7343,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ERE",
@@ -7273,7 +7400,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ERW",
@@ -7329,7 +7457,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ERY",
@@ -7385,7 +7514,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ESK",
@@ -7441,7 +7571,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ESS",
@@ -7497,7 +7628,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "EST",
@@ -7553,7 +7685,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ESX",
@@ -7609,7 +7742,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "EXE",
@@ -7665,7 +7799,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "FAL",
@@ -7721,7 +7856,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "FAR",
@@ -7777,7 +7913,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "FEN",
@@ -7833,7 +7970,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "FIF",
@@ -7889,7 +8027,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "FLN",
@@ -7945,7 +8084,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "FMO",
@@ -8001,7 +8141,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "FOE",
@@ -8057,7 +8198,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "FYL",
@@ -8113,7 +8255,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "GAT",
@@ -8169,7 +8312,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "GED",
@@ -8225,7 +8369,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "GLCA",
@@ -8281,7 +8426,8 @@
           "combined-authority-type": "Pavement Channel Grant authority",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "GLG",
@@ -8337,7 +8483,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "GLO",
@@ -8393,7 +8540,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "GLS",
@@ -8449,7 +8597,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "GMCA",
@@ -8505,7 +8654,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "GOS",
@@ -8561,7 +8711,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "GRA",
@@ -8617,7 +8768,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "GRE",
@@ -8673,7 +8825,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "GRT",
@@ -8729,7 +8882,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "GRY",
@@ -8785,7 +8939,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "GWN",
@@ -8841,7 +8996,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HAA",
@@ -8897,7 +9053,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HAL",
@@ -8953,7 +9110,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HAM",
@@ -9009,7 +9167,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HAO",
@@ -9065,7 +9224,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 1141073,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HAR",
@@ -9121,7 +9281,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HAS",
@@ -9177,7 +9338,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HAT",
@@ -9233,7 +9395,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HAV",
@@ -9289,7 +9452,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HCK",
@@ -9345,7 +9509,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 528500,
           "LEVI-pilot-CPO(s)": "Zest",
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HEF",
@@ -9401,7 +9566,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HER",
@@ -9457,7 +9623,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HIG",
@@ -9513,7 +9680,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HIL",
@@ -9569,7 +9737,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HIN",
@@ -9625,7 +9794,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HLD",
@@ -9681,7 +9851,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HMF",
@@ -9737,7 +9908,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HNS",
@@ -9793,7 +9965,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 837000,
           "LEVI-pilot-CPO(s)": "JOLT",
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HOR",
@@ -9849,7 +10022,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HPL",
@@ -9905,7 +10079,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HRT",
@@ -9961,7 +10136,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HRW",
@@ -10017,7 +10193,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HRY",
@@ -10073,7 +10250,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HUN",
@@ -10129,7 +10307,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HYCA",
@@ -10185,7 +10364,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "HYN",
@@ -10241,7 +10421,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "IOS",
@@ -10297,7 +10478,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "IOW",
@@ -10353,7 +10535,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "IPS",
@@ -10409,7 +10592,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ISL",
@@ -10465,7 +10649,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "IVC",
@@ -10521,7 +10706,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "KEC",
@@ -10577,7 +10763,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "KEN",
@@ -10633,7 +10820,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 350000,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "KHL",
@@ -10689,7 +10877,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "KIN",
@@ -10745,7 +10934,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "KIR",
@@ -10801,7 +10991,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "KTT",
@@ -10857,7 +11048,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "KWL",
@@ -10913,7 +11105,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LAC",
@@ -10969,7 +11162,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LAN",
@@ -11025,7 +11219,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 500000,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LBC",
@@ -11081,7 +11276,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LBH",
@@ -11137,7 +11333,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LCCA",
@@ -11193,7 +11390,8 @@
           "combined-authority-type": "Pavement Channel Grant authority",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LCE",
@@ -11249,7 +11447,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LCR",
@@ -11305,7 +11504,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LDS",
@@ -11361,7 +11561,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LEC",
@@ -11417,7 +11618,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LEE",
@@ -11473,7 +11675,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LEW",
@@ -11529,7 +11732,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LIC",
@@ -11585,7 +11789,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LIF",
@@ -11641,7 +11846,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LIN",
@@ -11697,7 +11903,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LIV",
@@ -11753,7 +11960,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LND",
@@ -11809,7 +12017,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LP1",
@@ -11865,7 +12074,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LP2",
@@ -11921,7 +12131,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LP3",
@@ -11977,7 +12188,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LP4",
@@ -12033,7 +12245,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LP5",
@@ -12089,7 +12302,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LP6",
@@ -12145,7 +12359,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LP7",
@@ -12201,7 +12416,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LP8",
@@ -12257,7 +12473,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LP9",
@@ -12313,7 +12530,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LP10",
@@ -12369,7 +12587,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LUT",
@@ -12425,7 +12644,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MAI",
@@ -12481,7 +12701,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MAL",
@@ -12537,7 +12758,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MAN",
@@ -12593,7 +12815,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MAS",
@@ -12649,7 +12872,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MAV",
@@ -12705,7 +12929,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MDB",
@@ -12761,7 +12986,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MDE",
@@ -12817,7 +13043,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MDW",
@@ -12873,7 +13100,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MEA",
@@ -12929,7 +13157,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MEL",
@@ -12985,7 +13214,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MC1",
@@ -13045,7 +13275,8 @@
           "combined-authority-type": "LEVI pilot partnership",
           "LEVI-pilot-capital-amount": 948084,
           "LEVI-pilot-CPO(s)": "Wenea",
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MC2",
@@ -13101,7 +13332,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MC3",
@@ -13160,7 +13392,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MC4",
@@ -13219,7 +13452,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MIK",
@@ -13275,7 +13509,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MLN",
@@ -13331,7 +13566,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MOL",
@@ -13387,7 +13623,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MON",
@@ -13443,7 +13680,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MRT",
@@ -13499,7 +13737,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MRY",
@@ -13555,7 +13794,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MSS",
@@ -13611,7 +13851,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MSU",
@@ -13667,7 +13908,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MTY",
@@ -13723,7 +13965,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "MUL",
@@ -13779,7 +14022,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NAY",
@@ -13835,7 +14079,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NBL",
@@ -13891,7 +14136,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NDE",
@@ -13947,7 +14193,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NEA",
@@ -14003,7 +14250,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NEC",
@@ -14059,7 +14307,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NECA",
@@ -14115,7 +14364,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NED",
@@ -14171,7 +14421,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NEL",
@@ -14227,7 +14478,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NET",
@@ -14283,7 +14535,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NEW",
@@ -14339,7 +14592,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NFK",
@@ -14395,7 +14649,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 1102630,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NGM",
@@ -14451,7 +14706,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NHE",
@@ -14507,7 +14763,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NKE",
@@ -14563,7 +14820,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NLK",
@@ -14619,7 +14877,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NLN",
@@ -14675,7 +14934,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NMD",
@@ -14731,7 +14991,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NNO",
@@ -14787,7 +15048,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NNT",
@@ -14843,7 +15105,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NOW",
@@ -14899,7 +15162,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NSM",
@@ -14955,7 +15219,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NTL",
@@ -15011,7 +15276,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NTT",
@@ -15067,7 +15333,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 774000,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NTY",
@@ -15123,7 +15390,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NUN",
@@ -15179,7 +15447,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NWA",
@@ -15235,7 +15504,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NWL",
@@ -15291,7 +15561,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NWM",
@@ -15347,7 +15618,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NWP",
@@ -15403,7 +15675,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NYE",
@@ -15459,7 +15732,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 3237550,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "OAD",
@@ -15515,7 +15789,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "OLD",
@@ -15571,7 +15846,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ORK",
@@ -15627,7 +15903,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "OXF",
@@ -15683,7 +15960,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 698407,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "OXO",
@@ -15739,7 +16017,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "PEM",
@@ -15795,7 +16074,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "PEN",
@@ -15851,7 +16131,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "PKN",
@@ -15907,7 +16188,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "PLY",
@@ -15963,7 +16245,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "POR",
@@ -16019,7 +16302,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "POW",
@@ -16075,7 +16359,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "PRE",
@@ -16131,7 +16416,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "PTE",
@@ -16187,7 +16473,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "RCC",
@@ -16243,7 +16530,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "RCH",
@@ -16299,7 +16587,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "RCT",
@@ -16355,7 +16644,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "RDB",
@@ -16411,7 +16701,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "RDG",
@@ -16467,7 +16758,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "RED",
@@ -16523,7 +16815,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "REI",
@@ -16579,7 +16872,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "RFW",
@@ -16635,7 +16929,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "RIB",
@@ -16691,7 +16986,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "RIC",
@@ -16747,7 +17043,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ROC",
@@ -16803,7 +17100,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ROH",
@@ -16859,7 +17157,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ROS",
@@ -16915,7 +17214,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ROT",
@@ -16971,7 +17271,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 1290000,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "RUG",
@@ -17027,7 +17328,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "RUH",
@@ -17083,7 +17385,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "RUN",
@@ -17139,7 +17442,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "RUS",
@@ -17195,7 +17499,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "RUT",
@@ -17251,7 +17556,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SAL",
@@ -17307,7 +17613,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SAW",
@@ -17363,7 +17670,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SAY",
@@ -17419,7 +17727,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SCA",
@@ -17475,7 +17784,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SCB",
@@ -17531,7 +17841,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SCR",
@@ -17587,7 +17898,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SDE",
@@ -17643,7 +17955,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SEV",
@@ -17699,7 +18012,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SFK",
@@ -17755,7 +18069,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 1362196,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SFT",
@@ -17811,7 +18126,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SGC",
@@ -17867,7 +18183,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SHA",
@@ -17923,7 +18240,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SHE",
@@ -17979,7 +18297,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SHF",
@@ -18035,7 +18354,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SHN",
@@ -18091,7 +18411,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SHO",
@@ -18147,7 +18468,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SHR",
@@ -18203,7 +18525,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SKE",
@@ -18259,7 +18582,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SKP",
@@ -18315,7 +18639,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SLF",
@@ -18371,7 +18696,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SLG",
@@ -18427,7 +18753,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SLK",
@@ -18483,7 +18810,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SMT",
@@ -18539,7 +18867,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SND",
@@ -18595,7 +18924,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 493568,
           "LEVI-pilot-CPO(s)": "Connected Kerb",
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SNO",
@@ -18651,7 +18981,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SOL",
@@ -18707,7 +19038,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SOS",
@@ -18763,7 +19095,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SOX",
@@ -18819,7 +19152,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SPE",
@@ -18875,7 +19209,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SRI",
@@ -18931,7 +19266,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SRY",
@@ -18987,7 +19323,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SST",
@@ -19043,7 +19380,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "STA",
@@ -19099,7 +19437,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "STE",
@@ -19155,7 +19494,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "STF",
@@ -19211,7 +19551,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "STG",
@@ -19267,7 +19608,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "STH",
@@ -19323,7 +19665,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "STN",
@@ -19379,7 +19722,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "STO",
@@ -19435,7 +19779,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "STR",
@@ -19491,7 +19836,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "STS",
@@ -19547,7 +19893,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "STT",
@@ -19603,7 +19950,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "STV",
@@ -19659,7 +20007,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "STY",
@@ -19715,7 +20064,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SUR",
@@ -19771,7 +20121,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SWA",
@@ -19827,7 +20178,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SWD",
@@ -19883,7 +20235,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SWK",
@@ -19939,7 +20292,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SWL",
@@ -19995,7 +20349,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TAM",
@@ -20051,7 +20406,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TAN",
@@ -20107,7 +20463,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TAW",
@@ -20163,7 +20520,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TEI",
@@ -20219,7 +20577,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TEN",
@@ -20275,7 +20634,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TES",
@@ -20331,7 +20691,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TEW",
@@ -20387,7 +20748,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TFW",
@@ -20443,7 +20805,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "THA",
@@ -20499,7 +20862,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "THE",
@@ -20555,7 +20919,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "THR",
@@ -20611,7 +20976,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TOB",
@@ -20667,7 +21033,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TOF",
@@ -20723,7 +21090,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TON",
@@ -20779,7 +21147,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TOR",
@@ -20835,7 +21204,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TRF",
@@ -20891,7 +21261,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TUN",
@@ -20947,7 +21318,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TVCA",
@@ -21003,7 +21375,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TWH",
@@ -21059,7 +21432,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "UTT",
@@ -21115,7 +21489,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "VAL",
@@ -21171,7 +21546,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "VGL",
@@ -21227,7 +21603,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WAE",
@@ -21283,7 +21660,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WAF",
@@ -21339,7 +21717,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 771000,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WAR",
@@ -21395,7 +21774,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 746250,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WAT",
@@ -21451,7 +21831,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WAW",
@@ -21507,7 +21888,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WBK",
@@ -21563,7 +21945,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WDE",
@@ -21619,7 +22002,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WDU",
@@ -21675,7 +22059,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WEA",
@@ -21731,7 +22116,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WECA",
@@ -21787,7 +22173,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WEW",
@@ -21843,7 +22230,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WFT",
@@ -21899,7 +22287,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 740000,
           "LEVI-pilot-CPO(s)": "Believ",
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WGN",
@@ -21955,7 +22344,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WIL",
@@ -22011,7 +22401,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WIN",
@@ -22067,7 +22458,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WKF",
@@ -22123,7 +22515,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WLA",
@@ -22179,7 +22572,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WLI",
@@ -22235,7 +22629,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WLL",
@@ -22291,7 +22686,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WLN",
@@ -22347,7 +22743,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WLV",
@@ -22403,7 +22800,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WMCA",
@@ -22459,7 +22857,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 3016582,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WND",
@@ -22515,7 +22914,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WNM",
@@ -22571,7 +22971,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WNT",
@@ -22627,7 +23028,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WOC",
@@ -22683,7 +23085,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WOI",
@@ -22739,7 +23142,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WOK",
@@ -22795,7 +23199,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WOR",
@@ -22851,7 +23256,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WOT",
@@ -22907,7 +23313,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WOX",
@@ -22963,7 +23370,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WRL",
@@ -23019,7 +23427,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WRT",
@@ -23075,7 +23484,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 1362196,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WRX",
@@ -23131,7 +23541,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WSK",
@@ -23187,7 +23598,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WSM",
@@ -23243,7 +23655,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WSX",
@@ -23299,7 +23712,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 1786464,
           "LEVI-pilot-CPO(s)": "Connected Kerb",
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WYC",
@@ -23355,7 +23769,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WYCA",
@@ -23411,7 +23826,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 1500000,
           "LEVI-pilot-CPO(s)": "Blink",
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WYE",
@@ -23467,7 +23883,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WYR",
@@ -23523,7 +23940,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "YNYC",
@@ -23579,7 +23997,8 @@
           "combined-authority-type": "Pavement Channel Grant authority",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "YOR",
@@ -23635,7 +24054,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 1243028,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ZET",
@@ -23691,7 +24111,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NSC",
@@ -23747,7 +24168,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "AYR",
@@ -23803,7 +24225,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "PKA",
@@ -23859,7 +24282,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "GCR",
@@ -23915,7 +24339,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "ABI",
@@ -23971,7 +24396,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SES",
@@ -24027,7 +24453,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BMS",
@@ -24083,7 +24510,8 @@
           "combined-authority-type": "Joint ORCS bid",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BSH",
@@ -24139,7 +24567,8 @@
           "combined-authority-type": "Joint ORCS bid",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "LWE",
@@ -24195,7 +24624,8 @@
           "combined-authority-type": "Joint ORCS bid",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NYEX",
@@ -24251,7 +24681,8 @@
           "combined-authority-type": "Sum of ORCS bids by predecessor authorities of North Yorkshire Council and parish councils in North Yorkshire",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WNTX",
@@ -24307,7 +24738,8 @@
           "combined-authority-type": "Sum of ORCS bids by predecessor authorities of West Northamptonshire Council and parish councils in West Northamptonshire",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SMTX",
@@ -24363,7 +24795,8 @@
           "combined-authority-type": "Sum of ORCS bids by predecessor authorities of Somerset Council",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NNTX",
@@ -24419,7 +24852,8 @@
           "combined-authority-type": "Sum of ORCS bids by predecessor authorities of North Northamptonshire Council",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CHEX",
@@ -24475,7 +24909,8 @@
           "combined-authority-type": "Sum of ORCS bids by parishes in Cheshire East",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WAFX",
@@ -24531,7 +24966,8 @@
           "combined-authority-type": "Sum of ORCS bids by parishes in Westmorland and Furness",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "AMBX",
@@ -24587,7 +25023,8 @@
           "combined-authority-type": "Sum of ORCS bids by parishes in Amber Valley",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SSTX",
@@ -24643,7 +25080,8 @@
           "combined-authority-type": "Sum of ORCS bids by parishes in South Staffordshire",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "SCAX",
@@ -24699,7 +25137,8 @@
           "combined-authority-type": "Sum of ORCS bids by parishes in South Cambridgeshire",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "KINX",
@@ -24755,7 +25194,8 @@
           "combined-authority-type": "Sum of ORCS bids by parishes in Kings Lynn and West Norfolk",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WEWX",
@@ -24811,7 +25251,8 @@
           "combined-authority-type": "Sum of ORCS bids by parishes in Welwyn Hatfield",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "TUNX",
@@ -24867,7 +25308,8 @@
           "combined-authority-type": "Sum of ORCS bids by parishes in Tunbridge Wells",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BUCX",
@@ -24923,7 +25365,8 @@
           "combined-authority-type": "Sum of ORCS bids by parishes in Buckinghamshire",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "BANX",
@@ -24979,7 +25422,8 @@
           "combined-authority-type": "Sum of ORCS bids by parishes in Basingstoke and Deane",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "EDEX",
@@ -25035,7 +25479,8 @@
           "combined-authority-type": "Sum of ORCS bids by parishes in East Devon",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CONX",
@@ -25091,7 +25536,8 @@
           "combined-authority-type": "Sum of ORCS bids by parishes in Cornwall",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "CNS",
@@ -25147,7 +25593,8 @@
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WILX",
@@ -25203,7 +25650,8 @@
           "combined-authority-type": "Sum of ORCS bids by parishes in Wiltshire",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "WILX",
@@ -25259,7 +25707,8 @@
           "combined-authority-type": "Sum of ORCS bids by parishes in Dorset",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "DFI",
@@ -25315,7 +25764,8 @@
           "combined-authority-type": "Northern Ireland Highway Authority",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": null
+          "ORCS-CPO(s)": null,
+          "channel-grant-status": null
         },
         {
           "local-authority-code": "NIC",
@@ -25371,7 +25821,8 @@
           "combined-authority-type": "ORCS Consortium",
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
-          "ORCS-CPO(s)": "Weev"
+          "ORCS-CPO(s)": "Weev",
+          "channel-grant-status": null
         }
       ]
     }
