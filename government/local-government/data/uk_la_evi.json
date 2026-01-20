@@ -19880,7 +19880,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Not permitted",
-          "channel-grant-amount": null,
+          "channel-grant-amount": 242000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -23257,7 +23257,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Grant awarded to Fourth Midlands EV Infrastructure Consortium"
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "WOT",

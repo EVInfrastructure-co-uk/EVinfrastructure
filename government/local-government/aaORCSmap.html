@@ -54,7 +54,7 @@ title: "Local authority maps"
     </div>
     <p>The Department for Transport publishes <a href="https://www.gov.uk/government/publications/electric-vehicle-ev-pavement-channels-grant-local-authority-allocations/electric-vehicle-ev-pavement-channels-grant-funding-amounts">information</a> on the Pavement Chanel Grant by authority.</p>
     <p>Please note that the Pavement Channel Grant is sometimes awarded to a combined authority rather than the highway authority. The above map shows highway authorities instead of combined authorities because highway authorities are responsible for decisions on pavement channels. (Devon and Torbay is an exception as they have characterised their channel trial as cross-boundary.)</p>
-    <p>86 highway authorities are direct recipients of the Pavement Channel Grant, whereas 68 highway authorities (including the Isles of Scilly) sit under combined authorities to which the grant has been awarded.</p>
+    <p>86 highway authorities are direct recipients of the Pavement Channel Grant, whereas 67 highway authorities (including the Isles of Scilly) sit under combined authorities to which the grant has been awarded.</p>
   </div>
 
   <div id="levi" class="tabs__panel" role="tabpanel" aria-labelledby="tab-levi">
@@ -395,14 +395,16 @@ title: "Local authority maps"
         const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
         const status = row ? (row['channel-status'] ? String(row['channel-status']).trim() : 'No data') : 'No data';
         const grant = row ? row['channel-grant-amount'] : null;
+        const grantStatus = row ? row['channel-grant-status'] : null;
         const slug = row ? row['gov-uk-slug'] : null;
         const grantLabel = (grant === null || grant === undefined || grant === '') ? '' : `<br/>Grant amount: £${Number(grant).toLocaleString()}`;
+        const grantStatusLabel = (grantStatus === null || grantStatus === undefined || grantStatus === '') ? '' : `<br/>Grant status: £${Number(grantStatus).toLocaleString()}`;
         layer.on({
           mouseover(e) {
             const t = e.target;
             t.setStyle({ weight: 2, color: '#000' });
             t.bringToFront();
-            const html = `<strong>${name}</strong><br/>Status: ${status}${grantLabel}<br/><a href="/government/local-government/${slug}">See our dedicated page</a>`;
+            const html = `<strong>${name}</strong><br/>Status: ${status}${grantLabel}${grantStatusLabel}<br/><a href="/government/local-government/${slug}">See our dedicated page</a>`;
             t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
           },
           mouseout(e) {
