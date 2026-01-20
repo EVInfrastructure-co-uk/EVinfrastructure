@@ -218,10 +218,12 @@ title: "Local authority maps"
         const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
         const slug = row ? row['gov-uk-slug'] : null;
         const v = row ? row['NEVIS-distribution'] : null;
+        const rank = row ? row['NEVIS-distribution-rank'] : null;
 
         function buildHtml() {
-          const vLabel = isNaN(toNum(v)) ? 'N/A' : v;
-          return `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${vLabel}<br/><a href="/government/local-government/${slug}">See our dedicated page</a>`;
+          const vLabel = isNaN(toNum(v)) ? 'N/A' : `${Math.round(v)}%`;
+          const rankLabel = isNaN(toNum(rank)) ? 'N/A' : `${rank}/350`;
+          return `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${vLabel}<br/>NEVIS Near Home distribution rank: ${rankLabel}<br/><a href="/government/local-government/${slug}">See our dedicated page</a>`;
         }
 
         layer.on({
