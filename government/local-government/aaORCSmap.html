@@ -49,11 +49,11 @@ title: "Local authority maps"
   <div id="pavement-channels" class="tabs__panel" role="tabpanel" aria-labelledby="tab-pavement-channels">
     <h2>Pavement Channels</h2>
 
-    <!-- New pavement map container -->
+    <!-- pavement map container -->
     <div id="map-pavement" aria-label="Pavement channels map — local authorities coloured by channel status or grant amount">
     </div>
-    <p>The Department for Transport publishes <a href="https://www.gov.uk/government/publications/electric-vehicle-ev-pavement-channels-grant-local-authority-allocations/electric-vehicle-ev-pavement-channels-grant-funding-amounts">information</a> on the Pavement Chanel Grant by authority.</p>
-    <p>Please note that the Pavement Channel Grant is sometimes awarded to a combined authority rather than the highway authority. The above map shows highway authorities instead of combined authorities because highway authorities are responsible for decisions on pavement channels. (Devon and Torbay is an exception as they have characterised their channel trial as cross-boundary.)</p>
+    <p>The Department for Transport publishes information about the Pavement Channel Grant and allocations.</p>
+    <p>Please note that the Pavement Channel Grant is sometimes awarded to a combined authority rather than the highway authority. The above map shows highway authorities instead of combined authorities where appropriate.</p>
     <p>86 highway authorities are direct recipients of the Pavement Channel Grant, whereas 67 highway authorities (including the Isles of Scilly) sit under combined authorities to which the grant has been awarded.</p>
   </div>
 
@@ -61,9 +61,9 @@ title: "Local authority maps"
     <h2>Local Electric Vehicle Infrastructure fund (LEVI, England),<br>Electric Vehicle Infrastructure Fund (EVIF, Scotland)<br>Ultra Low Emission Vehicle Transformation Fund (ULEVTF, Wales)</h2>
 
     <!-- LEVI map container -->
-    <div id="map-levi" aria-label="LEVI/EVIF/ULEVTF map — local authorities coloured by ORCS/LEVI metric (deciles)">    
+    <div id="map-levi" aria-label="LEVI/EVIF/ULEVTF map — local authorities coloured by LEVI tender stage">    
     </div>
-    <p>There is no equivalent scheme in <a href="https://evinfrastructure.co.uk/government/ni#funding-public-chargepoints">Northern Ireland</a> although nine of the eleven councils are in a consortium funded by both the UK government and the NI executive. The consortium appointed Weev as chargepoint operator in 2025.</p>
+    <p>There is no equivalent scheme in <a href="https://evinfrastructure.co.uk/government/ni#funding-public-chargepoints">Northern Ireland</a> although nine of the eleven councils are in a consortium for some programmes.</p>
   </div>
 </div>
 
@@ -196,7 +196,7 @@ title: "Local authority maps"
 
     const mapNearHome = L.map('map-nearhome').setView([54.5, -3], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; CENEX NEVIS 2025; Office for National Statistics licensed under the Open Government Licence v.3.0 (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
+      attribution: '&copy; CENEX NEVIS 2025; Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
     }).addTo(mapNearHome);
     window.nearhomeMap = mapNearHome;
 
@@ -265,49 +265,64 @@ title: "Local authority maps"
     nearhomeLegend.addTo(mapNearHome);
 
     // ------------------------
-    // LEVI/ORCS map (deciles) - previously "ORCS map" - now rendered in LEVI tab using its own topojson
+    // LEVI map (categorical by LEVI-tender-stage)
     // ------------------------
 
-    const orcsValues = rows.map(r => toNum(r['ORCS-total-charging-devices'])).filter(v => !isNaN(v)).sort((a,b)=>a-b);
-    const orcsThresholds = [];
-    if (orcsValues.length) for (let i = 1; i <= 9; i++) orcsThresholds.push(quantile(orcsValues, i / 10));
-    const orcsPalette = chroma.scale('YlGnBu').mode('lab').colors(10);
-    function orcsDecileIndex(v) {
-      if (isNaN(v)) return -1;
-      for (let i = 0; i < orcsThresholds.length; i++) if (v <= orcsThresholds[i]) return i;
-      return 9;
+    // Colour rules (case-insensitive contains)
+    const leviColours = {
+      awarded_or_framework: '#004d00', // dark green
+      yet_to_award: '#7bd07b', // light green
+      tender_live: '#ffbf00', // amber
+      other: '#d62828', // red
+      nodata: '#cccccc' // grey
+    };
+
+    function colourForStage(stage) {
+      if (stage === null || stage === undefined || String(stage).trim() === '') return leviColours.nodata;
+      const s = String(stage).toLowerCase();
+      if (s.includes('awarded') || s.includes('framework established')) return leviColours.awarded_or_framework;
+      if (s.includes('yet to award')) return leviColours.yet_to_award;
+      if (s.includes('tender live')) return leviColours.tender_live;
+      // any other non-null string
+      return leviColours.other;
     }
 
     const mapLevi = L.map('map-levi').setView([54.5, -3], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'Office for National Statistics licensed under the Open Government Licence v.3.0 (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
+      attribution: 'Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
     }).addTo(mapLevi);
     window.leviMap = mapLevi;
 
     const leviLayer = L.geoJSON(geoLevi, {
       style(feature) {
         const row = getRowForFeature(feature);
-        const v = row ? toNum(row['ORCS-total-charging-devices']) : NaN;
-        const idx = orcsDecileIndex(v);
+        const stage = row ? row['LEVI-tender-stage'] : null;
+        const color = colourForStage(stage);
+        const hasData = stage !== null && stage !== undefined && String(stage).trim() !== '';
         return {
           weight: 1,
           color: '#444',
           opacity: 1,
-          fillOpacity: idx === -1 ? 0.15 : 0.85,
-          fillColor: idx === -1 ? '#cccccc' : orcsPalette[idx]
+          fillOpacity: hasData ? 0.85 : 0.15,
+          fillColor: color
         };
       },
       onEachFeature(feature, layer) {
         const row = getRowForFeature(feature);
         const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
         const slug = row ? row['gov-uk-slug'] : null;
-        const v = row ? row['ORCS-total-charging-devices'] : null;
+        const stage = row ? row['LEVI-tender-stage'] : null;
+        const capital = row ? row['LEVI-capital-amount'] : null;
+        const cpos = row ? row['LEVI-CPO(s)'] : null;
+
+        // Tooltip on hover — show name and tender stage
         layer.on({
           mouseover(e) {
             const t = e.target;
             t.setStyle({ weight: 2, color: '#000' });
             t.bringToFront();
-            const html = `<strong>${name}</strong><br/>ORCS devices: ${isNaN(toNum(v)) ? 'N/A' : v}<br/><a href="/government/local-government/${slug}">See our dedicated page</a>`;
+            const stageLabel = (stage === null || stage === undefined || String(stage).trim() === '') ? 'No data' : String(stage);
+            const html = `<strong>${name}</strong><br/>LEVI tender stage: ${stageLabel}<br/><a href="/government/local-government/${slug}">See our dedicated page</a>`;
             t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
           },
           mouseout(e) {
@@ -315,38 +330,41 @@ title: "Local authority maps"
             e.target.closeTooltip();
           },
           click(e) {
-            mapLevi.fitBounds(e.target.getBounds(), { maxZoom: 12 });
+            // On click show popup with LEVI-capital-amount and LEVI-CPO(s) (if present)
+            const cAmt = (capital === null || capital === undefined || capital === '') ? 'N/A' : `£${Number(capital).toLocaleString()}`;
+            const cposLabel = (cpos === null || cpos === undefined || String(cpos).trim() === '') ? '' : `<br/>LEVI CPO(s): ${String(cpos)}`;
+            const stageLabel = (stage === null || stage === undefined || String(stage).trim() === '') ? 'No data' : String(stage);
+            const popupHtml = `<strong>${name}</strong><br/>LEVI tender stage: ${stageLabel}<br/>LEVI capital amount: ${cAmt}${cposLabel}<br/><a href="/government/local-government/${slug}">See our dedicated page</a>`;
+            layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
+            try { mapLevi.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore fitBounds errors */ }
           }
         });
       }
     }).addTo(mapLevi);
 
-    // ORCS (LEVI tab) legend
-    const orcsLegend = L.control({ position: 'bottomright' });
-    orcsLegend.onAdd = function () {
+    // LEVI legend — categorical
+    const leviLegend = L.control({ position: 'bottomright' });
+    leviLegend.onAdd = function () {
       const div = L.DomUtil.create('div', 'legend');
       div.setAttribute('role', 'group');
-      div.setAttribute('aria-label', 'ORCS devices decile legend');
-      if (!orcsValues.length) { div.innerHTML = '<strong>ORCS devices</strong><br/>No data'; return div; }
-      div.innerHTML = '<strong>ORCS devices (deciles)</strong><br/>';
-      let lower = orcsValues[0];
-      for (let i = 0; i < 10; i++) {
-        const color = orcsPalette[i];
-        const upper = (i < 9) ? orcsThresholds[i] : orcsValues[orcsValues.length - 1];
+      div.setAttribute('aria-label', 'LEVI tender stage legend');
+      div.innerHTML = '<strong>LEVI / EVIF / ULEVTF tender stage</strong><br/>';
+      const rows = [
+        { label: 'Awarded / framework established', color: leviColours.awarded_or_framework },
+        { label: 'Yet to award', color: leviColours.yet_to_award },
+        { label: 'Tender live', color: leviColours.tender_live },
+        { label: 'Other', color: leviColours.other },
+        { label: 'No data', color: leviColours.nodata }
+      ];
+      rows.forEach(r => {
         const row = document.createElement('div');
         row.className = 'row';
-        row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${Math.round(lower)} – ${Math.round(upper)}`;
+        row.innerHTML = `<span class="swatch" style="background:${r.color}"></span> ${r.label}`;
         div.appendChild(row);
-        lower = (i < 9) ? (orcsThresholds[i] + Number.EPSILON) : upper;
-      }
-      const nodata = document.createElement('div');
-      nodata.className = 'row';
-      nodata.style.marginTop = '6px';
-      nodata.innerHTML = `<span class="swatch" style="background:#cccccc"></span> No data`;
-      div.appendChild(nodata);
+      });
       return div;
     };
-    orcsLegend.addTo(mapLevi);
+    leviLegend.addTo(mapLevi);
 
     // ------------------------
     // Pavement Channels map (categorical by channel-status)
@@ -373,7 +391,7 @@ title: "Local authority maps"
 
     const mapPav = L.map('map-pavement').setView([54.5, -3], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'Department for Transport; Office for National Statistics licensed under the Open Government Licence v.3.0 (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
+      attribution: 'Department for Transport; Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
     }).addTo(mapPav);
     window.pavementMap = mapPav;
 
