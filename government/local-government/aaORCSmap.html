@@ -398,7 +398,7 @@ title: "Local authority maps"
         const grantStatus = row ? row['channel-grant-status'] : null;
         const slug = row ? row['gov-uk-slug'] : null;
         const grantLabel = (grant === null || grant === undefined || grant === '') ? '' : `<br/>Grant amount: £${Number(grant).toLocaleString()}`;
-        const grantStatusLabel = (grantStatus === null || grantStatus === undefined || grantStatus === '') ? '' : `<br/>Grant status: £${Number(grantStatus).toLocaleString()}`;
+        const grantStatusLabel = (grantStatus === null || grantStatus === undefined || grantStatus === '') ? '' : `<br/>Grant status: ${grantStatus}`;
         layer.on({
           mouseover(e) {
             const t = e.target;
