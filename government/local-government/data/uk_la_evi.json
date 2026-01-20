@@ -1587,7 +1587,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to West of England Combined Authority"
         },
         {
           "local-authority-code": "BBD",
@@ -1644,7 +1644,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Lancashire Combined County Authority"
         },
         {
           "local-authority-code": "BDF",
@@ -2100,7 +2100,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to West Midlands Combined Authority"
         },
         {
           "local-authority-code": "BLA",
@@ -2328,7 +2328,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to South Yorkshire Mayoral Combined Authority"
         },
         {
           "local-authority-code": "BOL",
@@ -2385,7 +2385,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Greater Manchester Combined Authority"
         },
         {
           "local-authority-code": "BOS",
@@ -2670,7 +2670,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Lancashire Combined County Authority"
         },
         {
           "local-authority-code": "BRA",
@@ -2841,7 +2841,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to West Yorkshire Combined Authority"
         },
         {
           "local-authority-code": "BRE",
@@ -3297,7 +3297,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to West of England Combined Authority"
         },
         {
           "local-authority-code": "BUC",
@@ -3468,7 +3468,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Greater Manchester Combined Authority"
         },
         {
           "local-authority-code": "CAB",
@@ -3582,7 +3582,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Cambridgeshire and Peterborough Combined Authority"
         },
         {
           "local-authority-code": "CAN",
@@ -4608,7 +4608,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to West Yorkshire Combined Authority"
         },
         {
           "local-authority-code": "CLK",
@@ -4879,7 +4879,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Permitted",
-          "channel-grant-amount": 238000,
+          "channel-grant-amount": null,
           "channel-application-fee": 175,
           "channel-installation-fee": "varies",
           "channel-annual-fee": null,
@@ -4893,7 +4893,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Declined to apply"
+          "channel-grant-status": "Grant awarded to Cornwall and Scilly LEVI partnership"
         },
         {
           "local-authority-code": "COT",
@@ -5007,7 +5007,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to West Midlands Combined Authority"
         },
         {
           "local-authority-code": "CPCA",
@@ -5463,7 +5463,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Tees Valley Combined Authority"
         },
         {
           "local-authority-code": "DAR",
@@ -5577,7 +5577,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to East Midlands Combined County Authority"
         },
         {
           "local-authority-code": "DEB",
@@ -5748,7 +5748,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to East Midlands Combined County Authority"
         },
         {
           "local-authority-code": "DEV",
@@ -5805,7 +5805,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Devon and Torbay LEVI consortium"
         },
         {
           "local-authority-code": "DGY",
@@ -5919,7 +5919,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to South Yorkshire Mayoral Combined Authority"
         },
         {
           "local-authority-code": "DND",
@@ -6204,7 +6204,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to West Midlands Combined Authority"
         },
         {
           "local-authority-code": "DUR",
@@ -6261,7 +6261,7 @@
           "LEVI-pilot-capital-amount": 4375000,
           "LEVI-pilot-CPO(s)": "Mer, Zest",
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to North East Combined Authority"
         },
         {
           "local-authority-code": "DVT",
@@ -7515,7 +7515,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Hull and East Yorkshire Mayoral Combined Authority"
         },
         {
           "local-authority-code": "ESK",
@@ -8313,7 +8313,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to North East Combined Authority"
         },
         {
           "local-authority-code": "GED",
@@ -9111,7 +9111,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Liverpool City Region"
         },
         {
           "local-authority-code": "HAM",
@@ -10080,7 +10080,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Tees Valley Combined Authority"
         },
         {
           "local-authority-code": "HRT",
@@ -10479,7 +10479,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Cornwall and Scilly LEVI partnership"
         },
         {
           "local-authority-code": "IOW",
@@ -10878,7 +10878,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Hull and East Yorkshire Mayoral Combined Authority"
         },
         {
           "local-authority-code": "KIN",
@@ -10992,7 +10992,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to West Yorkshire Combined Authority"
         },
         {
           "local-authority-code": "KTT",
@@ -11106,7 +11106,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Liverpool City Region"
         },
         {
           "local-authority-code": "LAC",
@@ -11220,7 +11220,7 @@
           "LEVI-pilot-capital-amount": 500000,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Lancashire Combined County Authority"
         },
         {
           "local-authority-code": "LBC",
@@ -11562,7 +11562,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to West Yorkshire Combined Authority"
         },
         {
           "local-authority-code": "LEC",
@@ -11904,7 +11904,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Greater Lincolnshire Combined County Authority"
         },
         {
           "local-authority-code": "LIV",
@@ -11961,7 +11961,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Liverpool City Region"
         },
         {
           "local-authority-code": "LND",
@@ -12816,7 +12816,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Greater Manchester Combined Authority"
         },
         {
           "local-authority-code": "MAS",
@@ -12987,7 +12987,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Tees Valley Combined Authority"
         },
         {
           "local-authority-code": "MDE",
@@ -14137,7 +14137,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to North East Combined Authority"
         },
         {
           "local-authority-code": "NDE",
@@ -14479,7 +14479,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Greater Lincolnshire Combined County Authority"
         },
         {
           "local-authority-code": "NET",
@@ -14536,7 +14536,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to North East Combined Authority"
         },
         {
           "local-authority-code": "NEW",
@@ -14707,7 +14707,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to East Midlands Combined County Authority"
         },
         {
           "local-authority-code": "NHE",
@@ -14935,7 +14935,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Greater Lincolnshire Combined County Authority"
         },
         {
           "local-authority-code": "NMD",
@@ -15334,7 +15334,7 @@
           "LEVI-pilot-capital-amount": 774000,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to East Midlands Combined County Authority"
         },
         {
           "local-authority-code": "NTY",
@@ -15391,7 +15391,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to North East Combined Authority"
         },
         {
           "local-authority-code": "NUN",
@@ -15733,7 +15733,7 @@
           "LEVI-pilot-capital-amount": 3237550,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to York and North Yorkshire Mayoral Combined Authority"
         },
         {
           "local-authority-code": "OAD",
@@ -15847,7 +15847,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Greater Manchester Combined Authority"
         },
         {
           "local-authority-code": "ORK",
@@ -16474,7 +16474,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Cambridgeshire and Peterborough Combined Authority"
         },
         {
           "local-authority-code": "RCC",
@@ -16531,7 +16531,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Tees Valley Combined Authority"
         },
         {
           "local-authority-code": "RCH",
@@ -16588,7 +16588,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Greater Manchester Combined Authority"
         },
         {
           "local-authority-code": "RCT",
@@ -17272,7 +17272,7 @@
           "LEVI-pilot-capital-amount": 1290000,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to South Yorkshire Mayoral Combined Authority"
         },
         {
           "local-authority-code": "RUG",
@@ -17671,7 +17671,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to West Midlands Combined Authority"
         },
         {
           "local-authority-code": "SAY",
@@ -18127,7 +18127,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Liverpool City Region"
         },
         {
           "local-authority-code": "SGC",
@@ -18184,7 +18184,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to West of England Combined Authority"
         },
         {
           "local-authority-code": "SHA",
@@ -18355,7 +18355,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to South Yorkshire Mayoral Combined Authority"
         },
         {
           "local-authority-code": "SHN",
@@ -18412,7 +18412,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Liverpool City Region"
         },
         {
           "local-authority-code": "SHO",
@@ -18640,7 +18640,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Greater Manchester Combined Authority"
         },
         {
           "local-authority-code": "SLF",
@@ -18697,7 +18697,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Greater Manchester Combined Authority"
         },
         {
           "local-authority-code": "SLG",
@@ -18925,7 +18925,7 @@
           "LEVI-pilot-capital-amount": 493568,
           "LEVI-pilot-CPO(s)": "Connected Kerb",
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to North East Combined Authority"
         },
         {
           "local-authority-code": "SNO",
@@ -19039,7 +19039,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to West Midlands Combined Authority"
         },
         {
           "local-authority-code": "SOS",
@@ -19951,7 +19951,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Tees Valley Combined Authority"
         },
         {
           "local-authority-code": "STV",
@@ -20065,7 +20065,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to North East Combined Authority"
         },
         {
           "local-authority-code": "SUR",
@@ -20407,7 +20407,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Greater Manchester Combined Authority"
         },
         {
           "local-authority-code": "TAN",
@@ -21034,7 +21034,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Devon and Torbay LEVI consortium"
         },
         {
           "local-authority-code": "TOF",
@@ -21262,7 +21262,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Greater Manchester Combined Authority"
         },
         {
           "local-authority-code": "TUN",
@@ -22345,7 +22345,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Greater Manchester Combined Authority"
         },
         {
           "local-authority-code": "WIL",
@@ -22516,7 +22516,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to West Yorkshire Combined Authority"
         },
         {
           "local-authority-code": "WLA",
@@ -22687,7 +22687,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to West Midlands Combined Authority"
         },
         {
           "local-authority-code": "WLN",
@@ -22801,7 +22801,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to West Midlands Combined Authority"
         },
         {
           "local-authority-code": "WMCA",
@@ -23257,7 +23257,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Fourth Midlands EV Infrastructure Consortium"
         },
         {
           "local-authority-code": "WOT",
@@ -23428,7 +23428,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to Liverpool City Region"
         },
         {
           "local-authority-code": "WRT",
@@ -24055,7 +24055,7 @@
           "LEVI-pilot-capital-amount": 1243028,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Grant awarded to York and North Yorkshire Mayoral Combined Authority"
         },
         {
           "local-authority-code": "ZET",
@@ -25580,7 +25580,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": null,
+          "channel-grant-amount": 238000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -25594,7 +25594,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": null
+          "channel-grant-status": "Declined to apply"
         },
         {
           "local-authority-code": "WILX",
