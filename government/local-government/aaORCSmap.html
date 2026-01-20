@@ -38,16 +38,22 @@ title: "Local authority maps"
   <div id="near-home" class="tabs__panel" role="tabpanel" aria-labelledby="tab-near-home">
     <h2>NEVIS Near Home Charging distribution metric</h2>
 
+    <p>The below figures show the percentage of households without driveways which are within a 4-minute walk of public chargepoints.</p>
+
     <div id="map-nearhome" aria-label="Map of UK local authorities coloured by NEVIS near home charging distribution (deciles)">
     </div>
-
+    <p>This is a repeat of the map which is on the <a href="https://nevis.cenex.co.uk/metrics">National EV Insights and Supports website</a>.</p>
+    <p>Data not available for Northern Ireland.</p>
   </div>
 
   <div id="pavement-channels" class="tabs__panel" role="tabpanel" aria-labelledby="tab-pavement-channels">
     <h2>Pavement Channels</h2>
 
     <!-- New pavement map container -->
-    <div id="map-pavement" aria-label="Pavement channels map — local authorities coloured by channel status or grant amount"></div>
+    <div id="map-pavement" aria-label="Pavement channels map — local authorities coloured by channel status or grant amount">
+    </div>
+    <p>The Department for Transport publishes <a href="https://www.gov.uk/government/publications/electric-vehicle-ev-pavement-channels-grant-local-authority-allocations/electric-vehicle-ev-pavement-channels-grant-funding-amounts">information</a> on the Pavement Chanel Grant by authority.</p>
+    <p>Please note that some combined authorities are recipients of the Pavement Channel Grant. The above map shows highway authorities instead of combined authorities because highway authorities are responsible for decisions on pavement channels. (Devon and Torbay is an exception as they have characterised their channel trial as cross-boundary.)</p>
   </div>
 
   <div id="levi" class="tabs__panel" role="tabpanel" aria-labelledby="tab-levi">
@@ -56,7 +62,7 @@ title: "Local authority maps"
     <!-- LEVI map container -->
     <div id="map-levi" aria-label="LEVI/EVIF/ULEVTF map — local authorities coloured by ORCS/LEVI metric (deciles)"></div>
   </div>
-
+  <p>There is no equivalent scheme in <a href="https://evinfrastructure.co.uk/government/ni#funding-public-chargepoints">Northern Ireland</a> although nine of the eleven councils are in a consortium funded by both the UK government and the NI executive. The consortium appointed Weev as chargepoint operator in 2025.</p>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -188,7 +194,7 @@ title: "Local authority maps"
 
     const mapNearHome = L.map('map-nearhome').setView([54.5, -3], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'Office for National Statistics licensed under the Open Government Licence v.3.0 (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
+      attribution: '&copy; CENEX NEVIS 2025; Office for National Statistics licensed under the Open Government Licence v.3.0 (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
     }).addTo(mapNearHome);
     window.nearhomeMap = mapNearHome;
 
@@ -365,7 +371,7 @@ title: "Local authority maps"
 
     const mapPav = L.map('map-pavement').setView([54.5, -3], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; CENEX NEVIS 2025; Office for National Statistics licensed under the Open Government Licence v.3.0 (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
+      attribution: 'Department for Transport; Office for National Statistics licensed under the Open Government Licence v.3.0 (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
     }).addTo(mapPav);
     window.pavementMap = mapPav;
 
