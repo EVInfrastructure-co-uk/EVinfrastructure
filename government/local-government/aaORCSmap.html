@@ -63,7 +63,7 @@ title: "Local authority maps"
     <!-- LEVI map container -->
     <div id="map-levi" aria-label="LEVI/EVIF/ULEVTF map — local authorities coloured by tender stage">    
     </div>
-    <p>There is no equivalent scheme in <a href="https://evinfrastructure.co.uk/government/ni#funding-public-chargepoints">Northern Ireland</a> although nine of the eleven councils are in a consortium for some programmes.</p>
+    <p>There is no equivalent scheme in <a href="https://evinfrastructure.co.uk/government/ni#funding-public-chargepoints">Northern Ireland</a> although nine of the eleven councils are in a consortium.</p>
   </div>
 </div>
 
@@ -223,7 +223,8 @@ title: "Local authority maps"
         function buildHtml() {
           const vLabel = isNaN(toNum(v)) ? 'N/A' : `${Math.round(v)}%`;
           const rankLabel = isNaN(toNum(rank)) ? 'N/A' : `${rank}/350`;
-          return `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${vLabel}<br/>NEVIS Near Home distribution rank: ${rankLabel}<br/><a href="/government/local-government/${slug}">See our dedicated page</a>`;
+          const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
+          return `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${vLabel}<br/>NEVIS Near Home distribution rank: ${rankLabel}${link}`;
         }
 
         layer.on({
@@ -336,7 +337,8 @@ title: "Local authority maps"
           const stageLabel = (stage === null || stage === undefined || String(stage).trim() === '') ? 'No data' : String(stage);
           const cAmt = formatCapital(capital);
           const cposLabel = (cpos === null || cpos === undefined || String(cpos).trim() === '') ? '' : `<br/>Appointed CPO(s): ${String(cpos)}`;
-          return `<strong>${name}</strong><br/>Tender stage: ${stageLabel}<br/>Capital amount: ${cAmt}${cposLabel}<br/><a href="/government/local-government/${slug}">See our dedicated page</a>`;
+          const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
+          return `<strong>${name}</strong><br/>Tender stage: ${stageLabel}<br/>Capital amount: ${cAmt}${cposLabel}${link}`;
         }
 
         layer.on({
@@ -368,13 +370,13 @@ title: "Local authority maps"
       div.setAttribute('role', 'group');
       div.setAttribute('aria-label', 'Tender stage legend');
       div.innerHTML = '<strong>LEVI / EVIF / ULEVTF tender stage</strong><br/>';
-      const rows = [
+      const rowsLegend = [
         { label: 'Awarded', color: leviColours.awarded_or_framework },
         { label: 'Yet to award', color: leviColours.yet_to_award },
         { label: 'Tender live', color: leviColours.tender_live },
         { label: 'Yet to tender', color: leviColours.other },
       ];
-      rows.forEach(r => {
+      rowsLegend.forEach(r => {
         const row = document.createElement('div');
         row.className = 'row';
         row.innerHTML = `<span class="swatch" style="background:${r.color}"></span> ${r.label}`;
@@ -388,24 +390,31 @@ title: "Local authority maps"
     // Pavement Channels map (categorical by channel-status)
     // ------------------------
 
-    // Build status mapping (row-based) and collect distinct statuses
-    const statusesSet = new Set();
-    rows.forEach(r => {
-      let status = r['channel-status'];
-      if (status === null || status === undefined || status === '') status = 'No data';
-      status = String(status).trim();
-      statusesSet.add(status);
-    });
-    const statuses = Array.from(statusesSet).sort();
-    const baseColors = [
-      '#1f78b4', '#33a02c', '#e31a1c', '#ff7f00',
-      '#6a3d9a', '#b15928', '#a6cee3', '#b2df8a',
-      '#fb9a99', '#fdbf6f', '#cab2d6', '#ffff99'
-    ];
-    const statusColor = {};
-    statuses.forEach((s, i) => {
-      statusColor[s] = baseColors[i % baseColors.length];
-    });
+    // Colour rules for channel-status (user-specified):
+    // If channel status is "Permitted" -> dark green
+    // If "Trial live" -> light green
+    // If "Trial complete" -> purple
+    // If "Trial to come" -> amber
+    // Anything else (including null) -> red
+
+    const channelColours = {
+      permitted: '#004d00',      // dark green
+      trial_live: '#7bd07b',     // light green
+      trial_complete: '#6a3d9a', // purple
+      trial_to_come: '#ffbf00',  // amber
+      other: '#d62828'           // red (default)
+    };
+
+    function colourForChannelStatus(status) {
+      if (status === null || status === undefined || String(status).trim() === '') return channelColours.other;
+      const s = String(status).trim().toLowerCase();
+      if (s === 'permitted') return channelColours.permitted;
+      if (s === 'trial live') return channelColours.trial_live;
+      if (s === 'trial complete') return channelColours.trial_complete;
+      if (s === 'trial to come') return channelColours.trial_to_come;
+      // any other value => red
+      return channelColours.other;
+    }
 
     const mapPav = L.map('map-pavement').setView([54.5, -3], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -416,13 +425,13 @@ title: "Local authority maps"
     const pavLayer = L.geoJSON(geoPav, {
       style(feature) {
         const row = getRowForFeature(feature);
-        const status = row ? (row['channel-status'] ? String(row['channel-status']).trim() : 'No data') : 'No data';
-        const color = statusColor[status] || '#cccccc';
+        const rawStatus = row ? (row['channel-status'] ? String(row['channel-status']).trim() : '') : '';
+        const color = colourForChannelStatus(rawStatus);
         return {
           weight: 1,
           color: '#444',
           opacity: 1,
-          fillOpacity: status === 'No data' ? 0.15 : 0.85,
+          fillOpacity: 0.85,
           fillColor: color
         };
       },
@@ -443,7 +452,8 @@ title: "Local authority maps"
         function buildHtml() {
           const grantLabel = (grant === null || grant === undefined || grant === '') ? '' : `<br/>Grant amount: ${formatGrant(grant)}`;
           const grantStatusLabel = (grantStatus === null || grantStatus === undefined || grantStatus === '') ? '' : `<br/>Grant status: ${grantStatus}`;
-          return `<strong>${name}</strong><br/>Status: ${status}${grantLabel}${grantStatusLabel}<br/><a href="/government/local-government/${slug}">See our dedicated page</a>`;
+          const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
+          return `<strong>${name}</strong><br/>Status: ${status}${grantLabel}${grantStatusLabel}${link}`;
         }
 
         layer.on({
@@ -468,28 +478,26 @@ title: "Local authority maps"
       }
     }).addTo(mapPav);
 
-    // Pavement legend — categorical
+    // Pavement legend — categorical (explicit legend for the mapped statuses)
     const pavLegend = L.control({ position: 'bottomright' });
     pavLegend.onAdd = function () {
       const div = L.DomUtil.create('div', 'legend');
       div.setAttribute('role', 'group');
       div.setAttribute('aria-label', 'Pavement channels status legend');
-      if (!statuses.length) { div.innerHTML = '<strong>Pavement channels</strong><br/>No data'; return div; }
       div.innerHTML = '<strong>Pavement channels</strong><br/>';
-      statuses.forEach(s => {
-        const color = statusColor[s] || '#cccccc';
+      const rows = [
+        { label: 'Permitted', color: channelColours.permitted },
+        { label: 'Trial live', color: channelColours.trial_live },
+        { label: 'Trial complete', color: channelColours.trial_complete },
+        { label: 'Trial to come', color: channelColours.trial_to_come },
+        { label: 'Not permitted (including by default if no data)', color: channelColours.other }
+      ];
+      rows.forEach(r => {
         const row = document.createElement('div');
         row.className = 'row';
-        row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${s}`;
+        row.innerHTML = `<span class="swatch" style="background:${r.color}"></span> ${r.label}`;
         div.appendChild(row);
       });
-      if (!statuses.includes('No data')) {
-        const nodata = document.createElement('div');
-        nodata.className = 'row';
-        nodata.style.marginTop = '6px';
-        nodata.innerHTML = `<span class="swatch" style="background:#cccccc"></span> No data`;
-        div.appendChild(nodata);
-      }
       return div;
     };
     pavLegend.addTo(mapPav);
