@@ -1,0 +1,185 @@
+<div class="map-include levi-evif-ulevtf">
+  <h2>Local Electric Vehicle Infrastructure funds (LEVI / EVIF / ULEVTF)</h2>
+  <p>Local authorities coloured by tender stage and capital amounts where available.</p>
+
+  <div id="map-levi" aria-label="LEVI/EVIF/ULEVTF map — local authorities coloured by tender stage" style="min-height:480px;"></div>
+
+  <!-- Required libraries (remove if already loaded globally on the page) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+
+  <script>
+  (async function () {
+    const topoLeviPath = '/government/local-government/data/LEVI-EVIF-ULEVTF-authorities.topojson';
+    const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
+
+    try {
+      const [topoLeviResp, eviResp] = await Promise.all([
+        fetch(topoLeviPath),
+        fetch(eviJsonPath)
+      ]);
+
+      if (!topoLeviResp.ok) throw new Error('LEVI TopoJSON load failed: ' + topoLeviResp.status);
+      if (!eviResp.ok) throw new Error('EVI JSON load failed: ' + eviResp.status);
+
+      const [topoLevi, eviBundle] = await Promise.all([
+        topoLeviResp.json(),
+        eviResp.json()
+      ]);
+
+      function topoFirstObjectName(topo) {
+        const keys = Object.keys(topo.objects || {});
+        return keys.length ? keys[0] : null;
+      }
+
+      const leviObjName = topoFirstObjectName(topoLevi);
+      if (!leviObjName) throw new Error('LEVI topojson has no objects');
+
+      const geoLevi = topojson.feature(topoLevi, topoLevi.objects[leviObjName]);
+
+      const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
+      if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
+      const rows = resource.data;
+
+      const rowByGss = new Map();
+      const rowByLocal = new Map();
+      rows.forEach(r => {
+        if (r['gss-code']) rowByGss.set(String(r['gss-code']).trim(), r);
+        if (r['local-authority-code']) rowByLocal.set(String(r['local-authority-code']).trim(), r);
+      });
+
+      function getRowForFeature(feature) {
+        const p = (feature && feature.properties) ? feature.properties : {};
+        const candidates = [];
+
+        ['LAD24CD','CTYUA24CD','gss','gss_code','gss-code','GSS_CODE','GSS'].forEach(k=>{
+          if (p[k]) candidates.push(String(p[k]).trim());
+        });
+        ['local-authority-code','local_authority_code','localAuthorityCode','LAD24CD'].forEach(k=>{
+          if (p[k]) candidates.push(String(p[k]).trim());
+        });
+        Object.keys(p).forEach(k => {
+          const lk = k.toLowerCase();
+          if ((lk.includes('gss') || lk.includes('lad') || lk.includes('local')) && p[k]) {
+            candidates.push(String(p[k]).trim());
+          }
+        });
+
+        for (const c of candidates) {
+          if (!c) continue;
+          if (rowByGss.has(c)) return rowByGss.get(c);
+          if (rowByLocal.has(c)) return rowByLocal.get(c);
+        }
+        return null;
+      }
+
+      function formatCapital(c) {
+        if (c === null || c === undefined || c === '') return 'N/A';
+        const n = Number(c);
+        return Number.isFinite(n) ? `£${n.toLocaleString()}` : String(c);
+      }
+
+      const leviColours = {
+        awarded_or_framework: '#004d00',
+        yet_to_award: '#7bd07b',
+        tender_live: '#ffbf00',
+        other: '#d62828',
+        nodata: '#cccccc'
+      };
+
+      function colourForStage(stage) {
+        if (stage === null || stage === undefined || String(stage).trim() === '') return leviColours.other;
+        const s = String(stage).toLowerCase();
+        if (s.includes('awarded') || s.includes('framework established')) return leviColours.awarded_or_framework;
+        if (s.includes('yet to award')) return leviColours.yet_to_award;
+        if (s.includes('tender live')) return leviColours.tender_live;
+        return leviColours.other;
+      }
+
+      const mapLevi = L.map('map-levi').setView([54.5, -3], 5);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
+      }).addTo(mapLevi);
+      window.leviMap = mapLevi;
+
+      const leviLayer = L.geoJSON(geoLevi, {
+        style(feature) {
+          const row = getRowForFeature(feature);
+          const stage = row ? row['LEVI-tender-stage'] : null;
+          const color = colourForStage(stage);
+          const hasData = String(stage) !== 'Not participating';
+          return {
+            weight: 1,
+            color: '#444',
+            opacity: 1,
+            fillOpacity: hasData ? 0.85 : 0.15,
+            fillColor: color
+          };
+        },
+        onEachFeature(feature, layer) {
+          const row = getRowForFeature(feature);
+          const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
+          const slug = row ? row['gov-uk-slug'] : null;
+          const stage = row ? row['LEVI-tender-stage'] : null;
+          const capital = row ? row['LEVI-capital-amount'] : null;
+          const cpos = row ? row['LEVI-CPO(s)'] : null;
+
+          function buildHtml() {
+            const stageLabel = (stage === null || stage === undefined || String(stage).trim() === '') ? 'No data' : String(stage);
+            const cAmt = formatCapital(capital);
+            const cposLabel = (cpos === null || cpos === undefined || String(cpos).trim() === '') ? '' : `<br/>Appointed CPO(s): ${String(cpos)}`;
+            const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
+            return `<strong>${name}</strong><br/>Tender stage: ${stageLabel}<br/>Capital amount: ${cAmt}${cposLabel}${link}`;
+          }
+
+          layer.on({
+            mouseover(e) {
+              const t = e.target;
+              t.setStyle({ weight: 2, color: '#000' });
+              t.bringToFront();
+              const html = buildHtml();
+              t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
+            },
+            mouseout(e) {
+              leviLayer.resetStyle(e.target);
+              e.target.closeTooltip();
+            },
+            click(e) {
+              const popupHtml = buildHtml();
+              layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
+              try { mapLevi.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
+            }
+          });
+        }
+      }).addTo(mapLevi);
+
+      const leviLegend = L.control({ position: 'bottomright' });
+      leviLegend.onAdd = function () {
+        const div = L.DomUtil.create('div', 'legend');
+        div.setAttribute('role', 'group');
+        div.setAttribute('aria-label', 'Tender stage legend');
+        div.innerHTML = '<strong>LEVI / EVIF / ULEVTF tender stage</strong><br/>';
+        const rowsLegend = [
+          { label: 'Awarded', color: leviColours.awarded_or_framework },
+          { label: 'Yet to award', color: leviColours.yet_to_award },
+          { label: 'Tender live', color: leviColours.tender_live },
+          { label: 'Yet to tender', color: leviColours.other }
+        ];
+        rowsLegend.forEach(r => {
+          const row = document.createElement('div');
+          row.className = 'row';
+          row.innerHTML = `<span class="swatch" style="background:${r.color}"></span> ${r.label}`;
+          div.appendChild(row);
+        });
+        return div;
+      };
+      leviLegend.addTo(mapLevi);
+
+      setTimeout(() => { try { mapLevi.invalidateSize(); } catch (e) {/*ignore*/} }, 300);
+
+    } catch (err) {
+      console.error(err);
+    }
+  })();
+  </script>
+</div>

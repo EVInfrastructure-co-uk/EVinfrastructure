@@ -1,0 +1,185 @@
+<div class="map-include pavement-channels">
+  <h2>Pavement Channels</h2>
+  <p>The map shows highway authorities' channel permissions and grant allocations. Hover or click an area for details.</p>
+
+  <div id="map-pavement" aria-label="Pavement channels map — local authorities coloured by channel status or grant amount" style="min-height:480px;"></div>
+
+  <!-- Required libraries (remove if already loaded globally on the page) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+
+  <script>
+  (async function () {
+    const topoPavementPath = '/government/local-government/data/pavementchannelauthorities.topojson';
+    const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
+
+    try {
+      const [topoPavResp, eviResp] = await Promise.all([
+        fetch(topoPavementPath),
+        fetch(eviJsonPath)
+      ]);
+
+      if (!topoPavResp.ok) throw new Error('Pavement TopoJSON load failed: ' + topoPavResp.status);
+      if (!eviResp.ok) throw new Error('EVI JSON load failed: ' + eviResp.status);
+
+      const [topoPav, eviBundle] = await Promise.all([
+        topoPavResp.json(),
+        eviResp.json()
+      ]);
+
+      function topoFirstObjectName(topo) {
+        const keys = Object.keys(topo.objects || {});
+        return keys.length ? keys[0] : null;
+      }
+
+      const pavObjName = topoFirstObjectName(topoPav);
+      if (!pavObjName) throw new Error('Pavement topojson has no objects');
+
+      const geoPav = topojson.feature(topoPav, topoPav.objects[pavObjName]);
+
+      const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
+      if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
+      const rows = resource.data;
+
+      const rowByGss = new Map();
+      const rowByLocal = new Map();
+      rows.forEach(r => {
+        if (r['gss-code']) rowByGss.set(String(r['gss-code']).trim(), r);
+        if (r['local-authority-code']) rowByLocal.set(String(r['local-authority-code']).trim(), r);
+      });
+
+      function getRowForFeature(feature) {
+        const p = (feature && feature.properties) ? feature.properties : {};
+        const candidates = [];
+
+        ['LAD24CD','CTYUA24CD','gss','gss_code','gss-code','GSS_CODE','GSS'].forEach(k=>{
+          if (p[k]) candidates.push(String(p[k]).trim());
+        });
+        ['local-authority-code','local_authority_code','localAuthorityCode','LAD24CD'].forEach(k=>{
+          if (p[k]) candidates.push(String(p[k]).trim());
+        });
+        Object.keys(p).forEach(k => {
+          const lk = k.toLowerCase();
+          if ((lk.includes('gss') || lk.includes('lad') || lk.includes('local')) && p[k]) {
+            candidates.push(String(p[k]).trim());
+          }
+        });
+
+        for (const c of candidates) {
+          if (!c) continue;
+          if (rowByGss.has(c)) return rowByGss.get(c);
+          if (rowByLocal.has(c)) return rowByLocal.get(c);
+        }
+        return null;
+      }
+
+      const channelColours = {
+        permitted: '#004d00',
+        trial_live: '#7bd07b',
+        trial_complete: '#6a3d9a',
+        trial_to_come: '#ffbf00',
+        other: '#d62828'
+      };
+
+      function colourForChannelStatus(status) {
+        if (status === null || status === undefined || String(status).trim() === '') return channelColours.other;
+        const s = String(status).trim().toLowerCase();
+        if (s === 'permitted') return channelColours.permitted;
+        if (s === 'trial live') return channelColours.trial_live;
+        if (s === 'trial complete') return channelColours.trial_complete;
+        if (s === 'trial to come') return channelColours.trial_to_come;
+        return channelColours.other;
+      }
+
+      const mapPav = L.map('map-pavement').setView([54.5, -3], 5);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Department for Transport; Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
+      }).addTo(mapPav);
+      window.pavementMap = mapPav;
+
+      const pavLayer = L.geoJSON(geoPav, {
+        style(feature) {
+          const row = getRowForFeature(feature);
+          const rawStatus = row ? (row['channel-status'] ? String(row['channel-status']).trim() : '') : '';
+          const color = colourForChannelStatus(rawStatus);
+          return {
+            weight: 1,
+            color: '#444',
+            opacity: 1,
+            fillOpacity: 0.85,
+            fillColor: color
+          };
+        },
+        onEachFeature(feature, layer) {
+          const row = getRowForFeature(feature);
+          const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
+          const status = row ? (row['channel-status'] ? String(row['channel-status']).trim() : 'No data') : 'No data';
+          const grant = row ? row['channel-grant-amount'] : null;
+          const grantStatus = row ? row['channel-grant-status'] : null;
+          const slug = row ? row['gov-uk-slug'] : null;
+
+          function formatGrant(g) {
+            if (g === null || g === undefined || g === '') return '';
+            const n = Number(g);
+            return Number.isFinite(n) ? `£${n.toLocaleString()}` : String(g);
+          }
+
+          function buildHtml() {
+            const grantLabel = (grant === null || grant === undefined || grant === '') ? '' : `<br/>Grant amount: ${formatGrant(grant)}`;
+            const grantStatusLabel = (grantStatus === null || grantStatus === undefined || grantStatus === '') ? '' : `<br/>Grant status: ${grantStatus}`;
+            const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
+            return `<strong>${name}</strong><br/>Status: ${status}${grantLabel}${grantStatusLabel}${link}`;
+          }
+
+          layer.on({
+            mouseover(e) {
+              const t = e.target;
+              t.setStyle({ weight: 2, color: '#000' });
+              t.bringToFront();
+              const html = buildHtml();
+              t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
+            },
+            mouseout(e) {
+              pavLayer.resetStyle(e.target);
+              e.target.closeTooltip();
+            },
+            click(e) {
+              const popupHtml = buildHtml();
+              layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
+              try { mapPav.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
+            }
+          });
+        }
+      }).addTo(mapPav);
+
+      const pavLegend = L.control({ position: 'bottomright' });
+      pavLegend.onAdd = function () {
+        const div = L.DomUtil.create('div', 'legend');
+        div.setAttribute('role', 'group');
+        div.setAttribute('aria-label', 'Pavement channels status legend');
+        div.innerHTML = '<strong>Pavement channels</strong><br/>';
+        const rows = [
+          { label: 'Permitted', color: channelColours.permitted },
+          { label: 'Trial live', color: channelColours.trial_live },
+          { label: 'Trial complete', color: channelColours.trial_complete },
+          { label: 'Trial to come', color: channelColours.trial_to_come },
+          { label: 'Not permitted (including by default if no data)', color: channelColours.other }
+        ];
+        rows.forEach(r => {
+          const row = document.createElement('div');
+          row.className = 'row';
+          row.innerHTML = `<span class="swatch" style="background:${r.color}"></span> ${r.label}`;
+          div.appendChild(row);
+        });
+        return div;
+      };
+      pavLegend.addTo(mapPav);
+
+      setTimeout(() => { try { mapPav.invalidateSize(); } catch (e) {/*ignore*/} }, 300);
+
+    } catch (err) {
+      console.error(err);
+    }
+  })();
+  </script>
+</div>
