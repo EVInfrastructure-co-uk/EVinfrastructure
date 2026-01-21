@@ -1,512 +1,87 @@
 <div style="margin: 20px 20px 20px 0;">
-    <div class="tabs js-tabs" data-module="tabs">
+  <div class="tabs js-tabs" data-module="tabs">
     <div class="tabs__controls" role="tablist" aria-label="Section">
 
-        <button id="tab-near-home" class="tabs__tab tabs__tab--active" role="tab"
-                aria-selected="true" aria-controls="near-home" tabindex="0">
+      <button id="tab-near-home" class="tabs__tab tabs__tab--active" role="tab"
+              aria-selected="true" aria-controls="near-home" tabindex="0">
         Near home charging
-        </button>
+      </button>
 
-        <button id="tab-pavement-channels" class="tabs__tab" role="tab"
-                aria-selected="false" aria-controls="pavement-channels" tabindex="-1">
+      <button id="tab-pavement-channels" class="tabs__tab" role="tab"
+              aria-selected="false" aria-controls="pavement-channels" tabindex="-1">
         Pavement channels
-        </button>
+      </button>
 
-        <button id="tab-levi" class="tabs__tab" role="tab"
-                aria-selected="false" aria-controls="levi" tabindex="-1">
+      <button id="tab-levi" class="tabs__tab" role="tab"
+              aria-selected="false" aria-controls="levi" tabindex="-1">
         LEVI/EVIF/ULEVTF
-        </button>
+      </button>
     </div>
 
     <div id="near-home" class="tabs__panel" role="tabpanel" aria-labelledby="tab-near-home">
-        <h2>NEVIS Near Home Charging distribution metric</h2>
+      <h2>NEVIS Near Home Charging distribution metric</h2>
 
-        <p>The below figures show the percentage of households without driveways which are within a 4-minute walk of public chargepoints.</p>
+      <p>The below figures show the percentage of households without driveways which are within a 4-minute walk of public chargepoints.</p>
 
-        <div id="map-nearhome" aria-label="Map of UK local authorities coloured by NEVIS near home charging distribution (deciles)">
-        </div>
-        <p>This is a repeat of the map which is on the <a href="https://nevis.cenex.co.uk/metrics">National EV Insights and Supports website</a>.</p>
-        <p>Data not available for Northern Ireland.</p>
+      {% include map-nearhome.html %}
+
+      <p>This is a repeat of the map which is on the <a href="https://nevis.cenex.co.uk/metrics">National EV Insights and Supports website</a>.</p>
+      <p>Data not available for Northern Ireland.</p>
     </div>
 
     <div id="pavement-channels" class="tabs__panel" role="tabpanel" aria-labelledby="tab-pavement-channels">
-        <h2>Pavement Channels</h2>
+      <h2>Pavement Channels</h2>
 
-        <!-- pavement map container -->
-        <div id="map-pavement" aria-label="Pavement channels map — local authorities coloured by channel status or grant amount">
-        </div>
-        <h3>The Pavement Channel Grant (England)</h3>
-        <p>The above shows details about what a highway authority says about whether they permit channels. Some highway authorities were allocated Pavement Channel Grant. Hover over an area to see if an authority has applied. In some cases, the Pavement Channel Grant is allocated to a combined authority rather than the highway authority.</p>
-        <p>86 highway authorities are direct recipients of the Pavement Channel Grant, whereas 67 highway authorities (including the Isles of Scilly) sit under combined authorities to which the grant has been awarded.</p>
-        <p>The Department for Transport publishes <a href="https://www.gov.uk/government/publications/electric-vehicle-ev-pavement-channels-grant-local-authority-allocations/electric-vehicle-ev-pavement-channels-grant-funding-amounts">information</a> about the Pavement Channel Grant and allocations.</p>
+      <!-- pavement map container -->
+      {% include map-pavement.html %}
+
+      <h3>The Pavement Channel Grant (England)</h3>
+      <p>The above shows details about what a highway authority says about whether they permit channels. Some highway authorities were allocated Pavement Channel Grant. Hover over an area to see if [...]</p>
+      <p>86 highway authorities are direct recipients of the Pavement Channel Grant, whereas 67 highway authorities (including the Isles of Scilly) sit under combined authorities to which the grant [...]</p>
+      <p>The Department for Transport publishes <a href="https://www.gov.uk/government/publications/electric-vehicle-ev-pavement-channels-grant-local-authority-allocations/electric-vehicle-ev-paveme[...]">their allocation data</a>.</p>
     </div>
 
     <div id="levi" class="tabs__panel" role="tabpanel" aria-labelledby="tab-levi">
-        <h2>Local Electric Vehicle Infrastructure fund (LEVI, England),<br>Electric Vehicle Infrastructure Fund (EVIF, Scotland)<br>Ultra Low Emission Vehicle Transformation Fund (ULEVTF, Wales)</h2>
+      <h2>Local Electric Vehicle Infrastructure fund (LEVI, England),<br>Electric Vehicle Infrastructure Fund (EVIF, Scotland)<br>Ultra Low Emission Vehicle Transformation Fund (ULEVTF, Wales)</h2>
 
-        <!-- LEVI map container -->
-        <div id="map-levi" aria-label="LEVI/EVIF/ULEVTF map — local authorities coloured by tender stage">    
-        </div>
-        <p>There is no equivalent scheme in <a href="https://evinfrastructure.co.uk/government/ni#funding-public-chargepoints">Northern Ireland</a> although nine of the eleven councils are in a consortium.</p>
+      <!-- LEVI map container -->
+      {% include map-levi.html %}
+
+      <p>There is no equivalent scheme in <a href="https://evinfrastructure.co.uk/government/ni#funding-public-chargepoints">Northern Ireland</a> although nine of the eleven councils are in a consor[...]</p>
     </div>
-    </div>
+  </div>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
-    <script src="https://unpkg.com/chroma-js@2.4.2/chroma.min.js"></script>
-
-    <script>
-    (async function () {
-    // CONFIG - distinct topojsons for each tab
-    const topoNearPath = '/government/local-government/data/GBlocalauthorities.topojson';
-    const topoPavementPath = '/government/local-government/data/pavementchannelauthorities.topojson';
-    const topoLeviPath = '/government/local-government/data/LEVI-EVIF-ULEVTF-authorities.topojson';
-    const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
-
-    try {
-        // Load all three topology files and the EVI json in parallel
-        const [topoNearResp, topoPavResp, topoLeviResp, eviResp] = await Promise.all([
-        fetch(topoNearPath),
-        fetch(topoPavementPath),
-        fetch(topoLeviPath),
-        fetch(eviJsonPath)
-        ]);
-
-        if (!topoNearResp.ok) throw new Error('Near-home TopoJSON load failed: ' + topoNearResp.status);
-        if (!topoPavResp.ok) throw new Error('Pavement TopoJSON load failed: ' + topoPavResp.status);
-        if (!topoLeviResp.ok) throw new Error('LEVI TopoJSON load failed: ' + topoLeviResp.status);
-        if (!eviResp.ok) throw new Error('EVI JSON load failed: ' + eviResp.status);
-
-        const [topoNear, topoPav, topoLevi, eviBundle] = await Promise.all([
-        topoNearResp.json(),
-        topoPavResp.json(),
-        topoLeviResp.json(),
-        eviResp.json()
-        ]);
-
-        // helper to pick the first object name in a topojson (robust if different object names)
-        function topoFirstObjectName(topo) {
-        const keys = Object.keys(topo.objects || {});
-        return keys.length ? keys[0] : null;
-        }
-
-        // Convert each topology to GeoJSON FeatureCollection
-        const nearObjName = topoFirstObjectName(topoNear);
-        const pavObjName = topoFirstObjectName(topoPav);
-        const leviObjName = topoFirstObjectName(topoLevi);
-        if (!nearObjName || !pavObjName || !leviObjName) throw new Error('One of the topojson files has no objects');
-
-        const geoNear = topojson.feature(topoNear, topoNear.objects[nearObjName]);
-        const geoPav = topojson.feature(topoPav, topoPav.objects[pavObjName]);
-        const geoLevi = topojson.feature(topoLevi, topoLevi.objects[leviObjName]);
-
-        // Find resource row table in eviBundle
-        const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
-        if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
-        const rows = resource.data;
-
-        // Build two lookup maps: by gss-code and by local-authority-code
-        const rowByGss = new Map();
-        const rowByLocal = new Map();
-        rows.forEach(r => {
-        if (r['gss-code']) rowByGss.set(String(r['gss-code']).trim(), r);
-        if (r['local-authority-code']) rowByLocal.set(String(r['local-authority-code']).trim(), r);
-        });
-
-        // Generic helper to find the matching row for a topojson feature.
-        // It tries several possible properties for GSS or local-authority-code and returns the row or null.
-        function getRowForFeature(feature) {
-        const p = (feature && feature.properties) ? feature.properties : {};
-        const candidates = [];
-
-        // common gss-like fields
-        ['LAD24CD','CTYUA24CD','gss','gss_code','gss-code','GSS_CODE','GSS'].forEach(k=>{
-            if (p[k]) candidates.push(String(p[k]).trim());
-        });
-
-        // common local-authority-code fields
-        ['local-authority-code','local_authority_code','localAuthorityCode','LAD24CD'].forEach(k=>{
-            if (p[k]) candidates.push(String(p[k]).trim());
-        });
-
-        // Also consider any property whose key contains 'gss' or 'lad' or 'local' (best-effort)
-        Object.keys(p).forEach(k => {
-            const lk = k.toLowerCase();
-            if ((lk.includes('gss') || lk.includes('lad') || lk.includes('local')) && p[k]) {
-            candidates.push(String(p[k]).trim());
-            }
-        });
-
-        for (const c of candidates) {
-            if (!c) continue;
-            if (rowByGss.has(c)) return rowByGss.get(c);
-            if (rowByLocal.has(c)) return rowByLocal.get(c);
-        }
-        return null;
-        }
-
-        // Utility to convert possibly-null values to numbers; NaN for missing
-        function toNum(v) {
-        if (v === null || v === undefined || v === '') return NaN;
-        const n = Number(v);
-        return Number.isFinite(n) ? n : NaN;
-        }
-
-        // ------------------------
-        // NEVIS map (deciles)
-        // ------------------------
-
-        // Gather numeric NEVIS values from rows
-        const nearhomeValues = rows.map(r => toNum(r['NEVIS-distribution'])).filter(v => !isNaN(v)).sort((a,b)=>a-b);
-
-        function quantile(sortedArr, p) {
-        if (!sortedArr.length) return NaN;
-        const idx = (sortedArr.length - 1) * p;
-        const lo = Math.floor(idx);
-        const hi = Math.ceil(idx);
-        if (hi === lo) return sortedArr[lo];
-        const frac = idx - lo;
-        return sortedArr[lo] * (1 - frac) + sortedArr[hi] * frac;
-        }
-
-        const nearhomeThresholds = [];
-        if (nearhomeValues.length) for (let i = 1; i <= 9; i++) nearhomeThresholds.push(quantile(nearhomeValues, i / 10));
-        const nearhomePalette = chroma.scale('YlGnBu').mode('lab').colors(10);
-        function nearhomeDecileIndex(v) {
-        if (isNaN(v)) return -1;
-        for (let i = 0; i < nearhomeThresholds.length; i++) if (v <= nearhomeThresholds[i]) return i;
-        return 9;
-        }
-
-        const mapNearHome = L.map('map-nearhome').setView([54.5, -3], 5);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; CENEX NEVIS 2025; Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
-        }).addTo(mapNearHome);
-        window.nearhomeMap = mapNearHome;
-
-        const nearhomeLayer = L.geoJSON(geoNear, {
-        style(feature) {
-            const row = getRowForFeature(feature);
-            const v = row ? toNum(row['NEVIS-distribution']) : NaN;
-            const idx = nearhomeDecileIndex(v);
-            return {
-            weight: 1,
-            color: '#444',
-            opacity: 1,
-            fillOpacity: idx === -1 ? 0.15 : 0.85,
-            fillColor: idx === -1 ? '#cccccc' : nearhomePalette[idx]
-            };
-        },
-        onEachFeature(feature, layer) {
-            const row = getRowForFeature(feature);
-            const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
-            const slug = row ? row['gov-uk-slug'] : null;
-            const v = row ? row['NEVIS-distribution'] : null;
-            const rank = row ? row['NEVIS-distribution-rank'] : null;
-
-            function buildHtml() {
-            const vLabel = isNaN(toNum(v)) ? 'N/A' : `${Math.round(v)}%`;
-            const rankLabel = isNaN(toNum(rank)) ? 'N/A' : `${rank}/350`;
-            const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
-            return `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${vLabel}<br/>NEVIS Near Home distribution rank: ${rankLabel}${link}`;
-            }
-
-            layer.on({
-            mouseover(e) {
-                const t = e.target;
-                t.setStyle({ weight: 2, color: '#000' });
-                t.bringToFront();
-                const html = buildHtml();
-                t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
-            },
-            mouseout(e) {
-                nearhomeLayer.resetStyle(e.target);
-                e.target.closeTooltip();
-            },
-            click(e) {
-                // Show same details on click as on hover, and fit to bounds
-                const popupHtml = buildHtml();
-                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
-                try { mapNearHome.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore fitBounds errors */ }
-            }
-            });
-        }
-        }).addTo(mapNearHome);
-
-        // Near home legend
-        const nearhomeLegend = L.control({ position: 'bottomright' });
-        nearhomeLegend.onAdd = function () {
-        const div = L.DomUtil.create('div', 'legend');
-        div.setAttribute('role', 'group');
-        div.setAttribute('aria-label', 'Near home decile legend');
-        if (!nearhomeValues.length) { div.innerHTML = '<strong>NEVIS Near Home distribution</strong><br/>No data'; return div; }
-        div.innerHTML = '<strong>NEVIS Near home distribution (deciles)</strong><br/>';
-        let lower = nearhomeValues[0];
-        for (let i = 0; i < 10; i++) {
-            const color = nearhomePalette[i];
-            const upper = (i < 9) ? nearhomeThresholds[i] : nearhomeValues[nearhomeValues.length - 1];
-            const row = document.createElement('div');
-            row.className = 'row';
-            row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${Math.round(lower)} – ${Math.round(upper)}`;
-            div.appendChild(row);
-            lower = (i < 9) ? (nearhomeThresholds[i] + Number.EPSILON) : upper;
-        }
-        const nodata = document.createElement('div');
-        nodata.className = 'row';
-        nodata.style.marginTop = '6px';
-        nodata.innerHTML = `<span class="swatch" style="background:#cccccc"></span> No data`;
-        div.appendChild(nodata);
-        return div;
-        };
-        nearhomeLegend.addTo(mapNearHome);
-
-        // ------------------------
-        // LEVI map (categorical by LEVI-tender-stage)
-        // ------------------------
-
-        // Colour rules (case-insensitive contains)
-        const leviColours = {
-        awarded_or_framework: '#004d00', // dark green
-        yet_to_award: '#7bd07b', // light green
-        tender_live: '#ffbf00', // amber
-        other: '#d62828', // red
-        nodata: '#cccccc' // grey
-        };
-
-        function colourForStage(stage) {
-        if (stage === null || stage === undefined || String(stage).trim() === '') return leviColours.other;
-        const s = String(stage).toLowerCase();
-        if (s.includes('awarded') || s.includes('framework established')) return leviColours.awarded_or_framework;
-        if (s.includes('yet to award')) return leviColours.yet_to_award;
-        if (s.includes('tender live')) return leviColours.tender_live;
-        // any other non-null string
-        return leviColours.other;
-        }
-
-        const mapLevi = L.map('map-levi').setView([54.5, -3], 5);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
-        }).addTo(mapLevi);
-        window.leviMap = mapLevi;
-
-        const leviLayer = L.geoJSON(geoLevi, {
-        style(feature) {
-            const row = getRowForFeature(feature);
-            const stage = row ? row['LEVI-tender-stage'] : null;
-            const color = colourForStage(stage);
-            const hasData = String(stage) !== 'Not participating';
-            return {
-            weight: 1,
-            color: '#444',
-            opacity: 1,
-            fillOpacity: hasData ? 0.85 : 0.15,
-            fillColor: color
-            };
-        },
-        onEachFeature(feature, layer) {
-            const row = getRowForFeature(feature);
-            const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
-            const slug = row ? row['gov-uk-slug'] : null;
-            const stage = row ? row['LEVI-tender-stage'] : null;
-            const capital = row ? row['LEVI-capital-amount'] : null;
-            const cpos = row ? row['LEVI-CPO(s)'] : null;
-
-            function formatCapital(c) {
-            if (c === null || c === undefined || c === '') return 'N/A';
-            const n = Number(c);
-            return Number.isFinite(n) ? `£${n.toLocaleString()}` : String(c);
-            }
-
-            function buildHtml() {
-            const stageLabel = (stage === null || stage === undefined || String(stage).trim() === '') ? 'No data' : String(stage);
-            const cAmt = formatCapital(capital);
-            const cposLabel = (cpos === null || cpos === undefined || String(cpos).trim() === '') ? '' : `<br/>Appointed CPO(s): ${String(cpos)}`;
-            const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
-            return `<strong>${name}</strong><br/>Tender stage: ${stageLabel}<br/>Capital amount: ${cAmt}${cposLabel}${link}`;
-            }
-
-            layer.on({
-            mouseover(e) {
-                const t = e.target;
-                t.setStyle({ weight: 2, color: '#000' });
-                t.bringToFront();
-                const html = buildHtml();
-                t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
-            },
-            mouseout(e) {
-                leviLayer.resetStyle(e.target);
-                e.target.closeTooltip();
-            },
-            click(e) {
-                // show same details on click (as hover) and fit to bounds
-                const popupHtml = buildHtml();
-                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
-                try { mapLevi.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore fitBounds errors */ }
-            }
-            });
-        }
-        }).addTo(mapLevi);
-
-        // LEVI legend — categorical
-        const leviLegend = L.control({ position: 'bottomright' });
-        leviLegend.onAdd = function () {
-        const div = L.DomUtil.create('div', 'legend');
-        div.setAttribute('role', 'group');
-        div.setAttribute('aria-label', 'Tender stage legend');
-        div.innerHTML = '<strong>LEVI / EVIF / ULEVTF tender stage</strong><br/>';
-        const rowsLegend = [
-            { label: 'Awarded', color: leviColours.awarded_or_framework },
-            { label: 'Yet to award', color: leviColours.yet_to_award },
-            { label: 'Tender live', color: leviColours.tender_live },
-            { label: 'Yet to tender', color: leviColours.other },
-        ];
-        rowsLegend.forEach(r => {
-            const row = document.createElement('div');
-            row.className = 'row';
-            row.innerHTML = `<span class="swatch" style="background:${r.color}"></span> ${r.label}`;
-            div.appendChild(row);
-        });
-        return div;
-        };
-        leviLegend.addTo(mapLevi);
-
-        // ------------------------
-        // Pavement Channels map (categorical by channel-status)
-        // ------------------------
-
-        // Colour rules for channel-status (user-specified):
-        // If channel status is "Permitted" -> dark green
-        // If "Trial live" -> light green
-        // If "Trial complete" -> purple
-        // If "Trial to come" -> amber
-        // Anything else (including null) -> red
-
-        const channelColours = {
-        permitted: '#004d00',      // dark green
-        trial_live: '#7bd07b',     // light green
-        trial_complete: '#6a3d9a', // purple
-        trial_to_come: '#ffbf00',  // amber
-        other: '#d62828'           // red (default)
-        };
-
-        function colourForChannelStatus(status) {
-        if (status === null || status === undefined || String(status).trim() === '') return channelColours.other;
-        const s = String(status).trim().toLowerCase();
-        if (s === 'permitted') return channelColours.permitted;
-        if (s === 'trial live') return channelColours.trial_live;
-        if (s === 'trial complete') return channelColours.trial_complete;
-        if (s === 'trial to come') return channelColours.trial_to_come;
-        // any other value => red
-        return channelColours.other;
-        }
-
-        const mapPav = L.map('map-pavement').setView([54.5, -3], 5);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Department for Transport; Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
-        }).addTo(mapPav);
-        window.pavementMap = mapPav;
-
-        const pavLayer = L.geoJSON(geoPav, {
-        style(feature) {
-            const row = getRowForFeature(feature);
-            const rawStatus = row ? (row['channel-status'] ? String(row['channel-status']).trim() : '') : '';
-            const color = colourForChannelStatus(rawStatus);
-            return {
-            weight: 1,
-            color: '#444',
-            opacity: 1,
-            fillOpacity: 0.85,
-            fillColor: color
-            };
-        },
-        onEachFeature(feature, layer) {
-            const row = getRowForFeature(feature);
-            const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
-            const status = row ? (row['channel-status'] ? String(row['channel-status']).trim() : 'No data') : 'No data';
-            const grant = row ? row['channel-grant-amount'] : null;
-            const grantStatus = row ? row['channel-grant-status'] : null;
-            const slug = row ? row['gov-uk-slug'] : null;
-
-            function formatGrant(g) {
-            if (g === null || g === undefined || g === '') return '';
-            const n = Number(g);
-            return Number.isFinite(n) ? `£${n.toLocaleString()}` : String(g);
-            }
-
-            function buildHtml() {
-            const grantLabel = (grant === null || grant === undefined || grant === '') ? '' : `<br/>Grant amount: ${formatGrant(grant)}`;
-            const grantStatusLabel = (grantStatus === null || grantStatus === undefined || grantStatus === '') ? '' : `<br/>Grant status: ${grantStatus}`;
-            const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
-            return `<strong>${name}</strong><br/>Status: ${status}${grantLabel}${grantStatusLabel}${link}`;
-            }
-
-            layer.on({
-            mouseover(e) {
-                const t = e.target;
-                t.setStyle({ weight: 2, color: '#000' });
-                t.bringToFront();
-                const html = buildHtml();
-                t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
-            },
-            mouseout(e) {
-                pavLayer.resetStyle(e.target);
-                e.target.closeTooltip();
-            },
-            click(e) {
-                // show same details on click and fit to bounds
-                const popupHtml = buildHtml();
-                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
-                try { mapPav.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore fitBounds errors */ }
-            }
-            });
-        }
-        }).addTo(mapPav);
-
-        // Pavement legend — categorical (explicit legend for the mapped statuses)
-        const pavLegend = L.control({ position: 'bottomright' });
-        pavLegend.onAdd = function () {
-        const div = L.DomUtil.create('div', 'legend');
-        div.setAttribute('role', 'group');
-        div.setAttribute('aria-label', 'Pavement channels status legend');
-        div.innerHTML = '<strong>Pavement channels</strong><br/>';
-        const rows = [
-            { label: 'Permitted', color: channelColours.permitted },
-            { label: 'Trial live', color: channelColours.trial_live },
-            { label: 'Trial complete', color: channelColours.trial_complete },
-            { label: 'Trial to come', color: channelColours.trial_to_come },
-            { label: 'Not permitted (including by default if no data)', color: channelColours.other }
-        ];
-        rows.forEach(r => {
-            const row = document.createElement('div');
-            row.className = 'row';
-            row.innerHTML = `<span class="swatch" style="background:${r.color}"></span> ${r.label}`;
-            div.appendChild(row);
-        });
-        return div;
-        };
-        pavLegend.addTo(mapPav);
-
-        // Tab invalidation hooks
-        function hookTabInvalidate(tabId, mapObj) {
+  <!-- Small helper: when a hidden tab becomes visible, ensure the included maps resize correctly.
+       The includes themselves initialise their maps and expose them as window.nearhomeMap / window.pavementMap / window.leviMap. -->
+  <script>
+    (function () {
+      function hookTabInvalidate(tabId, mapVarName) {
         const btn = document.getElementById(tabId);
         if (!btn) return;
         btn.addEventListener('click', () => {
-            setTimeout(() => { try { mapObj.invalidateSize(); } catch (e) {/*ignore*/} }, 200);
+          setTimeout(() => {
+            try {
+              const m = window[mapVarName];
+              if (m && typeof m.invalidateSize === 'function') m.invalidateSize();
+            } catch (e) { /* ignore */ }
+          }, 250);
         });
+        // If the tab is already active on load, attempt an initial invalidate once maps may be ready.
         if (btn.classList.contains('tabs__tab--active') || btn.getAttribute('aria-selected') === 'true') {
-            setTimeout(() => { try { mapObj.invalidateSize(); } catch (e) {/*ignore*/} }, 200);
+          setTimeout(() => {
+            try {
+              const m = window[mapVarName];
+              if (m && typeof m.invalidateSize === 'function') m.invalidateSize();
+            } catch (e) { /* ignore */ }
+          }, 500);
         }
-        }
-        hookTabInvalidate('tab-near-home', mapNearHome);
-        hookTabInvalidate('tab-pavement-channels', mapPav);
-        hookTabInvalidate('tab-levi', mapLevi);
+      }
 
-    } catch (err) {
-        console.error(err);
-        alert('Map initialization failed: ' + (err && err.message));
-    }
+      hookTabInvalidate('tab-near-home', 'nearhomeMap');
+      hookTabInvalidate('tab-pavement-channels', 'pavementMap');
+      hookTabInvalidate('tab-levi', 'leviMap');
     })();
-    </script>
+  </script>
 
-    <script type="text/javascript" src="/js/tabs.js"></script>
+  <script type="text/javascript" src="/js/tabs.js"></script>
 </div>

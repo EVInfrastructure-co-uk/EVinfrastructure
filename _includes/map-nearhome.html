@@ -1,193 +1,208 @@
-<div class="map-include near-home">
-  <h2>NEVIS Near Home Charging distribution metric</h2>
-  <p>The figures show the percentage of households without driveways which are within a 4-minute walk of public chargepoints. Data not available for Northern Ireland.</p>
+<div id="map-nearhome" aria-label="Map of UK local authorities coloured by NEVIS near home charging distribution (deciles)" style="min-height:480px;"></div>
 
-  <div id="map-nearhome" aria-label="Map of UK local authorities coloured by NEVIS near home charging distribution (deciles)" style="min-height:480px;"></div>
+<script>
+(function () {
+  // If a map instance already exists, don't initialise again.
+  if (window.nearhomeMap) return;
 
-  <!-- Required libraries (remove if already loaded globally on the page) -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
-  <script src="https://unpkg.com/chroma-js@2.4.2/chroma.min.js"></script>
-
-  <script>
-  (async function () {
-    const topoNearPath = '/government/local-government/data/GBlocalauthorities.topojson';
-    const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
-
-    try {
-      const [topoNearResp, eviResp] = await Promise.all([
-        fetch(topoNearPath),
-        fetch(eviJsonPath)
-      ]);
-
-      if (!topoNearResp.ok) throw new Error('Near-home TopoJSON load failed: ' + topoNearResp.status);
-      if (!eviResp.ok) throw new Error('EVI JSON load failed: ' + eviResp.status);
-
-      const [topoNear, eviBundle] = await Promise.all([
-        topoNearResp.json(),
-        eviResp.json()
-      ]);
-
-      function topoFirstObjectName(topo) {
-        const keys = Object.keys(topo.objects || {});
-        return keys.length ? keys[0] : null;
-      }
-
-      const nearObjName = topoFirstObjectName(topoNear);
-      if (!nearObjName) throw new Error('Near topojson has no objects');
-
-      const geoNear = topojson.feature(topoNear, topoNear.objects[nearObjName]);
-
-      const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
-      if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
-      const rows = resource.data;
-
-      const rowByGss = new Map();
-      const rowByLocal = new Map();
-      rows.forEach(r => {
-        if (r['gss-code']) rowByGss.set(String(r['gss-code']).trim(), r);
-        if (r['local-authority-code']) rowByLocal.set(String(r['local-authority-code']).trim(), r);
-      });
-
-      function getRowForFeature(feature) {
-        const p = (feature && feature.properties) ? feature.properties : {};
-        const candidates = [];
-
-        ['LAD24CD','CTYUA24CD','gss','gss_code','gss-code','GSS_CODE','GSS'].forEach(k=>{
-          if (p[k]) candidates.push(String(p[k]).trim());
-        });
-        ['local-authority-code','local_authority_code','localAuthorityCode','LAD24CD'].forEach(k=>{
-          if (p[k]) candidates.push(String(p[k]).trim());
-        });
-        Object.keys(p).forEach(k => {
-          const lk = k.toLowerCase();
-          if ((lk.includes('gss') || lk.includes('lad') || lk.includes('local')) && p[k]) {
-            candidates.push(String(p[k]).trim());
-          }
-        });
-
-        for (const c of candidates) {
-          if (!c) continue;
-          if (rowByGss.has(c)) return rowByGss.get(c);
-          if (rowByLocal.has(c)) return rowByLocal.get(c);
+  // Helper to load a script only if a global check is missing.
+  function loadScriptOnce(src, readyCheck) {
+    return new Promise(function (resolve, reject) {
+      try {
+        if (typeof readyCheck === 'function' && readyCheck()) return resolve();
+        // If an identical script tag already present, wait for it
+        const existing = Array.from(document.getElementsByTagName('script')).find(s => s.src && s.src.indexOf(src) !== -1);
+        if (existing) {
+          if (existing.hasAttribute('data-loaded')) return resolve();
+          existing.addEventListener('load', function () { resolve(); });
+          existing.addEventListener('error', function () { reject(new Error('Failed to load ' + src)); });
+          return;
         }
-        return null;
-      }
+        const s = document.createElement('script');
+        s.src = src;
+        s.async = true;
+        s.onload = function () { s.setAttribute('data-loaded', '1'); resolve(); };
+        s.onerror = function () { reject(new Error('Failed to load ' + src)); };
+        document.head.appendChild(s);
+      } catch (e) { reject(e); }
+    });
+  }
 
-      function toNum(v) {
-        if (v === null || v === undefined || v === '') return NaN;
-        const n = Number(v);
-        return Number.isFinite(n) ? n : NaN;
-      }
+  // Load dependencies (Leaflet, topojson-client, chroma-js). chroma is used for the NEVIS palette.
+  Promise.all([
+    loadScriptOnce('https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', () => window.L !== undefined),
+    loadScriptOnce('https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js', () => window.topojson !== undefined),
+    loadScriptOnce('https://unpkg.com/chroma-js@2.4.2/chroma.min.js', () => window.chroma !== undefined)
+  ]).then(init).catch(function (err) {
+    // Non-blocking: log to console
+    console.error('Failed to load map dependencies for NEAR HOME map:', err);
+  });
 
-      const nearhomeValues = rows.map(r => toNum(r['NEVIS-distribution'])).filter(v => !isNaN(v)).sort((a,b)=>a-b);
+  function init() {
+    (async function () {
+      try {
+        const topoNearPath = '/government/local-government/data/GBlocalauthorities.topojson';
+        const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
 
-      function quantile(sortedArr, p) {
-        if (!sortedArr.length) return NaN;
-        const idx = (sortedArr.length - 1) * p;
-        const lo = Math.floor(idx);
-        const hi = Math.ceil(idx);
-        if (hi === lo) return sortedArr[lo];
-        const frac = idx - lo;
-        return sortedArr[lo] * (1 - frac) + sortedArr[hi] * frac;
-      }
+        const [topoNearResp, eviResp] = await Promise.all([ fetch(topoNearPath), fetch(eviJsonPath) ]);
+        if (!topoNearResp.ok) throw new Error('Near-home TopoJSON load failed: ' + topoNearResp.status);
+        if (!eviResp.ok) throw new Error('EVI JSON load failed: ' + eviResp.status);
 
-      const nearhomeThresholds = [];
-      if (nearhomeValues.length) for (let i = 1; i <= 9; i++) nearhomeThresholds.push(quantile(nearhomeValues, i / 10));
-      const nearhomePalette = chroma.scale('YlGnBu').mode('lab').colors(10);
-      function nearhomeDecileIndex(v) {
-        if (isNaN(v)) return -1;
-        for (let i = 0; i < nearhomeThresholds.length; i++) if (v <= nearhomeThresholds[i]) return i;
-        return 9;
-      }
+        const [topoNear, eviBundle] = await Promise.all([ topoNearResp.json(), eviResp.json() ]);
 
-      const mapNearHome = L.map('map-nearhome').setView([54.5, -3], 5);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; CENEX NEVIS 2025; Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
-      }).addTo(mapNearHome);
-      window.nearhomeMap = mapNearHome;
+        function topoFirstObjectName(topo) {
+          const keys = Object.keys(topo.objects || {});
+          return keys.length ? keys[0] : null;
+        }
+        const nearObjName = topoFirstObjectName(topoNear);
+        if (!nearObjName) throw new Error('Near topojson has no objects');
 
-      const nearhomeLayer = L.geoJSON(geoNear, {
-        style(feature) {
-          const row = getRowForFeature(feature);
-          const v = row ? toNum(row['NEVIS-distribution']) : NaN;
-          const idx = nearhomeDecileIndex(v);
-          return {
-            weight: 1,
-            color: '#444',
-            opacity: 1,
-            fillOpacity: idx === -1 ? 0.15 : 0.85,
-            fillColor: idx === -1 ? '#cccccc' : nearhomePalette[idx]
-          };
-        },
-        onEachFeature(feature, layer) {
-          const row = getRowForFeature(feature);
-          const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
-          const slug = row ? row['gov-uk-slug'] : null;
-          const v = row ? row['NEVIS-distribution'] : null;
-          const rank = row ? row['NEVIS-distribution-rank'] : null;
+        const geoNear = topojson.feature(topoNear, topoNear.objects[nearObjName]);
 
-          function buildHtml() {
-            const vLabel = isNaN(toNum(v)) ? 'N/A' : `${Math.round(v)}%`;
-            const rankLabel = isNaN(toNum(rank)) ? 'N/A' : `${rank}/350`;
-            const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
-            return `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${vLabel}<br/>NEVIS Near Home distribution rank: ${rankLabel}${link}`;
-          }
+        const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
+        if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
+        const rows = resource.data;
 
-          layer.on({
-            mouseover(e) {
-              const t = e.target;
-              t.setStyle({ weight: 2, color: '#000' });
-              t.bringToFront();
-              const html = buildHtml();
-              t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
-            },
-            mouseout(e) {
-              nearhomeLayer.resetStyle(e.target);
-              e.target.closeTooltip();
-            },
-            click(e) {
-              const popupHtml = buildHtml();
-              layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
-              try { mapNearHome.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
-            }
+        const rowByGss = new Map();
+        const rowByLocal = new Map();
+        rows.forEach(r => {
+          if (r['gss-code']) rowByGss.set(String(r['gss-code']).trim(), r);
+          if (r['local-authority-code']) rowByLocal.set(String(r['local-authority-code']).trim(), r);
+        });
+
+        function getRowForFeature(feature) {
+          const p = (feature && feature.properties) ? feature.properties : {};
+          const candidates = [];
+          ['LAD24CD','CTYUA24CD','gss','gss_code','gss-code','GSS_CODE','GSS'].forEach(k => { if (p[k]) candidates.push(String(p[k]).trim()); });
+          ['local-authority-code','local_authority_code','localAuthorityCode','LAD24CD'].forEach(k => { if (p[k]) candidates.push(String(p[k]).trim()); });
+          Object.keys(p).forEach(k => {
+            const lk = k.toLowerCase();
+            if ((lk.includes('gss') || lk.includes('lad') || lk.includes('local')) && p[k]) candidates.push(String(p[k]).trim());
           });
+          for (const c of candidates) {
+            if (!c) continue;
+            if (rowByGss.has(c)) return rowByGss.get(c);
+            if (rowByLocal.has(c)) return rowByLocal.get(c);
+          }
+          return null;
         }
-      }).addTo(mapNearHome);
 
-      const nearhomeLegend = L.control({ position: 'bottomright' });
-      nearhomeLegend.onAdd = function () {
-        const div = L.DomUtil.create('div', 'legend');
-        div.setAttribute('role', 'group');
-        div.setAttribute('aria-label', 'Near home decile legend');
-        if (!nearhomeValues.length) { div.innerHTML = '<strong>NEVIS Near Home distribution</strong><br/>No data'; return div; }
-        div.innerHTML = '<strong>NEVIS Near home distribution (deciles)</strong><br/>';
-        let lower = nearhomeValues[0];
-        for (let i = 0; i < 10; i++) {
-          const color = nearhomePalette[i];
-          const upper = (i < 9) ? nearhomeThresholds[i] : nearhomeValues[nearhomeValues.length - 1];
-          const row = document.createElement('div');
-          row.className = 'row';
-          row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${Math.round(lower)} – ${Math.round(upper)}`;
-          div.appendChild(row);
-          lower = (i < 9) ? (nearhomeThresholds[i] + Number.EPSILON) : upper;
+        function toNum(v) {
+          if (v === null || v === undefined || v === '') return NaN;
+          const n = Number(v);
+          return Number.isFinite(n) ? n : NaN;
         }
-        const nodata = document.createElement('div');
-        nodata.className = 'row';
-        nodata.style.marginTop = '6px';
-        nodata.innerHTML = `<span class="swatch" style="background:#cccccc"></span> No data`;
-        div.appendChild(nodata);
-        return div;
-      };
-      nearhomeLegend.addTo(mapNearHome);
 
-      // Attempt a size invalidation after render (useful if map is in a hidden tab)
-      setTimeout(() => { try { mapNearHome.invalidateSize(); } catch (e) {/*ignore*/} }, 300);
+        const nearhomeValues = rows.map(r => toNum(r['NEVIS-distribution'])).filter(v => !isNaN(v)).sort((a,b)=>a-b);
 
-    } catch (err) {
-      console.error(err);
-      // Non-blocking: log and do not show alert in includes by default
-    }
-  })();
-  </script>
-</div>
+        function quantile(sortedArr, p) {
+          if (!sortedArr.length) return NaN;
+          const idx = (sortedArr.length - 1) * p;
+          const lo = Math.floor(idx);
+          const hi = Math.ceil(idx);
+          if (hi === lo) return sortedArr[lo];
+          const frac = idx - lo;
+          return sortedArr[lo] * (1 - frac) + sortedArr[hi] * frac;
+        }
+
+        const nearhomeThresholds = [];
+        if (nearhomeValues.length) for (let i = 1; i <= 9; i++) nearhomeThresholds.push(quantile(nearhomeValues, i / 10));
+        const nearhomePalette = chroma.scale('YlGnBu').mode('lab').colors(10);
+        function nearhomeDecileIndex(v) {
+          if (isNaN(v)) return -1;
+          for (let i = 0; i < nearhomeThresholds.length; i++) if (v <= nearhomeThresholds[i]) return i;
+          return 9;
+        }
+
+        // If a map instance exists now, bail out (someone else initialised it)
+        if (window.nearhomeMap) return;
+
+        const mapNearHome = L.map('map-nearhome').setView([54.5, -3], 5);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; CENEX NEVIS 2025; Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
+        }).addTo(mapNearHome);
+        window.nearhomeMap = mapNearHome;
+
+        const nearhomeLayer = L.geoJSON(geoNear, {
+          style(feature) {
+            const row = getRowForFeature(feature);
+            const v = row ? toNum(row['NEVIS-distribution']) : NaN;
+            const idx = nearhomeDecileIndex(v);
+            return {
+              weight: 1,
+              color: '#444',
+              opacity: 1,
+              fillOpacity: idx === -1 ? 0.15 : 0.85,
+              fillColor: idx === -1 ? '#cccccc' : nearhomePalette[idx]
+            };
+          },
+          onEachFeature(feature, layer) {
+            const row = getRowForFeature(feature);
+            const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
+            const slug = row ? row['gov-uk-slug'] : null;
+            const v = row ? row['NEVIS-distribution'] : null;
+            const rank = row ? row['NEVIS-distribution-rank'] : null;
+
+            function buildHtml() {
+              const vLabel = isNaN(toNum(v)) ? 'N/A' : `${Math.round(v)}%`;
+              const rankLabel = isNaN(toNum(rank)) ? 'N/A' : `${rank}/350`;
+              const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
+              return `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${vLabel}<br/>NEVIS Near Home distribution rank: ${rankLabel}${link}`;
+            }
+
+            layer.on({
+              mouseover(e) {
+                const t = e.target;
+                t.setStyle({ weight: 2, color: '#000' });
+                t.bringToFront();
+                const html = buildHtml();
+                t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
+              },
+              mouseout(e) {
+                nearhomeLayer.resetStyle(e.target);
+                e.target.closeTooltip();
+              },
+              click(e) {
+                const popupHtml = buildHtml();
+                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
+                try { mapNearHome.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore fitBounds errors */ }
+              }
+            });
+          }
+        }).addTo(mapNearHome);
+
+        const nearhomeLegend = L.control({ position: 'bottomright' });
+        nearhomeLegend.onAdd = function () {
+          const div = L.DomUtil.create('div', 'legend');
+          div.setAttribute('role', 'group');
+          div.setAttribute('aria-label', 'Near home decile legend');
+          if (!nearhomeValues.length) { div.innerHTML = '<strong>NEVIS Near Home distribution</strong><br/>No data'; return div; }
+          div.innerHTML = '<strong>NEVIS Near home distribution (deciles)</strong><br/>';
+          let lower = nearhomeValues[0];
+          for (let i = 0; i < 10; i++) {
+            const color = nearhomePalette[i];
+            const upper = (i < 9) ? nearhomeThresholds[i] : nearhomeValues[nearhomeValues.length - 1];
+            const row = document.createElement('div');
+            row.className = 'row';
+            row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${Math.round(lower)} – ${Math.round(upper)}`;
+            div.appendChild(row);
+            lower = (i < 9) ? (nearhomeThresholds[i] + Number.EPSILON) : upper;
+          }
+          const nodata = document.createElement('div');
+          nodata.className = 'row';
+          nodata.style.marginTop = '6px';
+          nodata.innerHTML = `<span class="swatch" style="background:#cccccc"></span> No data`;
+          div.appendChild(nodata);
+          return div;
+        };
+        nearhomeLegend.addTo(mapNearHome);
+
+        setTimeout(() => { try { mapNearHome.invalidateSize(); } catch (e) {/*ignore*/} }, 300);
+
+      } catch (err) {
+        console.error('NEAR HOME map initialisation failed:', err);
+      }
+    })();
+  }
+})();
+</script>
