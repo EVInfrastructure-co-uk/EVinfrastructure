@@ -84,7 +84,40 @@ title: "The Welsh Government and EVI"
 <p>Chargepoint operators must obtain a Street Works Licence under Section 50 of the Act to install public chargepoints on the public highway.</p>
 
 <script>
-  window.leviMap.setView([52.5, -3.9], 7);
-  window.pavementMap.setView([52.5, -3.9], 7);
-  window.nearhomeMap.setView([52.5, -3.9], 7);
+(function () {
+  function waitForGlobal(name, timeout = 10000) {
+    return new Promise((resolve, reject) => {
+      if (window[name]) return resolve(window[name]);
+      const interval = setInterval(() => {
+        if (window[name]) {
+          clearInterval(interval);
+          clearTimeout(to);
+          resolve(window[name]);
+        }
+      }, 100);
+      const to = setTimeout(() => {
+        clearInterval(interval);
+        reject(new Error('Timeout waiting for ' + name));
+      }, timeout);
+    });
+  }
+
+  Promise.all([
+    waitForGlobal('leviMap'),
+    waitForGlobal('pavementMap'),
+    waitForGlobal('nearhomeMap')
+  ]).then(([levi, pavement, nearhome]) => {
+    // use the Leaflet map objects directly
+    levi.setView([52.5, -3.9], 7);
+    pavement.setView([52.5, -3.9], 7);
+    nearhome.setView([52.5, -3.9], 7);
+
+    // If your containers might have resized:
+    setTimeout(() => {
+      try { levi.invalidateSize(); pavement.invalidateSize(); nearhome.invalidateSize(); } catch (e) {}
+    }, 200);
+  }).catch(err => {
+    console.error('Could not centre maps:', err);
+  });
+})();
 </script>

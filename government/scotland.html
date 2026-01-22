@@ -6,7 +6,7 @@ title: "The Scottish Government and EVI"
 <h1>The Scottish Government and EVI</h1>
 <p>The Scottish Government has invested a great deal into EV charging, and the Scottish public charging network is amongst the best in the country.</p>
 <p>Transport Scotland have an Electric Vehicle Infrastructure Project (EVIP) Board which directs EVI programmes in Scotland.</p>
-
+{% include maps.html %}
 <h4>Contents</h4>
   <ul>
       <li><a href="#funding-public-chargepoints">Funding public chargepoints</a></li>
@@ -175,3 +175,41 @@ title: "The Scottish Government and EVI"
 <p>The <a href="https://www.legislation.gov.uk/ukpga/1991/22/contents">New Roads and Street Works Act 1991</a> applies in Scotland, however the parts of the Act which apply in Scotland are different to the parts which apply in England and Wales.</p>
 <p>Chargepoint operators must obtain permission under Section 109 of the Act to install public chargepoints on public roads.</p>
 
+<script>
+(function () {
+  function waitForGlobal(name, timeout = 10000) {
+    return new Promise((resolve, reject) => {
+      if (window[name]) return resolve(window[name]);
+      const interval = setInterval(() => {
+        if (window[name]) {
+          clearInterval(interval);
+          clearTimeout(to);
+          resolve(window[name]);
+        }
+      }, 100);
+      const to = setTimeout(() => {
+        clearInterval(interval);
+        reject(new Error('Timeout waiting for ' + name));
+      }, timeout);
+    });
+  }
+
+  Promise.all([
+    waitForGlobal('leviMap'),
+    waitForGlobal('pavementMap'),
+    waitForGlobal('nearhomeMap')
+  ]).then(([levi, pavement, nearhome]) => {
+    // use the Leaflet map objects directly
+    levi.setView([56.8, -4.5], 6);
+    pavement.setView([56.8, -4.5], 6);
+    nearhome.setView([56.8, -4.5], 6);
+
+    // If your containers might have resized:
+    setTimeout(() => {
+      try { levi.invalidateSize(); pavement.invalidateSize(); nearhome.invalidateSize(); } catch (e) {}
+    }, 200);
+  }).catch(err => {
+    console.error('Could not centre maps:', err);
+  });
+})();
+</script>
