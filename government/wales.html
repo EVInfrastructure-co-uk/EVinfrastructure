@@ -108,9 +108,9 @@ title: "The Welsh Government and EVI"
     waitForGlobal('nearhomeMap')
   ]).then(([levi, pavement, nearhome]) => {
     // use the Leaflet map objects directly
-    levi.setView([52.5, -3.9], 7);
-    pavement.setView([52.5, -3.9], 7);
-    nearhome.setView([52.5, -3.9], 7);
+    levi.setView([52.5, -3.9], 7.5);
+    pavement.setView([52.5, -3.9], 7.5);
+    nearhome.setView([52.5, -3.9], 7.5);
 
     // If your containers might have resized:
     setTimeout(() => {
