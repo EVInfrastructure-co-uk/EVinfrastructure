@@ -155,6 +155,17 @@ title: "{{ authority.name }}"
       </tbody>
         </table>
       </div>
+
+      <!-- Pavement channel map for PC tab -->
+      <script>
+        // Expose the current page slug so the included map script can:
+        //  - show the "See our dedicated … page" text as bold (not a link) when appropriate
+        //  - optionally auto-open the popup for this authority
+        window.currentPageSlug = '{{ authority.slug }}';
+        // initialAuthoritySlug is used by the map includes to auto-open as if the authority had been clicked.
+        window.initialAuthoritySlug = '{{ authority.slug }}';
+      </script>
+      {% include map-pavement.html %}
     </div>
 
     <div id="levi" class="tabs__panel tabs__panel--hidden" role="tabpanel"
