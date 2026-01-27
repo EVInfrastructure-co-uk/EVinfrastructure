@@ -185,7 +185,7 @@
             html += `<div class="row"><span class="swatch" style="background:${r.color}"></span> ${r.label}</div>`;
           });
           legendContainer.innerHTML = html;
-        )()};
+        })();
 
         setTimeout(() => { try { mapPav.invalidateSize(); } catch (e) {/*ignore*/} }, 300);
 
