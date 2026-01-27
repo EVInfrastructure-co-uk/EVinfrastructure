@@ -99,6 +99,17 @@ title: "Aberdeen City"
         </tbody>
         </table>
       </div>
+
+      <!-- NEVIS near-home map for overview tab -->
+      <script>
+        // Expose the current page slug so the included map script can:
+        //  - show the "See our dedicated … page" text as bold (not a link) when appropriate
+        //  - optionally auto-open the popup for this authority
+        window.currentPageSlug = '{{ authority.slug }}';
+        // initialAuthoritySlug is used by the map includes to auto-open as if the authority had been clicked.
+        window.initialAuthoritySlug = '{{ authority.slug }}';
+      </script>
+      {% include map-nearhome.html %}
     </div>
 
     <div id="pavement-channels" class="tabs__panel tabs__panel--hidden" role="tabpanel"
@@ -155,6 +166,9 @@ title: "Aberdeen City"
         </tbody>
         </table>
       </div>
+
+      <!-- Pavement channels map for second tab -->
+      {% include map-pavement.html %}
     </div>
 
     <div id="evif" class="tabs__panel tabs__panel--hidden" role="tabpanel"
@@ -209,7 +223,10 @@ title: "Aberdeen City"
           </tr>
         </tbody>
         </table>
-      </div>    
+      </div>
+
+      <!-- LEVI/EVIF map for third tab -->
+      {% include map-levi.html %}
     </div>
 
     <div id="orcs" class="tabs__panel tabs__panel--hidden" role="tabpanel"

@@ -147,7 +147,16 @@
             function buildHtml() {
               const vLabel = isNaN(toNum(v)) ? 'N/A' : `${Math.round(v)}%`;
               const rankLabel = isNaN(toNum(rank)) ? 'N/A' : `${rank}/350`;
-              const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
+              // If the user is already on the authority page (window.currentPageSlug matches),
+              // render the "See our dedicated … page" as bold text (not a link).
+              let link = '';
+              if (slug) {
+                if (typeof window.currentPageSlug !== 'undefined' && window.currentPageSlug === slug) {
+                  link = `<br/><strong>See our dedicated ${name} page</strong>`;
+                } else {
+                  link = `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>`;
+                }
+              }
               return `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${vLabel}<br/>NEVIS Near Home distribution rank: ${rankLabel}${link}`;
             }
 
@@ -169,16 +178,22 @@
                 try { mapNearHome.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore fitBounds errors */ }
               }
             });
+
+            // Auto-open behaviour: if a page sets window.initialAuthoritySlug to the authority slug,
+            // open the popup for that authority as if it had been clicked.
+            if (typeof window.initialAuthoritySlug !== 'undefined' && window.initialAuthoritySlug && slug && window.initialAuthoritySlug === slug) {
+              try {
+                const popupHtml = buildHtml();
+                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
+                try { mapNearHome.fitBounds(layer.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore fitBounds errors */ }
+              } catch (err) {
+                // non-fatal
+                console.error('Failed to auto-open nearhome popup for', slug, err);
+              }
+            }
           }
         }).addTo(mapNearHome);
 
-        // const nearhomeLegend = L.control({ position: 'bottomright' });
-        // nearhomeLegend.onAdd = function () {
-        //   const div = L.DomUtil.create('div', 'legend');
-        //   div.setAttribute('role', 'group');
-        //   div.setAttribute('aria-label', 'Near home decile legend');
-        //   if (!nearhomeValues.length) { div.innerHTML = '<strong>NEVIS Near Home distribution</strong><br/>No data'; return div; }
-        //   div.innerHTML = '<strong>NEVIS Near home distribution (deciles)</strong><br/>';
         // Build legend as a block element below the map (not an overlay control)
         (function createBlockLegend() {
           const legendContainer = document.getElementById('map-nearhome-legend');

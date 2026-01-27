@@ -138,7 +138,15 @@
             function buildHtml() {
               const grantLabel = (grant === null || grant === undefined || grant === '') ? '' : `<br/>Grant amount: ${formatGrant(grant)}`;
               const grantStatusLabel = (grantStatus === null || grantStatus === undefined || grantStatus === '') ? '' : `<br/>Grant status: ${grantStatus}`;
-              const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
+              // If on the authority page already, show bold unlinked text instead of hyperlink
+              let link = '';
+              if (slug) {
+                if (typeof window.currentPageSlug !== 'undefined' && window.currentPageSlug === slug) {
+                  link = `<br/><strong>See our dedicated ${name} page</strong>`;
+                } else {
+                  link = `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>`;
+                }
+              }
               return `<strong>${name}</strong><br/>Status: ${status}${grantLabel}${grantStatusLabel}${link}`;
             }
 
@@ -160,15 +168,20 @@
                 try { mapPav.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
               }
             });
+
+            // Auto-open behaviour: if window.initialAuthoritySlug is set to this slug, open the popup.
+            if (typeof window.initialAuthoritySlug !== 'undefined' && window.initialAuthoritySlug && slug && window.initialAuthoritySlug === slug) {
+              try {
+                const popupHtml = buildHtml();
+                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
+                try { mapPav.fitBounds(layer.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
+              } catch (err) {
+                console.error('Failed to auto-open pavement popup for', slug, err);
+              }
+            }
           }
         }).addTo(mapPav);
 
-        // const pavLegend = L.control({ position: 'bottomright' });
-        // pavLegend.onAdd = function () {
-        //   const div = L.DomUtil.create('div', 'legend');
-        //   div.setAttribute('role', 'group');
-        //   div.setAttribute('aria-label', 'Pavement channels status legend');
-        //   div.innerHTML = '<strong>Pavement channels</strong><br/>';
         // Build legend as a block element below the map (not an overlay control)
         (function createBlockLegend() {
           const legendContainer = document.getElementById('map-pavement-legend');

@@ -139,7 +139,15 @@
               const stageLabel = (stage === null || stage === undefined || String(stage).trim() === '') ? 'No data' : String(stage);
               const cAmt = formatCapital(capital);
               const cposLabel = (cpos === null || cpos === undefined || String(cpos).trim() === '') ? '' : `<br/>Appointed CPO(s): ${String(cpos)}`;
-              const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
+              // If the user is already on the authority page, render bold unlinked text instead of a hyperlink.
+              let link = '';
+              if (slug) {
+                if (typeof window.currentPageSlug !== 'undefined' && window.currentPageSlug === slug) {
+                  link = `<br/><strong>See our dedicated ${name} page</strong>`;
+                } else {
+                  link = `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>`;
+                }
+              }
               return `<strong>${name}</strong><br/>Tender stage: ${stageLabel}<br/>Capital amount: ${cAmt}${cposLabel}${link}`;
             }
 
@@ -161,6 +169,17 @@
                 try { mapLevi.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
               }
             });
+
+            // Auto-open behaviour: if window.initialAuthoritySlug is set to this slug, open popup.
+            if (typeof window.initialAuthoritySlug !== 'undefined' && window.initialAuthoritySlug && slug && window.initialAuthoritySlug === slug) {
+              try {
+                const popupHtml = buildHtml();
+                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
+                try { mapLevi.fitBounds(layer.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
+              } catch (err) {
+                console.error('Failed to auto-open levi popup for', slug, err);
+              }
+            }
           }
         }).addTo(mapLevi);
 
