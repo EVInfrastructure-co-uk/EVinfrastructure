@@ -180,7 +180,7 @@
             { label: 'Trial to come', color: channelColours.trial_to_come },
             { label: 'Not permitted (including by default if no data)', color: channelColours.other }
           ];
-          let html = '<strong>Pavement channels</strong><br/>';
+          let html = '<strong>Legend: Pavement channels</strong><br/>';
           rows.forEach(r => {
             html += `<div class="row"><span class="swatch" style="background:${r.color}"></span> ${r.label}</div>`;
           });

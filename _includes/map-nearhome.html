@@ -184,7 +184,7 @@
           const legendContainer = document.getElementById('map-nearhome-legend');
           if (!legendContainer) return;
           let lower = nearhomeValues[0];
-          let html = '<strong>NEVIS Near home distribution (deciles)</strong><br/>';
+          let html = '<strong>Legend: NEVIS Near home distribution (deciles)</strong><br/>';
           for (let i = 0; i < 10; i++) {
             const color = nearhomePalette[i];
             const upper = (i < 9) ? nearhomeThresholds[i] : nearhomeValues[nearhomeValues.length - 1];
