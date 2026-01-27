@@ -1,4 +1,5 @@
 <div id="map-levi" aria-label="LEVI/EVIF/ULEVTF map — local authorities coloured by tender stage" style="min-height:480px;"></div>
+<div id="map-levi-legend" class="map-legend" role="group" aria-label="Tender stage legend"></div>
 
 <script>
 (function () {
@@ -163,27 +164,22 @@
           }
         }).addTo(mapLevi);
 
-        const leviLegend = L.control({ position: 'bottomright' });
-        leviLegend.onAdd = function () {
-          const div = L.DomUtil.create('div', 'legend');
-          div.setAttribute('role', 'group');
-          div.setAttribute('aria-label', 'Tender stage legend');
-          div.innerHTML = '<strong>LEVI / EVIF / ULEVTF tender stage</strong><br/>';
+        // Build legend as a block element below the map (not an overlay control)
+        (function createBlockLegend() {
+          const legendContainer = document.getElementById('map-levi-legend');
+          if (!legendContainer) return;
           const rowsLegend = [
             { label: 'Awarded', color: leviColours.awarded_or_framework },
             { label: 'Yet to award', color: leviColours.yet_to_award },
             { label: 'Tender live', color: leviColours.tender_live },
             { label: 'Yet to tender', color: leviColours.other }
           ];
+          let html = '<strong>LEVI / EVIF / ULEVTF tender stage</strong><br/>';
           rowsLegend.forEach(r => {
-            const row = document.createElement('div');
-            row.className = 'row';
-            row.innerHTML = `<span class="swatch" style="background:${r.color}"></span> ${r.label}`;
-            div.appendChild(row);
+            html += `<div class="row"><span class="swatch" style="background:${r.color}"></span> ${r.label}</div>`;
           });
-          return div;
-        };
-        leviLegend.addTo(mapLevi);
+          legendContainer.innerHTML = html;
+        })();
 
         setTimeout(() => { try { mapLevi.invalidateSize(); } catch (e) {/*ignore*/} }, 300);
 

@@ -1,4 +1,5 @@
 <div id="map-pavement" aria-label="Pavement channels map — local authorities coloured by channel status or grant amount" style="min-height:480px;"></div>
+<div id="map-pavement-legend" class="map-legend" role="group" aria-label="Pavement channel legend"></div>
 
 <script>
 (function () {
@@ -162,12 +163,16 @@
           }
         }).addTo(mapPav);
 
-        const pavLegend = L.control({ position: 'bottomright' });
-        pavLegend.onAdd = function () {
-          const div = L.DomUtil.create('div', 'legend');
-          div.setAttribute('role', 'group');
-          div.setAttribute('aria-label', 'Pavement channels status legend');
-          div.innerHTML = '<strong>Pavement channels</strong><br/>';
+        // const pavLegend = L.control({ position: 'bottomright' });
+        // pavLegend.onAdd = function () {
+        //   const div = L.DomUtil.create('div', 'legend');
+        //   div.setAttribute('role', 'group');
+        //   div.setAttribute('aria-label', 'Pavement channels status legend');
+        //   div.innerHTML = '<strong>Pavement channels</strong><br/>';
+        // Build legend as a block element below the map (not an overlay control)
+        (function createBlockLegend() {
+          const legendContainer = document.getElementById('map-pavement-legend');
+          if (!legendContainer) return;
           const rows = [
             { label: 'Permitted', color: channelColours.permitted },
             { label: 'Trial live', color: channelColours.trial_live },
@@ -175,15 +180,12 @@
             { label: 'Trial to come', color: channelColours.trial_to_come },
             { label: 'Not permitted (including by default if no data)', color: channelColours.other }
           ];
+          let html = '<strong>Pavement channels</strong><br/>';
           rows.forEach(r => {
-            const row = document.createElement('div');
-            row.className = 'row';
-            row.innerHTML = `<span class="swatch" style="background:${r.color}"></span> ${r.label}`;
-            div.appendChild(row);
+            html += `<div class="row"><span class="swatch" style="background:${r.color}"></span> ${r.label}</div>`;
           });
-          return div;
-        };
-        pavLegend.addTo(mapPav);
+          legendContainer.innerHTML = html;
+        )()};
 
         setTimeout(() => { try { mapPav.invalidateSize(); } catch (e) {/*ignore*/} }, 300);
 

@@ -3,3 +3,16 @@
     .legend { background: white; padding: 6px 8px; font: 12px/1.5 sans-serif; box-shadow:0 0 8px rgba(0,0,0,0.2); }
     .legend .swatch { width:18px; height:12px; display:inline-block; margin-right:6px; vertical-align:middle; }
     .row { margin-bottom:4px; white-space:nowrap; }
+
+    /* map block legend (placed beneath the map container) */
+    .map-legend {
+      background: #fff;
+      padding: 8px 10px;
+      font: 12px/1.5;
+      margin-top: 8px;
+      border-radius: 3px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.08);
+      max-width: 100%;
+    }
+    .map-legend .swatch { width:18px; height:12px; display:inline-block; margin-right:6px; vertical-align:middle; }
+    .map-legend .row { margin-bottom:4px; white-space:nowrap; }

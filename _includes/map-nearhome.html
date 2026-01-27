@@ -1,4 +1,5 @@
 <div id="map-nearhome" aria-label="Map of UK local authorities coloured by NEVIS near home charging distribution (deciles)" style="min-height:480px;"></div>
+<div id="map-nearhome-legend" class="map-legend" role="group" aria-label="NEVIS distribution legend"></div>
 
 <script>
 (function () {
@@ -171,31 +172,27 @@
           }
         }).addTo(mapNearHome);
 
-        const nearhomeLegend = L.control({ position: 'bottomright' });
-        nearhomeLegend.onAdd = function () {
-          const div = L.DomUtil.create('div', 'legend');
-          div.setAttribute('role', 'group');
-          div.setAttribute('aria-label', 'Near home decile legend');
-          if (!nearhomeValues.length) { div.innerHTML = '<strong>NEVIS Near Home distribution</strong><br/>No data'; return div; }
-          div.innerHTML = '<strong>NEVIS Near home distribution (deciles)</strong><br/>';
+        // const nearhomeLegend = L.control({ position: 'bottomright' });
+        // nearhomeLegend.onAdd = function () {
+        //   const div = L.DomUtil.create('div', 'legend');
+        //   div.setAttribute('role', 'group');
+        //   div.setAttribute('aria-label', 'Near home decile legend');
+        //   if (!nearhomeValues.length) { div.innerHTML = '<strong>NEVIS Near Home distribution</strong><br/>No data'; return div; }
+        //   div.innerHTML = '<strong>NEVIS Near home distribution (deciles)</strong><br/>';
+        // Build legend as a block element below the map (not an overlay control)
+        (function createBlockLegend() {
+          const legendContainer = document.getElementById('map-nearhome-legend');
+          if (!legendContainer) return;
           let lower = nearhomeValues[0];
+          let html = '<strong>NEVIS Near home distribution (deciles)</strong><br/>';
           for (let i = 0; i < 10; i++) {
             const color = nearhomePalette[i];
             const upper = (i < 9) ? nearhomeThresholds[i] : nearhomeValues[nearhomeValues.length - 1];
-            const row = document.createElement('div');
-            row.className = 'row';
-            row.innerHTML = `<span class="swatch" style="background:${color}"></span> ${Math.round(lower)} – ${Math.round(upper)}`;
-            div.appendChild(row);
+            html += `<div class="row"><span class="swatch" style="background:${color}"></span>  ${Math.round(lower)} – ${Math.round(upper)}</div>`;
             lower = (i < 9) ? (nearhomeThresholds[i] + Number.EPSILON) : upper;
-          }
-          const nodata = document.createElement('div');
-          nodata.className = 'row';
-          nodata.style.marginTop = '6px';
-          nodata.innerHTML = `<span class="swatch" style="background:#cccccc"></span> No data`;
-          div.appendChild(nodata);
-          return div;
-        };
-        nearhomeLegend.addTo(mapNearHome);
+          };
+          legendContainer.innerHTML = html;
+        })();
 
         setTimeout(() => { try { mapNearHome.invalidateSize(); } catch (e) {/*ignore*/} }, 300);
 
