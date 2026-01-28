@@ -9,112 +9,61 @@
  * - Deep-linking: on load activates tab matching location.hash
  * - Focus management: moves focus into panel (panel receives tabindex="-1" momentarily)
  *
- * Additional behaviour:
- * - After a tab panel becomes visible we attempt to refresh any Leaflet maps inside
- *   the panel so maps initialised while hidden don't render with the wrong size.
- * - The refresh is non-invasive and safe to run on pages without maps.
- *
- * Usage:
- * - Give container class "js-tabs" (or change selector below)
- * - Tabs: elements with role="tab" and aria-controls pointing to the panel id
- * - Panels: elements with role="tabpanel" and id referenced by the tab's aria-controls
+ * Small map refresh workaround:
+ * - When a panel becomes visible we attempt to call Leaflet's invalidateSize()
+ *   on any known map instances whose containers are inside the panel.
+ * - This is minimal, defensive and a no-op on pages without maps.
  */
 
 (function () {
   'use strict';
 
   var SELECTOR = '.js-tabs';
-  // How long to wait after showing the panel before refreshing maps (ms).
-  // Allows layout/CSS transitions to settle. Adjust if needed.
+  // Delay (ms) after making a panel visible before refreshing maps.
+  // Gives the browser time to finish layout changes for the panel.
   var MAP_REFRESH_DELAY = 200;
+
+  // List of map globals used by our map includes. Keep this small and explicit
+  // so the code is fast and safe on pages without maps.
+  var KNOWN_MAP_GLOBALS = ['nearhomeMap', 'pavementMap', 'leviMap'];
 
   function isDisabled(tab) {
     return tab.getAttribute('aria-disabled') === 'true' || tab.disabled;
   }
 
-  // Try to find a Leaflet map instance whose container is the given element.
-  // Returns map instance or null. This is defensive and will not throw if Leaflet isn't present.
-  function findMapForContainer(containerEl) {
-    if (!containerEl) return null;
-    try {
-      // Common pattern: map instance exposes getContainer() or has _container property.
-      // Iterate window properties to find a matching object with an invalidateSize function.
-      for (var k in window) {
-        if (!Object.prototype.hasOwnProperty.call(window, k)) continue;
-        try {
-          var cand = window[k];
-          if (!cand || typeof cand !== 'object') continue;
-          if (typeof cand.invalidateSize !== 'function') continue;
-          // Many Leaflet builds expose getContainer()
-          if (typeof cand.getContainer === 'function' && cand.getContainer() === containerEl) return cand;
-          // Fallback: internal property
-          if (cand._container === containerEl) return cand;
-        } catch (e) {
-          // ignore properties that throw on access
-          continue;
-        }
-      }
-    } catch (e) {
-      // defensive: something went wrong enumerating window - just return null
-      return null;
-    }
-    return null;
-  }
-
-  // Given a panel element, locate map container elements inside it and refresh each map found.
-  // Safe no-op if there are no maps or Leaflet isn't loaded.
+  // Refresh known maps if their container element is inside the given panel.
+  // Safe no-op if maps aren't present or Leaflet isn't loaded.
   function refreshMapsInPanel(panel) {
     if (!panel) return;
     try {
-      // Find candidate map containers inside the panel:
-      // - elements with class 'leaflet-container' (typical after map initialisation)
-      // - elements with id starting with 'map-' (our convention)
-      var candidates = Array.prototype.slice.call(panel.querySelectorAll('.leaflet-container, [id^="map-"]'));
-      // Deduplicate container elements
-      var seen = new Set();
-      var containers = [];
-      candidates.forEach(function (el) {
-        if (!el || seen.has(el)) return;
-        seen.add(el);
-        containers.push(el);
-      });
+      // Run after a short delay to allow layout/transitions to settle
+      window.setTimeout(function () {
+        KNOWN_MAP_GLOBALS.forEach(function (mapName) {
+          try {
+            var map = window[mapName];
+            if (!map || typeof map.invalidateSize !== 'function') return;
 
-      // For each container, attempt to locate an associated map instance and call invalidateSize.
-      containers.forEach(function (containerEl) {
-        try {
-          var map = findMapForContainer(containerEl);
-          if (!map) {
-            // As a last resort, if the container is itself not the Leaflet map container yet
-            // (e.g. our placeholder div before map initialises), try to find any map whose
-            // getContainer() is a child of this containerEl.
-            for (var k in window) {
-              if (!Object.prototype.hasOwnProperty.call(window, k)) continue;
-              try {
-                var cand = window[k];
-                if (!cand || typeof cand !== 'object') continue;
-                if (typeof cand.invalidateSize !== 'function' || typeof cand.getContainer !== 'function') continue;
-                var cont = cand.getContainer();
-                if (!cont) continue;
-                if (panel.contains(cont)) {
-                  map = cand;
-                  break;
-                }
-              } catch (e) { continue; }
+            // Prefer the public getContainer() method, fall back to _container.
+            var container = (typeof map.getContainer === 'function') ? map.getContainer() : (map._container || null);
+            if (!container) return;
+
+            // Only refresh maps that are actually within this panel
+            if (panel.contains(container)) {
+              try { map.invalidateSize(true); } catch (e) { try { map.invalidateSize(); } catch (ignore) {} }
             }
+          } catch (e) {
+            // Non-fatal for a single map
+            /* eslint-disable no-console */
+            console.error('Tabs: failed to refresh map', mapName, e);
+            /* eslint-enable no-console */
           }
-
-          if (map && typeof map.invalidateSize === 'function') {
-            // Try to trigger a redraw/measure. Pass true to animate resizing where supported.
-            try { map.invalidateSize(true); } catch (e) { try { map.invalidateSize(); } catch (ignore) {} }
-          }
-        } catch (e) {
-          // Non-fatal: continue with other containers
-          console.error('Tabs: failed to refresh a map in panel', e);
-        }
-      });
+        });
+      }, MAP_REFRESH_DELAY);
     } catch (e) {
-      // Non-fatal overall
-      console.error('Tabs: failed to refresh maps in panel', e);
+      // overall non-fatal
+      /* eslint-disable no-console */
+      console.error('Tabs: refreshMapsInPanel failed', e);
+      /* eslint-enable no-console */
     }
   }
 
@@ -156,15 +105,8 @@
         panel.removeAttribute('tabindex');
       }
 
-      // Attempt to refresh Leaflet maps inside this now-visible panel.
-      // Delay slightly to allow layout/CSS to settle (and to avoid jank during tab transition).
-      try {
-        window.setTimeout(function () {
-          refreshMapsInPanel(panel);
-        }, MAP_REFRESH_DELAY);
-      } catch (e) {
-        // ignore
-      }
+      // Minimal map fix: refresh known maps inside this panel (safe no-op on pages without maps)
+      refreshMapsInPanel(panel);
     }
 
     if (updateHash && panelId) {
@@ -347,12 +289,8 @@
           var panel = document.getElementById(id);
           if (panel) {
             panel.scrollIntoView({ block: 'start', behavior: 'smooth' });
-            // Also attempt to refresh any maps now the panel is visible.
-            try {
-              window.setTimeout(function () {
-                refreshMapsInPanel(panel);
-              }, MAP_REFRESH_DELAY);
-            } catch (e) { /* ignore */ }
+            // Attempt to refresh maps within the panel (minimal, safe)
+            refreshMapsInPanel(panel);
           }
         }
       }
@@ -370,7 +308,6 @@
   window.Tabs = {
     init: initTabs,
     activate: activateTab,
-    // Expose helper for manually refreshing maps in a panel (safe no-op if none)
     refreshMapsInPanel: refreshMapsInPanel
   };
 })();
