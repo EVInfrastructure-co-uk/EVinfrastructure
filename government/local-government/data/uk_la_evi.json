@@ -2556,7 +2556,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Approved"
         },
         {
           "local-authority-code": "BCPD",
@@ -2784,7 +2784,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Approved"
         },
         {
           "local-authority-code": "BRD",
@@ -3867,7 +3867,7 @@
           "LEVI-pilot-capital-amount": 703000,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Approved"
         },
         {
           "local-authority-code": "CBF",
@@ -3924,7 +3924,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Approved"
         },
         {
           "local-authority-code": "CCG",
@@ -10194,7 +10194,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Approved"
         },
         {
           "local-authority-code": "HRY",
@@ -10536,7 +10536,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Approved"
         },
         {
           "local-authority-code": "IPS",
@@ -11505,7 +11505,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Approved"
         },
         {
           "local-authority-code": "LDS",
@@ -13510,7 +13510,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Approved"
         },
         {
           "local-authority-code": "MLN",
@@ -15220,7 +15220,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Approved"
         },
         {
           "local-authority-code": "NTL",
@@ -19324,7 +19324,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Approved"
         },
         {
           "local-authority-code": "SST",
@@ -21376,7 +21376,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Approved"
         },
         {
           "local-authority-code": "TWH",
@@ -23485,7 +23485,7 @@
           "LEVI-pilot-capital-amount": 1362196,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Approved"
         },
         {
           "local-authority-code": "WRX",
@@ -23713,7 +23713,7 @@
           "LEVI-pilot-capital-amount": 1786464,
           "LEVI-pilot-CPO(s)": "Connected Kerb",
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Approved"
         },
         {
           "local-authority-code": "WYC",
