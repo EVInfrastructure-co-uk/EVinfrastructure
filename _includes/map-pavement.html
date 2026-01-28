@@ -186,12 +186,34 @@
         (function createBlockLegend() {
           const legendContainer = document.getElementById('map-pavement-legend');
           if (!legendContainer) return;
+
+          // Count features per category using same logic as colourForChannelStatus
+          const counts = { permitted: 0, trial_live: 0, trial_complete: 0, trial_to_come: 0, other: 0 };
+          function channelCategory(status) {
+            if (status === null || status === undefined || String(status).trim() === '') return 'other';
+            const s = String(status).trim().toLowerCase();
+            if (s === 'permitted') return 'permitted';
+            if (s === 'trial live') return 'trial_live';
+            if (s === 'trial complete') return 'trial_complete';
+            if (s === 'trial to come') return 'trial_to_come';
+            return 'other';
+          }
+
+          if (geoPav && Array.isArray(geoPav.features)) {
+            geoPav.features.forEach(function (feature) {
+              const row = getRowForFeature(feature);
+              const rawStatus = row ? (row['channel-status'] ? String(row['channel-status']).trim() : '') : '';
+              const cat = channelCategory(rawStatus);
+              counts[cat] = (counts[cat] || 0) + 1;
+            });
+          }
+
           const rows = [
-            { label: 'Permitted', color: channelColours.permitted },
-            { label: 'Trial live', color: channelColours.trial_live },
-            { label: 'Trial complete', color: channelColours.trial_complete },
-            { label: 'Trial to come', color: channelColours.trial_to_come },
-            { label: 'Not permitted (including by default if no data)', color: channelColours.other }
+            { label: `Permitted (${counts.permitted})`, color: channelColours.permitted },
+            { label: `Trial live (${counts.trial_live})`, color: channelColours.trial_live },
+            { label: `Trial complete (${counts.trial_complete})`, color: channelColours.trial_complete },
+            { label: `Trial to come (${counts.trial_to_come})`, color: channelColours.trial_to_come },
+            { label: `Not permitted (including by default if no data) (${counts.other})`, color: channelColours.other }
           ];
           let html = '<strong>Legend: Pavement channels</strong><br/>';
           rows.forEach(r => {
