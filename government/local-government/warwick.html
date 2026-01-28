@@ -71,18 +71,6 @@ title: "Warwick"
             <td id="EVI-link-CA"></td>
           </tr>
           <tr>
-            <th>Households Without Driveway (% of total)<br><a href="https://www.racfoundation.org/wp-content/uploads/standing-still-Nagler-June-2021.pdf">(RAC Foundation / Field Dynamics, 2021)<a></th>
-            <td id="households-without-driveway-pct-district"></td>
-            <td id="households-without-driveway-pct-county"></td>
-            <td id="households-without-driveway-pct-CA"></td>
-          </tr>
-          <tr>
-            <th>Households Without Driveway (number)<br><a href="https://www.racfoundation.org/wp-content/uploads/standing-still-Nagler-June-2021.pdf">(RAC Foundation / Field Dynamics, 2021)<a></th>
-            <td id="households-without-driveway-district"></td>
-            <td id="households-without-driveway-county"></td>
-            <td id="households-without-driveway-CA"></td>
-          </tr>
-          <tr>
             <th>NEVIS Near Home Distribution<br>(% of households without driveways within 4 mins of charger)<br><a href="https://nevis.cenex.co.uk/metrics">(Cenex NEVIS, August 2025)</a></th>
             <td id="NEVIS-distribution-district"></td>
             <td id="NEVIS-distribution-county"></td>
@@ -115,6 +103,18 @@ title: "Warwick"
         </tbody>
         </table>
       </div>
+
+      <!-- NEVIS near-home map for overview tab -->
+      <script>
+        // Expose the current page slug so the included map script can:
+        //  - show the "See our dedicated … page" text as bold (not a link) when appropriate
+        //  - optionally auto-open the popup for this authority
+        window.currentPageSlug = 'warwick';
+        // initialAuthoritySlug is used by the map includes to auto-open as if the authority had been clicked.
+        window.initialAuthoritySlug = 'warwick';
+      </script>
+      {% include map-nearhome.html %}
+      <p>The <a href="https://onstreetcharging.acceleratedinsightplatform.com/">Field Dynamics webapp</a> tells you how many households in your local authority have a driveway.</p>
     </div>
 
     <div id="pavement-channels" class="tabs__panel tabs__panel--hidden" role="tabpanel"
@@ -157,6 +157,12 @@ title: "Warwick"
             <!-- <td id="channel-grant-amount-district"></td> -->
             <td id="channel-grant-amount-county"></td>
             <td id="channel-grant-amount-CA"></td>
+          </tr>
+          <tr>
+            <th>Channel Grant Status (<a href="https://www.gov.uk/government/publications/electric-vehicle-ev-pavement-channels-grant-local-authority-allocations">OZEV</a>)</th>
+            <!-- <td id="channel-grant-status-district"></td> -->
+            <td id="channel-grant-status-county"></td>
+            <td id="channel-grant-status-CA"></td>
           </tr>
           <tr>
             <th>Channel Application Fee</th>

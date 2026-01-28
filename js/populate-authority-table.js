@@ -253,10 +253,6 @@ function populate(slug) {
         document.getElementById('name-district-LEVI-pilot').innerHTML = district['official-name'];
         document.getElementById('current-administration-district').innerHTML = district['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-district').color = district['current-administration'];
-        // document.getElementById('households-without-driveway-district').innerHTML = district['households-without-driveway'].toLocaleString("en-GB");
-        // document.getElementById('households-without-driveway-pct-district').innerHTML = `${district['households-without-driveway-pct']}%`;
-        document.getElementById('households-without-driveway-district').innerHTML = `<a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>`;
-        document.getElementById('households-without-driveway-pct-district').innerHTML = `<a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>`;
         document.getElementById('NEVIS-distribution-district').innerHTML = `${Math.round(district['NEVIS-distribution'])}%`;
         document.getElementById('NEVIS-distribution-rank-district').innerHTML = `${district['NEVIS-distribution-rank']}/350`;
         if (district['EVI-link']) {
@@ -291,10 +287,6 @@ function populate(slug) {
         document.getElementById('sub-authorities-county').innerHTML = county_sub_authorities;
         document.getElementById('current-administration-county').innerHTML = county['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-county').color = county['current-administration'];
-        // document.getElementById('households-without-driveway-county').innerHTML = county['households-without-driveway'].toLocaleString("en-GB");
-        // document.getElementById('households-without-driveway-pct-county').innerHTML = `${county['households-without-driveway-pct']}%`;
-        document.getElementById('households-without-driveway-county').innerHTML = `<a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>`;
-        document.getElementById('households-without-driveway-pct-county').innerHTML = `<a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>`;
         if (county['EVI-link']) {
             document.getElementById('EVI-link-county').innerHTML = `<a href=${county['EVI-link']}>Click here</a>`;
         }
@@ -305,6 +297,9 @@ function populate(slug) {
         document.getElementById('channel-status-county').innerHTML = county['channel-status'];
         if (county['channel-grant-amount']) {    
             document.getElementById('channel-grant-amount-county').innerHTML = county['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        }
+        if (county['channel-grant-status']) {    
+            document.getElementById('channel-grant-status-county').innerHTML = county['channel-grant-status'];
         }
         if ((county['channel-status'])) {
             if (county['channel-link']) {
@@ -386,10 +381,6 @@ function populate(slug) {
         document.getElementById('current-administration-unitary').innerHTML = unitary['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-unitary').color = unitary['current-administration'];
         if (unitary['region'] != "Northern Ireland") {
-            // document.getElementById('households-without-driveway-unitary').innerHTML = unitary['households-without-driveway'].toLocaleString("en-GB");
-            // document.getElementById('households-without-driveway-pct-unitary').innerHTML = `${unitary['households-without-driveway-pct']}%`;
-            document.getElementById('households-without-driveway-unitary').innerHTML = `<a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>`;
-            document.getElementById('households-without-driveway-pct-unitary').innerHTML = `<a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>`;
             document.getElementById('NEVIS-distribution-unitary').innerHTML = `${Math.round(unitary['NEVIS-distribution'])}%`;
             document.getElementById('NEVIS-distribution-rank-unitary').innerHTML = `${unitary['NEVIS-distribution-rank']}/350`;
         }
@@ -403,6 +394,9 @@ function populate(slug) {
         document.getElementById('channel-status-unitary').innerHTML = unitary['channel-status'];
         if (unitary['channel-grant-amount']) {
             document.getElementById('channel-grant-amount-unitary').innerHTML = unitary['channel-grant-amount'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
+        }
+        if (unitary['channel-grant-status']) {
+            document.getElementById('channel-grant-status-unitary').innerHTML = unitary['channel-grant-status'];
         }
         if ((unitary['channel-status'])) {
             if (unitary['channel-link']) {
@@ -482,12 +476,6 @@ function populate(slug) {
         document.getElementById('sub-authorities-CA').innerHTML = ca_sub_authorities;
         document.getElementById('current-administration-CA').innerHTML = ca['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-CA').color = ca['current-administration'];
-        if (ca['households-without-driveway']) {
-            // document.getElementById('households-without-driveway-CA').innerHTML = ca['households-without-driveway'].toLocaleString("en-GB");
-            // document.getElementById('households-without-driveway-pct-CA').innerHTML = `${ca['households-without-driveway-pct']}%`;
-            document.getElementById('households-without-driveway-CA').innerHTML = `<a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>`;
-            document.getElementById('households-without-driveway-pct-CA').innerHTML = `<a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>`;
-        }
         if (ca['EVI-link']) {
             document.getElementById('EVI-link-CA').innerHTML = `<a href=${ca['EVI-link']}>Click here</a>`;
         }
@@ -520,11 +508,15 @@ function populate(slug) {
                     document.getElementById('channel-annual-fee-CA').innerHTML = ca['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
                 }
                 document.getElementById('channel-manufacturer-CA').innerHTML = ca['channel-manufacturer'];
+                if (ca['channel-grant-status']) {
+                    document.getElementById('channel-grant-status-CA').innerHTML = ca['channel-grant-status'];
+                }
             }
         } else if (ca['region'] != "Scotland" && ca['region'] != "Wales" && ca['region'] != "Northern Ireland") {
             document.getElementById('channel-status-CA').setAttribute("rowspan","7");
             document.getElementById('channel-link-CA').remove();
             document.getElementById('channel-grant-amount-CA').remove();
+            document.getElementById('channel-grant-status-CA').remove();
             document.getElementById('channel-application-fee-CA').remove();
             document.getElementById('channel-installation-fee-CA').remove();
             document.getElementById('channel-annual-fee-CA').remove();
@@ -584,12 +576,6 @@ function populate(slug) {
         document.getElementById('sub-authorities-CA2').innerHTML = ca2_sub_authorities;
         document.getElementById('current-administration-CA2').innerHTML = ca2['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-CA2').color = ca2['current-administration'];
-        if (ca2['households-without-driveway']) {
-            // document.getElementById('households-without-driveway-CA2').innerHTML = ca2['households-without-driveway'].toLocaleString("en-GB");
-            // document.getElementById('households-without-driveway-pct-CA2').innerHTML = `${ca2['households-without-driveway-pct']}%`;
-            document.getElementById('households-without-driveway-CA2').innerHTML = `<a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>`;
-            document.getElementById('households-without-driveway-pct-CA2').innerHTML = `<a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>`;
-        }
         if (ca2['EVI-link']) {
             document.getElementById('EVI-link-CA2').innerHTML = `<a href=${ca2['EVI-link']}>Click here</a>`;
         }
@@ -623,10 +609,14 @@ function populate(slug) {
                 document.getElementById('channel-annual-fee-CA2').innerHTML = ca2['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             }
             document.getElementById('channel-manufacturer-CA2').innerHTML = ca2['channel-manufacturer'];
+            if (ca2['channel-grant-status']) {
+                document.getElementById('channel-grant-status-CA2').innerHTML = ca2['channel-grant-status'];
+            }
         } else if (ca2['region'] != "Scotland" && ca2['region'] != "Wales" && ca2['region'] != "Northern Ireland") {
             document.getElementById('channel-status-CA2').setAttribute("rowspan","7");
             document.getElementById('channel-link-CA2').remove();
             document.getElementById('channel-grant-amount-CA2').remove();
+            document.getElementById('channel-grant-status-CA2').remove();
             document.getElementById('channel-application-fee-CA2').remove();
             document.getElementById('channel-installation-fee-CA2').remove();
             document.getElementById('channel-annual-fee-CA2').remove();
@@ -681,12 +671,6 @@ function populate(slug) {
         document.getElementById('sub-authorities-CA3').innerHTML = ca3_sub_authorities;
         document.getElementById('current-administration-CA3').innerHTML = ca3['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-CA3').color = ca3['current-administration'];
-        if (ca3['households-without-driveway']) {
-            // document.getElementById('households-without-driveway-CA3').innerHTML = ca3['households-without-driveway'].toLocaleString("en-GB");
-            // document.getElementById('households-without-driveway-pct-CA3').innerHTML = `${ca3['households-without-driveway-pct']}%`;
-            document.getElementById('households-without-driveway-CA3').innerHTML = `<a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>`;
-            document.getElementById('households-without-driveway-pct-CA3').innerHTML = `<a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>`;
-        }
         if (ca3['EVI-link']) {
             document.getElementById('EVI-link-CA3').innerHTML = `<a href=${ca3['EVI-link']}>Click here</a>`;
         }
@@ -720,10 +704,14 @@ function populate(slug) {
                 document.getElementById('channel-annual-fee-CA3').innerHTML = ca3['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             }
             document.getElementById('channel-manufacturer-CA3').innerHTML = ca3['channel-manufacturer'];
+            if (ca3['channel-grant-status']) {
+                document.getElementById('channel-grant-status-CA3').innerHTML = ca3['channel-grant-status'];
+            }
         } else if (ca3['region'] != "Scotland" && ca3['region'] != "Wales" && ca3['region'] != "Northern Ireland") {
             document.getElementById('channel-status-CA3').setAttribute("rowspan","7");
             document.getElementById('channel-link-CA3').remove();
             document.getElementById('channel-grant-amount-CA3').remove();
+            document.getElementById('channel-grant-status-CA3').remove();
             document.getElementById('channel-application-fee-CA3').remove();
             document.getElementById('channel-installation-fee-CA3').remove();
             document.getElementById('channel-annual-fee-CA3').remove();
@@ -783,12 +771,6 @@ function populate(slug) {
         document.getElementById('sub-authorities-CA4').innerHTML = ca4_sub_authorities;
         document.getElementById('current-administration-CA4').innerHTML = ca4['current-administration'];
         // some code to change the colour based on political stripes document.getElementById('current-administration-CA4').color = ca4['current-administration'];
-        if (ca4['households-without-driveway']) {
-            // document.getElementById('households-without-driveway-CA4').innerHTML = ca4['households-without-driveway'].toLocaleString("en-GB");
-            // document.getElementById('households-without-driveway-pct-CA4').innerHTML = `${ca4['households-without-driveway-pct']}%`;
-            document.getElementById('households-without-driveway-CA4').innerHTML = `<a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>`;
-            document.getElementById('households-without-driveway-pct-CA4').innerHTML = `<a href="https://onstreetcharging.acceleratedinsightplatform.com/">Click here</a>`;
-        }
         if (ca4['EVI-link']) {
             document.getElementById('EVI-link-CA4').innerHTML = `<a href=${ca4['EVI-link']}>Click here</a>`;
         }
@@ -822,10 +804,14 @@ function populate(slug) {
                 document.getElementById('channel-annual-fee-CA4').innerHTML = ca4['channel-annual-fee'].toLocaleString("en-GB", {style:"currency", currency:"GBP", maximumFractionDigits:"0"});
             }
             document.getElementById('channel-manufacturer-CA4').innerHTML = ca4['channel-manufacturer'];
+            if (ca4['channel-grant-status']) {
+                document.getElementById('channel-grant-status-CA4').innerHTML = ca4['channel-grant-status'];
+            }
         } else if (ca4['region'] != "Scotland" && ca4['region'] != "Wales" && ca4['region'] != "Northern Ireland") {
             document.getElementById('channel-status-CA4').setAttribute("rowspan","7");
             document.getElementById('channel-link-CA4').remove();
             document.getElementById('channel-grant-amount-CA4').remove();
+            document.getElementById('channel-grant-status-CA4').remove();
             document.getElementById('channel-application-fee-CA4').remove();
             document.getElementById('channel-installation-fee-CA4').remove();
             document.getElementById('channel-annual-fee-CA4').remove();
