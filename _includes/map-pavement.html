@@ -178,6 +178,12 @@
                 try { mapPav.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
               }
             });
+            // Expose slug on the layer so external code can find it:
+            try { layer.options.govukslug = slug; } catch (e) { /* ignore */ }
+
+            // Bind the popup now (so we can open it programmatically later)
+            try { layer.bindPopup(popupHtml, { maxWidth: 400 }); } catch (e) { /* ignore */ }
+            
           }
         }).addTo(mapPav);
 
