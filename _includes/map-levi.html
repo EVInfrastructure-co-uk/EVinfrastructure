@@ -5,32 +5,47 @@
 (function () {
   if (window.leviMap) return;
 
-  function loadScriptOnce(src, readyCheck) {
+  function loadScriptFallback(urls, readyCheck) {
     return new Promise(function (resolve, reject) {
-      try {
-        if (typeof readyCheck === 'function' && readyCheck()) return resolve();
-        const existing = Array.from(document.getElementsByTagName('script')).find(s => s.src && s.src.indexOf(src) !== -1);
+      if (typeof readyCheck === 'function' && readyCheck()) return resolve();
+      var i = 0;
+      function tryNext() {
+        if (i >= urls.length) return reject(new Error('All script sources failed: ' + urls.join(', ')));
+        var src = urls[i++];
+        var existing = Array.from(document.getElementsByTagName('script')).find(s => s.src && s.src.indexOf(src) !== -1);
         if (existing) {
           if (existing.hasAttribute('data-loaded')) return resolve();
           existing.addEventListener('load', function () { resolve(); });
-          existing.addEventListener('error', function () { reject(new Error('Failed to load ' + src)); });
+          existing.addEventListener('error', function () { tryNext(); });
           return;
         }
-        const s = document.createElement('script');
+        var s = document.createElement('script');
         s.src = src;
         s.async = true;
         s.onload = function () { s.setAttribute('data-loaded', '1'); resolve(); };
-        s.onerror = function () { reject(new Error('Failed to load ' + src)); };
+        s.onerror = function () { tryNext(); };
         document.head.appendChild(s);
-      } catch (e) { reject(e); }
+      }
+      tryNext();
     });
   }
 
+  var leafletUrls = [
+    'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
+    'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js'
+  ];
+  var topoUrls = [
+    'https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js',
+    'https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js'
+  ];
+
   Promise.all([
-    loadScriptOnce('https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', () => window.L !== undefined),
-    loadScriptOnce('https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js', () => window.topojson !== undefined)
+    loadScriptFallback(leafletUrls, () => window.L !== undefined),
+    loadScriptFallback(topoUrls, () => window.topojson !== undefined)
   ]).then(init).catch(function (err) {
     console.error('Failed to load map dependencies for LEVI map:', err);
+    var el = document.getElementById('map-levi');
+    if (el) el.innerHTML = '<div style="padding:1rem">Map could not load because required resources were blocked. Try disabling tracking protection or use a different network.</div>';
   });
 
   function init() {
@@ -112,6 +127,7 @@
           attribution: 'Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
         }).addTo(mapLevi);
         window.leviMap = mapLevi;
+        window.leviMapInitialView = { lat: mapLevi.getCenter().lat, lng: mapLevi.getCenter().lng, zoom: mapLevi.getZoom() };
 
         const leviLayer = L.geoJSON(geoLevi, {
           style(feature) {
@@ -139,21 +155,12 @@
               const stageLabel = (stage === null || stage === undefined || String(stage).trim() === '') ? 'No data' : String(stage);
               const cAmt = formatCapital(capital);
               const cposLabel = (cpos === null || cpos === undefined || String(cpos).trim() === '') ? '' : `<br/>Appointed CPO(s): ${String(cpos)}`;
-              // If the user is already on the authority page, render bold unlinked text instead of a hyperlink.
-              let link = '';
-              if (slug) {
-                if (typeof window.currentPageSlug !== 'undefined' && window.currentPageSlug === slug) {
-                  link = `<br/><strong>See our dedicated ${name} page</strong>`;
-                } else {
-                  link = `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>`;
-                }
-              }
+              const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
               return `<strong>${name}</strong><br/>Tender stage: ${stageLabel}<br/>Capital amount: ${cAmt}${cposLabel}${link}`;
             }
-            try { layer.options.govukslug = slug; } catch (e) { /* ignore */ }
 
-            // Bind the popup now (so we can open it programmatically later)
-            try { layer.bindPopup(popupHtml, { maxWidth: 400 }); } catch (e) { /* ignore */ }
+            try { layer.bindPopup(buildHtml(), { maxWidth: 400 }); } catch (e) { /* ignore */ }
+
             layer.on({
               mouseover(e) {
                 const t = e.target;
@@ -172,51 +179,19 @@
                 try { mapLevi.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
               }
             });
-
-            // Auto-open behaviour: if window.initialAuthoritySlug is set to this slug, open popup.
-            if (typeof window.initialAuthoritySlug !== 'undefined' && window.initialAuthoritySlug && slug && window.initialAuthoritySlug === slug) {
-              try {
-                const popupHtml = buildHtml();
-                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
-                try { mapLevi.fitBounds(layer.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
-              } catch (err) {
-                console.error('Failed to auto-open levi popup for', slug, err);
-              }
-            }
           }
         }).addTo(mapLevi);
+
         window.leviLayer = leviLayer;
 
-        // Build legend as a block element below the map (not an overlay control)
         (function createBlockLegend() {
           const legendContainer = document.getElementById('map-levi-legend');
           if (!legendContainer) return;
-
-          // Count features per category using the same logic as colourForStage
-          const counts = { awarded_or_framework: 0, yet_to_award: 0, tender_live: 0, other: 0 };
-          function stageCategory(stage) {
-            if (stage === null || stage === undefined || String(stage).trim() === '') return 'other';
-            const s = String(stage).toLowerCase();
-            if (s.includes('awarded') || s.includes('framework established')) return 'awarded_or_framework';
-            if (s.includes('yet to award')) return 'yet_to_award';
-            if (s.includes('tender live')) return 'tender_live';
-            return 'other';
-          }
-
-          if (geoLevi && Array.isArray(geoLevi.features)) {
-            geoLevi.features.forEach(function (feature) {
-              const row = getRowForFeature(feature);
-              const stage = row ? row['LEVI-tender-stage'] : null;
-              const cat = stageCategory(stage);
-              counts[cat] = (counts[cat] || 0) + 1;
-            });
-          }
-
           const rowsLegend = [
-            { label: `Awarded (${counts.awarded_or_framework})`, color: leviColours.awarded_or_framework },
-            { label: `Yet to award (${counts.yet_to_award})`, color: leviColours.yet_to_award },
-            { label: `Tender live (${counts.tender_live})`, color: leviColours.tender_live },
-            { label: `Yet to tender (${counts.other})`, color: leviColours.other }
+            { label: 'Awarded', color: leviColours.awarded_or_framework },
+            { label: 'Yet to award', color: leviColours.yet_to_award },
+            { label: 'Tender live', color: leviColours.tender_live },
+            { label: 'Yet to tender', color: leviColours.other }
           ];
           let html = '<strong>Legend: LEVI / EVIF / ULEVTF tender stage</strong><br/>';
           rowsLegend.forEach(r => {

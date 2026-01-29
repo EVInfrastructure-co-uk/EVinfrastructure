@@ -5,32 +5,47 @@
 (function () {
   if (window.pavementMap) return;
 
-  function loadScriptOnce(src, readyCheck) {
+  function loadScriptFallback(urls, readyCheck) {
     return new Promise(function (resolve, reject) {
-      try {
-        if (typeof readyCheck === 'function' && readyCheck()) return resolve();
-        const existing = Array.from(document.getElementsByTagName('script')).find(s => s.src && s.src.indexOf(src) !== -1);
+      if (typeof readyCheck === 'function' && readyCheck()) return resolve();
+      var i = 0;
+      function tryNext() {
+        if (i >= urls.length) return reject(new Error('All script sources failed: ' + urls.join(', ')));
+        var src = urls[i++];
+        var existing = Array.from(document.getElementsByTagName('script')).find(s => s.src && s.src.indexOf(src) !== -1);
         if (existing) {
           if (existing.hasAttribute('data-loaded')) return resolve();
           existing.addEventListener('load', function () { resolve(); });
-          existing.addEventListener('error', function () { reject(new Error('Failed to load ' + src)); });
+          existing.addEventListener('error', function () { tryNext(); });
           return;
         }
-        const s = document.createElement('script');
+        var s = document.createElement('script');
         s.src = src;
         s.async = true;
         s.onload = function () { s.setAttribute('data-loaded', '1'); resolve(); };
-        s.onerror = function () { reject(new Error('Failed to load ' + src)); };
+        s.onerror = function () { tryNext(); };
         document.head.appendChild(s);
-      } catch (e) { reject(e); }
+      }
+      tryNext();
     });
   }
 
+  var leafletUrls = [
+    'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
+    'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js'
+  ];
+  var topoUrls = [
+    'https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js',
+    'https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js'
+  ];
+
   Promise.all([
-    loadScriptOnce('https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', () => window.L !== undefined),
-    loadScriptOnce('https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js', () => window.topojson !== undefined)
+    loadScriptFallback(leafletUrls, () => window.L !== undefined),
+    loadScriptFallback(topoUrls, () => window.topojson !== undefined)
   ]).then(init).catch(function (err) {
     console.error('Failed to load map dependencies for PAVEMENT map:', err);
+    var el = document.getElementById('map-pavement');
+    if (el) el.innerHTML = '<div style="padding:1rem">Map could not load because required resources were blocked. Try disabling tracking protection or use a different network.</div>';
   });
 
   function init() {
@@ -107,6 +122,7 @@
           attribution: 'Department for Transport; Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
         }).addTo(mapPav);
         window.pavementMap = mapPav;
+        window.pavementMapInitialView = { lat: mapPav.getCenter().lat, lng: mapPav.getCenter().lng, zoom: mapPav.getZoom() };
 
         const pavLayer = L.geoJSON(geoPav, {
           style(feature) {
@@ -138,21 +154,12 @@
             function buildHtml() {
               const grantLabel = (grant === null || grant === undefined || grant === '') ? '' : `<br/>Grant amount: ${formatGrant(grant)}`;
               const grantStatusLabel = (grantStatus === null || grantStatus === undefined || grantStatus === '') ? '' : `<br/>Grant status: ${grantStatus}`;
-              // If on the authority page already, show bold unlinked text instead of hyperlink
-              let link = '';
-              if (slug) {
-                if (typeof window.currentPageSlug !== 'undefined' && window.currentPageSlug === slug) {
-                  link = `<br/><strong>See our dedicated ${name} page</strong>`;
-                } else {
-                  link = `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>`;
-                }
-              }
+              const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
               return `<strong>${name}</strong><br/>Status: ${status}${grantLabel}${grantStatusLabel}${link}`;
             }
-            try { layer.options.govukslug = slug; } catch (e) { /* ignore */ }
 
-            // Bind the popup now (so we can open it programmatically later)
-            try { layer.bindPopup(popupHtml, { maxWidth: 400 }); } catch (e) { /* ignore */ }
+            try { layer.bindPopup(buildHtml(), { maxWidth: 400 }); } catch (e) { /* ignore */ }
+
             layer.on({
               mouseover(e) {
                 const t = e.target;
@@ -171,53 +178,20 @@
                 try { mapPav.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
               }
             });
-
-            // Auto-open behaviour: if window.initialAuthoritySlug is set to this slug, open the popup.
-            if (typeof window.initialAuthoritySlug !== 'undefined' && window.initialAuthoritySlug && slug && window.initialAuthoritySlug === slug) {
-              try {
-                const popupHtml = buildHtml();
-                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
-                try { mapPav.fitBounds(layer.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
-              } catch (err) {
-                console.error('Failed to auto-open pavement popup for', slug, err);
-              }
-            }
           }
         }).addTo(mapPav);
-        window.pavLayer = pavLayer;
 
-        // Build legend as a block element below the map (not an overlay control)
+        window.pavementLayer = pavLayer;
+
         (function createBlockLegend() {
           const legendContainer = document.getElementById('map-pavement-legend');
           if (!legendContainer) return;
-
-          // Count features per category using same logic as colourForChannelStatus
-          const counts = { permitted: 0, trial_live: 0, trial_complete: 0, trial_to_come: 0, other: 0 };
-          function channelCategory(status) {
-            if (status === null || status === undefined || String(status).trim() === '') return 'other';
-            const s = String(status).trim().toLowerCase();
-            if (s === 'permitted') return 'permitted';
-            if (s === 'trial live') return 'trial_live';
-            if (s === 'trial complete') return 'trial_complete';
-            if (s === 'trial to come') return 'trial_to_come';
-            return 'other';
-          }
-
-          if (geoPav && Array.isArray(geoPav.features)) {
-            geoPav.features.forEach(function (feature) {
-              const row = getRowForFeature(feature);
-              const rawStatus = row ? (row['channel-status'] ? String(row['channel-status']).trim() : '') : '';
-              const cat = channelCategory(rawStatus);
-              counts[cat] = (counts[cat] || 0) + 1;
-            });
-          }
-
           const rows = [
-            { label: `Permitted (${counts.permitted})`, color: channelColours.permitted },
-            { label: `Trial live (${counts.trial_live})`, color: channelColours.trial_live },
-            { label: `Trial complete (${counts.trial_complete})`, color: channelColours.trial_complete },
-            { label: `Trial to come (${counts.trial_to_come})`, color: channelColours.trial_to_come },
-            { label: `Not permitted (including by default if no data) (${counts.other})`, color: channelColours.other }
+            { label: 'Permitted', color: channelColours.permitted },
+            { label: 'Trial live', color: channelColours.trial_live },
+            { label: 'Trial complete', color: channelColours.trial_complete },
+            { label: 'Trial to come', color: channelColours.trial_to_come },
+            { label: 'Not permitted (including by default if no data)', color: channelColours.other }
           ];
           let html = '<strong>Legend: Pavement channels</strong><br/>';
           rows.forEach(r => {

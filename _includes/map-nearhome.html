@@ -6,37 +6,56 @@
   // If a map instance already exists, don't initialise again.
   if (window.nearhomeMap) return;
 
-  // Helper to load a script only if a global check is missing.
-  function loadScriptOnce(src, readyCheck) {
+  // resilient loader: try multiple URLs in order; resolve when one loads and/or readyCheck true
+  function loadScriptFallback(urls, readyCheck) {
     return new Promise(function (resolve, reject) {
-      try {
-        if (typeof readyCheck === 'function' && readyCheck()) return resolve();
-        // If an identical script tag already present, wait for it
-        const existing = Array.from(document.getElementsByTagName('script')).find(s => s.src && s.src.indexOf(src) !== -1);
+      if (typeof readyCheck === 'function' && readyCheck()) return resolve();
+      var i = 0;
+      function tryNext() {
+        if (i >= urls.length) return reject(new Error('All script sources failed: ' + urls.join(', ')));
+        var src = urls[i++];
+        // If identical script tag already present, wait for it
+        var existing = Array.from(document.getElementsByTagName('script')).find(s => s.src && s.src.indexOf(src) !== -1);
         if (existing) {
           if (existing.hasAttribute('data-loaded')) return resolve();
           existing.addEventListener('load', function () { resolve(); });
-          existing.addEventListener('error', function () { reject(new Error('Failed to load ' + src)); });
+          existing.addEventListener('error', function () { tryNext(); });
           return;
         }
-        const s = document.createElement('script');
+        var s = document.createElement('script');
         s.src = src;
         s.async = true;
         s.onload = function () { s.setAttribute('data-loaded', '1'); resolve(); };
-        s.onerror = function () { reject(new Error('Failed to load ' + src)); };
+        s.onerror = function () { tryNext(); };
         document.head.appendChild(s);
-      } catch (e) { reject(e); }
+      }
+      tryNext();
     });
   }
 
-  // Load dependencies (Leaflet, topojson-client, chroma-js). chroma is used for the NEVIS palette.
+  // Try multiple CDNs for each dependency
+  var leafletUrls = [
+    'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
+    'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js'
+  ];
+  var topoUrls = [
+    'https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js',
+    'https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js'
+  ];
+  var chromaUrls = [
+    'https://unpkg.com/chroma-js@2.4.2/chroma.min.js',
+    'https://cdn.jsdelivr.net/npm/chroma-js@2.4.2/chroma.min.js'
+  ];
+
   Promise.all([
-    loadScriptOnce('https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', () => window.L !== undefined),
-    loadScriptOnce('https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js', () => window.topojson !== undefined),
-    loadScriptOnce('https://unpkg.com/chroma-js@2.4.2/chroma.min.js', () => window.chroma !== undefined)
+    loadScriptFallback(leafletUrls, () => window.L !== undefined),
+    loadScriptFallback(topoUrls, () => window.topojson !== undefined),
+    loadScriptFallback(chromaUrls, () => window.chroma !== undefined)
   ]).then(init).catch(function (err) {
-    // Non-blocking: log to console
     console.error('Failed to load map dependencies for NEAR HOME map:', err);
+    // Optionally show a friendly message in the map container
+    var el = document.getElementById('map-nearhome');
+    if (el) el.innerHTML = '<div style="padding:1rem">Map could not load because required resources were blocked. Try disabling tracking protection or use a different network.</div>';
   });
 
   function init() {
@@ -123,7 +142,6 @@
           attribution: '&copy; CENEX NEVIS 2025; Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
         }).addTo(mapNearHome);
         window.nearhomeMap = mapNearHome;
-        // Save initial view so tabs can restore it later if the map ends up zoomed-out.
         window.nearhomeMapInitialView = { lat: mapNearHome.getCenter().lat, lng: mapNearHome.getCenter().lng, zoom: mapNearHome.getZoom() };
 
         const nearhomeLayer = L.geoJSON(geoNear, {
@@ -153,6 +171,9 @@
               return `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${vLabel}<br/>NEVIS Near Home distribution rank: ${rankLabel}${link}`;
             }
 
+            // Bind popup now so it can be opened programmatically later if needed
+            try { layer.bindPopup(buildHtml(), { maxWidth: 400 }); } catch (e) { /* ignore */ }
+
             layer.on({
               mouseover(e) {
                 const t = e.target;
@@ -171,16 +192,12 @@
                 try { mapNearHome.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore fitBounds errors */ }
               }
             });
-            // Expose slug on the layer so external code can find it:
-            try { layer.options.govukslug = slug; } catch (e) { /* ignore */ }
-
-            // Bind the popup now (so we can open it programmatically later)
-            try { layer.bindPopup(popupHtml, { maxWidth: 400 }); } catch (e) { /* ignore */ }
           }
         }).addTo(mapNearHome);
+
+        // Expose layer for external code (tabs helper) to find features by slug
         window.nearhomeLayer = nearhomeLayer;
 
-        // Build legend as a block element below the map (not an overlay control)
         (function createBlockLegend() {
           const legendContainer = document.getElementById('map-nearhome-legend');
           if (!legendContainer) return;
