@@ -127,7 +127,6 @@
           attribution: 'Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
         }).addTo(mapLevi);
         window.leviMap = mapLevi;
-        window.leviMapInitialView = { lat: mapLevi.getCenter().lat, lng: mapLevi.getCenter().lng, zoom: mapLevi.getZoom() };
 
         const leviLayer = L.geoJSON(geoLevi, {
           style(feature) {
@@ -155,12 +154,17 @@
               const stageLabel = (stage === null || stage === undefined || String(stage).trim() === '') ? 'No data' : String(stage);
               const cAmt = formatCapital(capital);
               const cposLabel = (cpos === null || cpos === undefined || String(cpos).trim() === '') ? '' : `<br/>Appointed CPO(s): ${String(cpos)}`;
-              const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
+              // If the user is already on the authority page, render bold unlinked text instead of a hyperlink.
+              let link = '';
+              if (slug) {
+                if (typeof window.currentPageSlug !== 'undefined' && window.currentPageSlug === slug) {
+                  link = `<br/><strong>See our dedicated ${name} page</strong>`;
+                } else {
+                  link = `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>`;
+                }
+              }
               return `<strong>${name}</strong><br/>Tender stage: ${stageLabel}<br/>Capital amount: ${cAmt}${cposLabel}${link}`;
             }
-
-            try { layer.bindPopup(buildHtml(), { maxWidth: 400 }); } catch (e) { /* ignore */ }
-
             layer.on({
               mouseover(e) {
                 const t = e.target;
@@ -179,24 +183,55 @@
                 try { mapLevi.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
               }
             });
-          // Expose slug on the layer so external code can find it:
             try { layer.options.govukslug = slug; } catch (e) { /* ignore */ }
 
             // Bind the popup now (so we can open it programmatically later)
             try { layer.bindPopup(popupHtml, { maxWidth: 400 }); } catch (e) { /* ignore */ }
+
+            // Auto-open behaviour: if window.initialAuthoritySlug is set to this slug, open popup.
+            if (typeof window.initialAuthoritySlug !== 'undefined' && window.initialAuthoritySlug && slug && window.initialAuthoritySlug === slug) {
+              try {
+                const popupHtml = buildHtml();
+                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
+                try { mapLevi.fitBounds(layer.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
+              } catch (err) {
+                console.error('Failed to auto-open levi popup for', slug, err);
+              }
+            }
           }
         }).addTo(mapLevi);
-
         window.leviLayer = leviLayer;
 
+        // Build legend as a block element below the map (not an overlay control)
         (function createBlockLegend() {
           const legendContainer = document.getElementById('map-levi-legend');
           if (!legendContainer) return;
+
+          // Count features per category using the same logic as colourForStage
+          const counts = { awarded_or_framework: 0, yet_to_award: 0, tender_live: 0, other: 0 };
+          function stageCategory(stage) {
+            if (stage === null || stage === undefined || String(stage).trim() === '') return 'other';
+            const s = String(stage).toLowerCase();
+            if (s.includes('awarded') || s.includes('framework established')) return 'awarded_or_framework';
+            if (s.includes('yet to award')) return 'yet_to_award';
+            if (s.includes('tender live')) return 'tender_live';
+            return 'other';
+          }
+
+          if (geoLevi && Array.isArray(geoLevi.features)) {
+            geoLevi.features.forEach(function (feature) {
+              const row = getRowForFeature(feature);
+              const stage = row ? row['LEVI-tender-stage'] : null;
+              const cat = stageCategory(stage);
+              counts[cat] = (counts[cat] || 0) + 1;
+            });
+          }
+
           const rowsLegend = [
-            { label: 'Awarded', color: leviColours.awarded_or_framework },
-            { label: 'Yet to award', color: leviColours.yet_to_award },
-            { label: 'Tender live', color: leviColours.tender_live },
-            { label: 'Yet to tender', color: leviColours.other }
+            { label: `Awarded (${counts.awarded_or_framework})`, color: leviColours.awarded_or_framework },
+            { label: `Yet to award (${counts.yet_to_award})`, color: leviColours.yet_to_award },
+            { label: `Tender live (${counts.tender_live})`, color: leviColours.tender_live },
+            { label: `Yet to tender (${counts.other})`, color: leviColours.other }
           ];
           let html = '<strong>Legend: LEVI / EVIF / ULEVTF tender stage</strong><br/>';
           rowsLegend.forEach(r => {

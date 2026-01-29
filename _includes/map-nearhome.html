@@ -142,7 +142,7 @@
           attribution: '&copy; CENEX NEVIS 2025; Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
         }).addTo(mapNearHome);
         window.nearhomeMap = mapNearHome;
-        window.nearhomeMapInitialView = { lat: mapNearHome.getCenter().lat, lng: mapNearHome.getCenter().lng, zoom: mapNearHome.getZoom() };
+        // Save initial view so tabs can restore it later if the map ends up zoomed-out.
 
         const nearhomeLayer = L.geoJSON(geoNear, {
           style(feature) {
@@ -171,9 +171,6 @@
               return `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${vLabel}<br/>NEVIS Near Home distribution rank: ${rankLabel}${link}`;
             }
 
-            // Bind popup now so it can be opened programmatically later if needed
-            try { layer.bindPopup(buildHtml(), { maxWidth: 400 }); } catch (e) { /* ignore */ }
-
             layer.on({
               mouseover(e) {
                 const t = e.target;
@@ -191,19 +188,28 @@
                 layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
                 try { mapNearHome.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore fitBounds errors */ }
               }
-              
             });
-          // Expose slug on the layer so external code can find it:
-          try { layer.options.govukslug = slug; } catch (e) { /* ignore */ }
+            // Expose slug on the layer so external code can find it:
+            try { layer.options.govukslug = slug; } catch (e) { /* ignore */ }
 
-          // Bind the popup now (so we can open it programmatically later)
-          try { layer.bindPopup(popupHtml, { maxWidth: 400 }); } catch (e) { /* ignore */ }
+            // Bind the popup now (so we can open it programmatically later)
+            try { layer.bindPopup(popupHtml, { maxWidth: 400 }); } catch (e) { /* ignore */ }
+
+            // Auto-open behaviour: if window.initialAuthoritySlug is set to this slug, open the popup.
+            if (typeof window.initialAuthoritySlug !== 'undefined' && window.initialAuthoritySlug && slug && window.initialAuthoritySlug === slug) {
+              try {
+                const popupHtml = buildHtml();
+                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
+                try { mapNearHome.fitBounds(layer.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
+              } catch (err) {
+                console.error('Failed to auto-open nearhome popup for', slug, err);
+              }
+            }
           }
         }).addTo(mapNearHome);
-
-        // Expose layer for external code (tabs helper) to find features by slug
         window.nearhomeLayer = nearhomeLayer;
 
+        // Build legend as a block element below the map (not an overlay control)
         (function createBlockLegend() {
           const legendContainer = document.getElementById('map-nearhome-legend');
           if (!legendContainer) return;
