@@ -150,7 +150,10 @@
               }
               return `<strong>${name}</strong><br/>Tender stage: ${stageLabel}<br/>Capital amount: ${cAmt}${cposLabel}${link}`;
             }
+            try { layer.options.govukslug = slug; } catch (e) { /* ignore */ }
 
+            // Bind the popup now (so we can open it programmatically later)
+            try { layer.bindPopup(popupHtml, { maxWidth: 400 }); } catch (e) { /* ignore */ }
             layer.on({
               mouseover(e) {
                 const t = e.target;
@@ -182,6 +185,7 @@
             }
           }
         }).addTo(mapLevi);
+        window.leviLayer = leviLayer;
 
         // Build legend as a block element below the map (not an overlay control)
         (function createBlockLegend() {

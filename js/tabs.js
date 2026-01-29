@@ -12,7 +12,9 @@
  * Small map refresh workaround:
  * - When a panel becomes visible we attempt to call Leaflet's invalidateSize()
  *   on any known map instances whose containers are inside the panel.
- * - This is minimal, defensive and a no-op on pages without maps.
+ * - If a map shows an extremely small zoom (e.g. world/globe), we restore the
+ *   map's saved initial view (center/zoom) captured at initialisation.
+ * - Behaviour is minimal and safe on pages without maps.
  */
 
 (function () {
@@ -20,11 +22,9 @@
 
   var SELECTOR = '.js-tabs';
   // Delay (ms) after making a panel visible before refreshing maps.
-  // Gives the browser time to finish layout changes for the panel.
   var MAP_REFRESH_DELAY = 200;
 
-  // List of map globals used by our map includes. Keep this small and explicit
-  // so the code is fast and safe on pages without maps.
+  // Known global map variable names used by the includes.
   var KNOWN_MAP_GLOBALS = ['nearhomeMap', 'pavementMap', 'leviMap'];
 
   function isDisabled(tab) {
@@ -32,39 +32,76 @@
   }
 
   // Refresh known maps if their container element is inside the given panel.
-  // Safe no-op if maps aren't present or Leaflet isn't loaded.
   function refreshMapsInPanel(panel) {
     if (!panel) return;
     try {
-      // Run after a short delay to allow layout/transitions to settle
+      // Delay slightly for layout/transition to settle.
       window.setTimeout(function () {
         KNOWN_MAP_GLOBALS.forEach(function (mapName) {
           try {
             var map = window[mapName];
             if (!map || typeof map.invalidateSize !== 'function') return;
 
-            // Prefer the public getContainer() method, fall back to _container.
+            // Prefer public getContainer(), fallback to internal _container.
             var container = (typeof map.getContainer === 'function') ? map.getContainer() : (map._container || null);
             if (!container) return;
 
-            // Only refresh maps that are actually within this panel
             if (panel.contains(container)) {
-              try { map.invalidateSize(true); } catch (e) { try { map.invalidateSize(); } catch (ignore) {} }
+              try {
+                // Recalculate layout
+                try { map.invalidateSize(true); } catch (e) { map.invalidateSize(); }
+
+                // If map has been zoomed out to show the whole globe (zoom very small)
+                // restore the saved initial view (if available). This is conservative:
+                // only restore when zoom is extremely small (e.g. < 2) to avoid
+                // overwriting user interactions.
+                try {
+                  if (typeof map.getZoom === 'function') {
+                    var currentZoom = map.getZoom();
+                    if (typeof currentZoom === 'number' && currentZoom < 2) {
+                      var initial = window[mapName + 'InitialView'];
+                      if (initial && typeof initial.lat === 'number' && typeof initial.lng === 'number' && typeof initial.zoom === 'number') {
+                        // restore without animation so it's instant and doesn't shift the page
+                        try { map.setView([initial.lat, initial.lng], initial.zoom, { animate: false }); } catch (e) { /* ignore */ }
+                      }
+                    }
+                  }
+                } catch (e) { /* ignore view restore errors */ }
+              } catch (e) {
+                console.error('Tabs: failed to invalidateSize for map', mapName, e);
+              }
             }
           } catch (e) {
-            // Non-fatal for a single map
-            /* eslint-disable no-console */
-            console.error('Tabs: failed to refresh map', mapName, e);
-            /* eslint-enable no-console */
+            console.error('Tabs: failed to process map', mapName, e);
           }
         });
       }, MAP_REFRESH_DELAY);
     } catch (e) {
-      // overall non-fatal
-      /* eslint-disable no-console */
       console.error('Tabs: refreshMapsInPanel failed', e);
-      /* eslint-enable no-console */
     }
+    try {
+      var initialSlug = window.initialAuthoritySlug;
+      if (initialSlug && map && mapName) {
+        // We expect the map include to expose the geojson layer group on window, e.g. nearhomeLayer/pavementLayer/leviLayer.
+        var layerGroup = window[mapName.replace('Map', 'Layer')]; // e.g. nearhomeMap -> nearhomeLayer
+        if (layerGroup && typeof layerGroup.eachLayer === 'function') {
+          layerGroup.eachLayer(function (lyr) {
+            try {
+              if (lyr.options && lyr.options.govukslug && lyr.options.govukslug === initialSlug) {
+                // Open popup which we bound in the map include
+                if (typeof lyr.openPopup === 'function') {
+                  lyr.openPopup();
+                } else if (lyr.getPopup && lyr.getPopup()) {
+                  map.openPopup(lyr.getPopup());
+                }
+                // Try to fit bounds (if layer has bounds)
+                try { if (lyr.getBounds) map.fitBounds(lyr.getBounds(), { maxZoom: 12 }); } catch (e) {}
+              }
+            } catch (e) { /* ignore layer-level errors */ }
+          });
+        }
+      }
+    } catch (e) { /* ignore overall */ }
   }
 
   function activateTab(container, tab, updateHash) {
@@ -95,7 +132,6 @@
       panel.classList.remove('tabs__panel--hidden');
 
       // Move focus into panel for screen reader users / visibility
-      // Give the panel a temporary tabindex to focus if it cannot be focused
       var hadTabindex = panel.hasAttribute('tabindex');
       if (!hadTabindex) {
         panel.setAttribute('tabindex', '-1');
@@ -111,17 +147,14 @@
 
     if (updateHash && panelId) {
       try {
-        // pushState changes URL hash without scrolling
         history.pushState(null, '', '#' + panelId);
       } catch (e) {
-        // Fallback: set location.hash (may scroll)
         location.hash = '#' + panelId;
       }
     }
   }
 
   function findNextTab(tabs, startIndex, direction) {
-    // direction: 1 -> forward, -1 -> backward
     var count = tabs.length;
     var i = startIndex;
     do {
@@ -185,7 +218,6 @@
 
       case 'Enter':
       case ' ':
-        // Space/Enter should activate the focused tab (if not already active)
         if (!isDisabled(target)) {
           activateTab(container, target, true);
           handled = true;
@@ -201,7 +233,6 @@
 
   function onClick(container, event) {
     var target = event.target;
-    // If user clicks on nested elements inside the tab, find the nearest tab role ancestor
     var tab = target.closest('[role="tab"]');
     if (!tab || !container.contains(tab)) return;
     if (isDisabled(tab)) return;
@@ -213,7 +244,6 @@
     var tabs = container.querySelectorAll('[role="tab"]');
     var panels = container.querySelectorAll('[role="tabpanel"]');
 
-    // Basic initialization: ensure attributes are present
     Array.prototype.forEach.call(tabs, function (tab, i) {
       if (!tab.hasAttribute('id')) {
         tab.id = 'tab-' + Math.random().toString(36).substr(2, 9);
@@ -234,16 +264,12 @@
     Array.prototype.forEach.call(panels, function (panel) {
       panel.setAttribute('role', 'tabpanel');
       if (!panel.hasAttribute('tabindex')) {
-        // allow panel to receive focus programmatically
-        // don't leave it focusable by keyboard normally
         panel.setAttribute('tabindex', '-1');
       }
     });
 
-    // Determine initial active tab:
     var activeTab = container.querySelector('[role="tab"][aria-selected="true"]');
     if (!activeTab) {
-      // If deep link exists, attempt to activate the matching panel
       var hash = (location.hash || '').replace('#', '');
       if (hash) {
         var tabForHash = container.querySelector('[aria-controls="' + CSS.escape(hash) + '"]');
@@ -252,7 +278,6 @@
         }
       }
     }
-    // fallback to first non-disabled tab
     if (!activeTab) {
       var tabsArray = Array.prototype.slice.call(container.querySelectorAll('[role="tab"]'));
       activeTab = tabsArray.find(function (t) { return !isDisabled(t); });
@@ -262,9 +287,7 @@
       activateTab(container, activeTab, false);
     }
 
-    // Event delegation for clicks
     container.addEventListener('click', function (e) { onClick(container, e); }, false);
-    // Key navigation
     container.addEventListener('keydown', function (e) { onKeyDown(container, e); }, false);
   }
 
@@ -274,22 +297,16 @@
       initTabs(c);
     });
 
-    // If page loads with a hash that points to a panel inside a tabs component,
-    // make sure the appropriate tab is active and the panel is visible.
     if (location.hash) {
       var id = location.hash.slice(1);
-      // Find any tab that controls this id
       var tab = document.querySelector('[role="tab"][aria-controls="' + CSS.escape(id) + '"]');
       if (tab) {
-        // Find containing tabs container
         var container = tab.closest(SELECTOR);
         if (container) {
           activateTab(container, tab, false);
-          // Ensure the panel is in view without scrolling the page suddenly.
           var panel = document.getElementById(id);
           if (panel) {
             panel.scrollIntoView({ block: 'start', behavior: 'smooth' });
-            // Attempt to refresh maps within the panel (minimal, safe)
             refreshMapsInPanel(panel);
           }
         }
@@ -297,14 +314,12 @@
     }
   }
 
-  // Initialize on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', onLoad);
   } else {
     onLoad();
   }
 
-  // Expose a minimal API for other scripts if desired
   window.Tabs = {
     init: initTabs,
     activate: activateTab,

@@ -123,6 +123,8 @@
           attribution: '&copy; CENEX NEVIS 2025; Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
         }).addTo(mapNearHome);
         window.nearhomeMap = mapNearHome;
+        // Save initial view so tabs can restore it later if the map ends up zoomed-out.
+        window.nearhomeMapInitialView = { lat: mapNearHome.getCenter().lat, lng: mapNearHome.getCenter().lng, zoom: mapNearHome.getZoom() };
 
         const nearhomeLayer = L.geoJSON(geoNear, {
           style(feature) {
@@ -147,16 +149,7 @@
             function buildHtml() {
               const vLabel = isNaN(toNum(v)) ? 'N/A' : `${Math.round(v)}%`;
               const rankLabel = isNaN(toNum(rank)) ? 'N/A' : `${rank}/350`;
-              // If the user is already on the authority page (window.currentPageSlug matches),
-              // render the "See our dedicated … page" as bold text (not a link).
-              let link = '';
-              if (slug) {
-                if (typeof window.currentPageSlug !== 'undefined' && window.currentPageSlug === slug) {
-                  link = `<br/><strong>See our dedicated ${name} page</strong>`;
-                } else {
-                  link = `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>`;
-                }
-              }
+              const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
               return `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${vLabel}<br/>NEVIS Near Home distribution rank: ${rankLabel}${link}`;
             }
 
@@ -178,21 +171,14 @@
                 try { mapNearHome.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore fitBounds errors */ }
               }
             });
+            // Expose slug on the layer so external code can find it:
+            try { layer.options.govukslug = slug; } catch (e) { /* ignore */ }
 
-            // Auto-open behaviour: if a page sets window.initialAuthoritySlug to the authority slug,
-            // open the popup for that authority as if it had been clicked.
-            if (typeof window.initialAuthoritySlug !== 'undefined' && window.initialAuthoritySlug && slug && window.initialAuthoritySlug === slug) {
-              try {
-                const popupHtml = buildHtml();
-                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
-                try { mapNearHome.fitBounds(layer.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore fitBounds errors */ }
-              } catch (err) {
-                // non-fatal
-                console.error('Failed to auto-open nearhome popup for', slug, err);
-              }
-            }
+            // Bind the popup now (so we can open it programmatically later)
+            try { layer.bindPopup(popupHtml, { maxWidth: 400 }); } catch (e) { /* ignore */ }
           }
         }).addTo(mapNearHome);
+        window.nearhomeLayer = nearhomeLayer;
 
         // Build legend as a block element below the map (not an overlay control)
         (function createBlockLegend() {
