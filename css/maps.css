@@ -15,4 +15,4 @@
       max-width: 100%;
     }
     .map-legend .swatch { width:18px; height:12px; display:inline-block; margin-right:6px; vertical-align:middle; }
-    .map-legend .row { margin-bottom:4px; white-space:nowrap; }
+    .map-legend .row { margin-bottom:4px; white-space:nowrap; max-width: 100%;}
