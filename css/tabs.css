@@ -1,133 +1,26 @@
-/* Boxed tabs where the active tab sits inside the top edge of the panel box.
-   Tweak colors and spacing to match your design tokens. */
-
-:root {
-  --border: #b1bac4;
-  --muted-bg: #f3f4f6;
-  --text: #0b0c0c;
-  --accent: #1d70b8;
-  --focus: #ffbf47;
-}
-
-/* The outer box that wraps panels (and visually contains the active tab) */
+/* change .tabs__controls to be in-flow with a negative margin
+   so wrapped rows push the panel down while still overlapping the box */
 .tabs {
   position: relative;
   margin: 40px 0 1.5rem 0;
   border: 1px solid var(--border);
   border-radius: 2px;
   background: #fff;
-  /* top padding leaves room under the tabs row so panels sit nicely */
+  /* keep a reasonable default top padding; controls will overlap via negative margin */
   padding: 1.5rem 1.25rem 1.25rem;
   color: var(--text);
 }
 
-/* Tab controls are positioned to overlap the top border */
+/* make controls participate in layout so wrapping increases container height */
 .tabs__controls {
-  position: absolute;
-  top: -1.15rem;            /* lifts the row up so active tab sits in the box */
-  left: 1.25rem;           /* align with container inner padding */
+  position: relative;        /* was absolute */
+  margin-top: -1.15rem;     /* still tucks the controls into the box */
+  left: 0;                  /* remove absolute left */
   display: flex;
   gap: 0.5rem;
-  z-index: 3;              /* ensure tabs sit above box border */
-  align-items: flex-end;   /* baseline align buttons */
-}
-
-/* Individual tab look */
-.tabs__tab {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid transparent;
-  background: var(--muted-bg);
-  padding: 0.5rem 0.9rem;
-  font-size: 1rem;
-  cursor: pointer;
-  color: var(--text);
-  border-radius: 2px;
-  line-height: 1;
-  white-space: nowrap;
-  transition: color .08s ease, background .08s ease, border-color .08s ease, transform .06s ease;
-  box-shadow: none;
-  outline: none;
-}
-
-/* Inactive tab hover/focus */
-.tabs__tab:not([aria-selected="true"]):hover {
-  background: #eee;
-}
-
-/* Active tab: sits visually inside the container
-   - white background so it appears to cut into the container border
-   - border matches container border so the tab looks continuous with the box
-   - border-bottom-color is white so the tab visually connects to panel area (hides container border)
-   - negative bottom margin to hide the container top border under the tab
-*/
-.tabs__tab--active,
-.tabs__tab[aria-selected="true"] {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-bottom-color: #fff;  /* hide the container border underneath the tab */
-  margin-bottom: -1px;        /* tuck over the container border */
-  font-weight: 600;
-  z-index: 4;                 /* ensure it overlaps the container border */
-}
-
-/* when active tab is the first or last, slightly round top corners */
-.tabs__tab--active:first-child {
-  border-top-left-radius: 4px;
-}
-.tabs__tab--active:last-child {
-  border-top-right-radius: 4px;
-}
-
-/* Disabled tab appearance */
-.tabs__tab[aria-disabled="true"],
-.tabs__tab[disabled] {
-  color: #6f7780;
-  background: #f7f7f7;
-  cursor: not-allowed;
-}
-
-/* Keyboard focus */
-.tabs__tab:focus {
-  box-shadow: 0 0 0 3px rgba(255, 191, 71, 0.18);
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
-/* Panels inside the container */
-.tabs__panel {
-  padding-top: 0.25rem;
-  background: transparent;
-  border: none;
-  margin: 0;
-}
-
-/* Hidden panels */
-.tabs__panel--hidden,
-.tabs__panel[hidden] {
-  display: none;
-}
-
-/* Optional responsive behaviour: controls wrap on small screens */
-@media (max-width: 420px) {
-  .tabs {
-    padding-top: 3.25rem; /* more room for stacked controls */
-  }
-
-  .tabs__controls {
-    position: absolute;
-    left: 0.75rem;
-    right: 0.75rem;
-    top: -1.75rem;
-    gap: 0.25rem;
-    flex-wrap: wrap;
-  }
-
-  .tabs__tab {
-    flex: 1 1 auto;
-    min-width: 0;
-    text-align: left;
-    padding: 0.6rem 0.75rem;
-  }
+  z-index: 3;
+  align-items: flex-end;
+  flex-wrap: wrap;          /* allow wrapping on small screens */
+  /* optionally match container inner padding for horizontal alignment */
+  padding-left: 1.25rem;
 }
