@@ -221,7 +221,7 @@
           {
             "name": "gov-uk-slug",
             "type": "string",
-            "description": "A url slug for an authority used by gov.uk, or made up for use by EVinfrastructure.co.uk",
+            "description": "A url slug for an authority used by GOV.UK, or made up for use by EVinfrastructure.co.uk",
             "constraints": {
               "unique": false
             },
