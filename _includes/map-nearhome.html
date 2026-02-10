@@ -167,7 +167,15 @@
             function buildHtml() {
               const vLabel = isNaN(toNum(v)) ? 'N/A' : `${Math.round(v)}%`;
               const rankLabel = isNaN(toNum(rank)) ? 'N/A' : `${rank}/350`;
-              const link = slug ? `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>` : '';
+              // If the user is already on the authority page, render bold unlinked text instead of a hyperlink.
+              let link = '';
+              if (slug) {
+                if (typeof window.currentPageSlug !== 'undefined' && window.currentPageSlug === slug) {
+                  link = `<br/><strong>See our dedicated ${name} page</strong>`;
+                } else {
+                  link = `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>`;
+                }
+              }
               return `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${vLabel}<br/>NEVIS Near Home distribution rank: ${rankLabel}${link}`;
             }
 
