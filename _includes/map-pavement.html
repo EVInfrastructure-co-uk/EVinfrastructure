@@ -182,24 +182,9 @@
                 try { mapPav.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
               }
             });
-            try { layer.options.govukslug = slug; } catch (e) { /* ignore */ }
-
-            // Bind the popup now (so we can open it programmatically later)
-            try { layer.bindPopup(popupHtml, { maxWidth: 400 }); } catch (e) { /* ignore */ }
-            
-            // Auto-open behaviour: if window.initialAuthoritySlug is set to this slug, open the popup.
-            if (typeof window.initialAuthoritySlug !== 'undefined' && window.initialAuthoritySlug && slug && window.initialAuthoritySlug === slug) {
-              try {
-                const popupHtml = buildHtml();
-                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
-                try { mapPav.fitBounds(layer.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
-              } catch (err) {
-                console.error('Failed to auto-open pavement popup for', slug, err);
-              }
-            }
           }
         }).addTo(mapPav);
-        window.pavLayer = pavLayer;
+        // window.pavLayer = pavLayer;
 
         // Build legend as a block element below the map (not an overlay control)
         (function createBlockLegend() {

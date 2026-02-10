@@ -189,25 +189,9 @@
                 try { mapNearHome.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore fitBounds errors */ }
               }
             });
-            // Expose slug on the layer so external code can find it:
-            try { layer.options.govukslug = slug; } catch (e) { /* ignore */ }
-
-            // Bind the popup now (so we can open it programmatically later)
-            try { layer.bindPopup(popupHtml, { maxWidth: 400 }); } catch (e) { /* ignore */ }
-
-            // Auto-open behaviour: if window.initialAuthoritySlug is set to this slug, open the popup.
-            if (typeof window.initialAuthoritySlug !== 'undefined' && window.initialAuthoritySlug && slug && window.initialAuthoritySlug === slug) {
-              try {
-                const popupHtml = buildHtml();
-                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
-                try { mapNearHome.fitBounds(layer.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
-              } catch (err) {
-                console.error('Failed to auto-open nearhome popup for', slug, err);
-              }
-            }
           }
         }).addTo(mapNearHome);
-        window.nearhomeLayer = nearhomeLayer;
+        // window.nearhomeLayer = nearhomeLayer;
 
         // Build legend as a block element below the map (not an overlay control)
         (function createBlockLegend() {

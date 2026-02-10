@@ -867,7 +867,7 @@ function centre(slug) {
     const lat = entry['lat']
     const long = entry['long']
     const area = entry['area']
-    const scale = 16 - Math.log(area)
+    const scale = Math.round(16 - Math.log(area))
         function waitForGlobal(name, timeout = 10000) {
             return new Promise((resolve, reject) => {
             if (window[name]) return resolve(window[name]);

@@ -183,24 +183,9 @@
                 try { mapLevi.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
               }
             });
-            try { layer.options.govukslug = slug; } catch (e) { /* ignore */ }
-
-            // Bind the popup now (so we can open it programmatically later)
-            try { layer.bindPopup(popupHtml, { maxWidth: 400 }); } catch (e) { /* ignore */ }
-
-            // Auto-open behaviour: if window.initialAuthoritySlug is set to this slug, open popup.
-            if (typeof window.initialAuthoritySlug !== 'undefined' && window.initialAuthoritySlug && slug && window.initialAuthoritySlug === slug) {
-              try {
-                const popupHtml = buildHtml();
-                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
-                try { mapLevi.fitBounds(layer.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
-              } catch (err) {
-                console.error('Failed to auto-open levi popup for', slug, err);
-              }
-            }
           }
         }).addTo(mapLevi);
-        window.leviLayer = leviLayer;
+        // window.leviLayer = leviLayer;
 
         // Build legend as a block element below the map (not an overlay control)
         (function createBlockLegend() {
