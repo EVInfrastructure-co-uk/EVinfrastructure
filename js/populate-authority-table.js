@@ -856,3 +856,50 @@ function populate(slug) {
     }
 })
 };
+
+function centre(slug) {
+    fetch('/government/local-government/data/uk_la_evi.json')
+  .then(response => response.json())
+  .then(jsonData => {
+        laData = jsonData.resources[0].data;
+    // match slug with an authority
+    const match = laData.find(entry => entry['gov-uk-slug'] === slug);
+    const lat = entry['lat']
+    const long = entry['long']
+    const area = entry['area']
+    const scale = 16 - Math.log(area)
+        function waitForGlobal(name, timeout = 10000) {
+            return new Promise((resolve, reject) => {
+            if (window[name]) return resolve(window[name]);
+            const interval = setInterval(() => {
+                if (window[name]) {
+                clearInterval(interval);
+                clearTimeout(to);
+                resolve(window[name]);
+                }
+            }, 100);
+            const to = setTimeout(() => {
+                clearInterval(interval);
+                reject(new Error('Timeout waiting for ' + name));
+            }, timeout);
+            });
+        }
+
+        Promise.all([
+            waitForGlobal('leviMap'),
+            waitForGlobal('pavementMap'),
+            waitForGlobal('nearhomeMap')
+        ]).then(([levi, pavement, nearhome]) => {
+            // use the Leaflet map objects directly
+            levi.setView([lat, long], scale);
+            pavement.setView([lat, long], scale);
+            nearhome.setView([lat, long], scale);
+
+            // If your containers might have resized:
+            setTimeout(() => {
+            try { levi.invalidateSize(); pavement.invalidateSize(); nearhome.invalidateSize(); } catch (e) {}
+            }, 200);
+        }).catch(err => {
+            console.error('Could not centre maps:', err);
+        });
+    })};
