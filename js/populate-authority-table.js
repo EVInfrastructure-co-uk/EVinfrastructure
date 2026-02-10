@@ -864,9 +864,9 @@ function centre(slug) {
         laData = jsonData.resources[0].data;
     // match slug with an authority
     const match = laData.find(entry => entry['gov-uk-slug'] === slug);
-    const lat = entry['lat']
-    const long = entry['long']
-    const area = entry['area']
+    const lat = match['lat']
+    const long = match['long']
+    const area = match['area']
     const scale = Math.round(16 - Math.log(area))
         function waitForGlobal(name, timeout = 10000) {
             return new Promise((resolve, reject) => {
