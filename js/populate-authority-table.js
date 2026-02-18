@@ -858,48 +858,68 @@ function populate(slug) {
 };
 
 function centre(slug) {
-    fetch('/government/local-government/data/uk_la_evi.json')
-  .then(response => response.json())
-  .then(jsonData => {
-        laData = jsonData.resources[0].data;
-    // match slug with an authority
-    const match = laData.find(entry => entry['gov-uk-slug'] === slug);
-    const lat = match['lat']
-    const long = match['long']
-    const area = match['area']
-    const scale = Math.round(16.3 - Math.log(area))
-        function waitForGlobal(name, timeout = 10000) {
-            return new Promise((resolve, reject) => {
-            if (window[name]) return resolve(window[name]);
-            const interval = setInterval(() => {
-                if (window[name]) {
-                clearInterval(interval);
-                clearTimeout(to);
-                resolve(window[name]);
-                }
-            }, 100);
-            const to = setTimeout(() => {
-                clearInterval(interval);
-                reject(new Error('Timeout waiting for ' + name));
-            }, timeout);
-            });
-        }
+  fetch('/government/local-government/data/uk_la_evi.json')
+    .then(response => response.json())
+    .then(jsonData => {
+      const laData = jsonData.resources[0].data;
 
-        Promise.all([
-            waitForGlobal('leviMap'),
-            waitForGlobal('pavementMap'),
-            waitForGlobal('nearhomeMap')
-        ]).then(([levi, pavement, nearhome]) => {
-            // use the Leaflet map objects directly
-            levi.setView([lat, long], scale);
-            pavement.setView([lat, long], scale);
-            nearhome.setView([lat, long], scale);
+      // match slug with an authority
+      const match = laData.find(entry => entry['gov-uk-slug'] === slug);
+      if (!match) {
+        console.warn('No LA match for slug:', slug);
+        return;
+      }
 
-            // If your containers might have resized:
-            setTimeout(() => {
-            try { levi.invalidateSize(); pavement.invalidateSize(); nearhome.invalidateSize(); } catch (e) {}
-            }, 200);
-        }).catch(err => {
-            console.error('Could not centre maps:', err);
+      const lat = parseFloat(match['lat']);
+      const long = parseFloat(match['long']);
+      const area = parseFloat(match['area']) || 1;
+      const scale = Math.round(16.3 - Math.log(area));
+
+      // Wait for a global to appear. Resolves with the global value or rejects on timeout.
+      function waitForGlobal(name, timeout = 10000) {
+        return new Promise((resolve, reject) => {
+          if (window[name]) return resolve(window[name]);
+          const interval = setInterval(() => {
+            if (window[name]) {
+              clearInterval(interval);
+              clearTimeout(to);
+              resolve(window[name]);
+            }
+          }, 100);
+          const to = setTimeout(() => {
+            clearInterval(interval);
+            reject(new Error('Timeout waiting for ' + name));
+          }, timeout);
         });
-    })};
+      }
+
+      // Try to centre one map by global name. If the global never appears, we just log and continue.
+      function centreMapByName(globalName) {
+        waitForGlobal(globalName)
+          .then(map => {
+            try {
+              map.setView([lat, long], scale);
+              // If container might have resized:
+              setTimeout(() => {
+                try { map.invalidateSize(); } catch (e) { /* ignore */ }
+              }, 200);
+            } catch (err) {
+              console.error(`Error centering ${globalName}:`, err);
+            }
+          })
+          .catch(() => {
+            // Not an error for the whole page — the map simply isn't present on this page.
+            // Use info level so it's not noisy in production, but helpful in dev.
+            console.info(`${globalName} not present or timed out; skipping.`);
+          });
+      }
+
+      // Centre each map independently so pages with only 1 or 2 maps still work.
+      centreMapByName('leviMap');
+      centreMapByName('pavementMap');
+      centreMapByName('nearhomeMap');
+    })
+    .catch(err => {
+      console.error('Failed to load LA data or process centre operation:', err);
+    });
+}
