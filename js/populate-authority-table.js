@@ -513,7 +513,7 @@ function populate(slug) {
                 }
             }
         } else if (ca['region'] != "Scotland" && ca['region'] != "Wales" && ca['region'] != "Northern Ireland") {
-            document.getElementById('channel-status-CA').setAttribute("rowspan","7");
+            document.getElementById('channel-status-CA').setAttribute("rowspan","8");
             document.getElementById('channel-link-CA').remove();
             document.getElementById('channel-grant-amount-CA').remove();
             document.getElementById('channel-grant-status-CA').remove();
@@ -613,7 +613,7 @@ function populate(slug) {
                 document.getElementById('channel-grant-status-CA2').innerHTML = ca2['channel-grant-status'];
             }
         } else if (ca2['region'] != "Scotland" && ca2['region'] != "Wales" && ca2['region'] != "Northern Ireland") {
-            document.getElementById('channel-status-CA2').setAttribute("rowspan","7");
+            document.getElementById('channel-status-CA2').setAttribute("rowspan","8");
             document.getElementById('channel-link-CA2').remove();
             document.getElementById('channel-grant-amount-CA2').remove();
             document.getElementById('channel-grant-status-CA2').remove();
@@ -708,7 +708,7 @@ function populate(slug) {
                 document.getElementById('channel-grant-status-CA3').innerHTML = ca3['channel-grant-status'];
             }
         } else if (ca3['region'] != "Scotland" && ca3['region'] != "Wales" && ca3['region'] != "Northern Ireland") {
-            document.getElementById('channel-status-CA3').setAttribute("rowspan","7");
+            document.getElementById('channel-status-CA3').setAttribute("rowspan","8");
             document.getElementById('channel-link-CA3').remove();
             document.getElementById('channel-grant-amount-CA3').remove();
             document.getElementById('channel-grant-status-CA3').remove();
@@ -808,7 +808,7 @@ function populate(slug) {
                 document.getElementById('channel-grant-status-CA4').innerHTML = ca4['channel-grant-status'];
             }
         } else if (ca4['region'] != "Scotland" && ca4['region'] != "Wales" && ca4['region'] != "Northern Ireland") {
-            document.getElementById('channel-status-CA4').setAttribute("rowspan","7");
+            document.getElementById('channel-status-CA4').setAttribute("rowspan","8");
             document.getElementById('channel-link-CA4').remove();
             document.getElementById('channel-grant-amount-CA4').remove();
             document.getElementById('channel-grant-status-CA4').remove();
