@@ -171,7 +171,7 @@
                 t.setStyle({ weight: 2, color: '#000' });
                 t.bringToFront();
                 const html = buildHtml();
-                t.bindTooltip(html, { sticky: true, direction: 'auto' }).openTooltip();
+                t.bindTooltip(html, { sticky: true, direction: 'auto', maxWidth: 400 }).openTooltip();
               },
               mouseout(e) {
                 leviLayer.resetStyle(e.target);
