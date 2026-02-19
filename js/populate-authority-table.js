@@ -522,7 +522,7 @@ function populate(slug) {
             document.getElementById('channel-annual-fee-CA').remove();
             document.getElementById('channel-manufacturer-CA').remove();
             document.getElementById('channel-status-CA').innerHTML = "Matter for highway authority or pavement channel CA";
-        } else {
+        } else if (ca['region'] == "Northern Ireland") {
             document.getElementById('channel-status-CA').setAttribute("rowspan","6");
             document.getElementById('channel-link-CA').remove();
             document.getElementById('channel-application-fee-CA').remove();
