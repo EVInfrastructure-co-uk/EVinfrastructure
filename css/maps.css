@@ -17,4 +17,4 @@
     .map-legend .swatch { width:18px; height:12px; display:inline-block; margin-right:6px; vertical-align:middle; }
     .map-legend .row { margin-bottom:4px; max-width: 100%;}
 
-    .leaflet-tooltip { max-width: 300px !important; white-space: normal !important;   word-wrap: break-word !important; overflow-wrap: break-word !important;}
+    .leaflet-tooltip { max-width: 50% !important; white-space: normal !important;   word-wrap: break-word !important; overflow-wrap: break-word !important;}
