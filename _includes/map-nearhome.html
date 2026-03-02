@@ -127,7 +127,7 @@
 
         const nearhomeThresholds = [];
         if (nearhomeValues.length) for (let i = 1; i <= 9; i++) nearhomeThresholds.push(quantile(nearhomeValues, i / 10));
-        const nearhomePalette = chroma.scale('YlGnBu').mode('lab').colors(10);
+        const nearhomePalette = chroma.scale(['#e0f3e0', '#006400']).mode('lab').colors(10);
         function nearhomeDecileIndex(v) {
           if (isNaN(v)) return -1;
           for (let i = 0; i < nearhomeThresholds.length; i++) if (v <= nearhomeThresholds[i]) return i;
