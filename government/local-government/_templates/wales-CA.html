@@ -67,6 +67,11 @@ title: "{{ authority.name }}"
         </tbody>
         </table>
       </div>
+      <script>
+        window.currentPageSlug = '{{ authority.slug }}';
+        window.initialAuthoritySlug = '{{ authority.slug }}';
+      </script>
+      {% include map-nearhome.html %}
     </div>
 
     <div id="ulevtf" class="tabs__panel tabs__panel--hidden" role="tabpanel"
