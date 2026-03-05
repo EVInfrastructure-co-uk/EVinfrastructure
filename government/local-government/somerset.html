@@ -97,11 +97,7 @@ title: "Somerset"
 
       <!-- NEVIS near-home map for overview tab -->
       <script>
-        // Expose the current page slug so the included map script can:
-        //  - show the "See our dedicated … page" text as bold (not a link) when appropriate
-        //  - optionally auto-open the popup for this authority
         window.currentPageSlug = 'somerset';
-        // initialAuthoritySlug is used by the map includes to auto-open as if the authority had been clicked.
         window.initialAuthoritySlug = 'somerset';
       </script>
       {% include map-nearhome.html %}

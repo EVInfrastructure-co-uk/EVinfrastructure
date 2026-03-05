@@ -98,6 +98,11 @@ title: "Lincolnshire"
         </tbody>
         </table>
       </div>
+      <script>
+        window.currentPageSlug = 'lincolnshire';
+        window.initialAuthoritySlug = 'lincolnshire';
+      </script>
+      {% include map-nearhome.html %}
       <p>The <a href="https://onstreetcharging.acceleratedinsightplatform.com/">Field Dynamics webapp</a> tells you how many households in your local authority have a driveway.</p>
     </div>
 
@@ -187,14 +192,6 @@ title: "Lincolnshire"
       </div>
 
       <!-- Pavement channel map for PC tab -->
-      <script>
-        // Expose the current page slug so the included map script can:
-        //  - show the "See our dedicated … page" text as bold (not a link) when appropriate
-        //  - optionally auto-open the popup for this authority
-        window.currentPageSlug = 'lincolnshire';
-        // initialAuthoritySlug is used by the map includes to auto-open as if the authority had been clicked.
-        window.initialAuthoritySlug = 'lincolnshire';
-      </script>
       {% include map-pavement.html %}
     </div>
 
@@ -266,7 +263,8 @@ title: "Lincolnshire"
           </tr>
         </tbody>
         </table>
-      </div>    
+      </div>
+      {% include map-levi.html %}    
     </div>
 
     <div id="orcs" class="tabs__panel tabs__panel--hidden" role="tabpanel"

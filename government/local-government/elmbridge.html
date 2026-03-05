@@ -97,11 +97,7 @@ title: "Elmbridge"
 
       <!-- NEVIS near-home map for overview tab -->
       <script>
-        // Expose the current page slug so the included map script can:
-        //  - show the "See our dedicated … page" text as bold (not a link) when appropriate
-        //  - optionally auto-open the popup for this authority
         window.currentPageSlug = 'elmbridge';
-        // initialAuthoritySlug is used by the map includes to auto-open as if the authority had been clicked.
         window.initialAuthoritySlug = 'elmbridge';
       </script>
       {% include map-nearhome.html %}
@@ -172,6 +168,7 @@ title: "Elmbridge"
       </tbody>
         </table>
       </div>
+      {% include map-pavement.html %}
     </div>
 
     <div id="levi" class="tabs__panel tabs__panel--hidden" role="tabpanel"
@@ -226,7 +223,8 @@ title: "Elmbridge"
           </tr>
         </tbody>
         </table>
-      </div>    
+      </div> 
+      {% include map-levi.html %}   
     </div>
 
     <div id="orcs" class="tabs__panel tabs__panel--hidden" role="tabpanel"
