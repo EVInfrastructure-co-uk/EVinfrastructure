@@ -21716,7 +21716,7 @@
           "combined-authority-3": null,
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 771000,
-          "LEVI-pilot-CPO(s)": null,
+          "LEVI-pilot-CPO(s)": "Connected Kerb",
           "ORCS-CPO(s)": null,
           "channel-grant-status": "Approved"
         },
