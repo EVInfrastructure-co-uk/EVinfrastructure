@@ -441,7 +441,8 @@ function populate(slug) {
             document.getElementById('LEVI-tender-close-date-unitary').remove();
             document.getElementById('LEVI-CPO(s)-unitary').remove();
             document.getElementById('LEVI-capital-amount-unitary').innerHTML = "Matter for LEVI collaboration";
-        }
+        } else if (unitary['LEVI-tender-stage'])
+            document.getElementById('LEVI-tender-stage-unitary').innerHTML = unitary['LEVI-tender-stage'];
         if (unitary['LEVI-tender-link']) {
             document.getElementById('LEVI-tender-link-unitary').innerHTML = `<a href=${unitary['LEVI-tender-link']}>Click here</a>`;
         }
