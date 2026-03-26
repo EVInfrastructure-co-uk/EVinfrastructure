@@ -21708,7 +21708,7 @@
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
-          "channel-manufacturer": null,
+          "channel-manufacturer": "Kerbo Charge",
           "ORCS-total-amount": 0.0,
           "ORCS-total-charging-devices": 0,
           "channel-link": "https://www.westmorlandandfurness.gov.uk/charging-your-electric-vehicle",
@@ -21716,7 +21716,7 @@
           "combined-authority-3": null,
           "combined-authority-type": null,
           "LEVI-pilot-capital-amount": 771000,
-          "LEVI-pilot-CPO(s)": "Connected Kerb",
+          "LEVI-pilot-CPO(s)": "Connected Kerb, with some funding to pavement channels",
           "ORCS-CPO(s)": null,
           "channel-grant-status": "Approved"
         },
