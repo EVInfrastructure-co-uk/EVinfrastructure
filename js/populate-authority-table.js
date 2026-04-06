@@ -150,6 +150,7 @@ function populate(slug) {
                     if (ca['region'] != "Scotland" && ca['region'] != "Wales" ) {
                     document.getElementById('combined-authority-type-LEVI-pilot').innerHTML = ca['combined-authority-type'];
                     document.getElementById('combined-authority-type-channels').innerHTML = ca['combined-authority-type'];
+                    }
                 } else if (ca['region'] != "Scotland" && ca['region'] != "Wales") {
                     document.getElementById('combined-authority-type').innerHTML ="LEVI collaboration"
                     document.getElementById('combined-authority-type-channels').innerHTML ="LEVI collaboration"
