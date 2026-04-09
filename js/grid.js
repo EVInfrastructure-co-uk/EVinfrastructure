@@ -9,7 +9,7 @@ async function getCarbonIntensity() {
 async function getGenerationMix() {
     const response = await fetch("https://api.carbonintensity.org.uk/generation");
     const data = await response.json();
-    return data.data[0];
+    return data.data;
 }
 
 // Wrap everything in an async function to use await
