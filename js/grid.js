@@ -45,7 +45,8 @@ async function initializeChart() {
             plugins: {
                 title: {
                     display: true,
-                    text: "GB grid live generation mix"
+                    text: "GB grid live generation mix",
+                    font: {size:24}
                 }
             },
             responsive: true,
