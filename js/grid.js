@@ -11,8 +11,8 @@ async function getGenerationMix() {
     return data.data[0];
 }
 
-const CarbonIntensity = await getCarbonIntensity();
-const GenerationMix = await getGenerationMix();
+const CarbonIntensity = getCarbonIntensity();
+const GenerationMix = getGenerationMix();
 
 const xValues = [];
 const yValues = [];
