@@ -42,9 +42,11 @@ async function initializeChart() {
             }]
         },
         options: {
-            title: {
-                display: true,
-                text: "GB grid live generation mix"
+            plugins: {
+                title: {
+                    display: true,
+                    text: "GB grid live generation mix"
+                }
             },
             responsive: true,
             maintainAspectRatio: true,
