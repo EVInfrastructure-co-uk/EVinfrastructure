@@ -59,8 +59,9 @@ async function initializeChart() {
     console.log(intensity_kg);
     console.log(intensity_per_mile);
 
-    document.getElementById('intensity').innerHTML = `${intensity}`;
-    document.getElementById('intensity_per_mile').innerHTML = `${intensity_per_mile}`;
+    document.getElementById('intensity').innerHTML = `${intensity_kg.toFixed(3)}`;
+    document.getElementById('intensity_per_mile').innerHTML = `${intensity_per_mile.toFixed(3)}`;
+    document.getElementById('factor').innerHTML = `${(0.23/intensity_per_mile).toFixed()}`
 }
 
 // Call the function when page loads
