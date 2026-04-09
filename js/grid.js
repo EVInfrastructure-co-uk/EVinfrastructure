@@ -45,7 +45,10 @@ async function initializeChart() {
             title: {
                 display: true,
                 text: "GB grid live generation mix"
-            }
+            },
+            responsive: true,
+            maintainAspectRatio: true,
+            maxWidth: '50%'
         }
     });
 
@@ -61,7 +64,7 @@ async function initializeChart() {
 
     document.getElementById('intensity').innerHTML = `<strong>${intensity_kg.toFixed(3)}</strong>`;
     document.getElementById('intensity_per_mile').innerHTML = `<strong>${intensity_per_mile.toFixed(3)}</strong>`;
-    document.getElementById('factor').innerHTML = `<strong>${(0.23/intensity_per_mile).toFixed()}</strong>`
+    document.getElementById('factor').innerHTML = `<strong>${(0.207/intensity_per_mile).toFixed()}</strong>`
 }
 
 // Call the function when page loads
