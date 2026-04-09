@@ -49,10 +49,14 @@ async function initializeChart() {
         }
     });
 
-    const intensity = CarbonIntensity.intensity.actual / 1000;
-    const intensity_per_mile = intensity / 4;
+    const intensity_g = CarbonIntensity.intensity.actual;
 
-    console.log(intensity);
+    console.log(intensity_g);
+
+    const intensity_kg = intensity_g / 1000;
+    const intensity_per_mile = intensity_kg / 4;
+
+    console.log(intensity_kg);
     console.log(intensity_per_mile);
 
     document.getElementById('intensity').innerHTML = `${intensity}`;
