@@ -17,7 +17,7 @@ const GenerationMix = getGenerationMix();
 const xValues = [];
 const yValues = [];
 
-GenerationMix.generationmix.array.forEach(element => {
+GenerationMix.generationmix.forEach(element => {
     xValues.push(element.fuel)
     yValues.push(element.perc)
 });
