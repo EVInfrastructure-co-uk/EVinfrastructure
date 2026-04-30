@@ -102,10 +102,64 @@
           trial_live: '#7bd07b',
           trial_complete: '#6a3d9a',
           trial_to_come: '#ffbf00',
-          other: '#d62828'
+          other: '#d62828',
+          no_decision_grant: 'striped' // special value for our case
         };
 
-        function colourForChannelStatus(status) {
+        // SVG pattern for "striped"
+        function addStripedPattern() {
+          // Only create once
+          if (document.getElementById('pattern-stripes-pavement')) return;
+          const svgNS = "http://www.w3.org/2000/svg";
+          // Build an SVG pattern and inject to the page (works with Leaflet)
+          const svg = document.createElementNS(svgNS, "svg");
+          svg.setAttribute("width", "0");
+          svg.setAttribute("height", "0");
+          svg.style.position = "absolute";
+          svg.style.width = "0";
+          svg.style.height = "0";
+
+          svg.innerHTML = `
+            <defs>
+              <pattern id="pattern-stripes-pavement" patternUnits="userSpaceOnUse" width="12" height="12" patternTransform="rotate(45)">
+                <rect x="0" y="0" width="6" height="12" fill="${channelColours.trial_to_come}"/>
+                <rect x="6" y="0" width="6" height="12" fill="${channelColours.other}" />
+              </pattern>
+            </defs>
+          `;
+          document.body.appendChild(svg);
+        }
+
+        // Helper: returns true if status is null/"not permitted"/"no decision"/empty
+        function isStatusNotPermittedOrNoDecision(status) {
+          if (status === null || status === undefined) return true;
+          const s = String(status).trim().toLowerCase();
+          return (
+            s === "" ||
+            s === "not permitted" ||
+            s === "no decision"
+          );
+        }
+
+        // Helper: returns true if grant-status includes approved/awarded/applied (case-insensitive, partial match)
+        function isGrantStatusAwarded(grantStatus) {
+          if (!grantStatus) return false;
+          const s = String(grantStatus).toLowerCase();
+          return (
+            s.includes("approved") ||
+            s.includes("awarded") ||
+            s.includes("applied")
+          );
+        }
+
+        function colourForChannelStatus(status, grantStatus) {
+          // Check for special striped category
+          if (
+            isStatusNotPermittedOrNoDecision(status) &&
+            isGrantStatusAwarded(grantStatus)
+          ) {
+            return channelColours.no_decision_grant; // "striped"
+          }
           if (status === null || status === undefined || String(status).trim() === '') return channelColours.other;
           const s = String(status).trim().toLowerCase();
           if (s === 'permitted') return channelColours.permitted;
@@ -114,6 +168,8 @@
           if (s === 'trial to come') return channelColours.trial_to_come;
           return channelColours.other;
         }
+
+        addStripedPattern();
 
         if (window.pavementMap) return;
 
@@ -127,7 +183,20 @@
           style(feature) {
             const row = getRowForFeature(feature);
             const rawStatus = row ? (row['channel-status'] ? String(row['channel-status']).trim() : '') : '';
-            const color = colourForChannelStatus(rawStatus);
+            const grantStatus = row ? row['channel-grant-status'] : null;
+            const color = colourForChannelStatus(rawStatus, grantStatus);
+
+            if (color === "striped" || color === channelColours.no_decision_grant) {
+              // Use the SVG pattern
+              return {
+                weight: 1,
+                color: '#444',
+                opacity: 1,
+                fillOpacity: 0.85,
+                fillPattern: 'pattern-stripes-pavement', // custom property, handled below
+                fillColor: 'url(#pattern-stripes-pavement)'
+              };
+            }
             return {
               weight: 1,
               color: '#444',
@@ -183,17 +252,21 @@
               }
             });
           }
-        }).addTo(mapPav);
-        // window.pavLayer = pavLayer;
+        });
 
         // Build legend as a block element below the map (not an overlay control)
         (function createBlockLegend() {
           const legendContainer = document.getElementById('map-pavement-legend');
           if (!legendContainer) return;
 
-          // Count features per category using same logic as colourForChannelStatus
-          const counts = { permitted: 0, trial_live: 0, trial_complete: 0, trial_to_come: 0, other: 0 };
-          function channelCategory(status) {
+          const counts = { permitted: 0, trial_live: 0, trial_complete: 0, trial_to_come: 0, no_decision_grant: 0, other: 0 };
+
+          // Tune category logic
+          function channelCategory(status, grantStatus) {
+            if (
+              isStatusNotPermittedOrNoDecision(status) &&
+              isGrantStatusAwarded(grantStatus)
+            ) return 'no_decision_grant';
             if (status === null || status === undefined || String(status).trim() === '') return 'other';
             const s = String(status).trim().toLowerCase();
             if (s === 'permitted') return 'permitted';
@@ -207,23 +280,31 @@
             geoPav.features.forEach(function (feature) {
               const row = getRowForFeature(feature);
               const rawStatus = row ? (row['channel-status'] ? String(row['channel-status']).trim() : '') : '';
-              const cat = channelCategory(rawStatus);
+              const grantStatus = row ? row['channel-grant-status'] : null;
+              const cat = channelCategory(rawStatus, grantStatus);
               counts[cat] = (counts[cat] || 0) + 1;
             });
           }
 
+          // Insert the legend for the striped class after "trial to come"
           const rows = [
-            { label: `Permitted (${counts.permitted})`, color: channelColours.permitted },
-            { label: `Trial live (${counts.trial_live})`, color: channelColours.trial_live },
-            { label: `Trial complete (${counts.trial_complete})`, color: channelColours.trial_complete },
-            { label: `Trial to come (${counts.trial_to_come})`, color: channelColours.trial_to_come },
-            { label: `Not permitted (including by default if no data) (${counts.other})`, color: channelColours.other }
+            { label: `Permitted (${counts.permitted})`, color: channelColours.permitted, swatch: 'solid' },
+            { label: `Trial live (${counts.trial_live})`, color: channelColours.trial_live, swatch: 'solid' },
+            { label: `Trial complete (${counts.trial_complete})`, color: channelColours.trial_complete, swatch: 'solid' },
+            { label: `Trial to come (${counts.trial_to_come})`, color: channelColours.trial_to_come, swatch: 'solid' },
+            { label: `No decision or expressly not permitted, but set to receive Pavement Channel Grant (${counts.no_decision_grant})`, color: 'striped', swatch: 'striped' },
+            { label: `Not permitted (including by default if no data) (${counts.other})`, color: channelColours.other, swatch: 'solid' }
           ];
+
           let html = '<strong>Legend: Pavement channels</strong><br/>';
           rows.forEach(r => {
-            html += `<div class="row"><span class="swatch" style="background:${r.color}"></span> ${r.label}</div>`;
+            if (r.swatch === 'striped') {
+              html += `<div class="row"><span class="swatch" style="display:inline-block; width:1.5em; height:1.25em; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><rect x="0" y="0" width="6" height="12" fill="${encodeURIComponent(channelColours.trial_to_come)}"/><rect x="6" y="0" width="6" height="12" fill="${encodeURIComponent(channelColours.other)}" /></svg>')""></span> ${r.label}</div>`;
+            } else {
+              html += `<div class="row"><span class="swatch" style="background:${r.color}"></span> ${r.label}</div>`;
+            }
           });
-          html += `<div><p>On 16 April 2026, Stellantis <a href="https://www.media.stellantis.com/uk-en/vauxhall/press/vauxhall-welcomes-kerbo-charge-into-electric-streets-of-britain-campaign-as-over-40-of-councils-will-provide-cross-pavement-charging-by-the-end-of-2026">published</a> stats from freedom of information requests about GB council positions on pavement channels. Of 134 highway authorities which responded, 7 permitted cross-pavement channels, 21 were in trial stage, and 28 plan to roll out pavement channels in 2026.</p></div>`;
+          html += `<div><p>On 16 April 2026, Stellantis <a href="https://www.media.stellantis.com/uk-en/vauxhall/press/vauxhall-welcomes-kerbo-charge-into-electric-streets-of-britain-campaign-as-over-100-uks-local-authorities-pilot-the-installation-of-pavement-channels">Vauxhall welcomes Kerbo Charge into Electric Streets of Britain campaign</a>.</p></div>`;
           legendContainer.innerHTML = html;
         })();
 
