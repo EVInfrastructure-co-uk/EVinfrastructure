@@ -17656,7 +17656,7 @@
           "LEVI-tender-open-date": null,
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
-          "channel-status": null,
+          "channel-status": "No decision",
           "channel-grant-amount": null,
           "channel-application-fee": null,
           "channel-installation-fee": null,
