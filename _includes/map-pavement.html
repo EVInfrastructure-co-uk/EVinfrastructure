@@ -299,7 +299,7 @@
           let html = '<strong>Legend: Pavement channels</strong><br/>';
           rows.forEach(r => {
             if (r.swatch === 'striped') {
-              html += `<div class="row"><span class="swatch" style="display:inline-block; width:1.5em; height:1.25em; background: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\"><rect x=\"0\" y=\"0\" width=\"6\" height=\"12\" fill=\"%23ffbf00\"/><rect x=\"6\" y=\"0\" width=\"6\" height=\"12\" fill=\"%23d62828\"/></svg>');"></span>
+              html += `<div class="row"><span class="swatch" style="display:inline-block; width:1.5em; height:1.25em; background: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\"><rect x=\"0\" y=\"0\" width=\"6\" height=\"12\" fill=\"%23ffbf00\"/><rect x=\"6\" y=\"0\" width=\"6\" height=\"12\" fill=\"%23d62828\"/></svg>');"></span>`;
             } else {
               html += `<div class="row"><span class="swatch" style="background:${r.color}"></span> ${r.label}</div>`;
             }
