@@ -39,6 +39,52 @@
     'https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js'
   ];
 
+  // Inject the SVG pattern for striping once
+  function injectStripesPattern(trialToCome, other) {
+    if (document.getElementById('pattern-stripes-pavement')) return;
+    var svgNS = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(svgNS, "svg");
+    svg.setAttribute("width", "0");
+    svg.setAttribute("height", "0");
+    svg.style.position = "absolute";
+    svg.innerHTML =
+      `<defs>
+        <pattern id="pattern-stripes-pavement" patternUnits="userSpaceOnUse" width="12" height="12" patternTransform="rotate(45)">
+          <rect x="0" y="0" width="6" height="12" fill="${trialToCome}"/>
+          <rect x="6" y="0" width="6" height="12" fill="${other}"/>
+        </pattern>
+      </defs>`;
+    document.body.appendChild(svg);
+  }
+
+  // Stripe detection helpers
+  function isStatusStriped(status) {
+    if (status == null) return true;
+    const s = String(status).trim().toLowerCase();
+    return s === '' || s === 'no decision' || s === 'not permitted';
+  }
+  function isGrantStriped(grantStatus) {
+    if (!grantStatus) return false;
+    const s = String(grantStatus).toLowerCase();
+    return s.includes('applied') || s.includes('approved') || s.includes('awarded');
+  }
+
+  // PATCH: Override Leaflet setStyle for SVG patterns. Call this after layer add.
+  function enablePatternFills(layer) {
+    layer.eachLayer(function(l) {
+      if (l.setStyle && l._path) {
+        const origSetStyle = l.setStyle;
+        l.setStyle = function(style) {
+          origSetStyle.call(this, style);
+          if (style && style.fillPattern) {
+            this._path.setAttribute('fill', 'url(#'+style.fillPattern+')');
+          }
+          return this;
+        };
+      }
+    });
+  }
+
   Promise.all([
     loadScriptFallback(leafletUrls, () => window.L !== undefined),
     loadScriptFallback(topoUrls, () => window.topojson !== undefined)
@@ -97,79 +143,31 @@
           return null;
         }
 
+        // Colour map
         const channelColours = {
           permitted: '#004d00',
           trial_live: '#7bd07b',
           trial_complete: '#6a3d9a',
           trial_to_come: '#ffbf00',
-          other: '#d62828',
-          no_decision_grant: 'striped' // special value for our case
+          other: '#d62828'
         };
+        const STRIPED_CATEGORY = 'striped_grant';
+        // Inject stripes SVG
+        injectStripesPattern(channelColours.trial_to_come, channelColours.other);
 
-        // SVG pattern for "striped"
-        function addStripedPattern() {
-          // Only create once
-          if (document.getElementById('pattern-stripes-pavement')) return;
-          const svgNS = "http://www.w3.org/2000/svg";
-          // Build an SVG pattern and inject to the page (works with Leaflet)
-          const svg = document.createElementNS(svgNS, "svg");
-          svg.setAttribute("width", "0");
-          svg.setAttribute("height", "0");
-          svg.style.position = "absolute";
-          svg.style.width = "0";
-          svg.style.height = "0";
-
-          svg.innerHTML = `
-            <defs>
-              <pattern id="pattern-stripes-pavement" patternUnits="userSpaceOnUse" width="12" height="12" patternTransform="rotate(45)">
-                <rect x="0" y="0" width="6" height="12" fill="${channelColours.trial_to_come}"/>
-                <rect x="6" y="0" width="6" height="12" fill="${channelColours.other}" />
-              </pattern>
-            </defs>
-          `;
-          document.body.appendChild(svg);
-        }
-
-        // Helper: returns true if status is null/"not permitted"/"no decision"/empty
-        function isStatusNotPermittedOrNoDecision(status) {
-          if (status === null || status === undefined) return true;
+        function colourForFeature(row) {
+          // Striped condition
+          const status = row && row['channel-status'];
+          const grantStatus = row && row['channel-grant-status'];
+          if(isStatusStriped(status) && isGrantStriped(grantStatus)) return STRIPED_CATEGORY;
+          if(status==null || String(status).trim() === '') return channelColours.other;
           const s = String(status).trim().toLowerCase();
-          return (
-            s === "" ||
-            s === "not permitted" ||
-            s === "no decision"
-          );
-        }
-
-        // Helper: returns true if grant-status includes approved/awarded/applied (case-insensitive, partial match)
-        function isGrantStatusAwarded(grantStatus) {
-          if (!grantStatus) return false;
-          const s = String(grantStatus).toLowerCase();
-          return (
-            s.includes("approved") ||
-            s.includes("awarded") ||
-            s.includes("applied")
-          );
-        }
-
-        function colourForChannelStatus(status, grantStatus) {
-          // Check for special striped category
-          if (
-            isStatusNotPermittedOrNoDecision(status) &&
-            isGrantStatusAwarded(grantStatus)
-          ) {
-            return channelColours.no_decision_grant; // "striped"
-          }
-          if (status === null || status === undefined || String(status).trim() === '') return channelColours.other;
-          const s = String(status).trim().toLowerCase();
-          if (s === 'permitted') return channelColours.permitted;
-          if (s === 'trial live') return channelColours.trial_live;
-          if (s === 'trial complete') return channelColours.trial_complete;
-          if (s === 'trial to come') return channelColours.trial_to_come;
+          if(s === 'permitted') return channelColours.permitted;
+          if(s === 'trial live') return channelColours.trial_live;
+          if(s === 'trial complete') return channelColours.trial_complete;
+          if(s === 'trial to come') return channelColours.trial_to_come;
           return channelColours.other;
         }
-
-        addStripedPattern();
 
         if (window.pavementMap) return;
 
@@ -179,22 +177,21 @@
         }).addTo(mapPav);
         window.pavementMap = mapPav;
 
+        // --- Add the map layer with pattern support ---
         const pavLayer = L.geoJSON(geoPav, {
           style(feature) {
             const row = getRowForFeature(feature);
-            const rawStatus = row ? (row['channel-status'] ? String(row['channel-status']).trim() : '') : '';
-            const grantStatus = row ? row['channel-grant-status'] : null;
-            const color = colourForChannelStatus(rawStatus, grantStatus);
 
-            if (color === "striped" || color === channelColours.no_decision_grant) {
-              // Use the SVG pattern
+            // Use colourForFeature to determine if special striped is required
+            const col = colourForFeature(row);
+            if(col === STRIPED_CATEGORY) {
               return {
                 weight: 1,
                 color: '#444',
                 opacity: 1,
                 fillOpacity: 0.85,
-                fillPattern: 'pattern-stripes-pavement', // custom property, handled below
-                fillColor: 'url(#pattern-stripes-pavement)'
+                fillColor: 'url(#pattern-stripes-pavement)',
+                fillPattern: 'pattern-stripes-pavement'
               };
             }
             return {
@@ -202,7 +199,7 @@
               color: '#444',
               opacity: 1,
               fillOpacity: 0.85,
-              fillColor: color
+              fillColor: col
             };
           },
           onEachFeature(feature, layer) {
@@ -220,9 +217,8 @@
             }
 
             function buildHtml() {
-              const grantLabel = (grant === null || grant === undefined || grant === '') ? '' : `<br/>Grant amount: ${formatGrant(grant)}`;
-              const grantStatusLabel = (grantStatus === null || grantStatus === undefined || grantStatus === '') ? '' : `<br/>Grant status: ${grantStatus}`;
-              // If on the authority page already, show bold unlinked text instead of hyperlink
+              const grantLabel = (!grant) ? '' : `<br/>Grant amount: ${formatGrant(grant)}`;
+              const grantStatusLabel = (!grantStatus) ? '' : `<br/>Grant status: ${grantStatus}`;
               let link = '';
               if (slug) {
                 if (typeof window.currentPageSlug !== 'undefined' && window.currentPageSlug === slug) {
@@ -252,54 +248,56 @@
               }
             });
           }
-        });
+        }).addTo(mapPav);
 
-        // Build legend as a block element below the map (not an overlay control)
+        // Patch Leaflet so pattern is always applied on redraws/resizing
+        pavLayer.on('layeradd', () => enablePatternFills(pavLayer));
+        enablePatternFills(pavLayer); // Initial call
+
+        // ---- Build legend with swatch for "striped" class ----
         (function createBlockLegend() {
           const legendContainer = document.getElementById('map-pavement-legend');
           if (!legendContainer) return;
 
-          const counts = { permitted: 0, trial_live: 0, trial_complete: 0, trial_to_come: 0, no_decision_grant: 0, other: 0 };
-
-          // Tune category logic
-          function channelCategory(status, grantStatus) {
-            if (
-              isStatusNotPermittedOrNoDecision(status) &&
-              isGrantStatusAwarded(grantStatus)
-            ) return 'no_decision_grant';
-            if (status === null || status === undefined || String(status).trim() === '') return 'other';
-            const s = String(status).trim().toLowerCase();
-            if (s === 'permitted') return 'permitted';
-            if (s === 'trial live') return 'trial_live';
-            if (s === 'trial complete') return 'trial_complete';
-            if (s === 'trial to come') return 'trial_to_come';
+          // Count all the categories including the new one
+          const counts = { permitted: 0, trial_live: 0, trial_complete: 0, trial_to_come: 0, striped_grant: 0, other: 0 };
+          function category(row) {
+            const c = colourForFeature(row);
+            if(c === channelColours.permitted) return 'permitted';
+            if(c === channelColours.trial_live) return 'trial_live';
+            if(c === channelColours.trial_complete) return 'trial_complete';
+            if(c === channelColours.trial_to_come) return 'trial_to_come';
+            if(c === STRIPED_CATEGORY) return 'striped_grant';
             return 'other';
           }
 
           if (geoPav && Array.isArray(geoPav.features)) {
             geoPav.features.forEach(function (feature) {
               const row = getRowForFeature(feature);
-              const rawStatus = row ? (row['channel-status'] ? String(row['channel-status']).trim() : '') : '';
-              const grantStatus = row ? row['channel-grant-status'] : null;
-              const cat = channelCategory(rawStatus, grantStatus);
+              const cat = category(row);
               counts[cat] = (counts[cat] || 0) + 1;
             });
           }
 
-          // Insert the legend for the striped class after "trial to come"
-          const rows = [
-            { label: `Permitted (${counts.permitted})`, color: channelColours.permitted, swatch: 'solid' },
-            { label: `Trial live (${counts.trial_live})`, color: channelColours.trial_live, swatch: 'solid' },
-            { label: `Trial complete (${counts.trial_complete})`, color: channelColours.trial_complete, swatch: 'solid' },
-            { label: `Trial to come (${counts.trial_to_come})`, color: channelColours.trial_to_come, swatch: 'solid' },
-            { label: `No decision or expressly not permitted, but set to receive Pavement Channel Grant (${counts.no_decision_grant})`, color: 'striped', swatch: 'striped' },
-            { label: `Not permitted (including by default if no data) (${counts.other})`, color: channelColours.other, swatch: 'solid' }
-          ];
+          // Stripe swatch (encode SVG for css background)
+          const encode = s => s.replace(/"/g,'%22').replace(/</g,'%3C').replace(/>/g,'%3E').replace(/#/g,'%23');
+          const stripedSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><rect x="0" y="0" width="6" height="12" fill="${channelColours.trial_to_come}"/><rect x="6" y="0" width="6" height="12" fill="${channelColours.other}"/></svg>`;
+          const stripedDataUrl = "url('data:image/svg+xml;utf8," + encode(stripedSVG) + "')";
 
+          const rows = [
+            { label: `Permitted (${counts.permitted})`, color: channelColours.permitted },
+            { label: `Trial live (${counts.trial_live})`, color: channelColours.trial_live },
+            { label: `Trial complete (${counts.trial_complete})`, color: channelColours.trial_complete },
+            { label: `Trial to come (${counts.trial_to_come})`, color: channelColours.trial_to_come },
+            { label: `no decision or not permitted but set to receive Pavement Channel Grant (${counts.striped_grant})`,
+              isStriped: true
+            },
+            { label: `Not permitted (including by default if no data) (${counts.other})`, color: channelColours.other }
+          ];
           let html = '<strong>Legend: Pavement channels</strong><br/>';
           rows.forEach(r => {
-            if (r.swatch === 'striped') {
-              html += `<div class="row"><span class="swatch" style="display:inline-block; width:1.5em; height:1.25em; background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22><rect x=%220%22 y=%220%22 width=%226%22 height=%2212%22 fill=%22%23ffbf00%22/><rect x=%226%22 y=%220%22 width=%226%22 height=%2212%22 fill=%22%23d62828%22/></svg>');"></span>`;
+            if (r.isStriped) {
+              html += `<div class="row"><span class="swatch" style="background:${stripedDataUrl}"></span> ${r.label}</div>`;
             } else {
               html += `<div class="row"><span class="swatch" style="background:${r.color}"></span> ${r.label}</div>`;
             }
