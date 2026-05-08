@@ -66,7 +66,7 @@
   function isGrantStriped(grantStatus) {
     if (!grantStatus) return false;
     const s = String(grantStatus).toLowerCase();
-    return s.includes('applied') || s.includes('approved') || s.includes('awarded');
+    return s.includes('paid') || s.includes('awarded');
   }
 
   // PATCH: Override Leaflet setStyle for SVG patterns. Call this after layer add.
@@ -289,7 +289,7 @@
             { label: `Trial live (${counts.trial_live})`, color: channelColours.trial_live },
             { label: `Trial complete (${counts.trial_complete})`, color: channelColours.trial_complete },
             { label: `Trial to come (${counts.trial_to_come})`, color: channelColours.trial_to_come },
-            { label: `No decision or expressly not permitted<br>but set to receive Pavement Channel Grant (${counts.striped_grant})`,
+            { label: `No decision or expressly not permitted<br>but in receipt Pavement Channel Grant (directly or through combined authority) (${counts.striped_grant})`,
               isStriped: true
             },
             { label: `Not permitted (including by default if no data) (${counts.other})`, color: channelColours.other }

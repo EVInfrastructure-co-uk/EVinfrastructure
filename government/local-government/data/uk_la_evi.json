@@ -1687,7 +1687,7 @@
           "LEVI-tender-close-date": "21-03-2025",
           "LEVI-CPO(s)": null,
           "channel-status": "Trial live",
-          "channel-grant-amount": 56000,
+          "channel-grant-amount": 100780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -1701,7 +1701,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "BDG",
@@ -1758,7 +1758,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "BEN",
@@ -1815,7 +1815,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "BEX",
@@ -1858,7 +1858,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Trial to come",
-          "channel-grant-amount": 61000,
+          "channel-grant-amount": 105780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -1872,7 +1872,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "BFS",
@@ -2214,7 +2214,7 @@
           "LEVI-pilot-capital-amount": 2077000,
           "LEVI-pilot-CPO(s)": "JOLT",
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "BNH",
@@ -2257,7 +2257,7 @@
           "LEVI-tender-close-date": "24-10-2024",
           "LEVI-CPO(s)": "Char.gy",
           "channel-status": "Not permitted",
-          "channel-grant-amount": 187000,
+          "channel-grant-amount": 231780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -2271,7 +2271,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "BNS",
@@ -2556,7 +2556,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "BCPD",
@@ -2770,7 +2770,7 @@
           "LEVI-tender-close-date": "04-12-2025",
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 50000,
+          "channel-grant-amount": 94780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -2784,7 +2784,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "BRD",
@@ -3240,7 +3240,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "BST",
@@ -3340,7 +3340,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Trial live",
-          "channel-grant-amount": 90000,
+          "channel-grant-amount": 134780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -3354,7 +3354,7 @@
           "LEVI-pilot-capital-amount": 70200,
           "LEVI-pilot-CPO(s)": "Char.gy",
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "BUN",
@@ -3853,7 +3853,7 @@
           "LEVI-tender-close-date": "21-01-2026",
           "LEVI-CPO(s)": "Believ, Char.gy, Charge My Street",
           "channel-status": null,
-          "channel-grant-amount": 175000,
+          "channel-grant-amount": 219780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -3867,7 +3867,7 @@
           "LEVI-pilot-capital-amount": 703000,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "CBF",
@@ -3910,7 +3910,7 @@
           "LEVI-tender-close-date": "09-01-2025",
           "LEVI-CPO(s)": null,
           "channel-status": "Trial complete",
-          "channel-grant-amount": 55000,
+          "channel-grant-amount": 99780,
           "channel-application-fee": 147.4,
           "channel-installation-fee": 701.6,
           "channel-annual-fee": null,
@@ -3924,7 +3924,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "CCG",
@@ -4138,7 +4138,7 @@
           "LEVI-tender-close-date": "22-04-2025",
           "LEVI-CPO(s)": "Qwello",
           "channel-status": null,
-          "channel-grant-amount": 110000,
+          "channel-grant-amount": 154780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -4152,7 +4152,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "CHI",
@@ -4537,7 +4537,7 @@
           "LEVI-tender-close-date": "17-01-2025",
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 111000,
+          "channel-grant-amount": 155780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -4551,7 +4551,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "CLD",
@@ -4722,7 +4722,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "CMN",
@@ -5050,7 +5050,7 @@
           "LEVI-tender-close-date": "15-06-2026",
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 317000,
+          "channel-grant-amount": 361780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -5064,7 +5064,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "CCR",
@@ -5292,7 +5292,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "CWY",
@@ -6147,7 +6147,7 @@
           "LEVI-pilot-capital-amount": 1020000,
           "LEVI-pilot-CPO(s)": "Mer",
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "DUD",
@@ -6304,7 +6304,7 @@
           "LEVI-tender-close-date": "11-02-2025",
           "LEVI-CPO(s)": "Wenea",
           "channel-status": "Trial live",
-          "channel-grant-amount": 377000,
+          "channel-grant-amount": 421780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -6318,7 +6318,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "EAL",
@@ -7159,7 +7159,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 945000,
+          "channel-grant-amount": 989780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -7173,7 +7173,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "ENF",
@@ -7216,7 +7216,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Permitted",
-          "channel-grant-amount": 188000,
+          "channel-grant-amount": 232780,
           "channel-application-fee": 119,
           "channel-installation-fee": 1377,
           "channel-annual-fee": 103,
@@ -7230,7 +7230,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "EPP",
@@ -7629,7 +7629,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "EST",
@@ -7729,7 +7729,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Not permitted",
-          "channel-grant-amount": 244000,
+          "channel-grant-amount": 288780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -7743,7 +7743,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "EXE",
@@ -8413,7 +8413,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 431000,
+          "channel-grant-amount": 475780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -8427,7 +8427,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "GLG",
@@ -8584,7 +8584,7 @@
           "LEVI-tender-close-date": "21-03-2025",
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 154000,
+          "channel-grant-amount": 198780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -8598,7 +8598,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "GMCA",
@@ -8641,7 +8641,7 @@
           "LEVI-tender-close-date": "25-09-2025",
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 1839000,
+          "channel-grant-amount": 1883780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -8655,7 +8655,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "GOS",
@@ -8812,7 +8812,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Trial to come",
-          "channel-grant-amount": 145000,
+          "channel-grant-amount": 189780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -8826,7 +8826,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "GRT",
@@ -9168,7 +9168,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "HAO",
@@ -9453,7 +9453,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "HCK",
@@ -9738,7 +9738,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "HIN",
@@ -9909,7 +9909,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "HNS",
@@ -10123,7 +10123,7 @@
           "LEVI-tender-close-date": "22-08-2025",
           "LEVI-CPO(s)": "Zest, Believ, Urban Fox",
           "channel-status": "Trial live",
-          "channel-grant-amount": 346000,
+          "channel-grant-amount": 390780,
           "channel-application-fee": 200,
           "channel-installation-fee": 1200,
           "channel-annual-fee": null,
@@ -10137,7 +10137,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "HRW",
@@ -10180,7 +10180,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 68000,
+          "channel-grant-amount": 112780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -10194,7 +10194,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "HRY",
@@ -10251,7 +10251,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "HUN",
@@ -10365,7 +10365,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "HYN",
@@ -10522,7 +10522,7 @@
           "LEVI-tender-close-date": "18-12-2025",
           "LEVI-CPO(s)": "Char.gy",
           "channel-status": null,
-          "channel-grant-amount": 70000,
+          "channel-grant-amount": 114780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -10536,7 +10536,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "IPS",
@@ -10807,7 +10807,7 @@
           "LEVI-tender-close-date": "03-01-2025",
           "LEVI-CPO(s)": "Urban Fox",
           "channel-status": "Not permitted",
-          "channel-grant-amount": 667000,
+          "channel-grant-amount": 50000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -11049,7 +11049,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "KWL",
@@ -11377,7 +11377,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 976000,
+          "channel-grant-amount": 1020780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -11391,7 +11391,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "LCE",
@@ -11484,7 +11484,7 @@
           "EVI-link": "https://liverpoolcityregion-ca.moderngov.co.uk/documents/s76921/LEVI%20Electric%20Vehicle%20Plans.pdf",
           "EVI-email": null,
           "EVI-portfolio-holder": null,
-          "LEVI-capital-amount": 9647000,
+          "LEVI-capital-amount": 1097780,
           "LEVI-tender-stage": "Yet to award",
           "LEVI-tender-link": "https://www.find-tender.service.gov.uk/Notice/062045-2025",
           "LEVI-tender-open-date": "03-10-2025",
@@ -11505,7 +11505,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "LDS",
@@ -11605,7 +11605,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Not permitted",
-          "channel-grant-amount": 153000,
+          "channel-grant-amount": 197780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -11619,7 +11619,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "LEE",
@@ -11733,7 +11733,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "LIC",
@@ -12631,7 +12631,7 @@
           "LEVI-tender-close-date": "13-06-2024",
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 93000,
+          "channel-grant-amount": 137780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -12645,7 +12645,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "MAI",
@@ -13510,7 +13510,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "MLN",
@@ -14351,7 +14351,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": "Framework: AMP EV, APCOA, Connected Kerb, Equans, Believ (FKA Liberty Charge), SWARCO, Ubitricity, Zest",
           "channel-status": null,
-          "channel-grant-amount": 1187000,
+          "channel-grant-amount": 1231780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -14365,7 +14365,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "NED",
@@ -14636,7 +14636,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Not permitted",
-          "channel-grant-amount": 312000,
+          "channel-grant-amount": 50000,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -14650,7 +14650,7 @@
           "LEVI-pilot-capital-amount": 1102630,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "NGM",
@@ -15092,7 +15092,7 @@
           "LEVI-tender-close-date": "24-02-2025",
           "LEVI-CPO(s)": "Connected Kerb",
           "channel-status": "Not permitted",
-          "channel-grant-amount": 164000,
+          "channel-grant-amount": 208780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -15106,7 +15106,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "NOW",
@@ -15206,7 +15206,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 50000,
+          "channel-grant-amount": 94780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -15220,7 +15220,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "NTL",
@@ -15619,7 +15619,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "NWP",
@@ -15947,7 +15947,7 @@
           "LEVI-tender-close-date": "16-04-2025",
           "LEVI-CPO(s)": "Connected Kerb, EZ Charge",
           "channel-status": "Permitted",
-          "channel-grant-amount": 140000,
+          "channel-grant-amount": 184780,
           "channel-application-fee": null,
           "channel-installation-fee": 300,
           "channel-annual-fee": 100,
@@ -15961,7 +15961,7 @@
           "LEVI-pilot-capital-amount": 698407,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "OXO",
@@ -16232,7 +16232,7 @@
           "LEVI-tender-close-date": "27-01-2025",
           "LEVI-CPO(s)": "Believ, Connected Kerb",
           "channel-status": "Trial live",
-          "channel-grant-amount": 172000,
+          "channel-grant-amount": 216780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -16246,7 +16246,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "POR",
@@ -16303,7 +16303,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "POW",
@@ -16688,7 +16688,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Not permitted",
-          "channel-grant-amount": 91000,
+          "channel-grant-amount": 135780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -16702,7 +16702,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "RDG",
@@ -16745,7 +16745,7 @@
           "LEVI-tender-close-date": "17-03-2025",
           "LEVI-CPO(s)": null,
           "channel-status": "Permitted",
-          "channel-grant-amount": 58000,
+          "channel-grant-amount": 102780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -16759,7 +16759,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "RED",
@@ -17030,7 +17030,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Permitted",
-          "channel-grant-amount": 50000,
+          "channel-grant-amount": 94780,
           "channel-application-fee": 100,
           "channel-installation-fee": 1250,
           "channel-annual-fee": 150,
@@ -17044,7 +17044,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "ROC",
@@ -17557,7 +17557,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "SAL",
@@ -17885,7 +17885,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 799000,
+          "channel-grant-amount": 843780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -17899,7 +17899,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "SDE",
@@ -18056,7 +18056,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": "Believ (main) / TBC (flat and flush)",
           "channel-status": "Trial complete",
-          "channel-grant-amount": 244000,
+          "channel-grant-amount": 288780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -18070,7 +18070,7 @@
           "LEVI-pilot-capital-amount": 1362196,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "SFT",
@@ -18512,7 +18512,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 89000,
+          "channel-grant-amount": 133780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -18526,7 +18526,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "SKE",
@@ -18754,7 +18754,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "SLK",
@@ -18854,7 +18854,7 @@
           "LEVI-tender-close-date": "13-06-2025",
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 176000,
+          "channel-grant-amount": 220780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -18868,7 +18868,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "SND",
@@ -19096,7 +19096,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "SOX",
@@ -19310,7 +19310,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Trial complete",
-          "channel-grant-amount": 225000,
+          "channel-grant-amount": 269780,
           "channel-application-fee": "None",
           "channel-installation-fee": 773,
           "channel-annual-fee": 97,
@@ -19324,7 +19324,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "SST",
@@ -19481,7 +19481,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Trial live",
-          "channel-grant-amount": 211000,
+          "channel-grant-amount": 255780,
           "channel-application-fee": "Free",
           "channel-installation-fee": "Free",
           "channel-annual-fee": null,
@@ -19495,7 +19495,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "STF",
@@ -19652,7 +19652,7 @@
           "LEVI-tender-close-date": "27-10-2025",
           "LEVI-CPO(s)": null,
           "channel-status": "Trial to come",
-          "channel-grant-amount": 119000,
+          "channel-grant-amount": 163780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -19666,7 +19666,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "STN",
@@ -19723,7 +19723,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "STO",
@@ -20236,7 +20236,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "SWK",
@@ -20279,7 +20279,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Not permitted",
-          "channel-grant-amount": 115000,
+          "channel-grant-amount": 159780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -20293,7 +20293,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "SWL",
@@ -20806,7 +20806,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "THA",
@@ -20963,7 +20963,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": "Zest",
           "channel-status": "Trial to come",
-          "channel-grant-amount": 57000,
+          "channel-grant-amount": 101780,
           "channel-application-fee": 100,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -20977,7 +20977,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "TOB",
@@ -21362,7 +21362,7 @@
           "LEVI-tender-close-date": "30-03-2026",
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 479000,
+          "channel-grant-amount": 523780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -21376,7 +21376,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "TWH",
@@ -21704,7 +21704,7 @@
           "LEVI-tender-close-date": "13-11-2025",
           "LEVI-CPO(s)": null,
           "channel-status": "Trial to come",
-          "channel-grant-amount": 125000,
+          "channel-grant-amount": 169780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -21718,7 +21718,7 @@
           "LEVI-pilot-capital-amount": 771000,
           "LEVI-pilot-CPO(s)": "Connected Kerb, with some funding to pavement channels",
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "WAR",
@@ -21761,7 +21761,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 168000,
+          "channel-grant-amount": 212780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -21775,7 +21775,7 @@
           "LEVI-pilot-capital-amount": 746250,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "WAT",
@@ -21932,7 +21932,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Permitted",
-          "channel-grant-amount": 50000,
+          "channel-grant-amount": 94780,
           "channel-application-fee": 190,
           "channel-installation-fee": 999,
           "channel-annual-fee": "None",
@@ -21946,7 +21946,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "WDE",
@@ -22160,7 +22160,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 429000,
+          "channel-grant-amount": 473780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -22174,7 +22174,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "WEW",
@@ -22388,7 +22388,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Trial live",
-          "channel-grant-amount": 163000,
+          "channel-grant-amount": 207780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -22402,7 +22402,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "WIN",
@@ -22844,7 +22844,7 @@
           "LEVI-tender-close-date": "09-07-2025",
           "LEVI-CPO(s)": null,
           "channel-status": null,
-          "channel-grant-amount": 1543000,
+          "channel-grant-amount": 1575780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -22858,7 +22858,7 @@
           "LEVI-pilot-capital-amount": 3016582,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "WND",
@@ -22901,7 +22901,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": null,
           "channel-status": "Trial to come",
-          "channel-grant-amount": 131000,
+          "channel-grant-amount": 175780,
           "channel-application-fee": 100,
           "channel-installation-fee": "£250 (with grant)",
           "channel-annual-fee": 50,
@@ -22915,7 +22915,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "WNM",
@@ -22972,7 +22972,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "WNT",
@@ -23029,7 +23029,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "WOC",
@@ -23471,7 +23471,7 @@
           "LEVI-tender-close-date": null,
           "LEVI-CPO(s)": "Believ",
           "channel-status": "Not permitted",
-          "channel-grant-amount": 61000,
+          "channel-grant-amount": 105780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -23485,7 +23485,7 @@
           "LEVI-pilot-capital-amount": 1362196,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "WRX",
@@ -23713,7 +23713,7 @@
           "LEVI-pilot-capital-amount": 1786464,
           "LEVI-pilot-CPO(s)": "Connected Kerb",
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "WYC",
@@ -23813,7 +23813,7 @@
           "LEVI-tender-close-date": "07-05-2024",
           "LEVI-CPO(s)": "Framework: Amey Highways, Blink, Char.gy, Ubitricity, Urban Fox, Zest",
           "channel-status": null,
-          "channel-grant-amount": 1543000,
+          "channel-grant-amount": 1587780,
           "channel-application-fee": null,
           "channel-installation-fee": null,
           "channel-annual-fee": null,
@@ -23827,7 +23827,7 @@
           "LEVI-pilot-capital-amount": 1500000,
           "LEVI-pilot-CPO(s)": "Blink",
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Applied"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "WYE",
@@ -23998,7 +23998,7 @@
           "LEVI-pilot-capital-amount": 0,
           "LEVI-pilot-CPO(s)": null,
           "ORCS-CPO(s)": null,
-          "channel-grant-status": "Approved"
+          "channel-grant-status": "Paid"
         },
         {
           "local-authority-code": "YOR",
