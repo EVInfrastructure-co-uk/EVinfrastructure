@@ -5,232 +5,260 @@
 (function () {
   if (window.leviMap) return;
 
-  function loadScriptFallback(urls, readyCheck) {
-    return new Promise(function (resolve, reject) {
-      if (typeof readyCheck === 'function' && readyCheck()) return resolve();
-      var i = 0;
-      function tryNext() {
-        if (i >= urls.length) return reject(new Error('All script sources failed: ' + urls.join(', ')));
-        var src = urls[i++];
-        var existing = Array.from(document.getElementsByTagName('script')).find(s => s.src && s.src.indexOf(src) !== -1);
-        if (existing) {
-          if (existing.hasAttribute('data-loaded')) return resolve();
-          existing.addEventListener('load', function () { resolve(); });
-          existing.addEventListener('error', function () { tryNext(); });
-          return;
-        }
-        var s = document.createElement('script');
-        s.src = src;
-        s.async = true;
-        s.onload = function () { s.setAttribute('data-loaded', '1'); resolve(); };
-        s.onerror = function () { tryNext(); };
-        document.head.appendChild(s);
-      }
-      tryNext();
-    });
+  // Check if this map is inside a hidden tab panel
+  function isMapInHiddenTab() {
+    var mapEl = document.getElementById('map-levi');
+    if (!mapEl) return false;
+    var panel = mapEl.closest('[role="tabpanel"]');
+    if (!panel) return false; // Map is not in a tab, load immediately
+    return panel.hasAttribute('hidden') || panel.classList.contains('tabs__panel--hidden');
   }
 
-  var leafletUrls = [
-    'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
-    'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js'
-  ];
-  var topoUrls = [
-    'https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js',
-    'https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js'
-  ];
+  // Store initialization function for lazy loading
+  window.initLeviMap = function() {
+    if (window.leviMapInitialized) return;
+    window.leviMapInitialized = true;
+    startLeviMapInit();
+  };
 
-  Promise.all([
-    loadScriptFallback(leafletUrls, () => window.L !== undefined),
-    loadScriptFallback(topoUrls, () => window.topojson !== undefined)
-  ]).then(init).catch(function (err) {
-    console.error('Failed to load map dependencies for LEVI map:', err);
-    var el = document.getElementById('map-levi');
-    if (el) el.innerHTML = '<div style="padding:1rem">Map could not load because required resources were blocked. Try disabling tracking protection or use a different network.</div>';
-  });
-
-  function init() {
-    (async function () {
-      try {
-        const topoLeviPath = '/government/local-government/data/LEVI-EVIF-ULEVTF-authorities.topojson';
-        const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
-
-        const [topoLeviResp, eviResp] = await Promise.all([ fetch(topoLeviPath), fetch(eviJsonPath) ]);
-        if (!topoLeviResp.ok) throw new Error('LEVI TopoJSON load failed: ' + topoLeviResp.status);
-        if (!eviResp.ok) throw new Error('EVI JSON load failed: ' + eviResp.status);
-
-        const [topoLevi, eviBundle] = await Promise.all([ topoLeviResp.json(), eviResp.json() ]);
-
-        function topoFirstObjectName(topo) {
-          const keys = Object.keys(topo.objects || {});
-          return keys.length ? keys[0] : null;
+  function startLeviMapInit() {
+    function loadScriptFallback(urls, readyCheck) {
+      return new Promise(function (resolve, reject) {
+        if (typeof readyCheck === 'function' && readyCheck()) return resolve();
+        var i = 0;
+        function tryNext() {
+          if (i >= urls.length) return reject(new Error('All script sources failed: ' + urls.join(', ')));
+          var src = urls[i++];
+          var existing = Array.from(document.getElementsByTagName('script')).find(s => s.src && s.src.indexOf(src) !== -1);
+          if (existing) {
+            if (existing.hasAttribute('data-loaded')) return resolve();
+            existing.addEventListener('load', function () { resolve(); });
+            existing.addEventListener('error', function () { tryNext(); });
+            return;
+          }
+          var s = document.createElement('script');
+          s.src = src;
+          s.async = true;
+          s.onload = function () { s.setAttribute('data-loaded', '1'); resolve(); };
+          s.onerror = function () { tryNext(); };
+          document.head.appendChild(s);
         }
-        const leviObjName = topoFirstObjectName(topoLevi);
-        if (!leviObjName) throw new Error('LEVI topojson has no objects');
+        tryNext();
+      });
+    }
 
-        const geoLevi = topojson.feature(topoLevi, topoLevi.objects[leviObjName]);
+    var leafletUrls = [
+      'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
+      'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js'
+    ];
+    var topoUrls = [
+      'https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js',
+      'https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js'
+    ];
 
-        const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
-        if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
-        const rows = resource.data;
+    Promise.all([
+      loadScriptFallback(leafletUrls, () => window.L !== undefined),
+      loadScriptFallback(topoUrls, () => window.topojson !== undefined)
+    ]).then(init).catch(function (err) {
+      console.error('Failed to load map dependencies for LEVI map:', err);
+      var el = document.getElementById('map-levi');
+      if (el) el.innerHTML = '<div style="padding:1rem">Map could not load because required resources were blocked. Try disabling tracking protection or use a different network.</div>';
+    });
 
-        const rowByGss = new Map();
-        const rowByLocal = new Map();
-        rows.forEach(r => {
-          if (r['gss-code']) rowByGss.set(String(r['gss-code']).trim(), r);
-          if (r['local-authority-code']) rowByLocal.set(String(r['local-authority-code']).trim(), r);
-        });
+    function init() {
+      (async function () {
+        try {
+          const topoLeviPath = '/government/local-government/data/LEVI-EVIF-ULEVTF-authorities.topojson';
+          const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
 
-        function getRowForFeature(feature) {
-          const p = (feature && feature.properties) ? feature.properties : {};
-          const candidates = [];
-          ['LAD24CD','CTYUA24CD','gss','gss_code','gss-code','GSS_CODE','GSS'].forEach(k => { if (p[k]) candidates.push(String(p[k]).trim()); });
-          ['local-authority-code','local_authority_code','localAuthorityCode','LAD24CD'].forEach(k => { if (p[k]) candidates.push(String(p[k]).trim()); });
-          Object.keys(p).forEach(k => {
-            const lk = k.toLowerCase();
-            if ((lk.includes('gss') || lk.includes('lad') || lk.includes('local')) && p[k]) candidates.push(String(p[k]).trim());
+          const [topoLeviResp, eviResp] = await Promise.all([ fetch(topoLeviPath), fetch(eviJsonPath) ]);
+          if (!topoLeviResp.ok) throw new Error('LEVI TopoJSON load failed: ' + topoLeviResp.status);
+          if (!eviResp.ok) throw new Error('EVI JSON load failed: ' + eviResp.status);
+
+          const [topoLevi, eviBundle] = await Promise.all([ topoLeviResp.json(), eviResp.json() ]);
+
+          function topoFirstObjectName(topo) {
+            const keys = Object.keys(topo.objects || {});
+            return keys.length ? keys[0] : null;
+          }
+          const leviObjName = topoFirstObjectName(topoLevi);
+          if (!leviObjName) throw new Error('LEVI topojson has no objects');
+
+          const geoLevi = topojson.feature(topoLevi, topoLevi.objects[leviObjName]);
+
+          const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
+          if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
+          const rows = resource.data;
+
+          const rowByGss = new Map();
+          const rowByLocal = new Map();
+          rows.forEach(r => {
+            if (r['gss-code']) rowByGss.set(String(r['gss-code']).trim(), r);
+            if (r['local-authority-code']) rowByLocal.set(String(r['local-authority-code']).trim(), r);
           });
-          for (const c of candidates) {
-            if (!c) continue;
-            if (rowByGss.has(c)) return rowByGss.get(c);
-            if (rowByLocal.has(c)) return rowByLocal.get(c);
-          }
-          return null;
-        }
 
-        function formatCapital(c) {
-          if (c === null || c === undefined || c === '') return 'N/A';
-          const n = Number(c);
-          return Number.isFinite(n) ? `£${n.toLocaleString()}` : String(c);
-        }
-
-        const leviColours = {
-          awarded_or_framework: '#004d00',
-          yet_to_award: '#7bd07b',
-          tender_live: '#ffbf00',
-          other: '#d62828',
-          nodata: '#cccccc'
-        };
-
-        function colourForStage(stage) {
-          if (stage === null || stage === undefined || String(stage).trim() === '') return leviColours.other;
-          const s = String(stage).toLowerCase();
-          if (s.includes('awarded') || s.includes('framework established')) return leviColours.awarded_or_framework;
-          if (s.includes('yet to award')) return leviColours.yet_to_award;
-          if (s.includes('tender live')) return leviColours.tender_live;
-          return leviColours.other;
-        }
-
-        if (window.leviMap) return;
-
-        const mapLevi = L.map('map-levi').setView([54.5, -3], 5);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: 'Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
-        }).addTo(mapLevi);
-        window.leviMap = mapLevi;
-
-        const leviLayer = L.geoJSON(geoLevi, {
-          style(feature) {
-            const row = getRowForFeature(feature);
-            const stage = row ? row['LEVI-tender-stage'] : null;
-            const color = colourForStage(stage);
-            const hasData = String(stage) !== 'Not participating';
-            return {
-              weight: 1,
-              color: '#444',
-              opacity: 1,
-              fillOpacity: hasData ? 0.85 : 0.15,
-              fillColor: color
-            };
-          },
-          onEachFeature(feature, layer) {
-            const row = getRowForFeature(feature);
-            const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
-            const slug = row ? row['gov-uk-slug'] : null;
-            const stage = row ? row['LEVI-tender-stage'] : null;
-            const capital = row ? row['LEVI-capital-amount'] : null;
-            const cpos = row ? row['LEVI-CPO(s)'] : null;
-
-            function buildHtml() {
-              const stageLabel = (stage === null || stage === undefined || String(stage).trim() === '') ? 'No data' : String(stage);
-              const cAmt = formatCapital(capital);
-              const cposLabel = (cpos === null || cpos === undefined || String(cpos).trim() === '') ? '' : `<br/>Appointed CPO(s): ${String(cpos)}`;
-              // If the user is already on the authority page, render bold unlinked text instead of a hyperlink.
-              let link = '';
-              if (slug) {
-                if (typeof window.currentPageSlug !== 'undefined' && window.currentPageSlug === slug) {
-                  link = `<br/><strong>See our dedicated ${name} page</strong>`;
-                } else {
-                  link = `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>`;
-                }
-              }
-              return `<strong>${name}</strong><br/>Tender stage: ${stageLabel}<br/>Capital amount: ${cAmt}${cposLabel}${link}`;
-            }
-            layer.on({
-              mouseover(e) {
-                const t = e.target;
-                t.setStyle({ weight: 2, color: '#000' });
-                t.bringToFront();
-                const html = buildHtml();
-                t.bindTooltip(html, { sticky: true, direction: 'auto', }).openTooltip();
-              },
-              mouseout(e) {
-                leviLayer.resetStyle(e.target);
-                e.target.closeTooltip();
-              },
-              click(e) {
-                const popupHtml = buildHtml();
-                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
-                try { mapLevi.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
-              }
+          function getRowForFeature(feature) {
+            const p = (feature && feature.properties) ? feature.properties : {};
+            const candidates = [];
+            ['LAD24CD','CTYUA24CD','gss','gss_code','gss-code','GSS_CODE','GSS'].forEach(k => { if (p[k]) candidates.push(String(p[k]).trim()); });
+            ['local-authority-code','local_authority_code','localAuthorityCode','LAD24CD'].forEach(k => { if (p[k]) candidates.push(String(p[k]).trim()); });
+            Object.keys(p).forEach(k => {
+              const lk = k.toLowerCase();
+              if ((lk.includes('gss') || lk.includes('lad') || lk.includes('local')) && p[k]) candidates.push(String(p[k]).trim());
             });
+            for (const c of candidates) {
+              if (!c) continue;
+              if (rowByGss.has(c)) return rowByGss.get(c);
+              if (rowByLocal.has(c)) return rowByLocal.get(c);
+            }
+            return null;
           }
-        }).addTo(mapLevi);
-        // window.leviLayer = leviLayer;
 
-        // Build legend as a block element below the map (not an overlay control)
-        (function createBlockLegend() {
-          const legendContainer = document.getElementById('map-levi-legend');
-          if (!legendContainer) return;
+          function formatCapital(c) {
+            if (c === null || c === undefined || c === '') return 'N/A';
+            const n = Number(c);
+            return Number.isFinite(n) ? `£${n.toLocaleString()}` : String(c);
+          }
 
-          // Count features per category using the same logic as colourForStage
-          const counts = { awarded_or_framework: 0, yet_to_award: 0, tender_live: 0, other: 0 };
-          function stageCategory(stage) {
-            if (stage === null || stage === undefined || String(stage).trim() === '') return 'other';
+          const leviColours = {
+            awarded_or_framework: '#004d00',
+            yet_to_award: '#7bd07b',
+            tender_live: '#ffbf00',
+            other: '#d62828',
+            nodata: '#cccccc'
+          };
+
+          function colourForStage(stage) {
+            if (stage === null || stage === undefined || String(stage).trim() === '') return leviColours.other;
             const s = String(stage).toLowerCase();
-            if (s.includes('awarded') || s.includes('framework established')) return 'awarded_or_framework';
-            if (s.includes('yet to award')) return 'yet_to_award';
-            if (s.includes('tender live')) return 'tender_live';
-            return 'other';
+            if (s.includes('awarded') || s.includes('framework established')) return leviColours.awarded_or_framework;
+            if (s.includes('yet to award')) return leviColours.yet_to_award;
+            if (s.includes('tender live')) return leviColours.tender_live;
+            return leviColours.other;
           }
 
-          if (geoLevi && Array.isArray(geoLevi.features)) {
-            geoLevi.features.forEach(function (feature) {
+          if (window.leviMap) return;
+
+          const mapLevi = L.map('map-levi').setView([54.5, -3], 5);
+          window.leviMapInitialView = { lat: 54.5, lng: -3, zoom: 5 };
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
+          }).addTo(mapLevi);
+          window.leviMap = mapLevi;
+
+          const leviLayer = L.geoJSON(geoLevi, {
+            style(feature) {
               const row = getRowForFeature(feature);
               const stage = row ? row['LEVI-tender-stage'] : null;
-              const cat = stageCategory(stage);
-              counts[cat] = (counts[cat] || 0) + 1;
+              const color = colourForStage(stage);
+              const hasData = String(stage) !== 'Not participating';
+              return {
+                weight: 1,
+                color: '#444',
+                opacity: 1,
+                fillOpacity: hasData ? 0.85 : 0.15,
+                fillColor: color
+              };
+            },
+            onEachFeature(feature, layer) {
+              const row = getRowForFeature(feature);
+              const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
+              const slug = row ? row['gov-uk-slug'] : null;
+              const stage = row ? row['LEVI-tender-stage'] : null;
+              const capital = row ? row['LEVI-capital-amount'] : null;
+              const cpos = row ? row['LEVI-CPO(s)'] : null;
+
+              function buildHtml() {
+                const stageLabel = (stage === null || stage === undefined || String(stage).trim() === '') ? 'No data' : String(stage);
+                const cAmt = formatCapital(capital);
+                const cposLabel = (cpos === null || cpos === undefined || String(cpos).trim() === '') ? '' : `<br/>Appointed CPO(s): ${String(cpos)}`;
+                // If the user is already on the authority page, render bold unlinked text instead of a hyperlink.
+                let link = '';
+                if (slug) {
+                  if (typeof window.currentPageSlug !== 'undefined' && window.currentPageSlug === slug) {
+                    link = `<br/><strong>See our dedicated ${name} page</strong>`;
+                  } else {
+                    link = `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>`;
+                  }
+                }
+                return `<strong>${name}</strong><br/>Tender stage: ${stageLabel}<br/>Capital amount: ${cAmt}${cposLabel}${link}`;
+              }
+              layer.on({
+                mouseover(e) {
+                  const t = e.target;
+                  t.setStyle({ weight: 2, color: '#000' });
+                  t.bringToFront();
+                  const html = buildHtml();
+                  t.bindTooltip(html, { sticky: true, direction: 'auto', }).openTooltip();
+                },
+                mouseout(e) {
+                  leviLayer.resetStyle(e.target);
+                  e.target.closeTooltip();
+                },
+                click(e) {
+                  const popupHtml = buildHtml();
+                  layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
+                  try { mapLevi.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
+                }
+              });
+            }
+          }).addTo(mapLevi);
+          // window.leviLayer = leviLayer;
+
+          // Build legend as a block element below the map (not an overlay control)
+          (function createBlockLegend() {
+            const legendContainer = document.getElementById('map-levi-legend');
+            if (!legendContainer) return;
+
+            // Count features per category using the same logic as colourForStage
+            const counts = { awarded_or_framework: 0, yet_to_award: 0, tender_live: 0, other: 0 };
+            function stageCategory(stage) {
+              if (stage === null || stage === undefined || String(stage).trim() === '') return 'other';
+              const s = String(stage).toLowerCase();
+              if (s.includes('awarded') || s.includes('framework established')) return 'awarded_or_framework';
+              if (s.includes('yet to award')) return 'yet_to_award';
+              if (s.includes('tender live')) return 'tender_live';
+              return 'other';
+            }
+
+            if (geoLevi && Array.isArray(geoLevi.features)) {
+              geoLevi.features.forEach(function (feature) {
+                const row = getRowForFeature(feature);
+                const stage = row ? row['LEVI-tender-stage'] : null;
+                const cat = stageCategory(stage);
+                counts[cat] = (counts[cat] || 0) + 1;
+              });
+            }
+
+            const rowsLegend = [
+              { label: `Awarded (${counts.awarded_or_framework})`, color: leviColours.awarded_or_framework },
+              { label: `Yet to award (${counts.yet_to_award})`, color: leviColours.yet_to_award },
+              { label: `Tender live (${counts.tender_live})`, color: leviColours.tender_live },
+              { label: `Yet to tender (${counts.other})`, color: leviColours.other }
+            ];
+            let html = '<strong>Legend: LEVI / EVIF / ULEVTF tender stage</strong><br/>';
+            rowsLegend.forEach(r => {
+              html += `<div class="row"><span class="swatch" style="background:${r.color}"></span> ${r.label}</div>`;
             });
-          }
+            legendContainer.innerHTML = html;
+          })();
 
-          const rowsLegend = [
-            { label: `Awarded (${counts.awarded_or_framework})`, color: leviColours.awarded_or_framework },
-            { label: `Yet to award (${counts.yet_to_award})`, color: leviColours.yet_to_award },
-            { label: `Tender live (${counts.tender_live})`, color: leviColours.tender_live },
-            { label: `Yet to tender (${counts.other})`, color: leviColours.other }
-          ];
-          let html = '<strong>Legend: LEVI / EVIF / ULEVTF tender stage</strong><br/>';
-          rowsLegend.forEach(r => {
-            html += `<div class="row"><span class="swatch" style="background:${r.color}"></span> ${r.label}</div>`;
-          });
-          legendContainer.innerHTML = html;
-        })();
+          setTimeout(() => { try { mapLevi.invalidateSize(); } catch (e) {/*ignore*/} }, 300);
 
-        setTimeout(() => { try { mapLevi.invalidateSize(); } catch (e) {/*ignore*/} }, 300);
+        } catch (err) {
+          console.error('LEVI map initialisation failed:', err);
+        }
+      })();
+    }
+  }
 
-      } catch (err) {
-        console.error('LEVI map initialisation failed:', err);
-      }
-    })();
+  // Determine if map is in a tab. If yes, lazy load. If no, load immediately.
+  if (isMapInHiddenTab()) {
+    // Map is in a hidden tab, wait for tab click
+    // The tabs.js script will call window.initLeviMap() when the tab becomes active
+  } else {
+    // Map is not in a tab or is in an active tab, load immediately
+    window.initLeviMap();
   }
 })();
 </script>
