@@ -6,222 +6,250 @@
   // If a map instance already exists, don't initialise again.
   if (window.nearhomeMap) return;
 
-  // resilient loader: try multiple URLs in order; resolve when one loads and/or readyCheck true
-  function loadScriptFallback(urls, readyCheck) {
-    return new Promise(function (resolve, reject) {
-      if (typeof readyCheck === 'function' && readyCheck()) return resolve();
-      var i = 0;
-      function tryNext() {
-        if (i >= urls.length) return reject(new Error('All script sources failed: ' + urls.join(', ')));
-        var src = urls[i++];
-        // If identical script tag already present, wait for it
-        var existing = Array.from(document.getElementsByTagName('script')).find(s => s.src && s.src.indexOf(src) !== -1);
-        if (existing) {
-          if (existing.hasAttribute('data-loaded')) return resolve();
-          existing.addEventListener('load', function () { resolve(); });
-          existing.addEventListener('error', function () { tryNext(); });
-          return;
-        }
-        var s = document.createElement('script');
-        s.src = src;
-        s.async = true;
-        s.onload = function () { s.setAttribute('data-loaded', '1'); resolve(); };
-        s.onerror = function () { tryNext(); };
-        document.head.appendChild(s);
-      }
-      tryNext();
-    });
+  // Check if this map is inside a hidden tab panel
+  function isMapInHiddenTab() {
+    var mapEl = document.getElementById('map-nearhome');
+    if (!mapEl) return false;
+    var panel = mapEl.closest('[role="tabpanel"]');
+    if (!panel) return false; // Map is not in a tab, load immediately
+    return panel.hasAttribute('hidden') || panel.classList.contains('tabs__panel--hidden');
   }
 
-  // Try multiple CDNs for each dependency
-  var leafletUrls = [
-    'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
-    'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js'
-  ];
-  var topoUrls = [
-    'https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js',
-    'https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js'
-  ];
-  var chromaUrls = [
-    'https://unpkg.com/chroma-js@2.4.2/chroma.min.js',
-    'https://cdn.jsdelivr.net/npm/chroma-js@2.4.2/chroma.min.js'
-  ];
+  // Store initialization function for lazy loading
+  window.initNearhomeMap = function() {
+    if (window.nearhomeMapInitialized) return;
+    window.nearhomeMapInitialized = true;
+    startNearhomeMapInit();
+  };
 
-  Promise.all([
-    loadScriptFallback(leafletUrls, () => window.L !== undefined),
-    loadScriptFallback(topoUrls, () => window.topojson !== undefined),
-    loadScriptFallback(chromaUrls, () => window.chroma !== undefined)
-  ]).then(init).catch(function (err) {
-    console.error('Failed to load map dependencies for NEAR HOME map:', err);
-    // Optionally show a friendly message in the map container
-    var el = document.getElementById('map-nearhome');
-    if (el) el.innerHTML = '<div style="padding:1rem">Map could not load because required resources were blocked. Try disabling tracking protection or use a different network.</div>';
-  });
-
-  function init() {
-    (async function () {
-      try {
-        const topoNearPath = '/government/local-government/data/GBlocalauthorities.topojson';
-        const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
-
-        const [topoNearResp, eviResp] = await Promise.all([ fetch(topoNearPath), fetch(eviJsonPath) ]);
-        if (!topoNearResp.ok) throw new Error('Near-home TopoJSON load failed: ' + topoNearResp.status);
-        if (!eviResp.ok) throw new Error('EVI JSON load failed: ' + eviResp.status);
-
-        const [topoNear, eviBundle] = await Promise.all([ topoNearResp.json(), eviResp.json() ]);
-
-        function topoFirstObjectName(topo) {
-          const keys = Object.keys(topo.objects || {});
-          return keys.length ? keys[0] : null;
+  function startNearhomeMapInit() {
+    // resilient loader: try multiple URLs in order; resolve when one loads and/or readyCheck true
+    function loadScriptFallback(urls, readyCheck) {
+      return new Promise(function (resolve, reject) {
+        if (typeof readyCheck === 'function' && readyCheck()) return resolve();
+        var i = 0;
+        function tryNext() {
+          if (i >= urls.length) return reject(new Error('All script sources failed: ' + urls.join(', ')));
+          var src = urls[i++];
+          // If identical script tag already present, wait for it
+          var existing = Array.from(document.getElementsByTagName('script')).find(s => s.src && s.src.indexOf(src) !== -1);
+          if (existing) {
+            if (existing.hasAttribute('data-loaded')) return resolve();
+            existing.addEventListener('load', function () { resolve(); });
+            existing.addEventListener('error', function () { tryNext(); });
+            return;
+          }
+          var s = document.createElement('script');
+          s.src = src;
+          s.async = true;
+          s.onload = function () { s.setAttribute('data-loaded', '1'); resolve(); };
+          s.onerror = function () { tryNext(); };
+          document.head.appendChild(s);
         }
-        const nearObjName = topoFirstObjectName(topoNear);
-        if (!nearObjName) throw new Error('Near topojson has no objects');
+        tryNext();
+      });
+    }
 
-        const geoNear = topojson.feature(topoNear, topoNear.objects[nearObjName]);
+    // Try multiple CDNs for each dependency
+    var leafletUrls = [
+      'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
+      'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js'
+    ];
+    var topoUrls = [
+      'https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js',
+      'https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js'
+    ];
+    var chromaUrls = [
+      'https://unpkg.com/chroma-js@2.4.2/chroma.min.js',
+      'https://cdn.jsdelivr.net/npm/chroma-js@2.4.2/chroma.min.js'
+    ];
 
-        const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
-        if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
-        const rows = resource.data;
+    Promise.all([
+      loadScriptFallback(leafletUrls, () => window.L !== undefined),
+      loadScriptFallback(topoUrls, () => window.topojson !== undefined),
+      loadScriptFallback(chromaUrls, () => window.chroma !== undefined)
+    ]).then(init).catch(function (err) {
+      console.error('Failed to load map dependencies for NEAR HOME map:', err);
+      // Optionally show a friendly message in the map container
+      var el = document.getElementById('map-nearhome');
+      if (el) el.innerHTML = '<div style="padding:1rem">Map could not load because required resources were blocked. Try disabling tracking protection or use a different network.</div>';
+    });
 
-        const rowByGss = new Map();
-        const rowByLocal = new Map();
-        rows.forEach(r => {
-          if (r['gss-code']) rowByGss.set(String(r['gss-code']).trim(), r);
-          if (r['local-authority-code']) rowByLocal.set(String(r['local-authority-code']).trim(), r);
-        });
+    function init() {
+      (async function () {
+        try {
+          const topoNearPath = '/government/local-government/data/GBlocalauthorities.topojson';
+          const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
 
-        function getRowForFeature(feature) {
-          const p = (feature && feature.properties) ? feature.properties : {};
-          const candidates = [];
-          ['LAD24CD','CTYUA24CD','gss','gss_code','gss-code','GSS_CODE','GSS'].forEach(k => { if (p[k]) candidates.push(String(p[k]).trim()); });
-          ['local-authority-code','local_authority_code','localAuthorityCode','LAD24CD'].forEach(k => { if (p[k]) candidates.push(String(p[k]).trim()); });
-          Object.keys(p).forEach(k => {
-            const lk = k.toLowerCase();
-            if ((lk.includes('gss') || lk.includes('lad') || lk.includes('local')) && p[k]) candidates.push(String(p[k]).trim());
+          const [topoNearResp, eviResp] = await Promise.all([ fetch(topoNearPath), fetch(eviJsonPath) ]);
+          if (!topoNearResp.ok) throw new Error('Near-home TopoJSON load failed: ' + topoNearResp.status);
+          if (!eviResp.ok) throw new Error('EVI JSON load failed: ' + eviResp.status);
+
+          const [topoNear, eviBundle] = await Promise.all([ topoNearResp.json(), eviResp.json() ]);
+
+          function topoFirstObjectName(topo) {
+            const keys = Object.keys(topo.objects || {});
+            return keys.length ? keys[0] : null;
+          }
+          const nearObjName = topoFirstObjectName(topoNear);
+          if (!nearObjName) throw new Error('Near topojson has no objects');
+
+          const geoNear = topojson.feature(topoNear, topoNear.objects[nearObjName]);
+
+          const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
+          if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
+          const rows = resource.data;
+
+          const rowByGss = new Map();
+          const rowByLocal = new Map();
+          rows.forEach(r => {
+            if (r['gss-code']) rowByGss.set(String(r['gss-code']).trim(), r);
+            if (r['local-authority-code']) rowByLocal.set(String(r['local-authority-code']).trim(), r);
           });
-          for (const c of candidates) {
-            if (!c) continue;
-            if (rowByGss.has(c)) return rowByGss.get(c);
-            if (rowByLocal.has(c)) return rowByLocal.get(c);
-          }
-          return null;
-        }
 
-        function toNum(v) {
-          if (v === null || v === undefined || v === '') return NaN;
-          const n = Number(v);
-          return Number.isFinite(n) ? n : NaN;
-        }
-
-        const nearhomeValues = rows.map(r => toNum(r['NEVIS-distribution'])).filter(v => !isNaN(v)).sort((a,b)=>a-b);
-
-        function quantile(sortedArr, p) {
-          if (!sortedArr.length) return NaN;
-          const idx = (sortedArr.length - 1) * p;
-          const lo = Math.floor(idx);
-          const hi = Math.ceil(idx);
-          if (hi === lo) return sortedArr[lo];
-          const frac = idx - lo;
-          return sortedArr[lo] * (1 - frac) + sortedArr[hi] * frac;
-        }
-
-        const nearhomeThresholds = [];
-        if (nearhomeValues.length) for (let i = 1; i <= 9; i++) nearhomeThresholds.push(quantile(nearhomeValues, i / 10));
-        const nearhomePalette = chroma.scale(['#e0f3e0', '#006400']).mode('lab').colors(10);
-        function nearhomeDecileIndex(v) {
-          if (isNaN(v)) return -1;
-          for (let i = 0; i < nearhomeThresholds.length; i++) if (v <= nearhomeThresholds[i]) return i;
-          return 9;
-        }
-
-        // If a map instance exists now, bail out (someone else initialised it)
-        if (window.nearhomeMap) return;
-
-        const mapNearHome = L.map('map-nearhome').setView([54.5, -3], 5);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; CENEX NEVIS 2025; Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
-        }).addTo(mapNearHome);
-        window.nearhomeMap = mapNearHome;
-        // Save initial view so tabs can restore it later if the map ends up zoomed-out.
-
-        const nearhomeLayer = L.geoJSON(geoNear, {
-          style(feature) {
-            const row = getRowForFeature(feature);
-            const v = row ? toNum(row['NEVIS-distribution']) : NaN;
-            const idx = nearhomeDecileIndex(v);
-            return {
-              weight: 1,
-              color: '#444',
-              opacity: 1,
-              fillOpacity: idx === -1 ? 0.15 : 0.85,
-              fillColor: idx === -1 ? '#cccccc' : nearhomePalette[idx]
-            };
-          },
-          onEachFeature(feature, layer) {
-            const row = getRowForFeature(feature);
-            const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
-            const slug = row ? row['gov-uk-slug'] : null;
-            const v = row ? row['NEVIS-distribution'] : null;
-            const rank = row ? row['NEVIS-distribution-rank'] : null;
-
-            function buildHtml() {
-              const vLabel = isNaN(toNum(v)) ? 'N/A' : `${Math.round(v)}%`;
-              const rankLabel = isNaN(toNum(rank)) ? 'N/A' : `${rank}/350`;
-              // If the user is already on the authority page, render bold unlinked text instead of a hyperlink.
-              let link = '';
-              if (slug) {
-                if (typeof window.currentPageSlug !== 'undefined' && window.currentPageSlug === slug) {
-                  link = `<br/><strong>See our dedicated ${name} page</strong>`;
-                } else {
-                  link = `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>`;
-                }
-              }
-              return `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${vLabel}<br/>NEVIS Near Home distribution rank: ${rankLabel}${link}`;
-            }
-
-            layer.on({
-              mouseover(e) {
-                const t = e.target;
-                t.setStyle({ weight: 2, color: '#000' });
-                t.bringToFront();
-                const html = buildHtml();
-                t.bindTooltip(html, { sticky: true, direction: 'auto', maxWidth: 300 }).openTooltip();
-              },
-              mouseout(e) {
-                nearhomeLayer.resetStyle(e.target);
-                e.target.closeTooltip();
-              },
-              click(e) {
-                const popupHtml = buildHtml();
-                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
-                try { mapNearHome.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore fitBounds errors */ }
-              }
+          function getRowForFeature(feature) {
+            const p = (feature && feature.properties) ? feature.properties : {};
+            const candidates = [];
+            ['LAD24CD','CTYUA24CD','gss','gss_code','gss-code','GSS_CODE','GSS'].forEach(k => { if (p[k]) candidates.push(String(p[k]).trim()); });
+            ['local-authority-code','local_authority_code','localAuthorityCode','LAD24CD'].forEach(k => { if (p[k]) candidates.push(String(p[k]).trim()); });
+            Object.keys(p).forEach(k => {
+              const lk = k.toLowerCase();
+              if ((lk.includes('gss') || lk.includes('lad') || lk.includes('local')) && p[k]) candidates.push(String(p[k]).trim());
             });
+            for (const c of candidates) {
+              if (!c) continue;
+              if (rowByGss.has(c)) return rowByGss.get(c);
+              if (rowByLocal.has(c)) return rowByLocal.get(c);
+            }
+            return null;
           }
-        }).addTo(mapNearHome);
-        // window.nearhomeLayer = nearhomeLayer;
 
-        // Build legend as a block element below the map (not an overlay control)
-        (function createBlockLegend() {
-          const legendContainer = document.getElementById('map-nearhome-legend');
-          if (!legendContainer) return;
-          let lower = nearhomeValues[0];
-          let html = '<strong>Legend: NEVIS Near home distribution (deciles)</strong><br/>';
-          for (let i = 0; i < 10; i++) {
-            const color = nearhomePalette[i];
-            const upper = (i < 9) ? nearhomeThresholds[i] : nearhomeValues[nearhomeValues.length - 1];
-            html += `<div class="row"><span class="swatch" style="background:${color}"></span>  ${Math.round(lower)} – ${Math.round(upper)}</div>`;
-            lower = (i < 9) ? (nearhomeThresholds[i] + Number.EPSILON) : upper;
-          };
-          legendContainer.innerHTML = html;
-        })();
+          function toNum(v) {
+            if (v === null || v === undefined || v === '') return NaN;
+            const n = Number(v);
+            return Number.isFinite(n) ? n : NaN;
+          }
 
-        setTimeout(() => { try { mapNearHome.invalidateSize(); } catch (e) {/*ignore*/} }, 300);
+          const nearhomeValues = rows.map(r => toNum(r['NEVIS-distribution'])).filter(v => !isNaN(v)).sort((a,b)=>a-b);
 
-      } catch (err) {
-        console.error('NEAR HOME map initialisation failed:', err);
-      }
-    })();
+          function quantile(sortedArr, p) {
+            if (!sortedArr.length) return NaN;
+            const idx = (sortedArr.length - 1) * p;
+            const lo = Math.floor(idx);
+            const hi = Math.ceil(idx);
+            if (hi === lo) return sortedArr[lo];
+            const frac = idx - lo;
+            return sortedArr[lo] * (1 - frac) + sortedArr[hi] * frac;
+          }
+
+          const nearhomeThresholds = [];
+          if (nearhomeValues.length) for (let i = 1; i <= 9; i++) nearhomeThresholds.push(quantile(nearhomeValues, i / 10));
+          const nearhomePalette = chroma.scale(['#e0f3e0', '#006400']).mode('lab').colors(10);
+          function nearhomeDecileIndex(v) {
+            if (isNaN(v)) return -1;
+            for (let i = 0; i < nearhomeThresholds.length; i++) if (v <= nearhomeThresholds[i]) return i;
+            return 9;
+          }
+
+          // If a map instance exists now, bail out (someone else initialised it)
+          if (window.nearhomeMap) return;
+
+          const mapNearHome = L.map('map-nearhome').setView([54.5, -3], 5);
+          window.nearhomeMapInitialView = { lat: 54.5, lng: -3, zoom: 5 };
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; CENEX NEVIS 2025; Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
+          }).addTo(mapNearHome);
+          window.nearhomeMap = mapNearHome;
+          // Save initial view so tabs can restore it later if the map ends up zoomed-out.
+
+          const nearhomeLayer = L.geoJSON(geoNear, {
+            style(feature) {
+              const row = getRowForFeature(feature);
+              const v = row ? toNum(row['NEVIS-distribution']) : NaN;
+              const idx = nearhomeDecileIndex(v);
+              return {
+                weight: 1,
+                color: '#444',
+                opacity: 1,
+                fillOpacity: idx === -1 ? 0.15 : 0.85,
+                fillColor: idx === -1 ? '#cccccc' : nearhomePalette[idx]
+              };
+            },
+            onEachFeature(feature, layer) {
+              const row = getRowForFeature(feature);
+              const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
+              const slug = row ? row['gov-uk-slug'] : null;
+              const v = row ? row['NEVIS-distribution'] : null;
+              const rank = row ? row['NEVIS-distribution-rank'] : null;
+
+              function buildHtml() {
+                const vLabel = isNaN(toNum(v)) ? 'N/A' : `${Math.round(v)}%`;
+                const rankLabel = isNaN(toNum(rank)) ? 'N/A' : `${rank}/350`;
+                // If the user is already on the authority page, render bold unlinked text instead of a hyperlink.
+                let link = '';
+                if (slug) {
+                  if (typeof window.currentPageSlug !== 'undefined' && window.currentPageSlug === slug) {
+                    link = `<br/><strong>See our dedicated ${name} page</strong>`;
+                  } else {
+                    link = `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>`;
+                  }
+                }
+                return `<strong>${name}</strong><br/>NEVIS Near Home distribution: ${vLabel}<br/>NEVIS Near Home distribution rank: ${rankLabel}${link}`;
+              }
+
+              layer.on({
+                mouseover(e) {
+                  const t = e.target;
+                  t.setStyle({ weight: 2, color: '#000' });
+                  t.bringToFront();
+                  const html = buildHtml();
+                  t.bindTooltip(html, { sticky: true, direction: 'auto', maxWidth: 300 }).openTooltip();
+                },
+                mouseout(e) {
+                  nearhomeLayer.resetStyle(e.target);
+                  e.target.closeTooltip();
+                },
+                click(e) {
+                  const popupHtml = buildHtml();
+                  layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
+                  try { mapNearHome.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore fitBounds errors */ }
+                }
+              });
+            }
+          }).addTo(mapNearHome);
+          // window.nearhomeLayer = nearhomeLayer;
+
+          // Build legend as a block element below the map (not an overlay control)
+          (function createBlockLegend() {
+            const legendContainer = document.getElementById('map-nearhome-legend');
+            if (!legendContainer) return;
+            let lower = nearhomeValues[0];
+            let html = '<strong>Legend: NEVIS Near home distribution (deciles)</strong><br/>';
+            for (let i = 0; i < 10; i++) {
+              const color = nearhomePalette[i];
+              const upper = (i < 9) ? nearhomeThresholds[i] : nearhomeValues[nearhomeValues.length - 1];
+              html += `<div class="row"><span class="swatch" style="background:${color}"></span>  ${Math.round(lower)} – ${Math.round(upper)}</div>`;
+              lower = (i < 9) ? (nearhomeThresholds[i] + Number.EPSILON) : upper;
+            };
+            legendContainer.innerHTML = html;
+          })();
+
+          setTimeout(() => { try { mapNearHome.invalidateSize(); } catch (e) {/*ignore*/} }, 300);
+
+        } catch (err) {
+          console.error('NEAR HOME map initialisation failed:', err);
+        }
+      })();
+    }
+  }
+
+  // Determine if map is in a tab. If yes, lazy load. If no, load immediately.
+  if (isMapInHiddenTab()) {
+    // Map is in a hidden tab, wait for tab click
+    // The tabs.js script will call window.initNearhomeMap() when the tab becomes active
+  } else {
+    // Map is not in a tab or is in an active tab, load immediately
+    window.initNearhomeMap();
   }
 })();
 </script>
