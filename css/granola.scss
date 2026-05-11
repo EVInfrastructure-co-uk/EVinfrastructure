@@ -15,8 +15,22 @@ body {
   flex: 1;
 }
 
+.sitename {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
 @container (width < 600px) {
   h1 {
+    font-size: 1.4rem;
+    margin: 0px;
+  }
+  .sitename {
     font-size: 1.4rem;
     margin: 0px;
   }
@@ -32,6 +46,10 @@ body {
     margin-right: 15px;
   }
   .h1 {
+    font-size: 2rem;
+    line-height: 1.09375;
+  }
+  .sitename {
     font-size: 2rem;
     line-height: 1.09375;
   }
@@ -58,6 +76,10 @@ body {
     margin-right: 30px;
   }
   .h1 {
+    font-size: 3rem;
+    line-height: 1.0416666667;
+  }
+  .sitename {
     font-size: 3rem;
     line-height: 1.0416666667;
   }
@@ -122,6 +144,11 @@ li {
 }
 
 .header h1 a {
+  color: white;
+  text-decoration:none;
+}
+
+.header .sitename a {
   color: white;
   text-decoration:none;
 }
