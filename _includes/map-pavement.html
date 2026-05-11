@@ -5,312 +5,341 @@
 (function () {
   if (window.pavementMap) return;
 
-  function loadScriptFallback(urls, readyCheck) {
-    return new Promise(function (resolve, reject) {
-      if (typeof readyCheck === 'function' && readyCheck()) return resolve();
-      var i = 0;
-      function tryNext() {
-        if (i >= urls.length) return reject(new Error('All script sources failed: ' + urls.join(', ')));
-        var src = urls[i++];
-        var existing = Array.from(document.getElementsByTagName('script')).find(s => s.src && s.src.indexOf(src) !== -1);
-        if (existing) {
-          if (existing.hasAttribute('data-loaded')) return resolve();
-          existing.addEventListener('load', function () { resolve(); });
-          existing.addEventListener('error', function () { tryNext(); });
-          return;
-        }
-        var s = document.createElement('script');
-        s.src = src;
-        s.async = true;
-        s.onload = function () { s.setAttribute('data-loaded', '1'); resolve(); };
-        s.onerror = function () { tryNext(); };
-        document.head.appendChild(s);
-      }
-      tryNext();
-    });
+  // Check if this map is inside a hidden tab panel
+  function isMapInHiddenTab() {
+    var mapEl = document.getElementById('map-pavement');
+    if (!mapEl) return false;
+    var panel = mapEl.closest('[role="tabpanel"]');
+    if (!panel) return false; // Map is not in a tab, load immediately (e.g., pavement-channels.html)
+    return panel.hasAttribute('hidden') || panel.classList.contains('tabs__panel--hidden');
   }
 
-  var leafletUrls = [
-    'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
-    'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js'
-  ];
-  var topoUrls = [
-    'https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js',
-    'https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js'
-  ];
+  // Store initialization function for lazy loading
+  window.initPavementMap = function() {
+    if (window.pavementMapInitialized) return;
+    window.pavementMapInitialized = true;
+    startPavementMapInit();
+  };
 
-  // Inject the SVG pattern for striping once
-  function injectStripesPattern(trialToCome, other) {
-    if (document.getElementById('pattern-stripes-pavement')) return;
-    var svgNS = "http://www.w3.org/2000/svg";
-    var svg = document.createElementNS(svgNS, "svg");
-    svg.setAttribute("width", "0");
-    svg.setAttribute("height", "0");
-    svg.style.position = "absolute";
-    svg.innerHTML =
-      `<defs>
-        <pattern id="pattern-stripes-pavement" patternUnits="userSpaceOnUse" width="12" height="12" patternTransform="rotate(45)">
-          <rect x="0" y="0" width="6" height="12" fill="${trialToCome}"/>
-          <rect x="6" y="0" width="6" height="12" fill="${other}"/>
-        </pattern>
-      </defs>`;
-    document.body.appendChild(svg);
-  }
-
-  // Stripe detection helpers
-  function isStatusStriped(status) {
-    if (status == null) return true;
-    const s = String(status).trim().toLowerCase();
-    return s === '' || s === 'no decision' || s === 'not permitted';
-  }
-  function isGrantStriped(grantStatus) {
-    if (!grantStatus) return false;
-    const s = String(grantStatus).toLowerCase();
-    return s.includes('paid') || s.includes('awarded');
-  }
-
-  // PATCH: Override Leaflet setStyle for SVG patterns. Call this after layer add.
-  function enablePatternFills(layer) {
-    layer.eachLayer(function(l) {
-      if (l.setStyle && l._path) {
-        const origSetStyle = l.setStyle;
-        l.setStyle = function(style) {
-          origSetStyle.call(this, style);
-          if (style && style.fillPattern) {
-            this._path.setAttribute('fill', 'url(#'+style.fillPattern+')');
+  function startPavementMapInit() {
+    function loadScriptFallback(urls, readyCheck) {
+      return new Promise(function (resolve, reject) {
+        if (typeof readyCheck === 'function' && readyCheck()) return resolve();
+        var i = 0;
+        function tryNext() {
+          if (i >= urls.length) return reject(new Error('All script sources failed: ' + urls.join(', ')));
+          var src = urls[i++];
+          var existing = Array.from(document.getElementsByTagName('script')).find(s => s.src && s.src.indexOf(src) !== -1);
+          if (existing) {
+            if (existing.hasAttribute('data-loaded')) return resolve();
+            existing.addEventListener('load', function () { resolve(); });
+            existing.addEventListener('error', function () { tryNext(); });
+            return;
           }
-          return this;
-        };
-      }
-    });
-  }
-
-  Promise.all([
-    loadScriptFallback(leafletUrls, () => window.L !== undefined),
-    loadScriptFallback(topoUrls, () => window.topojson !== undefined)
-  ]).then(init).catch(function (err) {
-    console.error('Failed to load map dependencies for PAVEMENT map:', err);
-    var el = document.getElementById('map-pavement');
-    if (el) el.innerHTML = '<div style="padding:1rem">Map could not load because required resources were blocked. Try disabling tracking protection or use a different network.</div>';
-  });
-
-  function init() {
-    (async function () {
-      try {
-        const topoPavementPath = '/government/local-government/data/pavementchannelauthorities.topojson';
-        const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
-
-        const [topoPavResp, eviResp] = await Promise.all([ fetch(topoPavementPath), fetch(eviJsonPath) ]);
-        if (!topoPavResp.ok) throw new Error('Pavement TopoJSON load failed: ' + topoPavResp.status);
-        if (!eviResp.ok) throw new Error('EVI JSON load failed: ' + eviResp.status);
-
-        const [topoPav, eviBundle] = await Promise.all([ topoPavResp.json(), eviResp.json() ]);
-
-        function topoFirstObjectName(topo) {
-          const keys = Object.keys(topo.objects || {});
-          return keys.length ? keys[0] : null;
+          var s = document.createElement('script');
+          s.src = src;
+          s.async = true;
+          s.onload = function () { s.setAttribute('data-loaded', '1'); resolve(); };
+          s.onerror = function () { tryNext(); };
+          document.head.appendChild(s);
         }
-        const pavObjName = topoFirstObjectName(topoPav);
-        if (!pavObjName) throw new Error('Pavement topojson has no objects');
+        tryNext();
+      });
+    }
 
-        const geoPav = topojson.feature(topoPav, topoPav.objects[pavObjName]);
+    var leafletUrls = [
+      'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
+      'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js'
+    ];
+    var topoUrls = [
+      'https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js',
+      'https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js'
+    ];
 
-        const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
-        if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
-        const rows = resource.data;
+    // Inject the SVG pattern for striping once
+    function injectStripesPattern(trialToCome, other) {
+      if (document.getElementById('pattern-stripes-pavement')) return;
+      var svgNS = "http://www.w3.org/2000/svg";
+      var svg = document.createElementNS(svgNS, "svg");
+      svg.setAttribute("width", "0");
+      svg.setAttribute("height", "0");
+      svg.style.position = "absolute";
+      svg.innerHTML =
+        `<defs>
+          <pattern id="pattern-stripes-pavement" patternUnits="userSpaceOnUse" width="12" height="12" patternTransform="rotate(45)">
+            <rect x="0" y="0" width="6" height="12" fill="${trialToCome}"/>
+            <rect x="6" y="0" width="6" height="12" fill="${other}"/>
+          </pattern>
+        </defs>`;
+      document.body.appendChild(svg);
+    }
 
-        const rowByGss = new Map();
-        const rowByLocal = new Map();
-        rows.forEach(r => {
-          if (r['gss-code']) rowByGss.set(String(r['gss-code']).trim(), r);
-          if (r['local-authority-code']) rowByLocal.set(String(r['local-authority-code']).trim(), r);
-        });
+    // Stripe detection helpers
+    function isStatusStriped(status) {
+      if (status == null) return true;
+      const s = String(status).trim().toLowerCase();
+      return s === '' || s === 'no decision' || s === 'not permitted';
+    }
+    function isGrantStriped(grantStatus) {
+      if (!grantStatus) return false;
+      const s = String(grantStatus).toLowerCase();
+      return s.includes('paid') || s.includes('awarded');
+    }
 
-        function getRowForFeature(feature) {
-          const p = (feature && feature.properties) ? feature.properties : {};
-          const candidates = [];
-          ['LAD24CD','CTYUA24CD','gss','gss_code','gss-code','GSS_CODE','GSS'].forEach(k => { if (p[k]) candidates.push(String(p[k]).trim()); });
-          ['local-authority-code','local_authority_code','localAuthorityCode','LAD24CD'].forEach(k => { if (p[k]) candidates.push(String(p[k]).trim()); });
-          Object.keys(p).forEach(k => {
-            const lk = k.toLowerCase();
-            if ((lk.includes('gss') || lk.includes('lad') || lk.includes('local')) && p[k]) candidates.push(String(p[k]).trim());
+    // PATCH: Override Leaflet setStyle for SVG patterns. Call this after layer add.
+    function enablePatternFills(layer) {
+      layer.eachLayer(function(l) {
+        if (l.setStyle && l._path) {
+          const origSetStyle = l.setStyle;
+          l.setStyle = function(style) {
+            origSetStyle.call(this, style);
+            if (style && style.fillPattern) {
+              this._path.setAttribute('fill', 'url(#'+style.fillPattern+')');
+            }
+            return this;
+          };
+        }
+      });
+    }
+
+    Promise.all([
+      loadScriptFallback(leafletUrls, () => window.L !== undefined),
+      loadScriptFallback(topoUrls, () => window.topojson !== undefined)
+    ]).then(init).catch(function (err) {
+      console.error('Failed to load map dependencies for PAVEMENT map:', err);
+      var el = document.getElementById('map-pavement');
+      if (el) el.innerHTML = '<div style="padding:1rem">Map could not load because required resources were blocked. Try disabling tracking protection or use a different network.</div>';
+    });
+
+    function init() {
+      (async function () {
+        try {
+          const topoPavementPath = '/government/local-government/data/pavementchannelauthorities.topojson';
+          const eviJsonPath = '/government/local-government/data/uk_la_evi.json';
+
+          const [topoPavResp, eviResp] = await Promise.all([ fetch(topoPavementPath), fetch(eviJsonPath) ]);
+          if (!topoPavResp.ok) throw new Error('Pavement TopoJSON load failed: ' + topoPavResp.status);
+          if (!eviResp.ok) throw new Error('EVI JSON load failed: ' + eviResp.status);
+
+          const [topoPav, eviBundle] = await Promise.all([ topoPavResp.json(), eviResp.json() ]);
+
+          function topoFirstObjectName(topo) {
+            const keys = Object.keys(topo.objects || {});
+            return keys.length ? keys[0] : null;
+          }
+          const pavObjName = topoFirstObjectName(topoPav);
+          if (!pavObjName) throw new Error('Pavement topojson has no objects');
+
+          const geoPav = topojson.feature(topoPav, topoPav.objects[pavObjName]);
+
+          const resource = (eviBundle.resources && eviBundle.resources.find(r => r.name === 'uk_local_authorities_current')) || (eviBundle.resources && eviBundle.resources[0]);
+          if (!resource || !resource.data) throw new Error('Could not find resource.data in the EVI JSON');
+          const rows = resource.data;
+
+          const rowByGss = new Map();
+          const rowByLocal = new Map();
+          rows.forEach(r => {
+            if (r['gss-code']) rowByGss.set(String(r['gss-code']).trim(), r);
+            if (r['local-authority-code']) rowByLocal.set(String(r['local-authority-code']).trim(), r);
           });
-          for (const c of candidates) {
-            if (!c) continue;
-            if (rowByGss.has(c)) return rowByGss.get(c);
-            if (rowByLocal.has(c)) return rowByLocal.get(c);
+
+          function getRowForFeature(feature) {
+            const p = (feature && feature.properties) ? feature.properties : {};
+            const candidates = [];
+            ['LAD24CD','CTYUA24CD','gss','gss_code','gss-code','GSS_CODE','GSS'].forEach(k => { if (p[k]) candidates.push(String(p[k]).trim()); });
+            ['local-authority-code','local_authority_code','localAuthorityCode','LAD24CD'].forEach(k => { if (p[k]) candidates.push(String(p[k]).trim()); });
+            Object.keys(p).forEach(k => {
+              const lk = k.toLowerCase();
+              if ((lk.includes('gss') || lk.includes('lad') || lk.includes('local')) && p[k]) candidates.push(String(p[k]).trim());
+            });
+            for (const c of candidates) {
+              if (!c) continue;
+              if (rowByGss.has(c)) return rowByGss.get(c);
+              if (rowByLocal.has(c)) return rowByLocal.get(c);
+            }
+            return null;
           }
-          return null;
-        }
 
-        // Colour map
-        const channelColours = {
-          permitted: '#004d00',
-          trial_live: '#7bd07b',
-          trial_complete: '#6a3d9a',
-          trial_to_come: '#ffbf00',
-          other: '#d62828'
-        };
-        const STRIPED_CATEGORY = 'striped_grant';
-        // Inject stripes SVG
-        injectStripesPattern(channelColours.trial_to_come, channelColours.other);
+          // Colour map
+          const channelColours = {
+            permitted: '#004d00',
+            trial_live: '#7bd07b',
+            trial_complete: '#6a3d9a',
+            trial_to_come: '#ffbf00',
+            other: '#d62828'
+          };
+          const STRIPED_CATEGORY = 'striped_grant';
+          // Inject stripes SVG
+          injectStripesPattern(channelColours.trial_to_come, channelColours.other);
 
-        function colourForFeature(row) {
-          // Striped condition
-          const status = row && row['channel-status'];
-          const grantStatus = row && row['channel-grant-status'];
-          if(isStatusStriped(status) && isGrantStriped(grantStatus)) return STRIPED_CATEGORY;
-          if(status==null || String(status).trim() === '') return channelColours.other;
-          const s = String(status).trim().toLowerCase();
-          if(s === 'permitted') return channelColours.permitted;
-          if(s === 'trial live') return channelColours.trial_live;
-          if(s === 'trial complete') return channelColours.trial_complete;
-          if(s === 'trial to come') return channelColours.trial_to_come;
-          return channelColours.other;
-        }
+          function colourForFeature(row) {
+            // Striped condition
+            const status = row && row['channel-status'];
+            const grantStatus = row && row['channel-grant-status'];
+            if(isStatusStriped(status) && isGrantStriped(grantStatus)) return STRIPED_CATEGORY;
+            if(status==null || String(status).trim() === '') return channelColours.other;
+            const s = String(status).trim().toLowerCase();
+            if(s === 'permitted') return channelColours.permitted;
+            if(s === 'trial live') return channelColours.trial_live;
+            if(s === 'trial complete') return channelColours.trial_complete;
+            if(s === 'trial to come') return channelColours.trial_to_come;
+            return channelColours.other;
+          }
 
-        if (window.pavementMap) return;
+          if (window.pavementMap) return;
 
-        const mapPav = L.map('map-pavement').setView([54.5, -3], 5);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: 'Department for Transport; Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
-        }).addTo(mapPav);
-        window.pavementMap = mapPav;
+          const mapPav = L.map('map-pavement').setView([54.5, -3], 5);
+          window.pavementMapInitialView = { lat: 54.5, lng: -3, zoom: 5 };
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Department for Transport; Office for National Statistics (Contains OS data © Crown copyright and database right 2024); &copy; OpenStreetMap contributors'
+          }).addTo(mapPav);
+          window.pavementMap = mapPav;
 
-        // --- Add the map layer with pattern support ---
-        const pavLayer = L.geoJSON(geoPav, {
-          style(feature) {
-            const row = getRowForFeature(feature);
+          // --- Add the map layer with pattern support ---
+          const pavLayer = L.geoJSON(geoPav, {
+            style(feature) {
+              const row = getRowForFeature(feature);
 
-            // Use colourForFeature to determine if special striped is required
-            const col = colourForFeature(row);
-            if(col === STRIPED_CATEGORY) {
+              // Use colourForFeature to determine if special striped is required
+              const col = colourForFeature(row);
+              if(col === STRIPED_CATEGORY) {
+                return {
+                  weight: 1,
+                  color: '#444',
+                  opacity: 1,
+                  fillOpacity: 0.85,
+                  fillColor: 'url(#pattern-stripes-pavement)',
+                  fillPattern: 'pattern-stripes-pavement'
+                };
+              }
               return {
                 weight: 1,
                 color: '#444',
                 opacity: 1,
                 fillOpacity: 0.85,
-                fillColor: 'url(#pattern-stripes-pavement)',
-                fillPattern: 'pattern-stripes-pavement'
+                fillColor: col
               };
-            }
-            return {
-              weight: 1,
-              color: '#444',
-              opacity: 1,
-              fillOpacity: 0.85,
-              fillColor: col
-            };
-          },
-          onEachFeature(feature, layer) {
-            const row = getRowForFeature(feature);
-            const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
-            const status = row ? (row['channel-status'] ? String(row['channel-status']).trim() : 'No data') : 'No data';
-            const grant = row ? row['channel-grant-amount'] : null;
-            const grantStatus = row ? row['channel-grant-status'] : null;
-            const slug = row ? row['gov-uk-slug'] : null;
-
-            function formatGrant(g) {
-              if (g === null || g === undefined || g === '') return '';
-              const n = Number(g);
-              return Number.isFinite(n) ? `£${n.toLocaleString()}` : String(g);
-            }
-
-            function buildHtml() {
-              const grantLabel = (!grant) ? '' : `<br/>Grant amount: ${formatGrant(grant)}`;
-              const grantStatusLabel = (!grantStatus) ? '' : `<br/>Grant status: ${grantStatus}`;
-              let link = '';
-              if (slug) {
-                if (typeof window.currentPageSlug !== 'undefined' && window.currentPageSlug === slug) {
-                  link = `<br/><strong>See our dedicated ${name} page</strong>`;
-                } else {
-                  link = `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>`;
-                }
-              }
-              return `<strong>${name}</strong><br/>Status: ${status}${grantLabel}${grantStatusLabel}${link}`;
-            }
-            layer.on({
-              mouseover(e) {
-                const t = e.target;
-                t.setStyle({ weight: 2, color: '#000' });
-                t.bringToFront();
-                const html = buildHtml();
-                t.bindTooltip(html, { sticky: true, direction: 'auto', maxWidth: 300 }).openTooltip();
-              },
-              mouseout(e) {
-                pavLayer.resetStyle(e.target);
-                e.target.closeTooltip();
-              },
-              click(e) {
-                const popupHtml = buildHtml();
-                layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
-                try { mapPav.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
-              }
-            });
-          }
-        }).addTo(mapPav);
-
-        // Patch Leaflet so pattern is always applied on redraws/resizing
-        pavLayer.on('layeradd', () => enablePatternFills(pavLayer));
-        enablePatternFills(pavLayer); // Initial call
-
-        // ---- Build legend with swatch for "striped" class ----
-        (function createBlockLegend() {
-          const legendContainer = document.getElementById('map-pavement-legend');
-          if (!legendContainer) return;
-
-          // Count all the categories including the new one
-          const counts = { permitted: 0, trial_live: 0, trial_complete: 0, trial_to_come: 0, striped_grant: 0, other: 0 };
-          function category(row) {
-            const c = colourForFeature(row);
-            if(c === channelColours.permitted) return 'permitted';
-            if(c === channelColours.trial_live) return 'trial_live';
-            if(c === channelColours.trial_complete) return 'trial_complete';
-            if(c === channelColours.trial_to_come) return 'trial_to_come';
-            if(c === STRIPED_CATEGORY) return 'striped_grant';
-            return 'other';
-          }
-
-          if (geoPav && Array.isArray(geoPav.features)) {
-            geoPav.features.forEach(function (feature) {
-              const row = getRowForFeature(feature);
-              const cat = category(row);
-              counts[cat] = (counts[cat] || 0) + 1;
-            });
-          }
-
-          // Stripe swatch (encode SVG for css background)
-          const encode = s => s.replace(/"/g,'%22').replace(/</g,'%3C').replace(/>/g,'%3E').replace(/#/g,'%23');
-          const stripedSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><rect x="0" y="0" width="6" height="12" fill="${channelColours.trial_to_come}"/><rect x="6" y="0" width="6" height="12" fill="${channelColours.other}"/></svg>`;
-          const stripedDataUrl = "url('data:image/svg+xml;utf8," + encode(stripedSVG) + "')";
-
-          const rows = [
-            { label: `Permitted (${counts.permitted})`, color: channelColours.permitted },
-            { label: `Trial live (${counts.trial_live})`, color: channelColours.trial_live },
-            { label: `Trial complete (${counts.trial_complete})`, color: channelColours.trial_complete },
-            { label: `Trial to come (${counts.trial_to_come})`, color: channelColours.trial_to_come },
-            { label: `No decision or expressly not permitted<br>but in receipt Pavement Channel Grant (directly or through combined authority) (${counts.striped_grant})`,
-              isStriped: true
             },
-            { label: `Not permitted (including by default if no data) (${counts.other})`, color: channelColours.other }
-          ];
-          let html = '<strong>Legend: Pavement channels</strong><br/>';
-          rows.forEach(r => {
-            if (r.isStriped) {
-              html += `<div class="row"><span class="swatch" style="background:${stripedDataUrl}"></span> ${r.label}</div>`;
-            } else {
-              html += `<div class="row"><span class="swatch" style="background:${r.color}"></span> ${r.label}</div>`;
+            onEachFeature(feature, layer) {
+              const row = getRowForFeature(feature);
+              const name = (feature.properties && (feature.properties.LAD24NM || feature.properties.name || feature.properties.CTYUA24NM)) || (row && (row['official-name'] || row['nice-name'])) || 'Unknown';
+              const status = row ? (row['channel-status'] ? String(row['channel-status']).trim() : 'No data') : 'No data';
+              const grant = row ? row['channel-grant-amount'] : null;
+              const grantStatus = row ? row['channel-grant-status'] : null;
+              const slug = row ? row['gov-uk-slug'] : null;
+
+              function formatGrant(g) {
+                if (g === null || g === undefined || g === '') return '';
+                const n = Number(g);
+                return Number.isFinite(n) ? `£${n.toLocaleString()}` : String(g);
+              }
+
+              function buildHtml() {
+                const grantLabel = (!grant) ? '' : `<br/>Grant amount: ${formatGrant(grant)}`;
+                const grantStatusLabel = (!grantStatus) ? '' : `<br/>Grant status: ${grantStatus}`;
+                let link = '';
+                if (slug) {
+                  if (typeof window.currentPageSlug !== 'undefined' && window.currentPageSlug === slug) {
+                    link = `<br/><strong>See our dedicated ${name} page</strong>`;
+                  } else {
+                    link = `<br/><a href="/government/local-government/${slug}">See our dedicated ${name} page</a>`;
+                  }
+                }
+                return `<strong>${name}</strong><br/>Status: ${status}${grantLabel}${grantStatusLabel}${link}`;
+              }
+              layer.on({
+                mouseover(e) {
+                  const t = e.target;
+                  t.setStyle({ weight: 2, color: '#000' });
+                  t.bringToFront();
+                  const html = buildHtml();
+                  t.bindTooltip(html, { sticky: true, direction: 'auto', maxWidth: 300 }).openTooltip();
+                },
+                mouseout(e) {
+                  pavLayer.resetStyle(e.target);
+                  e.target.closeTooltip();
+                },
+                click(e) {
+                  const popupHtml = buildHtml();
+                  layer.bindPopup(popupHtml, { maxWidth: 400 }).openPopup();
+                  try { mapPav.fitBounds(e.target.getBounds(), { maxZoom: 12 }); } catch (err) { /* ignore */ }
+                }
+              });
             }
-          });
-          html += `<div><p>On 16 April 2026, Stellantis <a href="https://www.media.stellantis.com/uk-en/vauxhall/press/vauxhall-welcomes-kerbo-charge-into-electric-streets-of-britain-campaign-as-over-40-of-councils-will-provide-cross-pavement-charging-by-the-end-of-2026">published</a> stats from freedom of information requests about GB council positions on pavement channels. Of 134 highway authorities which responded, 7 permitted cross-pavement channels, 21 were in trial stage, and 28 planned to roll out pavement channels in 2026.</p></div>`;          legendContainer.innerHTML = html;
-        })();
+          }).addTo(mapPav);
 
-        setTimeout(() => { try { mapPav.invalidateSize(); } catch (e) {/*ignore*/} }, 300);
+          // Patch Leaflet so pattern is always applied on redraws/resizing
+          pavLayer.on('layeradd', () => enablePatternFills(pavLayer));
+          enablePatternFills(pavLayer); // Initial call
 
-      } catch (err) {
-        console.error('PAVEMENT map initialisation failed:', err);
-      }
-    })();
+          // ---- Build legend with swatch for "striped" class ----
+          (function createBlockLegend() {
+            const legendContainer = document.getElementById('map-pavement-legend');
+            if (!legendContainer) return;
+
+            // Count all the categories including the new one
+            const counts = { permitted: 0, trial_live: 0, trial_complete: 0, trial_to_come: 0, striped_grant: 0, other: 0 };
+            function category(row) {
+              const c = colourForFeature(row);
+              if(c === channelColours.permitted) return 'permitted';
+              if(c === channelColours.trial_live) return 'trial_live';
+              if(c === channelColours.trial_complete) return 'trial_complete';
+              if(c === channelColours.trial_to_come) return 'trial_to_come';
+              if(c === STRIPED_CATEGORY) return 'striped_grant';
+              return 'other';
+            }
+
+            if (geoPav && Array.isArray(geoPav.features)) {
+              geoPav.features.forEach(function (feature) {
+                const row = getRowForFeature(feature);
+                const cat = category(row);
+                counts[cat] = (counts[cat] || 0) + 1;
+              });
+            }
+
+            // Stripe swatch (encode SVG for css background)
+            const encode = s => s.replace(/"/g,'%22').replace(/</g,'%3C').replace(/>/g,'%3E').replace(/#/g,'%23');
+            const stripedSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><rect x="0" y="0" width="6" height="12" fill="${channelColours.trial_to_come}"/><rect x="6" y="0" width="6" height="12" fill="${channelColours.other}"/></svg>`;
+            const stripedDataUrl = "url('data:image/svg+xml;utf8," + encode(stripedSVG) + "')";
+
+            const rows = [
+              { label: `Permitted (${counts.permitted})`, color: channelColours.permitted },
+              { label: `Trial live (${counts.trial_live})`, color: channelColours.trial_live },
+              { label: `Trial complete (${counts.trial_complete})`, color: channelColours.trial_complete },
+              { label: `Trial to come (${counts.trial_to_come})`, color: channelColours.trial_to_come },
+              { label: `No decision or expressly not permitted<br>but in receipt Pavement Channel Grant (directly or through combined authority) (${counts.striped_grant})`,
+                isStriped: true
+              },
+              { label: `Not permitted (including by default if no data) (${counts.other})`, color: channelColours.other }
+            ];
+            let html = '<strong>Legend: Pavement channels</strong><br/>';
+            rows.forEach(r => {
+              if (r.isStriped) {
+                html += `<div class="row"><span class="swatch" style="background:${stripedDataUrl}"></span> ${r.label}</div>`;
+              } else {
+                html += `<div class="row"><span class="swatch" style="background:${r.color}"></span> ${r.label}</div>`;
+              }
+            });
+            html += `<div><p>On 16 April 2026, Stellantis <a href="https://www.media.stellantis.com/uk-en/vauxhall/press/vauxhall-welcomes-kerbo-charge-into-electric-streets-of-britain-campaign-as-over-40-authorities-join-to-accelerate-ev-charging-rollout/">announced</a> they would match 25% of Pavement Channel Grant funding.</p></div>`;
+            legendContainer.innerHTML = html;
+          })();
+
+          setTimeout(() => { try { mapPav.invalidateSize(); } catch (e) {/*ignore*/} }, 300);
+
+        } catch (err) {
+          console.error('PAVEMENT map initialisation failed:', err);
+        }
+      })();
+    }
+  }
+
+  // Determine if map is in a tab. If yes, lazy load. If no, load immediately.
+  if (isMapInHiddenTab()) {
+    // Map is in a hidden tab, wait for tab click
+    // The tabs.js script will call window.initPavementMap() when the tab becomes active
+  } else {
+    // Map is not in a tab or is in an active tab, load immediately
+    window.initPavementMap();
   }
 })();
 </script>
