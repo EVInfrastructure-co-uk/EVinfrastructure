@@ -9,7 +9,12 @@
  * - Deep-linking: on load activates tab matching location.hash
  * - Focus management: moves focus into panel (panel receives tabindex="-1" momentarily)
  *
- * Small map refresh workaround:
+ * Map lazy-loading:
+ * - Detects and calls lazy-loading functions for maps in hidden tabs
+ * - initLeviMap(), initNearhomeMap(), initPavementMap() are called on tab activation
+ * - Maps outside tabs load immediately
+ *
+ * Map refresh workaround:
  * - When a panel becomes visible we attempt to call Leaflet's invalidateSize()
  *   on any known map instances whose containers are inside the panel.
  * - If a map shows an extremely small zoom (e.g. world/globe), we restore the
@@ -26,9 +31,46 @@
 
   // Known global map variable names used by the includes.
   var KNOWN_MAP_GLOBALS = ['nearhomeMap', 'pavementMap', 'leviMap'];
+  
+  // Corresponding lazy-load init functions
+  var MAP_INIT_FUNCTIONS = {
+    'nearhomeMap': 'initNearhomeMap',
+    'pavementMap': 'initPavementMap',
+    'leviMap': 'initLeviMap'
+  };
 
   function isDisabled(tab) {
     return tab.getAttribute('aria-disabled') === 'true' || tab.disabled;
+  }
+
+  // Trigger lazy-loading of maps in the given panel (if not already loaded)
+  function initMapsInPanel(panel) {
+    if (!panel) return;
+    try {
+      KNOWN_MAP_GLOBALS.forEach(function (mapName) {
+        try {
+          var map = window[mapName];
+          // If map is already initialized, skip
+          if (map) return;
+          
+          // Check if init function exists and call it
+          var initFuncName = MAP_INIT_FUNCTIONS[mapName];
+          if (initFuncName && typeof window[initFuncName] === 'function') {
+            var container = document.getElementById(mapName === 'nearhomeMap' ? 'map-nearhome' : 
+                                                   mapName === 'pavementMap' ? 'map-pavement' : 
+                                                   'map-levi');
+            // Only init if container is in this panel
+            if (container && panel.contains(container)) {
+              window[initFuncName]();
+            }
+          }
+        } catch (e) {
+          console.error('Failed to init map', mapName, e);
+        }
+      });
+    } catch (e) {
+      console.error('initMapsInPanel failed', e);
+    }
   }
 
   // Refresh known maps if their container element is inside the given panel.
@@ -81,25 +123,31 @@
     }
     try {
       var initialSlug = window.initialAuthoritySlug;
-      if (initialSlug && map && mapName) {
-        // We expect the map include to expose the geojson layer group on window, e.g. nearhomeLayer/pavementLayer/leviLayer.
-        var layerGroup = window[mapName.replace('Map', 'Layer')]; // e.g. nearhomeMap -> nearhomeLayer
-        if (layerGroup && typeof layerGroup.eachLayer === 'function') {
-          layerGroup.eachLayer(function (lyr) {
-            try {
-              if (lyr.options && lyr.options.govukslug && lyr.options.govukslug === initialSlug) {
-                // Open popup which we bound in the map include
-                if (typeof lyr.openPopup === 'function') {
-                  lyr.openPopup();
-                } else if (lyr.getPopup && lyr.getPopup()) {
-                  map.openPopup(lyr.getPopup());
-                }
-                // Try to fit bounds (if layer has bounds)
-                try { if (lyr.getBounds) map.fitBounds(lyr.getBounds(), { maxZoom: 12 }); } catch (e) {}
-              }
-            } catch (e) { /* ignore layer-level errors */ }
-          });
-        }
+      if (initialSlug) {
+        KNOWN_MAP_GLOBALS.forEach(function(mapName) {
+          try {
+            var map = window[mapName];
+            if (!map) return;
+            // We expect the map include to expose the geojson layer group on window, e.g. nearhomeLayer/pavementLayer/leviLayer.
+            var layerGroup = window[mapName.replace('Map', 'Layer')]; // e.g. nearhomeMap -> nearhomeLayer
+            if (layerGroup && typeof layerGroup.eachLayer === 'function') {
+              layerGroup.eachLayer(function (lyr) {
+                try {
+                  if (lyr.options && lyr.options.govukslug && lyr.options.govukslug === initialSlug) {
+                    // Open popup which we bound in the map include
+                    if (typeof lyr.openPopup === 'function') {
+                      lyr.openPopup();
+                    } else if (lyr.getPopup && lyr.getPopup()) {
+                      map.openPopup(lyr.getPopup());
+                    }
+                    // Try to fit bounds (if layer has bounds)
+                    try { if (lyr.getBounds) map.fitBounds(lyr.getBounds(), { maxZoom: 12 }); } catch (e) {}
+                  }
+                } catch (e) { /* ignore layer-level errors */ }
+              });
+            }
+          } catch (e) { /* ignore */ }
+        });
       }
     } catch (e) { /* ignore overall */ }
   }
@@ -140,6 +188,9 @@
       if (!hadTabindex) {
         panel.removeAttribute('tabindex');
       }
+
+      // Trigger lazy-loading of maps if not already loaded
+      initMapsInPanel(panel);
 
       // Minimal map fix: refresh known maps inside this panel (safe no-op on pages without maps)
       refreshMapsInPanel(panel);
@@ -307,6 +358,7 @@
           var panel = document.getElementById(id);
           if (panel) {
             panel.scrollIntoView({ block: 'start', behavior: 'smooth' });
+            initMapsInPanel(panel);
             refreshMapsInPanel(panel);
           }
         }
