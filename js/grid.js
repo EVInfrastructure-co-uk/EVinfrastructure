@@ -12,6 +12,18 @@ async function getGenerationMix() {
     return data.data;
 }
 
+// Format time to UK timezone (BST/GMT)
+function formatTimeUK(isoString) {
+    const date = new Date(isoString);
+    const timeFormatter = new Intl.DateTimeFormat('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+        timeZone: 'Europe/London'
+    });
+    return timeFormatter.format(date);
+}
+
 // Wrap everything in an async function to use await
 async function initializeChart() {
     const CarbonIntensity = await getCarbonIntensity();
@@ -32,6 +44,11 @@ async function initializeChart() {
 
     const ctx = document.getElementById('gridintensity');
 
+    // Format time range for title
+    const fromTime = formatTimeUK(GenerationMix.from);
+    const toTime = formatTimeUK(GenerationMix.to);
+    const chartTitle = `GB grid live generation mix (${fromTime}-${toTime})`;
+
     new Chart(ctx, {
         type: "pie",
         data: {
@@ -45,8 +62,12 @@ async function initializeChart() {
             plugins: {
                 title: {
                     display: true,
-                    text: "GB grid live generation mix",
-                    font: {size:24}
+                    text: chartTitle,
+                    font: {
+                        size: 24,
+                        family: "'Roboto', Arial, Helvetica, sans-serif"
+                    },
+                    color: "#0b0c0c"
                 }
             },
             responsive: true,
