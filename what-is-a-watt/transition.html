@@ -5,4 +5,76 @@ title: "State of the Transition"
 
 {% include transition.html %}
 
-<p>Sources: Total households - <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/families/bulletins/familiesandhouseholds/2023#households">ONS Families and households in the UK: 2023</a>; Households without cars - <a href="https://www.ons.gov.uk/datasets/TS045/editions/2021/versions/1">ONS Car or van availability</a>, <a href="https://statistics.ukdataservice.ac.uk/dataset/scotland-s-census-2022-uv405-car-or-van-availability">Scotland's Census 2022 - UV405 - Car or van availability</a> and <a href="https://statistics.ukdataservice.ac.uk/dataset/northern-ireland-census-2021-ms-e10-car-or-van-availability">Northern Ireland Census 2021 - MS-E10: Car or van availability</a>; Households without off-street parking - <a href="https://www.field-dynamics.co.uk/wp-content/uploads/2017/04/OnStreetChargingReport-WebsiteDownload.pdf">Field Dynamics On-Street Households Report 2024</a>; Proportion of EV households with home charger, and number EV drivers with driveway taken from number of households with home charger - <a href="https://www.zapmap.com/ev-stats/home-and-community-charging">Zapmap Home and Community EV Charging Stats</a>; Proportion of car households without off-street parking taken from proportion of cars whose home-based parking is on-street - <a href="https://www.racfoundation.org/wp-content/uploads/standing-still-Nagler-June-2021.pdf">RAC Foundation Standing Still (2021)</a>.</p>
+<h2>Sources</h2>
+
+  <div style="max-width: 100%; overflow-x: auto;">
+    <table class="table">
+    <caption>(Scroll for full table on mobile)</caption>
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Value</th>
+            <th>Source</th>
+            <th>Year</th>
+            <th style="width: 30%">Notes and caveats</th>
+        </tr>
+   </thead>
+  <tbody>
+    <tr>
+      <td>Total UK households</td>
+      <td>29,003,000</td>
+      <td><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/families/datasets/familiesandhouseholdsfamiliesandhouseholds">ONS Families and households in the UK</a></td>
+      <td>2025</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Number of households without cars (England and Wales)</td>
+      <td>5,777,962</td>
+      <td><a href="https://www.ons.gov.uk/datasets/TS045/editions/2021/versions/4">ONS Car or van availability</a></td>
+      <td>2021</td>
+      <td>2021 levels used as this is the latest census data. Between 2011 and 2021 censuses, this figure decreased by around 3.5%.</td>
+    </tr>
+    <tr>
+      <td>Number of households without cars (Scotland)</td>
+      <td>661,614</td>
+      <td><a href="https://statistics.ukdataservice.ac.uk/dataset/scotland-s-census-2022-uv405-car-or-van-availability">Scotland's Census - UV405 - Car or van availability</a></td>
+      <td>2022</td>
+      <td>2022 levels used as this is the latest census data.</td>
+    </tr>
+    <tr>
+      <td>Number of households without cars (Northern Ireland)</td>
+      <td>252,972</td>
+      <td><a href="https://statistics.ukdataservice.ac.uk/dataset/northern-ireland-census-2021-ms-e10-car-or-van-availability">Northern Ireland Census - MS-E10: Car or van availability</a></td>
+      <td>2021</td>
+      <td>2021 levels used as this is the latest census data.</td>
+    </tr>
+    <tr>
+      <td>Proportion of households without on-street parking</td>
+      <td><a href="https://www.field-dynamics.co.uk/wp-content/uploads/2017/04/OnStreetChargingReport-WebsiteDownload.pdf">Field Dynamics On-Street Households Report 2024</a></td>
+      <td>32.7%</td>
+      <td>2024</td>
+      <td>2024 levels used as latest data. Proportion used rather than absolute value as new households in 2025 may or may not have parking, e.g. flats and new developments with driveways</td>
+    </tr>
+    <tr>
+      <td>Number of EV drivers with driveways</td>
+      <td><a href="https://www.zapmap.com/ev-stats/home-and-community-charging">Zapmap Home and Community EV Charging Stats</a></td>
+      <td>1,355,447</td>
+      <td>2025</td>
+      <td><p>Zapmap's variable is number of home chargers. We use this as a proxy for EV drivers with driveways. However, this will likely underestimate EV drivers with driveways because some of these do not have home chargers.</p><p>Zapmap's estimates are based on the uptake of government grants for home chargers which are no longer applicable, and their own survey data.</p></td>
+    </tr>
+    <tr>
+      <td>Proportion of EV households with driveways</td>
+      <td><a href="https://www.zapmap.com/ev-stats/home-and-community-charging">Zapmap Home and Community EV Charging Stats</a></td>
+      <td>77%</td>
+      <td>2025</td>
+      <td><p>Zapmap's variable is proportion of EV households with home chargers. We use this as a proxy for proportion of EV drivers with driveways. However, this will likely underestimate EV drivers with driveways because some of these do not have home chargers.</p></td>
+    </tr>
+    <tr>
+      <td>Proportion of car households without off-street parking</td>
+      <td><a href="https://www.racfoundation.org/wp-content/uploads/standing-still-Nagler-June-2021.pdf">RAC Foundation Standing Still</a></td>
+      <td>75%</td>
+      <td>2021</td>
+      <td>The RAC's estimate is the proportion of cars whose home-based parking is on-street. We use this as a proxy for proportion of car households with on-street parking. However, the proportion of car households with on-street parking is likely higher than the proportion of cars parked on street because second or third cars might not fit on driveways.</td>
+    </tr>
+  </tbody>
+  </table>
